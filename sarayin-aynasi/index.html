@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sarayın Aynası — deeplove</title>
+<meta name="description" content="Sarayın Aynası — bir remzli hikâye. deeplove." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ground:        #15110C;   /* perdenin ardı — derin ceviz karası */
+    --ground-deep:   #0C0907;   /* kenarların gölgesi */
+    --ground-rise:   #1d1610;   /* kandilin ısıttığı zemin */
+    --ink:           #e9dcc1;   /* kandil ışığında parşömen */
+    --ink-soft:      #b6a886;   /* ikincil — toz, fısıltı */
+    --ink-faint:     #6f6450;   /* en sönük */
+    --gold:          #c9a24b;   /* mermerdeki altın aks */
+    --gold-bright:   #efce86;   /* alevin kalbi */
+    --rule:          rgba(201,162,75,.28);
+    --measure:       33rem;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html{ -webkit-text-size-adjust:100%; }
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(120% 80% at 50% 6%, var(--ground-rise) 0%, var(--ground) 42%, var(--ground-deep) 100%),
+      var(--ground);
+    color:var(--ink);
+    font-family:"EB Garamond", Georgia, serif;
+    font-size:1.12rem;
+    line-height:1.95;
+    text-rendering:optimizeLegibility;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  /* çok hafif kandil titremesi — ortam */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    background:radial-gradient(60% 38% at 50% 4%, rgba(239,206,134,.10), transparent 70%);
+    animation:flame 9s ease-in-out infinite;
+    z-index:0;
+  }
+  @keyframes flame{
+    0%,100%{ opacity:.85; }
+    45%{ opacity:1; }
+    70%{ opacity:.78; }
+  }
+
+  .page{
+    position:relative;
+    z-index:1;
+    max-width:var(--measure);
+    margin:0 auto;
+    padding:clamp(2.4rem,6vw,4.5rem) 1.6rem 5rem;
+  }
+
+  /* ---------- arabî glifler ---------- */
+  .ar{
+    font-family:"Amiri", serif;
+    line-height:1;
+    font-weight:400;
+  }
+
+  /* ---------- hero / kapak ---------- */
+  .cover{
+    text-align:center;
+    padding:clamp(3rem,12vh,7rem) 0 clamp(2.5rem,8vh,5rem);
+    opacity:0;
+    animation:rise 1.6s cubic-bezier(.2,.7,.2,1) .15s forwards;
+  }
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(18px); }
+    to  { opacity:1; transform:translateY(0); }
+  }
+
+  .cover .seal{
+    font-size:1.7rem;
+    color:var(--gold);
+    text-shadow:0 0 18px rgba(201,162,75,.5);
+    margin-bottom:1.6rem;
+  }
+
+  .title{
+    font-family:"Cormorant Garamond", serif;
+    font-weight:500;
+    font-size:clamp(2.9rem,9vw,4.9rem);
+    line-height:1.04;
+    letter-spacing:.012em;
+    color:var(--ink);
+    margin:0;
+  }
+
+  /* ayna çizgisi + aks — sayfanın imzası */
+  .mirror{
+    position:relative;
+    height:0;
+    margin:1.15rem 0 0;
+  }
+  .mirror::before{           /* aynanın yüzeyi */
+    content:"";
+    position:absolute; left:50%; top:0;
+    width:min(78%, 22rem); height:1px;
+    transform:translateX(-50%);
+    background:linear-gradient(90deg, transparent, var(--gold) 18%, var(--gold-bright) 50%, var(--gold) 82%, transparent);
+    box-shadow:0 0 22px rgba(239,206,134,.45);
+  }
+  .reflection{
+    font-family:"Cormorant Garamond", serif;
+    font-weight:500;
+    font-size:clamp(2.9rem,9vw,4.9rem);
+    line-height:1.04;
+    letter-spacing:.012em;
+    color:var(--gold-bright);
+    text-align:center;
+    transform:scaleY(-1);
+    opacity:.16;
+    filter:blur(.6px);
+    margin:.15rem 0 0;
+    -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), transparent 72%);
+            mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), transparent 72%);
+    user-select:none;
+    pointer-events:none;
+  }
+
+  .kind{
+    font-style:italic;
+    color:var(--ink-soft);
+    letter-spacing:.06em;
+    font-size:1.05rem;
+    margin:.4rem 0 2.4rem;
+  }
+
+  .dedication{
+    font-family:"Cormorant Garamond", serif;
+    font-style:italic;
+    font-size:1.45rem;
+    line-height:1.7;
+    color:var(--ink);
+  }
+  .dedication span{ display:block; }
+
+  .hu{
+    font-family:"Amiri", serif;
+    font-size:2.3rem;
+    color:var(--gold);
+    margin-top:1.8rem;
+    text-shadow:0 0 16px rgba(201,162,75,.4);
+  }
+
+  /* ---------- gövde ---------- */
+  .tale{
+    opacity:0;
+    animation:rise 1.6s cubic-bezier(.2,.7,.2,1) .55s forwards;
+  }
+
+  .tale p{
+    margin:0 0 1.5rem;
+  }
+
+  /* açılış — müzhip harf */
+  .tale > p.lede::first-letter{
+    font-family:"Cormorant Garamond", serif;
+    float:left;
+    font-size:4.2rem;
+    line-height:.82;
+    font-weight:500;
+    padding:.32rem .55rem 0 0;
+    color:var(--gold);
+    text-shadow:0 0 22px rgba(201,162,75,.35);
+  }
+
+  /* padişahın sözü / mektup — diyaloglar */
+  .saying{
+    color:var(--ink);
+  }
+
+  /* ---------- bölüm süsü ۞ ---------- */
+  .seal-break{
+    text-align:center;
+    margin:2.9rem 0 2.9rem;
+    color:var(--gold);
+    font-size:1.5rem;
+    line-height:1;
+    text-shadow:0 0 20px rgba(201,162,75,.5);
+    opacity:.9;
+  }
+
+  /* ---------- kitabe: yazı, mektup, beyit ---------- */
+  .inscription{
+    font-family:"Cormorant Garamond", serif;
+    font-style:italic;
+    text-align:center;
+    color:var(--gold-bright);
+    font-size:1.5rem;
+    line-height:1.7;
+    letter-spacing:.01em;
+    margin:2.3rem auto;
+    max-width:26rem;
+    padding:1.4rem 1rem;
+    position:relative;
+  }
+  .inscription::before,
+  .inscription::after{
+    content:"";
+    position:absolute; left:50%;
+    width:3.5rem; height:1px;
+    transform:translateX(-50%);
+    background:linear-gradient(90deg, transparent, var(--rule), transparent);
+  }
+  .inscription::before{ top:0; }
+  .inscription::after{ bottom:0; }
+  .inscription span{ display:block; }
+
+  .letter{
+    font-size:1.35rem;
+    max-width:24rem;
+  }
+
+  /* ---------- kapanış beyti ---------- */
+  .coda{
+    text-align:center;
+    margin-top:3.4rem;
+  }
+  .couplet{
+    font-family:"Cormorant Garamond", serif;
+    font-style:italic;
+    font-size:clamp(1.5rem,4.5vw,1.9rem);
+    line-height:1.6;
+    color:var(--gold-bright);
+    text-shadow:0 0 26px rgba(201,162,75,.22);
+    margin:0;
+  }
+  .couplet span{ display:block; }
+
+  .signoff{
+    margin-top:3rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.9rem;
+  }
+  .signoff .hu{ margin-top:0; }
+  .wordmark{
+    font-family:"EB Garamond", serif;
+    letter-spacing:.62em;
+    text-transform:lowercase;
+    font-size:.82rem;
+    color:var(--ink-soft);
+    padding-left:.62em;
+  }
+
+  em{ font-style:italic; color:var(--ink); }
+
+  /* erişim & azaltılmış hareket */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; }
+    .cover, .tale{ opacity:1 !important; }
+  }
+
+  @media (max-width:480px){
+    body{ font-size:1.06rem; line-height:1.9; }
+    .inscription{ font-size:1.32rem; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <!-- ════════ KAPAK ════════ -->
+  <header class="cover">
+    <div class="seal ar">۞</div>
+    <h1 class="title">Sarayın Aynası</h1>
+    <div class="mirror" aria-hidden="true">
+      <div class="reflection">Sarayın Aynası</div>
+    </div>
+    <p class="kind">— bir remzli hikâye —</p>
+    <p class="dedication">
+      <span>avuçlarımıza düşendir</span>
+      <span>tutanın bilinmesi için yazılandır</span>
+    </p>
+    <div class="hu ar">هو</div>
+  </header>
+
+  <!-- ════════ GÖVDE ════════ -->
+  <article class="tale">
+
+    <p class="lede">Bir vakitler bir padişah varmış — vakitler dedimse, vakit O'nu kuşatmaz, O vakti kuşatır; biz hikâye anlatırken zaman dilini ödünç alırız sadece.</p>
+
+    <p>Bu padişahın bir sarayı varmış ki, dış surlarından iç avlusuna, mermer döşemesinden billûr kandillerine kadar her zerresi sahibinin aksiyle parlarmış. Sarayın bin bir odası varmış, ama bir odası vardı ki en gizlisi — adına Has Oda derler — orada padişahın kendisi otururmuş, perdenin ardından.</p>
+
+    <p>Padişah bir gün kullarından birini çağırmış. Adı Hâs imiş bu kulun — yani seçilmiş. Ona demiş ki:</p>
+
+    <p class="saying">— Hâs'ım, bu saray emanet sana. İçinde yaşa, odalarını gez, bahçesinde dolaş, sofrasında ye, havuzundan iç. Lâkin bil ki bu saray senin değil, benimdir. Sen burada vekîlsin. Şu yazıyı da yanından eksik etme; her sabah okuyacaksın.</p>
+
+    <p>Yazı şuymuş:</p>
+
+    <div class="inscription">
+      <span>Saray sahibinindir.</span>
+      <span>Sen misafirsin.</span>
+      <span>Misafir, ev sahibinin edebiyle oturur.</span>
+    </div>
+
+    <p>Hâs, padişahın huzurundan çıkarken hem heyecanlı hem ürpermiş. <em>Ben mi? Bu kadar büyük emanet bana mı?</em> demiş içinden. İlk günler yazıyı her sabah okumuş, her gece tekrar etmiş. Saraya parmak ucuyla basmış, sofraya oturmadan önce besmele çekmiş, billûr kandillerin altından geçerken başını eğmiş.</p>
+
+    <p>Lâkin günler geçmiş, alışkanlık denen o ince hırsız sızmış içeri. Hâs, önce sofranın baş köşesine oturmuş bir akşam — <em>nasıl olsa kimse görmüyor</em> demiş. Sonra padişahın tahtının yanından geçerken eliyle dokunmuş — <em>sadece dokunuyorum, oturmuyorum ya</em> demiş. Sonra bir gün yorgunmuş, taht da boşmuş, oturmuş. O an dünya yıkılmamış. Hiçbir şey olmamış. Hâs şaşırmış. <em>Demek ki olabiliyormuş</em> demiş kendi kendine.</p>
+
+    <p>Ve böyle böyle, taht onun günlük oturağı olmuş. Sofranın baş köşesi onun yeri olmuş. Kullara emirler vermeye başlamış — <em>bu saray bana emânet, ben de düzeni sağlamalıyım</em> diye kendine bahaneler bulmuş. Aynaya baktığında artık vekîl değil, padişah görmüş. Yazıyı bir köşeye koymuş, üstü tozlanmış.</p>
+
+    <div class="seal-break ar" aria-hidden="true">۞</div>
+
+    <p>Bir gün padişahtan bir mektup gelmiş. Hâs heyecanla açmış. İçinde tek satır varmış:</p>
+
+    <div class="inscription letter">
+      <span>Hâs'ım, emanete riayet et.</span>
+    </div>
+
+    <p>Hâs bir an sarsılmış. Tahta bakmış, kendi oturduğu yere bakmış, üstündeki tozlu yazıya bakmış. Gözleri dolmuş. <em>Ne yaptım ben?</em> demiş. Üç gün üç gece tahta yaklaşmamış, sofranın baş köşesine geçmemiş, yazıyı temizleyip duvara asmış. Kendine söz vermiş: <em>Bir daha asla.</em></p>
+
+    <p>Lâkin — insan unutkandır. Dördüncü gün bir misafir gelmiş, Hâs onu karşılarken farkında olmadan tahta dayanmış. Beşinci gün eli tahtın koluna değmiş. Altıncı gün oturmuş. Yedinci gün unutmuş bile oturduğunu.</p>
+
+    <p>Ve böylece mektuplar gelmiş, Hâs heyecanlanmış, sonra unutmuş; gelmiş, heyecanlanmış, unutmuş. Yıllar geçmiş. Hâs artık <em>ben padişahım</em> demese de, gibi yaşıyormuş. Çünkü hâl, sözden daha derin söyler.</p>
+
+    <div class="seal-break ar" aria-hidden="true">۞</div>
+
+    <p>Bir gece — o gece — Hâs uyuyamamış. İçinde bir tuhaflık varmış, adını koyamadığı. Yataktan kalkmış, sarayın koridorlarında dolaşmış. Mum elinde, ayakları çıplak. Ne aradığını bilmiyormuş.</p>
+
+    <p>Sarayın derinliklerinde, hiç görmediği bir koridora sapmış. Koridorun sonunda bir kapı varmış — küçük, mütevazı, üstünde yazı olmayan bir kapı. Hâs durmuş. Kalbi çarpmış. <em>Ben bu sarayda yıllardır yaşıyorum, bu kapıyı nasıl görmedim?</em></p>
+
+    <p>Eli kapıya değer değmez, kapı kendiliğinden açılmış.</p>
+
+    <p>İçeride bir oda — küçük, sade, bir tek kandil yanıyor. Ve o kandilin ışığında, bir kürsüde, padişah oturuyormuş. Hep oturmuş gibi. Yorgun değilmiş, beklemiyormuş, kızgın değilmiş. Sadece oturuyormuş. Hâs'a bakmış, gülümsemiş.</p>
+
+    <p>Hâs olduğu yere yığılmış. <em>Sen... sen burada mıydın? Hep burada mı?</em></p>
+
+    <p>Padişah demiş ki:</p>
+
+    <p class="saying">— Ben hiç gitmedim Hâs'ım. Sarayın her köşesini ben düzene koydum. Sofraya bereketi ben indirdim, kandilleri ben yaktırdım, bahçeye baharı ben getirttim, kışın ocağı ben tutuşturttum. Sen tahta oturduğunda da ben gözetiyordum. Sen sofranın başına geçtiğinde de ben sofranı kuruyordum. Sen kullara emir verirken de ben işitiyordum. Ben hiç gitmedim — lâkin sen beni hiç görmedin.</p>
+
+    <p>Hâs ağlamış. Ama bu ağlayış pişmanlık değilmiş sadece — anlayışmış. Çünkü o an anlamış ki padişahlık iddiası bile O'nun müsaadesiyle mümkünmüş. O izin vermeseydi, Hâs nefes bile alamazdı, kim ki tahta otursun.</p>
+
+    <p class="saying">— Peki, demiş Hâs titreyen sesle, neden bana göstermedin kendini?</p>
+
+    <p>Padişah gülümsemiş:</p>
+
+    <p class="saying">— Çünkü kendini sen göresin diye. Ben sana göstermeseydim, sen iddianı görmezdin. İddianı görmeseydin, iddiandan vazgeçmezdin. Ben kendimi sakladım ki sen kendini bulasın. Sonra kendini de bırakasın.</p>
+
+    <p>Hâs eğilmiş, alnını yere koymuş. Lâkin tuhaf bir şey olmuş — bu eğiliş, o eski heyecanlı eğilişler gibi değilmiş. Yorgun bir eğiliş değil, dinlenmiş bir eğilişmiş. Çünkü Hâs artık kendini taşımıyormuş.</p>
+
+    <p>Padişah demiş:</p>
+
+    <p class="saying">— Kalk Hâs'ım. Tahta otur.</p>
+
+    <p>Hâs irkilmiş:</p>
+
+    <p class="saying">— Sultanım, ben artık tahta oturmam. Ben oranın sahibi değilim.</p>
+
+    <p>Padişah daha da gülümsemiş:</p>
+
+    <p class="saying">— İşte şimdi otur. Çünkü artık biliyorsun ki orası senin değil. Eskiden iddiayla otururdun — taht seni taşımazdı, sen tahtı taşımaya çalışırdın. Şimdi ise otur — taht zaten benim, sen de benimsin. Otur ki, oturanın bana ait olduğunu bilesin. Otururken benimle otur — ne sen kaybol, ne beni unut.</p>
+
+    <p>Hâs kalkmış, yürümüş, ve tahta — o eski tahta — bambaşka bir hâlde oturmuş. Artık taht onu yakmamış. Çünkü artık o, tahta oturan değil, tahtta oturulanmış.</p>
+
+    <div class="seal-break ar" aria-hidden="true">۞</div>
+
+    <p>Saray bambaşka parlamış o gün. Aynalar daha berrak, kandiller daha sıcak, sofra daha bereketli. Çünkü saray ilk defa gerçek sahibinin yaşadığını bilen bir vekîli ağırlıyormuş.</p>
+
+    <p>Ve Has Oda'nın kapısı bir daha kapanmamış. Hâs istediği zaman gidip padişahın yüzüne bakabilirmiş. Lâkin tuhaf — artık gitmesine gerek de kalmamış. Çünkü padişahın yüzünü her aynada, her kulda, her sofrada, her nefeste görür olmuş.</p>
+
+    <div class="coda">
+      <p class="couplet">
+        <span>Çünkü ayna, kimin elinde tutulduğunu bildiği gün,</span>
+        <span>her yüzde O'nu görmeye başlar.</span>
+      </p>
+
+      <div class="signoff">
+        <div class="hu ar">هو</div>
+        <div class="wordmark">deeplove</div>
+      </div>
+    </div>
+
+  </article>
+</main>
+</body>
+</html>
