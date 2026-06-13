@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mülk Suresi — Zahir · Batın · Hal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cormorant+SC:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1c1a14;
+    --ink-soft: #4a4535;
+    --ink-muted: #8a7f6a;
+    --gold: #9a7c3a;
+    --gold-light: #c4a45a;
+    --cream: #faf7f0;
+    --cream-dark: #f0ebe0;
+    --zahir: #2a4a35;
+    --batin: #2a2a4a;
+    --hal: #4a2a1a;
+    --divider: #d4c8a8;
+
+    /* Koyu fon üzerinde metin renkleri */
+    --text-main: #e8e2d4;
+    --text-soft: #c8bfa8;
+    --text-muted: #a09078;
+    --text-hal: #d4a882;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #18160f;
+    color: var(--text-main);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  /* ── KAPAK ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 30%, rgba(154,124,58,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 80% 80%, rgba(154,124,58,0.06) 0%, transparent 60%);
+  }
+
+  .cover-inner { position: relative; z-index: 1; max-width: 600px; }
+
+  .cover-bismillah {
+    font-family: 'Amiri', serif;
+    font-size: 2rem;
+    color: var(--gold-light);
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 0.2s forwards;
+  }
+
+  .cover-rule {
+    width: 80px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 2rem;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 0.5s forwards;
+  }
+
+  .cover-title {
+    font-family: 'Cormorant SC', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 0.08em;
+    line-height: 1.1;
+    margin-bottom: 0.8rem;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 0.7s forwards;
+  }
+
+  .cover-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 0.9s forwards;
+  }
+
+  .cover-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.6rem;
+    color: rgba(250,247,240,0.7);
+    margin-bottom: 0.8rem;
+    direction: rtl;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 1.1s forwards;
+  }
+
+  .cover-meal {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-muted);
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 1.2s forwards;
+  }
+
+  .cover-hu {
+    font-family: 'Cormorant SC', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    letter-spacing: 0.4em;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 1.4s forwards;
+  }
+
+  .cover-tagline {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: rgba(154,124,58,0.6);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 1.3s forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── GİRİŞ ── */
+  .intro {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(212,200,168,0.2);
+  }
+
+  .intro h2 {
+    font-family: 'Cormorant SC', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+
+  .intro p {
+    font-size: 1.05rem;
+    color: var(--text-soft);
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    line-height: 2;
+  }
+
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    color: var(--text-soft);
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+  }
+
+  /* ── AYET KARTI ── */
+  .ayet {
+    margin: 4rem 0;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(212,200,168,0.15);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .ayet.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ayet-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .ayet-no {
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .ayet-no-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold-light), transparent);
+  }
+
+  .arabic-text {
+    font-family: 'Amiri', serif;
+    font-size: 1.9rem;
+    direction: rtl;
+    text-align: right;
+    color: #1c1a14;
+    line-height: 2;
+    margin-bottom: 0.8rem;
+    padding: 1.2rem 1.5rem;
+    background: #f0ebe0;
+    border-right: 3px solid var(--gold);
+    border-radius: 2px;
+  }
+
+  .meal-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+
+  /* ── BÖLÜMLER ── */
+  .section {
+    margin-bottom: 1.5rem;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: white;
+    padding: 0.3rem 1rem;
+    margin-bottom: 0.9rem;
+    border-radius: 1px;
+  }
+
+  .section-label.zahir { background: var(--zahir); }
+  .section-label.batin { background: var(--batin); }
+  .section-label.hal   { background: var(--hal); }
+
+  .section-content {
+    padding: 0 0.5rem 0 1rem;
+    border-left: 2px solid;
+  }
+
+  .section-content.zahir { border-color: rgba(42,74,53,0.3); }
+  .section-content.batin { border-color: rgba(42,42,74,0.3); }
+  .section-content.hal   { border-color: rgba(74,42,26,0.3); }
+
+  .section-content p {
+    font-size: 1rem;
+    color: var(--text-main);
+    margin-bottom: 0.7rem;
+    line-height: 1.9;
+    text-align: justify;
+  }
+
+  .section-content.hal p {
+    font-style: italic;
+    color: var(--text-hal);
+  }
+
+  /* ── SON SAYFA ── */
+  .son {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .son-title {
+    font-family: 'Cormorant SC', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .son-text {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: rgba(250,247,240,0.55);
+    max-width: 440px;
+    margin: 0 auto 1rem;
+    line-height: 2;
+  }
+
+  .son-hu {
+    font-family: 'Cormorant SC', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    letter-spacing: 0.5em;
+    margin-top: 2.5rem;
+  }
+
+  .son-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 2rem auto;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    .cover { min-height: auto; padding: 3rem; page-break-after: always; }
+    .ayet { opacity: 1 !important; transform: none !important; page-break-inside: avoid; }
+    body { font-size: 13px; }
+    .arabic-text { font-size: 1.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    .arabic-text { font-size: 1.4rem; }
+    .cover-title { font-size: 2.4rem; }
+    .legend { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- KAPAK -->
+<section class="cover">
+  <div class="cover-inner">
+    <div class="cover-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
+    <div class="cover-rule"></div>
+    <h1 class="cover-title">Mülk Suresi</h1>
+    <div class="cover-subtitle">Zahir &middot; Batın &middot; Hal</div>
+    <div class="cover-arabic">تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ</div>
+    <div class="cover-meal">"Mülk O'nun elindedir."</div>
+    <div class="cover-tagline">ne gösterirsen…</div>
+    <div class="cover-hu">Hu</div>
+  </div>
+</section>
+
+<!-- GİRİŞ -->
+<section class="intro">
+  <h2>Bu Derleyiş Hakkında</h2>
+  <p>Bu metin, Mülk Suresi'nin otuz ayetinin zahir, batın ve hal boyutlarıyla ele alındığı bir tefsir çalışmasının derlemesidir. Her ayet üç katmanda incelenmiştir.</p>
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--zahir)"></div>
+      <span><strong>Zahir</strong> — Dil, köken, klasik tefsir</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--batin)"></div>
+      <span><strong>Batın</strong> — Tasavvufi, içsel anlam</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--hal)"></div>
+      <span><strong>Hal</strong> — Kalpte yaşanır karşılık</span>
+    </div>
+  </div>
+</section>
+
+<!-- AYETLER -->
+<main id="ayetler"></main>
+
+<!-- SON -->
+<section class="son">
+  <div class="son-rule"></div>
+  <div class="son-title">Kuş ve Su</div>
+  <p class="son-text">Kanatlarını açtın — bu senin gayretin.<br>Süzülmek Rahmân'ın işi.</p>
+  <p class="son-text">O kaynak çekilirse kim getirebilir?</p>
+  <div class="son-rule"></div>
+  <div class="son-hu">Hu</div>
+</section>
+
+<script>
+const ayetler = [
+  {
+    no: 1,
+    arabic: "تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",
+    meal: "Mülk O'nun elinde olan ne yücedir — O her şeye kadirdir.",
+    zahir: [
+      "Tebâreke — \"bereke\" kökünden gelir. Bereket burada sadece çokluk değil, durağan bolluk — akan su değil, derin göl. Tebâreke fiili yalnızca Allah için kullanılır; başka hiçbir varlığa isnat edilemeyen bir yüceltme kalıbıdır.",
+      "Biyedihi'l-mülk — \"Mülk O'nun elindedir.\" El, burada kudretin kinayesi; hakimiyet tamamen, koşulsuz, devredilmez biçimde O'nundur.",
+      "Ve hüve alâ külli şey'in kadîr — Kadîr: güç yetiren değil, gücün ta kendisi olan. Taberî ve İbn Kesîr: evren bir mülktür, sahibi vardır, sahipsiz değildir."
+    ],
+    batin: [
+      "Sure tebâreke ile açılıyor — ne bir emir, ne bir haber, ne bir uyarı. Bir müjde gibi gelen azamet.",
+      "Mülk O'nun elinde — ama el nerede? Her yerde. Şu an solunan nefes, atılan kalp, geçen düşünce — hepsi o elin içinde.",
+      "İbn Arabî'nin nazarıyla: mülkün O'nun elinde olması, elde zannettiğimiz her şeyin de aslında O'nun eli olduğunun fısıltısıdır."
+    ],
+    hal: [
+      "Sabah gözünü açtığında, henüz hiçbir şey yapmadan önce — o an tebâreke anıdır.",
+      "Henüz kimse değilsin, henüz hiçbir şeyi başarmadın, henüz hiçbir şeyi kaybetmedin. Ve mülk yine O'nun elinde.",
+      "\"Ne gösterirsen\" diyerek gelmek — zaten hep böyleydi. Sadece fark edildi."
+    ]
+  },
+  {
+    no: 2,
+    arabic: "الَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا وَهُوَ الْعَزِيزُ الْغَفُورُ",
+    meal: "O ki ölümü ve hayatı yarattı — hanginizin ameli daha güzel olacağını sınamak için. O Azîz'dir, Gafûr'dur.",
+    zahir: [
+      "Önce ölüm, sonra hayat. Arapça'da bu sıralama tesadüf değildir. Ölüm de bir yaratılmıştır — Allah ölümü icat etti.",
+      "Liyeblüveküm — sınamak için. Belâ kökü: imtihan, ama aynı zamanda açığa çıkarma. Altın ateşle sınanır — ateş altını yaratmaz, gösterir.",
+      "Eyyüküm ahsenu amelen — hanginizin ameli daha güzeldir. Dikkat: daha çok değil, daha güzel. Nicelik değil nitelik.",
+      "Azîz ve Gafûr yan yana: güç ve merhamet birlikte. Sınayan eziyet etmek için sınamıyor."
+    ],
+    batin: [
+      "Ölümün hayattan önce gelmesi tasavvufta derin bir kapıdır. \"Mûtû kable en temûtû\" — ölmeden önce ölünüz. Ölüm sona eriş değil; benliğin çözülmesidir.",
+      "Ahsen-i amel: güzellik, gözeten bir kalple yapılan şeydir. İhsan — Allah'ı görür gibi.",
+      "Hayat bir performans alanı değil, bir saflaşma fırını. Fırının sahibi hem Azîz hem Gafûr — yansan bile örter."
+    ],
+    hal: [
+      "Bugün yapılacak en küçük şeye bakılabilir — bir bardak çay, bir mesaj, bir nefes.",
+      "Soru şu değil: ne kadar yaptım? Soru şu: ne kadar güzel yaptım? Kalp orada mıydı?",
+      "Ölüm ve hayat yaratılmış — ikisi de O'ndan, ikisi de emanet. Emaneti güzel taşımak: ahsen-i amel budur."
+    ]
+  },
+  {
+    no: 3,
+    arabic: "الَّذِي خَلَقَ سَبْعَ سَمَاوَاتٍ طِبَاقًا مَا تَرَىٰ فِي خَلْقِ الرَّحْمَٰنِ مِن تَفَاوُتٍ فَارْجِعِ الْبَصَرَ هَلْ تَرَىٰ مِن فُطُورٍ",
+    meal: "O ki yedi göğü tabaka tabaka yarattı. Rahmân'ın yaratışında hiçbir çatlak göremezsin. Gözünü çevir — bir kırık görüyor musun?",
+    zahir: [
+      "Tıbâk: birbirine tam oturan, aralarında boşluk kalmayan.",
+      "Tefâvüt: dengesizlik, orantısızlık, çarpıklık. Rahmân'ın yaratışında yoktur.",
+      "Fârci'l-basar — gözünü geri döndür, tekrar bak. Futûr — çatlak, kırık, gedik."
+    ],
+    batin: [
+      "Rahmân ismi burada tesadüf değildir. Bu mükemmellik bir güç gösterisi değil, şefkatin eseridir.",
+      "Nefsin gördüğü çatlaklar, kusurlar, \"neden böyle oldu\"lar — hep bakışın açısındandır. Yaratılışta futûr yok; ama bakışta olabilir."
+    ],
+    hal: [
+      "İçinde taşıyamaz hissettiğin yere bak. Sonra bir adım geri çekil.",
+      "O yük gerçek mi, yoksa bakışın mı çatlak? Rahmân'ın yaratışında kırık yok — sende de futûr yok aslında."
+    ]
+  },
+  {
+    no: 4,
+    arabic: "ثُمَّ ارْجِعِ الْبَصَرَ كَرَّتَيْنِ يَنقَلِبْ إِلَيْكَ الْبَصَرُ خَاسِئًا وَهُوَ حَسِيرٌ",
+    meal: "Sonra gözünü iki kez daha çevir — göz sana yorgun ve bitkin döner.",
+    zahir: [
+      "Kerreteyn — iki kez. Ama Arapça'da bu form tekrarı değil, ısrarı anlatır.",
+      "Yenkalib ileyke'l-basar — göz sana döner. Dışarı gönderdiğin bakış geri gelir.",
+      "Hâsi'en — aşağılanmış, küçük düşmüş. Hasîr — bitkin, tükenmiş."
+    ],
+    batin: [
+      "Göz dışarı çıktı — kusur aradı, çatlak aradı. Bulamadı. Yorgun döndü.",
+      "Bu nefsin eleştiren bakışının sonudur. \"Neden böyle oldu\" sorusu, eninde sonunda hasîr döner."
+    ],
+    hal: [
+      "Dışarı çıkan göz döndü, yorgun — ve şunu gördü: zaten taşımak bana ait değildi.",
+      "Göz yoruldu — ve bu yorgunluk bir kayıp değil, bir teslim. Hasîr olmak bazen en dürüst haldir."
+    ]
+  },
+  {
+    no: 5,
+    arabic: "وَلَقَدْ زَيَّنَّا السَّمَاءَ الدُّنْيَا بِمَصَابِيحَ وَجَعَلْنَاهَا رُجُومًا لِّلشَّيَاطِينِ وَأَعْتَدْنَا لَهُمْ عَذَابَ السَّعِيرِ",
+    meal: "Andolsun, en yakın göğü kandillerle süsledik — onları şeytanlar için taş yaptık. Ve onlara alevli azabı hazırladık.",
+    zahir: [
+      "Zeyyennâ — süsledik. Aynı kök \"ziynet\"ten — güzellik bilinçli, kasıtlı, hediyedir.",
+      "Mesâbîh — kandiller, yıldızlar. Aynı yıldızlar hem süs hem koruma. Tek nesne, iki işlev.",
+      "Cinlerin/şeytanların gayb haberlerine kulak verme ve kovulması meselesi Kur'an'ın birkaç yerinde geçer (Hicr, Sâffât). Taberî ve İbn Kesîr bunu literal okur. Tam mekanizması bizim bilgimizin dışındadır."
+    ],
+    batin: [
+      "Bir şey hem güzel hem koruyucu olabilir. Nûr böyledir, zikir böyledir, hakikat böyledir.",
+      "Kalbe düşen bir gerçek hem aydınlatır hem karanlıktan korur. Kandil ve taş aynı şeydir.",
+      "Keşfin ardından gelen \"ben anladım, ben gördüm\" kibri — işte o yaklaşmadır."
+    ],
+    hal: [
+      "İçine düşen her ışığı tut, ama sahiplenme.",
+      "Kandil senin değil, sende. Fark bu."
+    ]
+  },
+  {
+    no: 6,
+    arabic: "وَلِلَّذِينَ كَفَرُوا بِرَبِّهِمْ عَذَابُ جَهَنَّمَ وَبِئْسَ الْمَصِيرُ",
+    meal: "Rablerine karşı inkâr edenlere cehennem azabı vardır. Ne kötü varış yeri.",
+    zahir: [
+      "Keferû — inkâr etti, örttü. Küfür: hakikati görmezden gelmek, üstünü örtmek.",
+      "Bi-rabbihim — Rablerine karşı. Rabb: terbiye eden, besleyen, büyüten. İnkâr edilen şey seni var eden ve taşıyandır.",
+      "Masîr: gidilen yer, yolun sonu. Kader değil, tercih edilen istikamet."
+    ],
+    batin: [
+      "Küfür sadece inkâr değil — kalbe düşen nuru örten her hal bir küfür tohumudur. Minneti örtmek, güzelliği görmezden gelmek, \"benim elimle\" demek.",
+      "Cehennem dışarıda değil, o örtünün içinde başlar."
+    ],
+    hal: [
+      "Örtme ve açma arasındayız hep.",
+      "Her \"ne gösterirsen\" diyişte örtü açılıyor. Açık kadehle gelmek de bir şükür."
+    ]
+  },
+  {
+    no: 7,
+    arabic: "إِذَا أُلْقُوا فِيهَا سَمِعُوا لَهَا شَهِيقًا وَهِيَ تَفُورُ",
+    meal: "Oraya atıldıklarında onun korkunç uğultusunu duyarlar — cehennem kaynamaktadır.",
+    zahir: [
+      "Ulkû — atıldılar. Edilgen. Gittikleri yön onları oraya götürüyor.",
+      "Şehîk — derin, boğucu, karanlık bir ses. Tefûr — kaynamak, fokurdamak.",
+      "Klasik tefsir bu ayeti cehennemin canlılığına işaret olarak okur."
+    ],
+    batin: [
+      "Kalbin kendi cehennemini düşün: karanlık odalar, döngüsel düşünceler. Onların da bir sesi var.",
+      "Adım adım gidilen bir istikamet, bir noktada insanı içine alır."
+    ],
+    hal: [
+      "Bu ayet bir korku ayetidir — korkuyu olduğu gibi taşımak gerekir. Tasavvuf havf'ı recâ ile dengeler, ama önce havf'ın gerçek olduğunu inkâr etmez.",
+      "\"İyi ki cehennem var\" demiştir bir büyük. \"Aksi halde herkesin her istediğini yaptığı bir dünya ne korkunç olurdu.\" Cehennem nizamın kendisidir. Seçimlerin ağırlığı olduğunun işareti."
+    ]
+  },
+  {
+    no: 8,
+    arabic: "تَكَادُ تَمَيَّزُ مِنَ الْغَيْظِ كُلَّمَا أُلْقِيَ فِيهَا فَوْجٌ سَأَلَهُمْ خَزَنَتُهَا أَلَمْ يَأْتِكُمْ نَذِيرٌ",
+    meal: "Öfkesinden neredeyse parçalanacak. Her ne zaman oraya bir topluluk atılsa, bekçileri onlara sorar: Size bir uyarıcı gelmemiş miydi?",
+    zahir: [
+      "Tekâdu temeyyezü mine'l-gayz — öfkesinden neredeyse parçalanacak. Cehennem tepkisi olan bir varlık gibi tasvir ediliyor.",
+      "Fevc — topluluk, grup halinde. Kader yalnız değil, beraber yaşanıyor.",
+      "Elem ye'tikum nezîr — size uyarıcı gelmedi mi? İlk soru bu. Hesap buradan başlıyor."
+    ],
+    batin: [
+      "Tasavvufta nezîr içseldir de. Kalbin derininde bir ses vardır — fıtrat. O ses hiç susmaz, bazen örtülür ama gelmemiş olmaz."
+    ],
+    hal: [
+      "Bu ayet soruyor: sana nezîr geldi mi?",
+      "Bu sure boyunca kulak vermek, gözünü açmak, kalbi hazır tutmak — bu sorunun cevabıdır."
+    ]
+  },
+  {
+    no: 9,
+    arabic: "قَالُوا بَلَىٰ قَدْ جَاءَنَا نَذِيرٌ فَكَذَّبْنَا وَقُلْنَا مَا نَزَّلَ اللَّهُ مِن شَيْءٍ إِنْ أَنتُمْ إِلَّا فِي ضَلَالٍ كَبِيرٍ",
+    meal: "Dediler ki: Evet, bize bir uyarıcı geldi. Ama biz yalanladık ve dedik ki: Allah hiçbir şey indirmedi — siz büyük bir sapkınlık içindesiniz.",
+    zahir: [
+      "Belâ — evet, geldi. İnkâr yok. Nezîrin geldiğini biliyorlar.",
+      "Fekezzebna — ama yalanladık. Bilmemek değil, reddetmek. Bu fark önemlidir.",
+      "Mâ nezzelallâhu min şey' — buradaki \"tenzil\" vahye işaret eder: Kur'an'a, önceki kitaplara, resullerin getirdiklerine. Savunma taarruza döndü."
+    ],
+    batin: [
+      "İnsan bazen hakikati bilir — ama kabul etmek yerine saldırır. İçeride bir ses \"bu doğru\" derken dışarıda \"bu yanlış\" demek.",
+      "Yalanlamak cehaletten değil, kibirden gelir çoğu zaman."
+    ],
+    hal: [
+      "Bu ayet bir ayna. Hayatında bildiğin halde ertelediğin, örtmeye çalıştığın bir şey var mı?",
+      "Bu soru bir konuşmada değil, sessizlikte — belki teheccüdde, belki bir büyükle oturmakta — bulunur."
+    ]
+  },
+  {
+    no: 10,
+    arabic: "وَقَالُوا لَوْ كُنَّا نَسْمَعُ أَوْ نَعْقِلُ مَا كُنَّا فِي أَصْحَابِ السَّعِيرِ",
+    meal: "Ve dediler ki: Eğer dinleseydik ya da aklımızı kullansaydık, şu alevlerin ehli arasında olmazdık.",
+    zahir: [
+      "Nesmeu — dinleseydik. Sema: duymak değil, kulak vermek. İşitmek fizyolojik, dinlemek iradidir.",
+      "Na'kıl — aklımızı kullansaydık. Akıl kökü \"ip\" — akleden bağlar, tutar, dağılmaz.",
+      "Pişmanlık gerçek — ama geç."
+    ],
+    batin: [
+      "Bu pişmanlık cümlesi orada söyleniyor. Ama kalp şimdi bu cümleyi kurabilir — ve bu büyük bir nimettir.",
+      "Bunu orada değil, burada fark etmek: tövbenin kapısıdır."
+    ],
+    hal: [
+      "Bu sureye kulağı açık, aklı uyanık gelmek — o pişmanlık cümlesinin şimdiden cevabıdır.",
+      "Dinlemeyi ve akletmeyi nasip etsin Rabbim."
+    ]
+  },
+  {
+    no: 11,
+    arabic: "فَاعْتَرَفُوا بِذَنبِهِمْ فَسُحْقًا لِّأَصْحَابِ السَّعِيرِ",
+    meal: "Böylece günahlarını itiraf ettiler. Uzak olsun alevlerin ehli!",
+    zahir: [
+      "İ'terefu — itiraf ettiler. Aynı kökten \"mârifet\" — tanımak, kabul etmek.",
+      "Zenb kökü: kuyruk, iz, arkada bırakılan. Günah peşinden gelen, takip eden şeydir.",
+      "İtiraf orada artık fayda vermiyor. İtirafın vakti dünyaydı."
+    ],
+    batin: [
+      "İtiraf ve mârifet aynı kökten. Günahı tanımak, görmek, adını koymak — bir uyanış fiilidir.",
+      "Dünyada yapıldığında tövbeye kapı açar. Orada yapıldığında kapı kapanmış olur."
+    ],
+    hal: [
+      "Şimdi bu an — itirafın değerli olduğu, mârifete dönüşebildiği zamandayız.",
+      "Küçük bir itiraf bile — içten, sessizce — kalbi yumuşatır."
+    ]
+  },
+  {
+    no: 12,
+    arabic: "إِنَّ الَّذِينَ يَخْشَوْنَ رَبَّهُم بِالْغَيْبِ لَهُم مَّغْفِرَةٌ وَأَجْرٌ كَبِيرٌ",
+    meal: "Rablerinden görünmeden, gaybda haşyet duyanlar — onlara mağfiret ve büyük ecir vardır.",
+    zahir: [
+      "Yahşevne — haşyet duyuyorlar. Havf ile farkı: havf korku, haşyet saygı dolu titreyiş. Büyüklük karşısında eriyen küçüklük hissi.",
+      "Bi'l-gayb — gaybda, görünmeden. Kimse yokken, tanık olmadan.",
+      "Mağfiret ve ecrun kebîr — örtme ve büyük karşılık."
+    ],
+    batin: [
+      "Gaybda haşyet — yalnızken de aynı kalmak. Seyredilmiyorken de O'nun nazarında olduğunu bilmek."
+    ],
+    hal: [
+      "Kimse yokken, sadece sen ve Rabbinle olduğun an — bi'l-gayb budur.",
+      "Yalnızlıkta yükselen dua, kimseye gösterilmeden akan gözyaşı — bunlar mağfiretin kapısıdır."
+    ]
+  },
+  {
+    no: 13,
+    arabic: "وَأَسِرُّوا قَوْلَكُمْ أَوِ اجْهَرُوا بِهِ إِنَّهُ عَلِيمٌ بِذَاتِ الصُّدُورِ",
+    meal: "Sözünüzü gizleyin ya da açıklayın — O, göğüslerin içindekini bilir.",
+    zahir: [
+      "Essirrû — gizleyin. Echerû — açıklayın. İki zıt — ama sonuç aynı.",
+      "Alîmun bi-zâti's-sudûr — göğüslerin özünü bilen. Sadece ne düşündüğünü değil, düşüncenin özünü, kaynağını biliyor."
+    ],
+    batin: [
+      "Söylenmemiş bile olsa — henüz kelimeye dönüşmemiş, kalbin en karanlık köşesindeki o his — o da biliniyor.",
+      "Mahremiyetin gerçek sahibi O."
+    ],
+    hal: [
+      "Teselli: içini kimseye anlatamadığın zamanlar — O biliyor zaten.",
+      "Uyanış: içini kendinden gizlemeye çalıştığın zamanlar — O yine biliyor.",
+      "İkisi de aynı kapıya çıkıyor: dürüstlük, önce O'nadır."
+    ]
+  },
+  {
+    no: 14,
+    arabic: "أَلَا يَعْلَمُ مَنْ خَلَقَ وَهُوَ اللَّطِيفُ الْخَبِيرُ",
+    meal: "Yaratan bilmez mi? O Latîf'tir, Habîr'dir.",
+    zahir: [
+      "Elâ ya'lemu men halak — yaratan bilmez mi? Soru ama cevabı içinde.",
+      "Latîf — ince, ulaşılamaz incelikte bilen. Gizli şeylere nüfuz eden.",
+      "Habîr — derinlemesine farkında olan."
+    ],
+    batin: [
+      "Latîf: seni senin göremediğin yerden biliyor. Habîr: seni senin bilemediğin derinlikte biliyor.",
+      "Bu iki isim birlikte şunu söylüyor: sen kendinden daha iyi biliniyorsun."
+    ],
+    hal: [
+      "Kendi kendine en yabancı olduğun anlarda — ne hissettiğini bilmediğin, nereye gittiğini göremediğin anlarda —",
+      "Latîf biliyor. Habîr biliyor. Bu yeter."
+    ]
+  },
+  {
+    no: 15,
+    arabic: "هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا فَامْشُوا فِي مَنَاكِبِهَا وَكُلُوا مِن رِّزْقِهِ وَإِلَيْهِ النُّشُورُ",
+    meal: "O, yeri sizin için boyun eğer kıldı. Omuzlarında yürüyün, rızkından yiyin. Dönüş O'nadır.",
+    zahir: [
+      "Zelûlen — boyun eğmiş, uysal. Deve için kullanılan kelime: eğitilmiş, taşıyan.",
+      "Menâkibihâ — omuzları, sırtı. Yer canlı bir varlık gibi bizi sırtında taşıyor.",
+      "Ve ileyhi'n-nüşûr — dönüş O'nadır. Yürüyüş geçici, varış kalıcı."
+    ],
+    batin: [
+      "Yer boyun eğdirilmiş — kim için? Sizin için. Bu bir lütuf, bir emanet.",
+      "Ayakların altındaki toprak bile bir ihsan."
+    ],
+    hal: [
+      "Bugün yere bastığında — gerçekten, fark ederek — bu taşınmaktır.",
+      "Zelûl olan yer seni taşıyor, rızık geliyor, nefes geliyor. Taşınılıyor zaten."
+    ]
+  },
+  {
+    no: 16,
+    arabic: "أَأَمِنتُم مَّن فِي السَّمَاءِ أَن يَخْسِفَ بِكُمُ الْأَرْضَ فَإِذَا هِيَ تَمُورُ",
+    meal: "Göktekinin sizi yere geçireceğinden emin mi oldunuz — o yer sarsılıp çalkalanırken?",
+    zahir: [
+      "E-emintum — emin mi oldunuz? Soru tehdit değil, uyarı.",
+      "Men fi's-semâ — gökteki. Allah'ın semada olması mekân anlamında değil, uluvv — yücelik, aşkınlık.",
+      "Temûr — sarsılmak, dalgalanmak."
+    ],
+    batin: [
+      "15. ayette yer boyun eğmişti — taşıyıcıydı. Şimdi: o taşıyıcılık garantili değil.",
+      "Ayakların altındaki zemin bile O'nun izniyle duruyor. Güvenlik O'ndandır, zeminden değil."
+    ],
+    hal: [
+      "İnsan görüneni sabit sayar — yer, sağlık, ilişkiler. Ve üzerine bina kurar.",
+      "Bu ayet binanın zeminini sorguluyor. Tevekkül hissedilen bir hal değil, yapılan bir tercihtir — ve o tercih anbean yenilenir."
+    ]
+  },
+  {
+    no: 17,
+    arabic: "أَمْ أَمِنتُم مَّن فِي السَّمَاءِ أَن يُرْسِلَ عَلَيْكُمْ حَاصِبًا فَسَتَعْلَمُونَ كَيْفَ نَذِيرِ",
+    meal: "Yoksa göktekinin üzerinize taş yağdıracağından emin mi oldunuz? Uyarımın nasıl olduğunu yakında bileceksiniz.",
+    zahir: [
+      "Hâsiben — taş yağmuru. Yukarıdan gelen, önlenemeyen.",
+      "16. ve 17. ayet birlikte: alttan yerin çökmesi, üstten taşın yağması. Her taraf."
+    ],
+    batin: [
+      "İnsan kendini iki şeyle güvende sayar: ayaklarının altı ve başının üstü.",
+      "Bu iki ayet ikisini de sorguluyor. Hiçbir yön garantili değil — O'ndan başka."
+    ],
+    hal: [
+      "Zemin de sema da O'nun elinde olunca geriye ne kalıyor?",
+      "Sadece O kalıyor. Ve bu bir korku değil, tuhaf bir özgürlük."
+    ]
+  },
+  {
+    no: 18,
+    arabic: "وَلَقَدْ كَذَّبَ الَّذِينَ مِن قَبْلِهِمْ فَكَيْفَ كَانَ نَكِيرِ",
+    meal: "Onlardan öncekiler de yalanladı — inkârım nasıl oldu?",
+    zahir: [
+      "Kezzebellezîne min kablihim — öncekiler de yalanladı. Tarih tekrar ediyor.",
+      "Fekeyfe kâne nekîr — inkârım nasıl oldu? Soru retorik — cevabı tarih."
+    ],
+    batin: [
+      "Tekrar eden şey sadece inkâr değil — örüntü. Nezîr gelir, yalanlanır, netice gelir.",
+      "Kalp bu örüntüyü kendinde görebilir mi?"
+    ],
+    hal: [
+      "Tarihe bak — başkalarının tarihine değil, kendi tarihine.",
+      "Tekrar eden nedir? Hangi uyarı kaç kez geldi? Cevabı sessizlikte aramak gerekiyor."
+    ]
+  },
+  {
+    no: 19,
+    arabic: "أَوَلَمْ يَرَوْا إِلَى الطَّيْرِ فَوْقَهُمْ صَافَّاتٍ وَيَقْبِضْنَ أَيُّهُ يُمْسِكُهُنَّ إِلَّا الرَّحْمَٰنُ إِنَّهُ بِكُلِّ شَيْءٍ بَصِيرٌ",
+    meal: "Üstlerindeki kuşları görmüyorlar mı — kanatlarını açmış, kapatıyorlar. Onları Rahmân'dan başkası tutmuyor. O her şeyi görür.",
+    zahir: [
+      "Sâffâtin ve yakbidne — kanatları açmak ve kapamak. İki hal: süzülmek ve çırpmak. Biri emek, biri teslim.",
+      "Yümsikühünne — tutan, askıda bırakan. Kuşu havada O tutuyor.",
+      "Basîr — gören. Her şeyi."
+    ],
+    batin: [
+      "Kanat açmak: kulun gayreti. Süzülmek: o gayretin içinde O'nun taşıması.",
+      "Sadece kanat çırparsan yorulursun. Sadece beklersen yere düşersin. İkisi birlikte: kuşun hali bu."
+    ],
+    hal: [
+      "Bu sureye \"ne gösterirsen\" diyerek gelmek — kanatları açmaktı.",
+      "Süzülmek Rahmân'ın işi. Kuş gibi — uçuruluyor, ve biliyor bunu."
+    ]
+  },
+  {
+    no: 20,
+    arabic: "أَمَّنْ هَٰذَا الَّذِي هُوَ جُندٌ لَّكُمْ يَنصُرُكُم مِّن دُونِ الرَّحْمَٰنِ إِنِ الْكَافِرُونَ إِلَّا فِي غُرُورٍ",
+    meal: "Rahmân'dan başka size yardım edecek ordunuz kim? İnkârcılar ancak gurur içindedir.",
+    zahir: [
+      "Cündün lekum — sizin için asker, ordu. Güç, destek, koruma.",
+      "Gurûr — aldanış, yanılsama. Gerçek olmayan bir güvence içinde olmak."
+    ],
+    batin: [
+      "İnsan çeşitli ordular kurar: para, sağlık, insan, makam, zekâ.",
+      "Bunlar araç olarak meşru. Ama O'nun yerine geçerse — gurûra dönüşür."
+    ],
+    hal: [
+      "Bugün güvende hissettiren nedir?",
+      "Bu ayet onları silmiyor — sıralıyor. Rahmân önce, geri kalan arkada. Sıra değişince gurûr başlar."
+    ]
+  },
+  {
+    no: 21,
+    arabic: "أَمَّنْ هَٰذَا الَّذِي يَرْزُقُكُمْ إِنْ أَمْسَكَ رِزْقَهُ بَل لَّجُّوا فِي عُتُوٍّ وَنُفُورٍ",
+    meal: "Rızkını tutsa size rızık verecek olan kim? Hayır, onlar azgınlık ve kaçışta ısrar ettiler.",
+    zahir: [
+      "İn emseke rızkah — rızkını tutsa. Tutabilir. Tutmuyor — bu lütuf.",
+      "Utuvv — azgınlık. Nüfûr — kaçmak, uzaklaşmak. Hem şişinen hem kaçan: nefsin iki uç hareketi."
+    ],
+    batin: [
+      "Rızık kesilmiyor — ama kesilebileceği hatırlatılıyor. Bu tehdit değil, şükrün zemini."
+    ],
+    hal: [
+      "Rızık bugün de geldi. Nefes geldi, güneş doğdu.",
+      "Tutulmadı. Şükür bazen sadece fark etmektir — büyük bir kelam değil, sessiz bir evet."
+    ]
+  },
+  {
+    no: 22,
+    arabic: "أَفَمَن يَمْشِي مُكِبًّا عَلَىٰ وَجْهِهِ أَهْدَىٰ أَمَّن يَمْشِي سَوِيًّا عَلَىٰ صِرَاطٍ مُّسْتَقِيمٍ",
+    meal: "Yüzüstü kapanarak yürüyen mi daha doğru yoldadır, yoksa dosdoğru bir yolda dik yürüyen mi?",
+    zahir: [
+      "Mükibben alâ vechihi — yüzü yere eğik. Yönü yok, nereye gittiğini görmüyor.",
+      "Seviyyen — dik, dengeli, bütün.",
+      "Sırâtın müstakîm — dosdoğru yol. Geniş, açık — dar değil, net."
+    ],
+    batin: [
+      "Yüzüstü yürümek: dünyaya gömülmüş, yukara bakamayan hal. Sadece önündekini görüyor — o da toprak.",
+      "Tasavvufta istikamet bu — büyük kerametlerden önce dik durmak."
+    ],
+    hal: [
+      "Şu an nereye bakılıyor?",
+      "Yere mi — kaygıya, hesaba, \"ya olmazsa\"ya? Yoksa ufka mı — \"ne gösterirsen\"e?"
+    ]
+  },
+  {
+    no: 23,
+    arabic: "قُلْ هُوَ الَّذِي أَنشَأَكُمْ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ قَلِيلًا مَّا تَشْكُرُونَ",
+    meal: "De ki: Sizi yaratan, size işitme, görme ve kalpler veren O'dur. Ne az şükrediyorsunuz.",
+    zahir: [
+      "Enşeekum — sizi inşa etti, var etti. Neşe: bir şeyi yoktan büyütmek.",
+      "Sem' — işitme. Ebsâr — gözler. Ef'ide — kalpler. Fuad: anlayan, kavrayan, bağlanan.",
+      "Kalîlen mâ teşkurûn — ne az şükrediyorsunuz. Kınama değil, hayret."
+    ],
+    batin: [
+      "Üç alet sırayla: kulak, göz, kalp. Kulak duyar — dışarıdan içe. Göz görür — dışarıdan içe. Kalp anlar — içeriden içe.",
+      "En derin alet kalptir. Ve en az kullanılan da o."
+    ],
+    hal: [
+      "Bu sure boyunca kulak verildi, görüldü, hissedildi.",
+      "Şükür büyük bir eylem değil bazen — sadece fark etmek."
+    ]
+  },
+  {
+    no: 24,
+    arabic: "قُلْ هُوَ الَّذِي ذَرَأَكُمْ فِي الْأَرْضِ وَإِلَيْهِ تُحْشَرُونَ",
+    meal: "De ki: Sizi yeryüzüne yayan O'dur. Ve O'na toplanacaksınız.",
+    zahir: [
+      "Zere'ekum — sizi yaydı, serpti. Zera: tohum ekmek gibi — yayılmasına izin vermek.",
+      "Tuhşerûn — toplanacaksınız. Tohum serpildi — hasat zamanı toplanacak."
+    ],
+    batin: [
+      "Yayılmak ve toplanmak — iki hareket. Dünya: yayılma yeri. Ahiret: toplanma yeri.",
+      "Kalp için de böyle: düşünceler yayılıyor. Zikir, sükut, ibadet — topluyor."
+    ],
+    hal: [
+      "Toplanma var ileride. Ve o toplanma O'na.",
+      "Nereye toplanacaksın — oraya doğru yayıl."
+    ]
+  },
+  {
+    no: 25,
+    arabic: "وَيَقُولُونَ مَتَىٰ هَٰذَا الْوَعْدُ إِنْ كُنتُمْ صَادِقِينَ",
+    meal: "Ve diyorlar ki: Eğer doğru söylüyorsanız, bu vaat ne zaman?",
+    zahir: [
+      "Metâ hâzel-va'd — bu vaat ne zaman? Sabırsızlık değil, inkârın dili.",
+      "İn küntum sâdikîn — eğer doğru söylüyorsanız. Şüphe silahı olarak kullanılıyor."
+    ],
+    batin: [
+      "\"Ne zaman\" sorusu bazen inkârdan değil, sabırsızlıktan gelir.",
+      "Kalp de sorar: ne zaman açılacak, ne zaman anlayacağım? Bu soru meşru — ama cevabı zamanda değil, teslimde."
+    ],
+    hal: [
+      "Sure içimizde ne zamancı olan yeri gösteriyor.",
+      "Ve ona denmeli: vaat gerçek, zaman O'nun."
+    ]
+  },
+  {
+    no: 26,
+    arabic: "قُلْ إِنَّمَا الْعِلْمُ عِندَ اللَّهِ وَإِنَّمَا أَنَا نَذِيرٌ مُّبِينٌ",
+    meal: "De ki: O ilim yalnızca Allah katındadır. Ben sadece açık bir uyarıcıyım.",
+    zahir: [
+      "İnnemel-ilmu indallâh — ilim yalnızca Allah katında. İnnemâ: sadece ve sadece.",
+      "Nezîrun mübîn — açık bir uyarıcı. Peygamberin rolü net: bilmek değil, iletmek."
+    ],
+    batin: [
+      "Peygamber \"bilmiyorum\" diyor — ve bu bir eksiklik değil, doğruluk.",
+      "En tehlikeli hal: bildiğini zannetmek. \"Allahu alem\" demek en derin tevazudur."
+    ],
+    hal: [
+      "Ne zaman, nasıl, neden — bunların cevabı bizde değil.",
+      "Bizde olan: uyarıyı almak, yönelmek, yürümek. Zaman O'nun. Yön bizim tercihimiz."
+    ]
+  },
+  {
+    no: 27,
+    arabic: "فَلَمَّا رَأَوْهُ زُلْفَةً سِيئَتْ وُجُوهُ الَّذِينَ كَفَرُوا وَقِيلَ هَٰذَا الَّذِي كُنتُمْ بِهِ تَدَّعُونَ",
+    meal: "Onu yakın gördüklerinde inkâr edenlerin yüzleri karardı. Ve denildi: İşte bu, hakkında iddiada bulunduğunuz şeydir.",
+    zahir: [
+      "Zulfeten — yakın, yaklaşmış. Uzak zannettiği şey aniden yakın.",
+      "Sî'et vücûhü — yüzleri karardı. İçi dışa vurdu.",
+      "Teddaûn — iddiada bulunuyordunuz. O an geldi — iddia bitti."
+    ],
+    batin: [
+      "Uzak zannettiğin şey yakın olabilir. Her \"uzak\" bir gün zulfeten olur."
+    ],
+    hal: [
+      "Uzak saydığın için ertelediğin ne var?",
+      "Erteleme bazen bir savunma — şimdi yüzleşmemek için. Sure yaklaşmayı hatırlatıyor, nazikçe ama net."
+    ]
+  },
+  {
+    no: 28,
+    arabic: "قُلْ أَرَأَيْتُمْ إِنْ أَهْلَكَنِيَ اللَّهُ وَمَن مَّعِيَ أَوْ رَحِمَنَا فَمَن يُجِيرُ الْكَافِرِينَ مِنْ عَذَابٍ أَلِيمٍ",
+    meal: "De ki: Söyleyin bakalım — Allah beni ve benimdekilerini helak etse ya da bize merhamet etse, inkârcıları acı azaptan kim kurtaracak?",
+    zahir: [
+      "En ehlekeniyallâh — Allah beni helak etse. Peygamber kendi ölümünü bile masaya koyuyor.",
+      "Ev rahimenâ — ya da bize merhamet etse. İki ihtimal de O'nun elinde.",
+      "Femen yücîru'l-kâfirîn — inkârcıları kim kurtaracak? Cevabı yok."
+    ],
+    batin: [
+      "Peygamber şunu söylüyor: benim varlığım ya da yokluğum sizi kurtarmaz.",
+      "Hiçbir aracı, hiçbir şeyh — O'nun dışında gerçek sığınak değil."
+    ],
+    hal: [
+      "Vesile meşru — ama vesileyi gaye sanmak yanılgı.",
+      "Edep tam da burada: aracı aracı bilmek, gayeyi gaye. Yaklaşmayı istemek ama edebi de koruyarak."
+    ]
+  },
+  {
+    no: 29,
+    arabic: "قُلْ هُوَ الرَّحْمَٰنُ آمَنَّا بِهِ وَعَلَيْهِ تَوَكَّلْنَا فَسَتَعْلَمُونَ مَنْ هُوَ فِي ضَلَالٍ مُّبِينٍ",
+    meal: "De ki: O Rahmân'dır. O'na inandık, O'na tevekkül ettik. Kimin açık bir sapkınlık içinde olduğunu yakında bileceksiniz.",
+    zahir: [
+      "Âmennâ bihî — O'na inandık. Çoğul: Peygamber yalnız değil, beraberindekilerle.",
+      "Ve aleyhi tevekkelnâ — O'na dayandık, O'na bıraktık.",
+      "Feseta'lemûne — yakında bileceksiniz. Sabırlı bir güven. Savunmacı değil, sakin."
+    ],
+    batin: [
+      "İman bilgi — \"O var, O Rahmân.\" Tevekkül hal — \"O'na bıraktım.\"",
+      "Biri akılda, biri kalpte. İkisi birlikte tam olur."
+    ],
+    hal: [
+      "Korku ayetleri geçti, azap geçti, inkâr geçti.",
+      "Şimdi: âmennâ, tevekkelnâ. İnandık. Bıraktık. Bu iki kelime yeter bazen."
+    ]
+  },
+  {
+    no: 30,
+    arabic: "قُلْ أَرَأَيْتُمْ إِنْ أَصْبَحَ مَاؤُكُمْ غَوْرًا فَمَن يَأْتِيكُم بِمَاءٍ مَّعِينٍ",
+    meal: "De ki: Söyleyin bakalım — suyunuz çekilip gitse, size akan suyu kim getirebilir?",
+    zahir: [
+      "Mâüküm gavren — suyunuz derine çekilse. Gavr: derin yere batmak, ulaşılamaz olmak.",
+      "Mâin meîn — akan, erişilebilir su. Hayatın en temel şartı.",
+      "Sure su ile kapanıyor. Mülk, gök, yer, kuş, rızık — hepsi geçti. En sonda su. En basit, en vazgeçilmez."
+    ],
+    batin: [
+      "Su hayattır zahiren. Ama batınen: ilim, hikmet, ruh gıdası da su gibidir.",
+      "O kaynak çekilirse — kalbin suyu kurursa — kim getirebilir?"
+    ],
+    hal: [
+      "Sure burada bitti. Ama son soru açık bırakıldı. Cevapsız.",
+      "Çünkü cevabı zaten biliyoruz — ve sure o bilgiyle baş başa bırakıyor bizi.",
+      "Surenin başındaki mülk O'nun elindeydi. Sonundaki su da O'ndan. Her şey aynı elden. Her şey aynı kapıdan."
+    ]
+  }
+];
+
+const main = document.getElementById('ayetler');
+
+ayetler.forEach(a => {
+  const div = document.createElement('div');
+  div.className = 'ayet';
+  div.innerHTML = `
+    <div class="ayet-header">
+      <span class="ayet-no">Ayet ${a.no}</span>
+      <div class="ayet-no-line"></div>
+    </div>
+    <div class="arabic-text">${a.arabic}</div>
+    <div class="meal-text">"${a.meal}"</div>
+
+    <div class="section">
+      <div class="section-label zahir">Zahir</div>
+      <div class="section-content zahir">
+        ${a.zahir.map(p => `<p>${p}</p>`).join('')}
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label batin">Batın</div>
+      <div class="section-content batin">
+        ${a.batin.map(p => `<p>${p}</p>`).join('')}
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label hal">Hal</div>
+      <div class="section-content hal">
+        ${a.hal.map(p => `<p>${p}</p>`).join('')}
+      </div>
+    </div>
+  `;
+  main.appendChild(div);
+});
+
+// Scroll animasyonu
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.ayet').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
