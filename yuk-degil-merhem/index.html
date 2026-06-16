@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alaaddin Eczanesi — İlk Reçete</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gece:#14100c;
+    --gece-2:#1e1610;
+    --mese:#271d15;
+    --hat:#5a4630;
+    --kandil:#d9a35c;
+    --altin:#f2c879;
+    --fildisi:#ece1cd;
+    --kul:#bfae93;
+    --sage:#8ba585;
+    --golge:rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(120% 80% at 50% -10%, #2a2016 0%, var(--gece-2) 38%, var(--gece) 100%);
+    color:var(--fildisi);
+    font-family:"Spectral",Georgia,serif;
+    font-weight:400;
+    line-height:1.72;
+    letter-spacing:.005em;
+    -webkit-font-smoothing:antialiased;
+    print-color-adjust:exact;
+    -webkit-print-color-adjust:exact;
+  }
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:clamp(28px,6vw,72px) clamp(22px,5vw,40px) 96px;
+  }
+
+  /* ---------- HERO : the niche (mişkât) ---------- */
+  .hero{text-align:center;padding-top:clamp(8px,4vw,28px);}
+  .niche{width:138px;height:auto;margin:0 auto;display:block;
+    filter:drop-shadow(0 6px 26px rgba(217,163,92,.28));}
+  .flame{transform-origin:center;animation:flicker 5.5s ease-in-out infinite;}
+  @keyframes flicker{
+    0%,100%{opacity:.92;transform:scale(1);}
+    45%{opacity:1;transform:scale(1.06);}
+    70%{opacity:.86;transform:scale(.98);}
+  }
+  .eyebrow{
+    font-family:"Inter",sans-serif;
+    font-size:11px;font-weight:500;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--kandil);opacity:.85;margin:30px 0 14px;
+  }
+  h1{
+    font-family:"Cormorant Garamond",serif;
+    font-weight:500;
+    font-size:clamp(40px,9vw,68px);
+    line-height:.98;
+    letter-spacing:.01em;
+    margin:0 0 .35em;
+    color:var(--altin);
+  }
+  .sub{
+    font-family:"Cormorant Garamond",serif;
+    font-style:italic;
+    font-size:clamp(17px,3.4vw,21px);
+    color:var(--kul);
+    margin:0 auto;
+    max-width:30ch;
+    line-height:1.5;
+  }
+  .meta{
+    font-family:"Inter",sans-serif;
+    font-size:11px;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--hat);margin-top:26px;
+  }
+  .meta b{color:var(--kandil);font-weight:500;}
+
+  .rule{
+    width:100%;height:1px;border:0;margin:clamp(40px,7vw,60px) 0;
+    background:linear-gradient(90deg,transparent,var(--hat) 22%,var(--hat) 78%,transparent);
+    opacity:.6;
+  }
+  .lamp-rule{display:flex;align-items:center;gap:18px;margin:clamp(44px,8vw,64px) 0;}
+  .lamp-rule .ln{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--hat));opacity:.6;}
+  .lamp-rule .ln.r{background:linear-gradient(90deg,var(--hat),transparent);}
+  .lamp-rule .dot{color:var(--kandil);font-size:14px;line-height:1;}
+
+  /* ---------- INTRO ---------- */
+  .lede p{
+    font-size:clamp(16px,2.5vw,18px);
+    color:var(--fildisi);
+    margin:0 0 1.15em;
+  }
+  .lede .drop::first-letter{
+    font-family:"Cormorant Garamond",serif;
+    font-size:3.2em;line-height:.72;font-weight:600;
+    float:left;padding:.06em .12em 0 0;color:var(--altin);
+  }
+  .nakil{
+    border-left:2px solid var(--hat);
+    padding:2px 0 2px 20px;margin:1.5em 0;
+    font-family:"Cormorant Garamond",serif;font-style:italic;
+    font-size:clamp(18px,3vw,22px);line-height:1.5;color:var(--fildisi);
+  }
+  .nakil cite{display:block;font-family:"Inter",sans-serif;font-style:normal;
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--kandil);margin-top:10px;}
+
+  /* ---------- RECETE CARDS ---------- */
+  .recete{
+    position:relative;
+    background:linear-gradient(180deg,rgba(46,35,24,.55),rgba(30,22,16,.55));
+    border:1px solid rgba(90,70,48,.55);
+    border-radius:3px;
+    padding:clamp(22px,4.5vw,34px);
+    margin:26px 0;
+    box-shadow:0 1px 0 rgba(242,200,121,.06) inset, 0 18px 40px -28px #000;
+  }
+  .recete-head{
+    display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+    border-bottom:1px solid rgba(90,70,48,.5);
+    padding-bottom:16px;margin-bottom:18px;
+  }
+  .rx{
+    font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;
+    font-size:30px;color:var(--kandil);line-height:1;
+  }
+  .recete-no{
+    font-family:"Inter",sans-serif;font-size:10px;font-weight:600;
+    letter-spacing:.34em;text-transform:uppercase;color:var(--hat);
+  }
+  .recete-ref{
+    font-family:"Inter",sans-serif;font-size:12px;font-weight:500;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--altin);
+  }
+  .recete-ad{
+    font-family:"Cormorant Garamond",serif;font-style:italic;
+    font-size:18px;color:var(--kul);margin-left:auto;
+  }
+  .ayet{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(18px,3.2vw,23px);line-height:1.46;color:var(--fildisi);
+    margin:0 0 .5em;
+  }
+  .ayet .ar{font-style:italic;color:var(--altin);}
+  .meal{font-size:15px;color:var(--kul);margin:0 0 22px;line-height:1.6;}
+
+  .doz{display:grid;grid-template-columns:1fr;gap:16px;}
+  @media(min-width:620px){.doz{grid-template-columns:repeat(3,1fr);gap:22px;}}
+  .doz .col h4{
+    font-family:"Inter",sans-serif;font-size:10px;font-weight:600;
+    letter-spacing:.3em;text-transform:uppercase;color:var(--kandil);
+    margin:0 0 8px;padding-bottom:7px;
+    border-bottom:1px solid rgba(90,70,48,.45);
+  }
+  .doz .col p{font-size:14.5px;line-height:1.62;color:var(--fildisi);margin:0;}
+
+  /* ---------- MÜHÜR ---------- */
+  .muhur{text-align:center;padding:6px 0 0;}
+  .muhur .seal{font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.4em;
+    text-transform:uppercase;color:var(--kandil);margin-bottom:22px;}
+  .muhur p{font-size:clamp(15px,2.4vw,17px);color:var(--fildisi);
+    max-width:54ch;margin:0 auto 1.1em;}
+  .dua{
+    font-family:"Cormorant Garamond",serif;font-style:italic;
+    font-size:clamp(19px,3.4vw,24px);line-height:1.5;color:var(--altin);
+    max-width:30ch;margin:1.4em auto 0;
+  }
+  .dua small{display:block;font-style:normal;font-family:"Spectral",serif;
+    font-size:14px;color:var(--kul);margin-top:10px;line-height:1.55;}
+
+  /* ---------- COLOPHON ---------- */
+  .colophon{
+    margin-top:clamp(46px,8vw,68px);
+    border-top:1px solid rgba(90,70,48,.45);
+    padding-top:28px;
+    font-size:14px;color:var(--kul);line-height:1.68;
+  }
+  .colophon p{margin:0 0 1em;}
+  .colophon .em{color:var(--fildisi);font-style:italic;font-family:"Cormorant Garamond",serif;font-size:16px;}
+  .sign{
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    margin-top:22px;
+    font-family:"Inter",sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--hat);
+  }
+  .sign .hu{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:22px;
+    letter-spacing:0;text-transform:none;color:var(--kandil);}
+
+  @media(prefers-reduced-motion:reduce){.flame{animation:none;}}
+  @media print{
+    body{background:#fbf6ec;color:#2a2016;}
+    .recete{background:#f4ecdc;}
+    h1,.rx,.recete-ref,.ayet .ar,.dua,.eyebrow,.doz .col h4,.muhur .seal{color:#9a5e1f;}
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <svg class="niche" viewBox="0 0 120 170" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="glow" cx="50%" cy="62%" r="46%">
+          <stop offset="0%" stop-color="#f7d99a" stop-opacity=".95"/>
+          <stop offset="40%" stop-color="#d9a35c" stop-opacity=".42"/>
+          <stop offset="100%" stop-color="#d9a35c" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <!-- niche / mişkât : pointed arch -->
+      <path d="M16 168 V70 C16 38 34 14 60 6 C86 14 104 38 104 70 V168"
+            stroke="#5a4630" stroke-width="1.4" fill="none"/>
+      <path d="M26 168 V72 C26 46 40 26 60 19 C80 26 94 46 94 72 V168"
+            stroke="#5a4630" stroke-width=".8" fill="none" opacity=".55"/>
+      <!-- ambient glow -->
+      <ellipse cx="60" cy="104" rx="40" ry="52" fill="url(#glow)"/>
+      <!-- hanging chain -->
+      <line x1="60" y1="34" x2="60" y2="78" stroke="#7a5e3c" stroke-width="1"/>
+      <!-- kandil (mosque lamp) -->
+      <g class="flame">
+        <path d="M48 80 q12 18 0 30 q-2 8 12 8 q14 0 12 -8 q-12 -12 0 -30 Z"
+              fill="#1e1610" stroke="#d9a35c" stroke-width="1.3"/>
+        <ellipse cx="60" cy="78" rx="8" ry="3" fill="none" stroke="#d9a35c" stroke-width="1.1"/>
+        <!-- flame -->
+        <path d="M60 96 q-5 -7 0 -13 q5 6 0 13 Z" fill="#f2c879"/>
+        <circle cx="60" cy="92" r="6" fill="#f7d99a" opacity=".5"/>
+      </g>
+    </svg>
+
+    <p class="eyebrow">Alaaddin Eczanesi · İlk Reçete</p>
+    <h1>Yük Değil Merhem</h1>
+    <p class="sub">Eline Kur’an’ı alıp ruhunu düşürenlere, yine ellerindeki Kelâm’la şifâ üzerine</p>
+    <p class="meta">Tefekkür · <b>16 Haziran 2026</b></p>
+  </header>
+
+  <hr class="rule">
+
+  <!-- INTRO -->
+  <section class="lede">
+    <p class="drop">Eline Kur’an’ı alıp ruhunu çoktan düşürmüş kimseler vardır. Onları tevhide davet için elimizde, yine onların tuttuğu Kitap’tan başka bir şifâ yoktur. Lâkin şifâ, hangi ayette olduğunda değil, ayeti <em>nasıl tuttuğumuzdadır</em>.</p>
+    <div class="nakil">
+      Onlarla Kur’an’la çekişme; çünkü Kur’an <em>hammâlün zû vücûh</em>tur — nice yüze gelir. Sen bir ayet dersin, o başka ayet der, bitmez. Onları yaşayan mânâ ile davet et.
+      <cite>Hz. Ali’den İbn Abbas’a, Hâricîler için</cite>
+    </div>
+    <p>Ayet-ayete girilirse, ölü harf eğilmeye razı olduğundan münakaşa sonsuza dek döner durur. İsrâ 82’nin dediği gibi: aynı Kur’an mü’mine şifâ, zalime hüsrandır. Demek “okuyan” biz isek, önce kendi okuyuşumuzun yumuşaması gerek. Ayeti kılıç gibi değil, ayna gibi tutmak — bütün reçetenin sırrı budur.</p>
+  </section>
+
+  <div class="lamp-rule"><span class="ln"></span><span class="dot">✶</span><span class="ln r"></span></div>
+
+  <!-- REÇETE 1 -->
+  <article class="recete">
+    <div class="recete-head">
+      <span class="rx">℞</span>
+      <span class="recete-no">Reçete ١</span>
+      <span class="recete-ref">Cuma 5</span>
+      <span class="recete-ad">Kitap taşıyan eşek</span>
+    </div>
+    <p class="ayet"><span class="ar">“Meselü’llezîne hummilü’t-Tevrâte sümme lem yahmilûhâ kemeseli’l-himâri yahmilü esfârâ.”</span></p>
+    <p class="meal">Kendilerine Tevrat yüklenip de onu (yaşayarak) taşımayanların hâli, ciltler taşıyan eşeğin hâli gibidir.</p>
+    <div class="doz">
+      <div class="col"><h4>Zâhir</h4><p>“Hammele” hem yüklenmek hem gebe kalmaktır; “esfâr” sırttaki ciltlerdir. Eşek yükü taşır, içindekini bilmez.</p></div>
+      <div class="col"><h4>Bâtın</h4><p>Haml iki türlü: sırtta taşımak, bir de rahimde taşımak. Harfi ezberleyip mânâya gebe kalmayan, kâğıdı taşır — Kelâm’ı değil. Yük ile gebelik aynı kelimeyle anılır ki fark bize kalsın.</p></div>
+      <div class="col"><h4>Hâl</h4><p>Bu ayeti okurken parmağı karşıya değil aynaya çevir: “ikimiz de bu eşekliğe düşebiliriz.” Ayet suçlama olmaktan çıkar, ortak tevazuya döner — şifâ kapısı orada aralanır.</p></div>
+    </div>
+  </article>
+
+  <!-- REÇETE 2 -->
+  <article class="recete">
+    <div class="recete-head">
+      <span class="rx">℞</span>
+      <span class="recete-no">Reçete ٢</span>
+      <span class="recete-ref">Muhammed 24</span>
+      <span class="recete-ad">Kalplerin kilidi</span>
+    </div>
+    <p class="ayet"><span class="ar">“Efelâ yetedebberûne’l-Kur’âne em alâ kulûbin akfâluhâ.”</span></p>
+    <p class="meal">Kur’an’ı tedebbür etmiyorlar mı, yoksa kalplerde kilitler mi var?</p>
+    <div class="doz">
+      <div class="col"><h4>Zâhir</h4><p>“Tedebbür”, <em>debr</em> (arka) kökünden — bir şeyin yüzünde değil ardında, akıbetinde olana geçmek. “Akfâl” ise kilitler.</p></div>
+      <div class="col"><h4>Bâtın</h4><p>Ayet hasmı tarif etmez, sorar: “yoksa kilit mi var?” Kilit dışarıdan vurulmaz, içeriden örtülür. Her kilidin bir anahtarı vardır — demek kapı, kapalı olsa bile kapanmış değildir.</p></div>
+      <div class="col"><h4>Hâl</h4><p>Buyurgan bir “düşün!” değil, ayetin yumuşak istifhamını ödünç al: “acaba” de, “kesinlikle” deme. İnsan üstüne kapı kapatılmış hissetmeyince, kilidini kendi yoklamaya başlar.</p></div>
+    </div>
+  </article>
+
+  <!-- REÇETE 3 -->
+  <article class="recete">
+    <div class="recete-head">
+      <span class="rx">℞</span>
+      <span class="recete-no">Reçete ٣</span>
+      <span class="recete-ref">Yunus 57</span>
+      <span class="recete-ad">Göğüslerdekine şifâ</span>
+    </div>
+    <p class="ayet"><span class="ar">“Kad câetküm mev‘izatün min Rabbiküm ve şifâün limâ fi’s-sudûr.”</span></p>
+    <p class="meal">Size Rabbinizden bir öğüt ve göğüslerdekine şifâ geldi.</p>
+    <div class="doz">
+      <div class="col"><h4>Zâhir</h4><p>“Şifâ”, <em>şefâ</em> (kenar) kökünden — hastalığın kıyısından sağlığın kıyısına geçiş eşiği.</p></div>
+      <div class="col"><h4>Bâtın</h4><p>Kur’an burada “ilim” değil “şifâ” diye anılır; mesele kafaya bilgi eklemek değil, göğüsteki yaraya değmektir. Harfe takılan, Kelâm’ı kütüphaneye koymuş — eczaneye değil.</p></div>
+      <div class="col"><h4>Hâl</h4><p>De ki: “Elindeki Kitap senin de yarana inmek istiyor; onu yalnız başkasına atılan ok yaptıkça, sana inecek şifâdan mahrum kalırsın.” Suçlama değil, çağrı: “gel, bu sana da merhem.”</p></div>
+    </div>
+  </article>
+
+  <div class="lamp-rule"><span class="ln"></span><span class="dot">✶</span><span class="ln r"></span></div>
+
+  <!-- MÜHÜR -->
+  <section class="muhur">
+    <p class="seal">— Mühür —</p>
+    <p>Ölü harfi daha çok harfle yenmezsin; karşısına yaşayan mânâ olarak durursun. Mushaf <em>Kur’an-ı sâmit</em>tir — suskun; onu söyleten diridir, <em>Kur’an-ı nâtık</em>. O kimselerin cevap veremeyeceği tek delil, aynı ayetlerin yumuşattığı bir kalptir.</p>
+    <p class="dua">“Allâhümme innî e‘ûzü bike min ilmin lâ yenfa‘, ve min kalbin lâ yahşa‘.”
+      <small>Fayda vermeyen ilimden ve ürpermeyen kalpten Sana sığınırım. — Yük olan ilim, kalbi titretmeyen ilimdir.</small>
+    </p>
+  </section>
+
+  <!-- COLOPHON -->
+  <footer class="colophon">
+    <p>Bu sayfayı yalnızca “saklamak” bile bir tehlikedir: biriktirilen ilim, sırttaki cilde dönebilir. Onun için raf <span class="em">kütüphane</span> değil <span class="em">eczane</span> olsun — aynı metin, değişen niyet: kütüphane biriktirir, eczane iyileştirir.</p>
+    <p>“Alaaddin” de boşuna değil: <em>Alâ’ed-dîn</em>, dinin nuru. Asıl lamba mağaradaki değil, göğüsteki <em>mişkât</em>tır (Nûr 35). Sihirli söz “açıl susam açıl” değil, sadrı açan zikrdir. Her tıklandığında bu kapı açılsın; yük değil, merhem alınsın.</p>
+    <div class="sign">
+      <span>deeplove · tefekkür defteri</span>
+      <span class="hu">Hu.</span>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>
