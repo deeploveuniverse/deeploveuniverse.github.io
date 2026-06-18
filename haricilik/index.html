@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hâricîlik — Hakkın Kılıç Olduğu Yer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#0e0b08;
+    --bg-1:#17110b;
+    --ink:#e6ddcf;
+    --ink-soft:#b8ac98;
+    --ink-faint:#73685440;
+    --ink-meta:#8a7f6b;
+    --amber:#d2a24e;
+    --amber-deep:#b07d2f;
+    --rule:rgba(210,162,78,0.16);
+
+    --zahir:#bdb088;      /* kuru harf — kül-altın */
+    --zahir-bg:rgba(189,176,136,0.05);
+    --batin:#c1684a;      /* gizli ateş — köz-garnet */
+    --batin-bg:rgba(193,104,74,0.055);
+    --hal:#e3ad5e;        /* yaşanan ışık — bal-altın */
+    --hal-bg:rgba(227,173,94,0.06);
+
+    --display:'Cormorant Garamond', Georgia, serif;
+    --body:'Inter', system-ui, sans-serif;
+    --arabic:'Amiri', serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg-0);
+    color:var(--ink);
+    font-family:var(--body);
+    font-weight:300;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* sis — radial amber */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(208,150,70,0.14), transparent 60%),
+      radial-gradient(ellipse 70% 80% at 80% 110%, rgba(150,95,40,0.10), transparent 55%),
+      linear-gradient(180deg, var(--bg-1), var(--bg-0) 70%);
+    z-index:-2;
+  }
+  /* tane — grain */
+  body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+    opacity:0.05;
+    mix-blend-mode:overlay;
+    pointer-events:none;
+    z-index:-1;
+  }
+
+  /* هو motifi */
+  .hu-mark{
+    position:fixed;
+    bottom:-4vh;
+    right:2vw;
+    font-family:var(--arabic);
+    font-size:clamp(14rem,32vw,30rem);
+    color:rgba(210,162,78,0.035);
+    line-height:1;
+    pointer-events:none;
+    z-index:-1;
+    user-select:none;
+  }
+
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding:clamp(4rem,11vh,9rem) 1.6rem 7rem;
+  }
+
+  /* başlık bloğu */
+  .eyebrow{
+    font-family:var(--body);
+    font-size:0.7rem;
+    letter-spacing:0.42em;
+    text-transform:uppercase;
+    color:var(--amber);
+    text-align:center;
+    margin-bottom:2.4rem;
+    opacity:0.85;
+  }
+  .eyebrow .dot{margin:0 0.7em;opacity:0.5;}
+
+  h1{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(2.7rem,8vw,4.4rem);
+    line-height:1.04;
+    text-align:center;
+    margin:0 0 0.5rem;
+    letter-spacing:0.01em;
+  }
+  .subtitle{
+    font-family:var(--display);
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(1.15rem,3.4vw,1.5rem);
+    text-align:center;
+    color:var(--ink-soft);
+    margin:0 auto 3.2rem;
+    max-width:34ch;
+  }
+
+  /* açılış epigrafı */
+  .epigraph{
+    text-align:center;
+    margin:0 auto 4.5rem;
+    padding:2.4rem 1rem;
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+  }
+  .epigraph .ar{
+    font-family:var(--arabic);
+    font-size:clamp(1.7rem,5.5vw,2.4rem);
+    color:var(--amber);
+    line-height:1.6;
+    direction:rtl;
+    margin-bottom:1.1rem;
+    font-weight:400;
+  }
+  .epigraph .tr{
+    font-family:var(--display);
+    font-style:italic;
+    font-size:clamp(1.05rem,3vw,1.25rem);
+    color:var(--ink-soft);
+  }
+  .epigraph .src{
+    display:block;
+    margin-top:1rem;
+    font-family:var(--body);
+    font-size:0.68rem;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--ink-meta);
+  }
+
+  p{margin:0 0 1.5rem;font-size:1.06rem;}
+  p .ar{font-family:var(--arabic);color:var(--amber);font-size:1.18em;}
+  em{font-style:italic;color:var(--ink-soft);}
+  strong{font-weight:500;color:#f1e9d8;}
+
+  .lede{
+    font-family:var(--display);
+    font-size:clamp(1.3rem,3.6vw,1.55rem);
+    line-height:1.6;
+    color:var(--ink-soft);
+    margin-bottom:3.8rem;
+  }
+  .lede em{color:var(--amber);font-style:italic;}
+
+  /* katman bölümleri */
+  .tier{
+    margin:0 0 3.6rem;
+    padding:2.2rem 0 0 1.8rem;
+    border-left:1px solid var(--tc,var(--rule));
+    position:relative;
+  }
+  .tier::before{
+    content:"";
+    position:absolute;
+    left:-1px;top:2.6rem;bottom:0;
+    width:1px;
+    background:linear-gradient(180deg,var(--tc),transparent 75%);
+  }
+  .tier .label{
+    font-family:var(--body);
+    font-size:0.72rem;
+    letter-spacing:0.4em;
+    text-transform:uppercase;
+    color:var(--tc);
+    display:flex;
+    align-items:baseline;
+    gap:0.9rem;
+    margin-bottom:0.4rem;
+  }
+  .tier .label .ar{
+    font-family:var(--arabic);
+    font-size:1.5rem;
+    letter-spacing:0;
+    line-height:1;
+    color:var(--tc);
+    opacity:0.85;
+  }
+  .tier h2{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(1.8rem,5vw,2.4rem);
+    margin:0 0 1.4rem;
+    color:var(--ink);
+    line-height:1.12;
+  }
+  .tier.zahir{--tc:var(--zahir);background:linear-gradient(90deg,var(--zahir-bg),transparent 60%);}
+  .tier.batin{--tc:var(--batin);background:linear-gradient(90deg,var(--batin-bg),transparent 60%);}
+  .tier.hal{--tc:var(--hal);background:linear-gradient(90deg,var(--hal-bg),transparent 60%);}
+
+  blockquote{
+    margin:2rem 0;
+    padding-left:1.4rem;
+    border-left:2px solid var(--tc,var(--amber));
+    font-family:var(--display);
+    font-style:italic;
+    font-size:1.2rem;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  blockquote .ar{
+    font-family:var(--arabic);
+    font-style:normal;
+    display:block;
+    font-size:1.5rem;
+    color:var(--tc,var(--amber));
+    direction:rtl;
+    text-align:right;
+    margin-bottom:0.5rem;
+  }
+
+  /* ayraç */
+  .glyph-rule{
+    text-align:center;
+    margin:4rem 0;
+    color:var(--amber);
+    font-family:var(--arabic);
+    font-size:1.6rem;
+    opacity:0.4;
+  }
+
+  /* kapanış */
+  .coda{
+    margin-top:4.5rem;
+    padding-top:3rem;
+    border-top:1px solid var(--rule);
+    text-align:center;
+  }
+  .coda p{
+    font-family:var(--display);
+    font-style:italic;
+    font-size:1.3rem;
+    color:var(--ink-soft);
+    line-height:1.6;
+    max-width:32ch;
+    margin:0 auto 2rem;
+  }
+  .coda .hu{
+    font-family:var(--arabic);
+    font-size:2.6rem;
+    color:var(--amber);
+    opacity:0.8;
+  }
+  .colophon{
+    margin-top:3.5rem;
+    text-align:center;
+    font-family:var(--body);
+    font-size:0.66rem;
+    letter-spacing:0.26em;
+    text-transform:uppercase;
+    color:var(--ink-meta);
+    line-height:2.4;
+  }
+
+  @media (max-width:560px){
+    .wrap{padding-left:1.2rem;padding-right:1.2rem;}
+    .tier{padding-left:1.3rem;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+<div class="hu-mark" aria-hidden="true">هو</div>
+
+<main class="wrap">
+
+  <div class="eyebrow">deeplove <span class="dot">·</span> eczane <span class="dot">·</span> makale</div>
+
+  <h1>Hâricîlik</h1>
+  <p class="subtitle">Hakkın kılıç olduğu yer — bir mezhebin değil, bir kalbin tarihi</p>
+
+  <div class="epigraph">
+    <div class="ar">كلمةُ حقٍّ أُريد بها باطل</div>
+    <div class="tr">“Hak bir söz — ama onunla bâtıl murad ediliyor.”</div>
+    <span class="src">Hz. Ali, Hâricîler üzerine</span>
+  </div>
+
+  <p class="lede">Hâricîlik, harfi tutup ruhu yitirenlerin tarihidir. Dini <em>merhem</em> değil <em>kılıç</em> bilenlerin, en doğru sözü en yanlış ele alanların adı. Onu anlamak için Nehrevân'a değil, kendi kalbine bakman gerekir.</p>
+
+  <!-- ZÂHİR -->
+  <section class="tier zahir">
+    <div class="label"><span class="ar">ظاهر</span> Zâhir — tarihin yüzeyi</div>
+    <h2>Saftan çıkanlar</h2>
+    <p>Kelime <span class="ar">خ‑ر‑ج</span> kökünden gelir: çıkmak, ayrılmak, baş kaldırmak. <strong>Hâricî</strong>, “çıkan”dır — saftan, imamdan, cemaatten ayrılan. Kendileri bu adı kabul etmez; bugüne ulaşan tek mutedil kolları, <em>İbâdîler</em>, “ehl‑i istikâmet” denmesini ister.</p>
+    <p>Doğdukları an bellidir: <strong>Sıffîn, 37/657</strong>. Hz. Ali ile Muâviye arasındaki savaş hakeme — <em>tahkîm</em>e — bağlanınca, Ali'nin ordusundan bir bölük buna isyan etti. Sloganları, kendi başına doğru olan bir cümleydi:</p>
+    <blockquote>
+      <span class="ar">لا حُكمَ إلا لله</span>
+      “Hüküm ancak Allah'ındır.”
+    </blockquote>
+    <p>Trajedi buradadır: yanlış bir cümleyle değil, <em>doğru bir cümleyle</em> saptılar. Saftan çıkıp <strong>Harûrâ</strong>'ya çekildiler — bu yüzden <em>Harûriyye</em> de denir. Ali, İbn Abbâs'ı münazaraya gönderdi; bir kısmı döndü, bir kısmı diretti. <strong>Nehrevân'da (38/658)</strong> kılıçtan geçirildiler. İki yıl sonra, içlerinden biri — <strong>İbn Mülcem</strong> — Ali'yi Kûfe mescidinde, secdeye giderken şehit etti. Hilâfeti Allah'a iade etmek isterken, Allah'ın aslanını öldürdüler.</p>
+    <p>İtikatları üç çiviye dayanır: büyük günah işleyen mümin <em>kâfir</em> olur; amel imandan bir cüzdür, düşerse iman düşer; zalim imama ayaklanmak farzdır. Aşırıları (Ezârika) en sertti; İbâdiyye en yumuşağı — bugün hâlâ Umman'da, Cezayir'in Mzab'ında, Cerbe'de, Zengibar'da yaşar. Ama hepsinin ortak vasfı şuydu: namazları uzun, secdeleri nasırlı, Kur'an'ı ezbere. <strong>Eksik olan ibadet değildi.</strong></p>
+    <blockquote>
+      Bir topluluk gelecek — namazınızı onların namazı yanında küçük göreceksiniz. Kur'an okurlar, ama okudukları gırtlaklarından aşağı geçmez. Okun avı delip geçtiği gibi dinden çıkıp giderler.
+    </blockquote>
+  </section>
+
+  <div class="glyph-rule" aria-hidden="true">۞</div>
+
+  <!-- BÂTIN -->
+  <section class="tier batin">
+    <div class="label"><span class="ar">باطن</span> Bâtın — gizli ateş</div>
+    <h2>Bir mezhep değil, bir kalp hastalığı</h2>
+    <p>Hâricîlik tarihte bir kere oldu; ama <strong>Hâricî</strong>, her çağda yeniden doğan bir <em>tip</em>tir. Marazı tektir: <strong>zâhiri tutmak, bâtını bırakmak.</strong> Harfi öyle sıkı kavramak ki, ruhu avucunun içinde ezilsin.</p>
+    <p>Onlarınki bilgisizlik değildi — Kur'an'ı biliyorlardı. İbadetsizlik değildi — alınları secdeden nasırlıydı. Eksik olan tek şey <strong>hâl</strong>di: kalbin yumuşaması, rahmet, <em>teslim</em>. Çünkü en tehlikeli sapma yalanla değil, <em>hakkın kötüye kullanılmasıyla</em> olur. Ali'nin teşhisi bunun içindi: hak bir söz, bâtıl bir el.</p>
+    <p>Nefs en sinsi kılığını burada giyer: <strong>din gayreti</strong> kılığını. Kibir takvâ maskesi takar; öfke “Allah için öfke” der; kendini beğenmişlik “hak üzere sebat” diye anılır. Tasavvuf bunu tek kelimeyle işaretler: <strong>kasvet</strong> — kalbin katılaşması.</p>
+    <blockquote>
+      Zikir yapan ama yumuşamayan, okuyan ama incelmeyen, ibadet eden ama merhameti azalan kalp — işte içimizdeki Hâricî budur. <em>Amel</em> çoğalırken <em>hâl</em> eksilmiştir.
+    </blockquote>
+    <p>İçimizdeki Hâricî, <strong>“ben biliyorum, ben haklıyım, hüküm bende”</strong> diyen sestir. <em>Tekfîr</em> — başkasını dinden çıkarma cüreti — aslında bir kalp hareketidir: kendini kurtulmuşlar safına, ötekini helâk olmuşlar safına yazma hastalığı. Bu, ilmin değil <strong>nefsin</strong> işidir.</p>
+  </section>
+
+  <div class="glyph-rule" aria-hidden="true">۞</div>
+
+  <!-- HÂL -->
+  <section class="tier hal">
+    <div class="label"><span class="ar">حال</span> Hâl — yaşanan ışık</div>
+    <h2>Bugün, senin ve benim kalbimizde</h2>
+    <p>Zâhirde günümüzün Hâricîliği bellidir: Müslümanı Müslümana kâfir diye kestiren, Kur'an'ı slogan yapıp merhameti unutan çağdaş tekfîrci akımlar. Âlimler bunlara çoğu kez <em>“neo‑Hâricîler”</em> der — çünkü maraz aynıdır: harf çok, hâl yok; gayret çok, rahmet yok. Tarih kendini tekrar etmez, ama o ruh yeniden bedenlenir.</p>
+    <p>Ama asıl mesele dışarıda değildir. Çünkü <strong>Hâricî dışarıda aranınca yine Hâricîlik yapılmış olur.</strong> “İşte onlar Hâricî” demek, parmağı yine ötekine uzatmaktır — ki bu tam da o hastalığın kendisidir. Hâricî, başkası işaret edilerek değil, kendi içinde aranarak iyileşir.</p>
+    <p>O yüzden hâl şudur: her tekfîr etme isteğinde — birini sofradan, cemaatten, kalpten çıkarma aceleciliğinde — Harûrî sesi konuşuyor. Her “hüküm bende” deyişinde Nehrevân yeniden kuruluyor. Her dini <strong>merhem değil kılıç</strong> kıldığında — birini ezmek, susturmak, küçültmek için ayet kullandığında — okun avı delip geçtiği o an yaşanıyor.</p>
+    <p>İlacı zaten elimizdeydi: <strong>yük değil, merhem.</strong> Harfi tutup ruhu yiten kişiye taş atmak değil — çünkü o taş bir gün dönüp seni bulur. Onu iyileştirmenin yolu, kendini <em>hekim</em> değil, aynı şifaya muhtaç bilmektir. Mürşid tam burada durur: nefsin “ben biliyorum” dediği yerde, “sen henüz bilmiyorsun” diyebilen bir el. <em>Edep</em>, hâlin Hâricîliğe panzehridir; <em>teslim</em>, “hüküm bende” diyen nefsin önünde diz çökmektir.</p>
+    <p>Hz. Ali onlarla, severek savaştı. Onları küfürle değil, <em>dalâletle</em> niteledi — yolunu şaşırmış kardeşler. Aradaki fark bir merhem kadar incedir, ve her şeydir.</p>
+  </section>
+
+  <div class="coda">
+    <p>İçimizdeki Harûrî sustuğunda kalp yumuşar; harf yine ruhuna kavuşur.</p>
+    <div class="hu" aria-hidden="true">هو</div>
+  </div>
+
+  <div class="colophon">
+    deeplove · eczane<br>
+    önce bize, sonra okuyana merhem
+  </div>
+
+</main>
+</body>
+</html>
