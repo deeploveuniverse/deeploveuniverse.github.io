@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gönül Mescidinin İmarı — Tevbe 18 | Alaaddin Eczanesi</title>
+<meta name="description" content="Tevbe Suresi 18. ayetin Zâhir, Bâtın ve Hâl katmanlarıyla okunuşu — kalbin imarı için bir şifa reçetesi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0a08;
+    --bg-soft: #121009;
+    --ink: #e8e0d0;
+    --ink-dim: #b8ad96;
+    --gold: #c9a227;
+    --gold-soft: #8a7434;
+    --line: rgba(201, 162, 39, 0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.22rem;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .arabic { font-family: 'Amiri', serif; direction: rtl; }
+
+  /* ---- Hû watermark ---- */
+  .hu-watermark {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Amiri', serif;
+    font-size: clamp(18rem, 45vw, 34rem);
+    color: rgba(201, 162, 39, 0.035);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    line-height: 1;
+  }
+
+  /* ---- Concentric rings ---- */
+  .rings {
+    position: fixed;
+    top: -20vh; right: -20vh;
+    width: 70vh; height: 70vh;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .rings circle {
+    fill: none;
+    stroke: var(--gold);
+    stroke-opacity: 0.07;
+    stroke-width: 1;
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 6rem;
+  }
+
+  /* ---- Header ---- */
+  .eyebrow {
+    text-align: center;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+  }
+  .eyebrow a { color: inherit; text-decoration: none; }
+
+  h1 {
+    text-align: center;
+    font-weight: 500;
+    font-size: clamp(2.1rem, 6vw, 3.1rem);
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.6rem;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-style: italic;
+    color: var(--ink-dim);
+    font-size: 1.15rem;
+    margin-bottom: 3rem;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 3rem 0;
+    color: var(--gold-soft);
+  }
+  .divider::before, .divider::after {
+    content: "";
+    height: 1px;
+    width: 5.5rem;
+    background: linear-gradient(90deg, transparent, var(--line));
+  }
+  .divider::after {
+    background: linear-gradient(90deg, var(--line), transparent);
+  }
+  .divider span { font-family: 'Amiri', serif; font-size: 1.3rem; color: var(--gold); }
+
+  /* ---- Ayet block ---- */
+  .ayah {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 2.4rem 2rem;
+    margin: 2.5rem 0;
+    text-align: center;
+  }
+  .ayah .arabic {
+    font-size: clamp(1.7rem, 4.5vw, 2.3rem);
+    line-height: 2.2;
+    color: var(--ink);
+    margin-bottom: 1.6rem;
+  }
+  .ayah .translit {
+    font-style: italic;
+    color: var(--ink-dim);
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+  }
+  .ayah .meal {
+    color: var(--ink);
+    font-size: 1.15rem;
+  }
+  .ayah .ref {
+    margin-top: 1.2rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--gold);
+  }
+
+  /* ---- Sections ---- */
+  h2 {
+    font-weight: 500;
+    font-size: 1.9rem;
+    color: var(--gold);
+    margin: 3.2rem 0 0.4rem;
+    letter-spacing: 0.02em;
+  }
+  h2 .arabic { font-size: 1.5rem; color: var(--gold-soft); margin-inline-start: 0.6rem; }
+  .section-note {
+    font-style: italic;
+    color: var(--ink-dim);
+    font-size: 1rem;
+    margin-bottom: 1.4rem;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--ink);
+    margin: 2rem 0 0.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  p { margin-bottom: 1.25rem; }
+  em { color: var(--ink); }
+  .term { color: var(--gold); font-style: italic; }
+
+  blockquote {
+    border-inline-start: 2px solid var(--gold-soft);
+    padding: 0.4rem 0 0.4rem 1.4rem;
+    margin: 1.8rem 0;
+    font-style: italic;
+    color: var(--ink-dim);
+    font-size: 1.15rem;
+  }
+
+  /* ---- Reçete card ---- */
+  .recete {
+    background: linear-gradient(180deg, rgba(201,162,39,0.06), rgba(201,162,39,0.02));
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 2.2rem 2rem;
+    margin: 2.8rem 0;
+  }
+  .recete-title {
+    text-align: center;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--gold);
+    margin-bottom: 1.6rem;
+  }
+  .recete dl { display: grid; gap: 1.1rem; }
+  .recete dt {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  .recete dd {
+    color: var(--ink-dim);
+    margin-inline-start: 0;
+    font-size: 1.08rem;
+  }
+
+  /* ---- Footer ---- */
+  footer {
+    margin-top: 4.5rem;
+    text-align: center;
+    color: var(--ink-dim);
+    font-size: 1rem;
+  }
+  footer .arabic {
+    font-size: 1.9rem;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  footer .ketebe {
+    font-style: italic;
+    letter-spacing: 0.05em;
+  }
+
+  ::selection { background: rgba(201,162,39,0.25); }
+</style>
+</head>
+<body>
+
+<div class="hu-watermark arabic" aria-hidden="true">هو</div>
+
+<svg class="rings" viewBox="0 0 600 600" aria-hidden="true">
+  <circle cx="300" cy="300" r="80"/>
+  <circle cx="300" cy="300" r="140"/>
+  <circle cx="300" cy="300" r="200"/>
+  <circle cx="300" cy="300" r="260"/>
+</svg>
+
+<main>
+
+  <p class="eyebrow">Alaaddin Eczanesi · Şifa Reçetesi</p>
+  <h1>Gönül Mescidinin İmarı</h1>
+  <p class="subtitle">Tevbe Sûresi 18. âyet üzerine üç katmanlı bir okuma — harabe kalpler için dört ilaç, bir perhiz, bir ümid şurubu</p>
+
+  <div class="ayah">
+    <p class="arabic">إِنَّمَا يَعْمُرُ مَسَاجِدَ اللَّهِ مَنْ آمَنَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ وَأَقَامَ الصَّلَاةَ وَآتَى الزَّكَاةَ وَلَمْ يَخْشَ إِلَّا اللَّهَ ۖ فَعَسَىٰ أُولَٰئِكَ أَنْ يَكُونُوا مِنَ الْمُهْتَدِينَ</p>
+    <p class="translit">İnnemâ ya'muru mesâcidallâhi men âmene billâhi ve'l-yevmi'l-âhiri ve eqâme's-salâte ve âte'z-zekâte ve lem yahşe illallâh; fe-asâ ulâike en yekûnû mine'l-muhtedîn.</p>
+    <p class="meal">«Allah'ın mescidlerini ancak Allah'a ve âhiret gününe iman eden, namazı ikame eden, zekâtı veren ve Allah'tan başkasından haşyet duymayan kimseler imar eder. İşte onların hidayete erenlerden olmaları umulur.»</p>
+    <p class="ref">Tevbe · 9:18</p>
+  </div>
+
+  <p>Her hastalığın bir devası, her harabenin bir mimarı vardır. Bu âyet, ilk bakışta bir cami hükmü gibi okunur; oysa yakından bakınca elimize tutuşturulmuş bir reçete olduğu görülür. Hasta olan kalptir; ilaçlar tek tek sayılmıştır; perhiz açıkça yazılmıştır; ve reçetenin altına, şifanın garantisini değil, ümidini koyan bir mühür basılmıştır: <span class="term">fe-asâ</span> — «umulur ki».</p>
+
+  <div class="divider"><span>هو</span></div>
+
+  <h2>Zâhir <span class="arabic">الظاهر</span></h2>
+  <p class="section-note">Kelimenin kökü, klasik meal, geleneksel tefsir perspektifi</p>
+
+  <p>Âyetin kilit kelimesi <span class="term">ya'muru</span>, ayn-mîm-râ (ع-م-ر) kökünden gelir. Aynı kökten dilimize <em>ömür</em>, <em>umre</em>, <em>imâret</em> ve <em>mamur</em> kelimeleri geçmiştir. Kökün ortak manası: bir yeri canlı tutmak, şenlendirmek, içinde yaşayarak ayakta tutmak. Arap, uzun yaşayan kişiye <em>muammer</em> der — ömrü mamur olan. Demek ki «imar», taş ve harçtan önce <em>hayat</em> demektir.</p>
+
+  <p>Taberî ve İbn Kesîr bu imarın iki vechini birlikte zikreder: mescidi bina etmek, onarmak, bakımını üstlenmek — ve onu ibadetle, cemaatle, zikirle şenlendirmek. İkincisi birincisinden üstündür; zira duvarları sağlam fakat içi boş bir mescid, zâhiren mamur, hakikatte haraptır.</p>
+
+  <p><span class="term">Mescid</span> kelimesi ise sîn-cîm-dâl (س-ج-د) kökünden, <em>secde edilen yer</em> demektir. İsim, mekânı değil fiili merkeze alır: bir yeri mescid yapan çatısı değil, orada alnın yere değmesidir.</p>
+
+  <p>Bağlam önemlidir. Bir önceki âyet (9:17), kendi küfürlerine bizzat şahitlik eden müşriklerin Allah'ın mescidlerini imar etme ehliyetlerinin olmadığını bildirir. On sekizinci âyet bunun karşı tablosunu çizer ve imar ehliyetinin şartlarını sayar: Allah'a iman, âhirete iman, namazın ikamesi, zekâtın verilmesi — ve bir kalp hali: <span class="term">ve lem yahşe illallâh</span>, yalnız Allah'tan haşyet duymak.</p>
+
+  <p>Fahreddin Râzî, âyetin sonundaki <span class="term">fe-asâ</span> ifadesinde durur: Allah'tan sâdır olan «umulur ki», kerem sahibinden geldiği için muhakkak vukû ifade eder. Fakat kul cihetinden bakıldığında bu kelime, ameliyle kibirlenme kapısını kapatan bir edeb dersidir — bütün bu şartları taşıyan bile hidayeti cebinde bilmesin, <em>havf ile recâ</em> arasında, korku ile ümid arasında yürüsün.</p>
+
+  <div class="divider"><span>هو</span></div>
+
+  <h2>Bâtın <span class="arabic">الباطن</span></h2>
+  <p class="section-note">Sembolik, tasavvufî, içsel anlam katmanı</p>
+
+  <p>İsmail Hakkı Bursevî'nin ve Ekber gelenekten üstadların işaret ettiği yer açıktır: asıl mescid <em>gönüldür</em>. Hadiste kalbe «Beytullah» denmesi boşuna değildir; secdenin gerçekleştiği asıl zemin orasıdır. Alın yere değer, fakat eğilen kalptir. O halde «Allah'ın mescidlerini imar etmek» — kalbi zikirle, huzurla, murakabe ile şenlendirmek; onu gafletin örümceğinden, dünyanın tozundan, kinin isinden temizleyip harabe olmaktan korumaktır.</p>
+
+  <p><em>Ömür</em> ile <em>imar</em> kelimelerinin akrabalığı tam burada konuşur: <strong>kalbini imar eden, ömrünü imar eder.</strong> Ömür dediğimiz şey, gönül mescidinin inşaat süresidir. Kimi altmış yılda bir harabe teslim eder; kimi kırk yılda bir Süleymaniye.</p>
+
+  <p>Âyetin saydığı şartlar, bu iç mimarinin taşıyıcı unsurlarıdır:</p>
+
+  <p><strong>İman temeldir</strong> — görünmez, toprağın altındadır; ama bina onun üstünde durur. <strong>Âhirete iman ufuktur</strong> — mescidin penceresi o yöne bakar; pencereyi kapatan, binayı mezara çevirir. <strong>Namaz sütundur</strong> — hadisin diliyle «dinin direği»; direksiz kubbe çöker. <strong>Zekât sudur</strong> — elindekinin senin olmadığını bilip akıtmak; akmayan su kokar, akmayan mal kalbi kokutur. Zekât, mülk vehmine karşı içilen düzenli ilaçtır.</p>
+
+  <p>Ve kubbeyi tutan kilit taşı: <span class="term">haşyetin tevhidi</span>. «Ve lem yahşe illallâh» — yalnız O'ndan haşyet. Kalpte Allah'tan başka bir korku durdukça, o mescidde putlar durmaya devam eder; çünkü insan neyden korkuyorsa, farkında olmadan ona kulluk ediyordur. Rızık korkusu bir put, insanların ne diyeceği korkusu bir put, kaybetme korkusu bir put. Bu cümle, bâtında, <em>lâ ilâhe illallâh</em>'ın korku diliyle söylenişidir: korkulacak yoktur, illâ Allah.</p>
+
+  <blockquote>Mescid-i dilde asılı tek kandil haşyettir; o kandil yalnız O'nun adıyla yanar. Başka korkuların ışığı, aydınlık değil gölge verir.</blockquote>
+
+  <p><span class="term">Fe-asâ</span> da bâtında bir sır taşır: gönül mescidini imar eden bile kendine bir makam biçmez. İmar edilen bina kula ait değildir — mimar da O'dur, malzeme de O'ndandır, gelen misafir de O'nun nurudur. Kula kalan yalnız ümiddir; bu da <em>fakr</em>ın edebidir. Süleymaniye'nin kapısında Sinan'ın imzası «el-fakir» diye başlar; gönül mescidinin ustası da eserine ancak öyle imza atar.</p>
+
+  <div class="divider"><span>هو</span></div>
+
+  <h2>Hâl <span class="arabic">الحال</span></h2>
+  <p class="section-note">Âyetin yaşanır karşılığı — kalpte ve günlük hayatta tezahürü</p>
+
+  <p>Bu âyet günlük hayatta şöyle nefes alır: kalbini, her an namaza durulacak bir mescid gibi süpürülmüş ve kandili yanık tutmak. Sabah işe, mahkemeye, stüdyoya, mutfağa girerken içeride bir mescid taşıdığını bilmek. O zaman girdiğin her mekân mescidleşir: masa seccadeye döner, telefon konuşması bir muameleye, muamele bir ibadete.</p>
+
+  <p>«Yalnız Allah'tan haşyet» hâli, insanı iki büyük hapisten çıkarır: <em>insanların ne diyeceği</em> hapsinden ve <em>kaybetme korkusu</em> hapsinden. Zor bir koridorda yürürken de, bir eseri âleme sunarken de kalbin titrememesi bundandır — titreyeceksen yalnız O'nun huzurunda titre; gerisi kendiliğinden hafifler. Haşyeti tevhid eden, korkularını teke indirmiş olur; bir korkusu olanın bin korkusu düşer.</p>
+
+  <p>Ve <span class="term">fe-asâ</span>'nın hâli: yaptığın hiçbir hayrı cebine koymamak. Bir hizmet, bir tercüme, bir beste, bir tebessüm — hepsi imardır; ama tapu senin üzerine değildir. Yazan sensin, yazdıran O. Ümidle yürü, emniyetle değil; çünkü emniyet kapıyı kapatır, ümid açık tutar.</p>
+
+  <div class="recete">
+    <p class="recete-title">Reçete</p>
+    <dl>
+      <dt>İman — günde bir temel yoklaması</dt>
+      <dd>Gün içinde bir kez dur ve sor: şu an bu işi kimin için yapıyorum? Temel kaymışsa, bir «lâ ilâhe illallâh» ile hizaya getir.</dd>
+
+      <dt>Namaz — beş vakit sütun bakımı</dt>
+      <dd>Namazı «kılmak» değil, <em>ikame etmek</em>: ayağa kaldırmak, doğrultmak. Her vakit, gönül mescidinin bir sütununu yoklamaktır. Aceleye gelen namaz, sıvası dökük sütundur.</dd>
+
+      <dt>Zekât — durgun suyu akıtma</dt>
+      <dd>Maldan, vakitten, ilimden, gönülden — elde ne birikmişse ondan akıt. Akmayan nimet kalpte küf tutar.</dd>
+
+      <dt>Haşyet tevhidi — put temizliği</dt>
+      <dd>Bir korku belirdiğinde ismini koy: «Şu an neyden korkuyorum?» İsmi konan korku, put olmaktan çıkar; korku tek kıbleye döndürülür.</dd>
+
+      <dt>Perhiz</dt>
+      <dd>Amel ile övünmekten, hidayeti garanti bilmekten ve başkasının mescidinin harabesiyle uğraşırken kendi mescidini ihmal etmekten perhiz.</dd>
+
+      <dt>Ümid şurubu — fe-asâ</dt>
+      <dd>Her gece yatmadan bir yudum: «Umulur ki.» Ne yeis, ne emniyet; ikisinin ortasında, kapısı açık bir gönülle uyumak.</dd>
+    </dl>
+  </div>
+
+  <p>Şifa, reçeteyi okumakta değil, ilacı içmektedir. Ve ilaçların hepsi eczanede değil, göğüs kafesinin ardındaki o küçük mescidde saklıdır. Kapısı içeriden açılır.</p>
+
+  <footer>
+    <div class="divider"><span>هو</span></div>
+    <p class="arabic">هو</p>
+    <p class="ketebe">ketebehû el-fakîr — yazan kalem, yazdıran O.</p>
+  </footer>
+
+</main>
+
+</body>
+</html>
