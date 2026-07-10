@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gizlenen Değil, Örtülen Göz — deeplove</title>
+<meta name="description" content="Gizlenen Değil, Örtülen Göz — hakikatin açıklığı ve gözün perdesi üzerine bir reçete. Alaaddin Eczanesi, deeplove.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0b08;
+    --bg-soft: #14110c;
+    --gold: #c9a961;
+    --gold-dim: #8a7440;
+    --ink: #e8e2d4;
+    --ink-soft: #b5ac99;
+    --hairline: rgba(201, 169, 97, 0.22);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* هو watermark */
+  body::before {
+    content: 'هو';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Amiri', serif;
+    font-size: 42vmin;
+    color: rgba(201, 169, 97, 0.035);
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .kategori {
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 2.2rem;
+  }
+
+  .besmele {
+    font-family: 'Amiri', serif;
+    font-size: 1.7rem;
+    color: var(--gold);
+    margin-bottom: 2.6rem;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: clamp(2.1rem, 6vw, 3rem);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.25;
+    margin-bottom: 1.4rem;
+  }
+
+  .alt-baslik {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .ayrac {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 3.2rem auto;
+    color: var(--gold-dim);
+  }
+  .ayrac::before, .ayrac::after {
+    content: '';
+    display: block;
+    width: 72px;
+    height: 1px;
+    background: var(--hairline);
+  }
+  .ayrac span {
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+  }
+
+  /* Body text */
+  article p {
+    margin-bottom: 1.6rem;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  article p:first-of-type::first-letter {
+    font-size: 3.4em;
+    float: left;
+    line-height: 0.82;
+    padding-right: 0.12em;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  h2 {
+    font-size: 1.45rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    margin: 3.4rem 0 1.4rem;
+    text-align: center;
+  }
+
+  .arapca {
+    font-family: 'Amiri', serif;
+    font-size: 1.55rem;
+    text-align: center;
+    color: var(--gold);
+    line-height: 2.1;
+    margin: 2.4rem 0 0.6rem;
+    direction: rtl;
+  }
+
+  .meal {
+    text-align: center;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    max-width: 520px;
+    margin: 0 auto 2.4rem;
+  }
+
+  blockquote {
+    border-left: 2px solid var(--gold-dim);
+    padding: 0.4rem 0 0.4rem 1.4rem;
+    margin: 2.4rem 0;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+  }
+
+  em { color: var(--ink); }
+
+  /* Reçete card */
+  .recete {
+    background: var(--bg-soft);
+    border: 1px solid var(--hairline);
+    padding: 2.6rem 2.2rem;
+    margin: 3.6rem 0 0;
+  }
+
+  .recete-baslik {
+    text-align: center;
+    font-size: 0.82rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  .recete ol {
+    list-style: none;
+    counter-reset: madde;
+  }
+
+  .recete li {
+    counter-increment: madde;
+    position: relative;
+    padding-left: 2.6rem;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+
+  .recete li::before {
+    content: counter(madde);
+    position: absolute;
+    left: 0;
+    top: 0.15em;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 1px solid var(--gold-dim);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--gold);
+  }
+
+  .recete li:last-child { margin-bottom: 0; }
+
+  .recete-not {
+    margin-top: 2.2rem;
+    padding-top: 1.6rem;
+    border-top: 1px dashed var(--hairline);
+    font-style: italic;
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 4.5rem;
+    text-align: center;
+    color: var(--gold-dim);
+    font-size: 0.95rem;
+  }
+
+  footer .hu {
+    font-family: 'Amiri', serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  footer .imza {
+    letter-spacing: 0.28em;
+    text-transform: lowercase;
+  }
+
+  footer .slogan {
+    font-style: italic;
+    margin-top: 0.5rem;
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: 480px) {
+    body { font-size: 18px; }
+    .recete { padding: 2rem 1.4rem; }
+    article p { text-align: left; hyphens: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="kategori">Alaaddin Eczanesi</div>
+    <div class="besmele">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ</div>
+    <h1>Gizlenen Değil,<br>Örtülen Göz</h1>
+    <p class="alt-baslik">Hakikatin açıklığı ve bakışın perdesi üzerine bir reçete</p>
+  </header>
+
+  <div class="ayrac"><span>هو</span></div>
+
+  <article>
+
+    <p>Bir kitap düşün: Yeryüzünün her köşesinde, her evde, her raftadır. Ezberleyeni milyonlarcadır; yedi yaşındaki çocuğun hafızasında, yüz yaşındaki pirin dilinde aynı harflerle durur. Birbirine düşman devletlerin ellerinde bile tek harfi oynamamıştır. Şimdi sorulur: Bu kitap <em>gizlenmiş</em> olabilir mi?</p>
+
+    <p>Gizlenen şey ortada durmaz. Ortada duran şey gizlenmez. Öyleyse kayıp olan kitap değildir; kayıp olan, bakan gözdür. Nitekim Kitab'ın kendisi bunu söyler: Kalpler kör olmaz da göğüslerdeki basiret körelir. Hakikat güneş gibidir — onu kimse çuvala sığdıramamıştır; ama insan kendi gözünü kapatabilir, ve kapalı gözün karanlığını dünyanın karanlığı sanabilir.</p>
+
+    <div class="arapca">فَاِنَّهَا لَا تَعْمَى الْاَبْصَارُ وَلٰكِنْ تَعْمَى الْقُلُوبُ الَّت۪ي فِي الصُّدُورِ</div>
+    <p class="meal">"Gerçek şu ki gözler kör olmaz; fakat göğüslerdeki kalpler körelir." — Hac 22:46</p>
+
+    <h2>Örtünün Dili</h2>
+
+    <p>Arapçada <em>küfr</em>, kökü itibariyle "örtmek" demektir. Çiftçiye de <em>kâfir</em> denmiştir eski dilde — tohumu toprakla örttüğü için. Demek ki örtmek, önce bir el işidir; hakikatin üzerine toprak atmak. Ve işte incelik burada: Bu kökü bilen insan, kolayca bir yanılgıya düşer. "Hakikati örtenler var" der, ve etrafına bakınmaya başlar — kim örtmüş, hangi asırda, hangi saltanat, hangi âlim? Parmak hep dışarıyı gösterir. Oysa örtünün en kalını, insanın kendi gözüne çektiğidir.</p>
+
+    <p>"Bin yılı aşkındır gizliyorlar" diyen ile "yalnız benim gördüğüm doğrudur" diyen, aynı aynanın iki yüzüdür. İkisi de hakikati bir mülk sanır: Biri onu çalınmış mülk bilir, öteki bulunmuş define. Halbuki hakikat mülk edinilmez; ona ancak <em>misafir</em> olunur. Misafir, ev sahibinin sofrasına hükmetmez.</p>
+
+    <blockquote>Kibrin en incesi, ilim kisvesine bürünenidir. "Herkes yanıldı, ben buldum" cümlesi, hangi asırda söylenirse söylensin, aynı nefsin sesidir.</blockquote>
+
+    <h2>Açıkta Duran Sır</h2>
+
+    <p>Sır ile gizli aynı şey değildir. Gizli olan, bulunca biter; sır ise bulundukça derinleşir. Kitab'ın sırrı da böyledir: Kimse onu kasayla saklamamıştır — o, açık sofrada duran ve ancak aç olana lezzet veren yemek gibidir. Tok olan sofraya bakar, "boş" der geçer. Sonra da sofranın saklandığını iddia eder. Sofra saklanmadı; iştah kayboldu.</p>
+
+    <p>Bin yılı aşkın zamandır bu sofranın başında oturanlar oldu: Kimisi harfin hakkını verdi, kimisi mananın; kimisi tarttı, kimisi tattı. Birbirleriyle çekiştiler de — çünkü canlı olan tartışır, ölü olan susar. Ama bu, çarşının diriliğidir; gönlün dirisi ise <em>ölmeden önce ölen</em>dir — onun sükûtu ölüm değil, kemâldir. Tartışma ilmin nefesi olabilir; marifetin nefesi ise nefsin sustuğu yerde başlar. O uzun tartışmanın kayıtları bugün elimizdeyse, demek ki kimse kimsenin ağzını mühürleyememiş. Susturulmuş bir gelenek, bu kadar çok sesli konuşamazdı.</p>
+
+    <p>Öyleyse yol, mirası çöpe atmak da değildir, mirası putlaştırmak da. Yol, o sofraya <em>aç</em> oturmaktır. Dedelerimizin tattığını inkâr etmeden, kendi lokmamızı kendimiz çiğneyerek. Çünkü kimse kimsenin yerine doyamaz.</p>
+
+    <div class="arapca">وَنُنَزِّلُ مِنَ الْقُرْاٰنِ مَا هُوَ شِفَٓاءٌ وَرَحْمَةٌ لِلْمُؤْمِن۪ينَ</div>
+    <p class="meal">"Biz Kur'ân'dan, müminler için şifa ve rahmet olan şeyi indiririz." — İsrâ 17:82</p>
+
+    <h2>Gözün İlacı</h2>
+
+    <p>Göz nasıl açılır? Tartışarak açılmaz — tartışma, kapalı gözlerin birbirine çarptığı karanlık odadır. Göz, <em>utanarak</em> açılır: "Ya benim görmediğim varsa?" diyebilmenin utancıyla. Bu utanca eskiler <em>edeb</em> demiş. Edeb, bilgisizlik değildir; bilginin haddini bilmesidir. Ve haddini bilen bilgi, perde olmaktan çıkar, pencere olur.</p>
+
+    <p>Kendi hakikatimizi tek hakikat sandığımız an, ayağımız kayar. Çünkü ayetler zahiriyle bir kapı, batınıyla bin kapıdır; ve hiçbir kul, bin kapının hepsinden aynı anda geçmiş değildir. O halde bize düşen, bildiğimiz için şükür, bilmediğimiz için sığınmaktır — hüküm cümlesi kurmak değil. Kurduğumuz her kesin hüküm, kendi ayağımıza taktığımız bir prangadır; Rahmân'ın rahmeti ise prangasız gelene daha çabuk yetişir.</p>
+
+  </article>
+
+  <div class="recete">
+    <div class="recete-baslik">Reçete</div>
+    <ol>
+      <li>Bir hafta boyunca, din hakkında hiçbir cümleye "aslında" ile başlama. "Aslında" perdesi kalkınca, "acaba" penceresi açılır.</li>
+      <li>Sana en ters gelen yorumun sahibi için bir kez dua et — haklı çıksın diye değil, gözü açılsın diye. Göreceksin ki dua, önce dönüp senin gözünü yıkar.</li>
+      <li>Her gün bir ayeti, hükmetmek için değil, <em>misafir olmak</em> için oku. Sofraya aç otur; tok isen, iştah gelene dek sükût et.</li>
+      <li>"Kim gizledi?" sorusu içinde kabardığında, onu şu soruyla değiştir: "Ben neyi örtüyorum?" Parmak içeri dönünce, perde dışarıda kalır.</li>
+      <li>Bilmediğin her hakikat için günde bir kez sığın: <em>Rabbim, bildiğimin hakkını, bilmediğimin edebini ver.</em></li>
+    </ol>
+    <div class="recete-not">Kullanım: Kalp kabardıkça, aç karnına. Yan etkisi sükûttur; görülürse ilaca devam edilir.</div>
+  </div>
+
+  <div class="ayrac"><span>هو</span></div>
+
+  <footer>
+    <span class="hu">هو</span>
+    <div class="imza">deeplove — alaaddin eczanesi</div>
+    <div class="slogan">not a sound, a return.</div>
+  </footer>
+
+</div>
+</body>
+</html>
