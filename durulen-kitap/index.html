@@ -3,322 +3,463 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sözün Gizli Farzı — deeplove</title>
+<title>Dürülen Kitap — deeplove</title>
+<meta name="description" content="Zümer 67 ve Enbiyâ 104 yan yana: açılmış kitabı kitap zannetmek ve Yazan'ı görmek üzerine bir tefsir denemesi.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0c0b09;
-    --bg-soft: #14120e;
-    --gold: #c9a227;
-    --gold-soft: #a8893f;
-    --gold-dim: rgba(201, 162, 39, 0.35);
-    --text: #e8e2d4;
-    --text-dim: #b5ac97;
-    --line: rgba(201, 162, 39, 0.18);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    line-height: 1.85;
-    -webkit-font-smoothing: antialiased;
+    --bg: #0e0c09;
+    --bg-soft: #14110c;
+    --gold: #c9a45c;
+    --gold-dim: #8a7345;
+    --ink: #e8e2d5;
+    --ink-soft: #b8b0a0;
+    --hairline: rgba(201, 164, 92, 0.22);
   }
 
-  /* هو filigranı */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.24rem;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* هو watermark */
   .hu-watermark {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Amiri', serif;
-    font-size: 42vmin;
-    color: rgba(201, 162, 39, 0.03);
+    font-size: clamp(18rem, 55vw, 34rem);
+    color: rgba(201, 164, 92, 0.035);
+    z-index: 0;
     pointer-events: none;
     user-select: none;
-    z-index: 0;
     line-height: 1;
   }
 
   .page {
     position: relative;
     z-index: 1;
-    max-width: 720px;
+    max-width: 42rem;
     margin: 0 auto;
-    padding: 0 24px 96px;
+    padding: 4.5rem 1.5rem 6rem;
   }
 
-  /* Başlık bölgesi */
-  header {
-    text-align: center;
-    padding: 88px 0 56px;
-  }
-  .rings {
-    display: block;
-    margin: 0 auto 36px;
-    opacity: 0.85;
-  }
-  .hu-mark {
-    font-family: 'Amiri', serif;
-    font-size: 30px;
-    color: var(--gold);
-    letter-spacing: 0.02em;
-    margin-bottom: 10px;
-  }
-  .brand {
-    font-size: 13px;
-    letter-spacing: 0.45em;
-    text-transform: lowercase;
-    color: var(--text-dim);
-    margin-bottom: 6px;
-  }
-  .brand-tag {
-    font-size: 12.5px;
-    font-style: italic;
-    letter-spacing: 0.14em;
-    color: var(--gold-soft);
-    margin-bottom: 52px;
-  }
-  .kicker {
-    font-size: 13px;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--gold-soft);
-    margin-bottom: 20px;
-  }
-  h1 {
-    font-weight: 500;
-    font-size: clamp(38px, 6vw, 56px);
-    line-height: 1.18;
-    color: var(--gold);
-    margin-bottom: 18px;
-  }
-  .subtitle {
-    font-style: italic;
-    font-size: 21px;
-    color: var(--text-dim);
-    max-width: 520px;
-    margin: 0 auto;
-  }
+  /* Header */
+  header { text-align: center; margin-bottom: 4rem; }
 
-  /* Ayet / epigraf */
-  .ayah {
-    margin: 64px auto 8px;
-    padding: 44px 32px;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    text-align: center;
-  }
-  .ayah .arabic {
-    font-family: 'Amiri', serif;
-    font-size: clamp(26px, 4.5vw, 34px);
-    line-height: 2.1;
-    color: var(--text);
-    direction: rtl;
-    margin-bottom: 22px;
-  }
-  .ayah .arabic .hl { color: var(--gold); }
-  .ayah .meal {
-    font-style: italic;
-    font-size: 19px;
-    color: var(--text-dim);
-    max-width: 560px;
-    margin: 0 auto 10px;
-  }
-  .ayah .ref {
-    font-size: 13.5px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--gold-soft);
-  }
-
-  /* Metin */
-  section { margin-top: 72px; }
-  h2 {
-    font-weight: 500;
-    font-size: 15px;
+  .kategori {
+    font-size: 0.78rem;
     letter-spacing: 0.42em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-  .h2-sub {
-    font-style: italic;
-    font-size: 18px;
-    color: var(--text-dim);
-    margin-bottom: 28px;
-  }
-  .divider {
-    width: 64px;
-    height: 1px;
-    background: var(--gold-dim);
-    margin: 0 0 32px;
-  }
-  p { margin-bottom: 26px; color: var(--text); }
-  p.dim { color: var(--text-dim); }
-  em { font-style: italic; }
-  .term { color: var(--gold-soft); font-style: italic; }
-
-  .inline-arabic {
-    font-family: 'Amiri', serif;
-    color: var(--gold);
-    font-size: 1.08em;
-    white-space: nowrap;
+    color: var(--gold-dim);
+    margin-bottom: 2.2rem;
   }
 
-  blockquote {
-    margin: 40px 0;
-    padding: 6px 0 6px 28px;
-    border-left: 1px solid var(--gold-dim);
-    font-style: italic;
-    font-size: 22px;
-    line-height: 1.75;
-    color: var(--gold-soft);
+  h1 {
+    font-weight: 500;
+    font-size: clamp(2.5rem, 8vw, 3.6rem);
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    line-height: 1.15;
+    margin-bottom: 1.4rem;
   }
-  blockquote .q-src {
-    display: block;
-    margin-top: 12px;
-    font-style: normal;
-    font-size: 13px;
+
+  .alt-baslik {
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 30rem;
+    margin: 0 auto;
+  }
+
+  .tarih {
+    margin-top: 2rem;
+    font-size: 0.85rem;
     letter-spacing: 0.25em;
+    color: var(--gold-dim);
     text-transform: uppercase;
-    color: var(--text-dim);
   }
 
-  .centered-line {
+  /* Dua bloğu */
+  .dua {
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    padding: 2.4rem 1rem;
+    margin: 0 0 3.5rem;
     text-align: center;
     font-style: italic;
-    font-size: 22px;
-    color: var(--gold);
-    margin: 56px auto;
-    max-width: 540px;
-    line-height: 1.8;
+    color: var(--ink-soft);
+    font-size: 1.18rem;
   }
 
-  /* Kapanış */
-  .closing {
-    margin-top: 88px;
-    text-align: center;
+  /* Ayet blokları */
+  .ayet {
+    background: var(--bg-soft);
+    border-left: 2px solid var(--gold);
+    padding: 1.8rem 1.6rem;
+    margin: 2.4rem 0;
   }
-  .closing .rings { margin-bottom: 28px; opacity: 0.6; }
-  .closing p {
-    font-style: italic;
-    color: var(--text-dim);
-    max-width: 520px;
-    margin: 0 auto 22px;
-  }
-  .closing .hu-final {
-    font-family: 'Amiri', serif;
-    font-size: 34px;
-    color: var(--gold);
-    margin-top: 18px;
-  }
-  footer {
-    margin-top: 72px;
-    padding-top: 28px;
-    border-top: 1px solid var(--line);
-    text-align: center;
-    font-size: 13px;
+
+  .ayet .kaynak {
+    font-size: 0.8rem;
     letter-spacing: 0.3em;
-    text-transform: lowercase;
-    color: var(--text-dim);
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .ayet .meal {
+    font-style: italic;
+    font-size: 1.22rem;
+    color: var(--ink);
+  }
+
+  /* Gövde */
+  p { margin-bottom: 1.35rem; }
+
+  .vurgu { color: var(--gold); font-style: italic; }
+
+  em { font-style: italic; }
+
+  /* Fasıla — dürülen tomar işareti */
+  .fasila {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    margin: 3rem 0;
+    color: var(--gold-dim);
+  }
+  .fasila::before,
+  .fasila::after {
+    content: "";
+    height: 1px;
+    width: 4.5rem;
+    background: var(--hairline);
+  }
+  .fasila span {
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* İç alıntı */
+  blockquote {
+    margin: 2.2rem 1rem;
+    padding-left: 1.4rem;
+    border-left: 1px solid var(--hairline);
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.2rem;
+  }
+
+  /* Kapanış duası */
+  .kapanis {
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--hairline);
+    text-align: center;
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  .amin {
+    margin-top: 1.6rem;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    font-style: normal;
+  }
+
+  .hu-kapanis {
+    font-family: 'Amiri', serif;
+    font-size: 2.6rem;
+    color: var(--gold);
+    margin-top: 2.2rem;
+  }
+
+  footer {
+    margin-top: 4.5rem;
+    text-align: center;
+    font-size: 0.82rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+
+  footer .motto {
+    display: block;
+    margin-top: 0.8rem;
+    text-transform: none;
+    letter-spacing: 0.08em;
+    font-style: italic;
+    font-size: 0.95rem;
   }
 
   @media (max-width: 480px) {
-    body { font-size: 18.5px; }
-    .ayah { padding: 36px 12px; }
-    blockquote { font-size: 20px; padding-left: 20px; }
+    body { font-size: 1.13rem; }
+    .ayet { padding: 1.4rem 1.2rem; }
+    blockquote { margin: 2rem 0.2rem; }
   }
 </style>
 </head>
 <body>
 
-<div class="hu-watermark">هو</div>
+<div class="hu-watermark" aria-hidden="true">هو</div>
 
 <div class="page">
 
-  <header>
-    <svg class="rings" width="120" height="120" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-      <circle cx="60" cy="60" r="56" stroke="#c9a227" stroke-opacity="0.25" stroke-width="0.8"/>
-      <circle cx="60" cy="60" r="42" stroke="#c9a227" stroke-opacity="0.4" stroke-width="0.8"/>
-      <circle cx="60" cy="60" r="28" stroke="#c9a227" stroke-opacity="0.6" stroke-width="0.8"/>
-      <circle cx="60" cy="60" r="14" stroke="#c9a227" stroke-opacity="0.85" stroke-width="0.9"/>
-      <circle cx="60" cy="60" r="2.4" fill="#c9a227"/>
-    </svg>
-    <div class="hu-mark">هو</div>
-    <div class="brand">deeplove</div>
-    <div class="brand-tag">not a sound, a return</div>
+<header>
+  <div class="kategori">Tefsir</div>
+  <h1>Dürülen Kitap</h1>
+  <p class="alt-baslik">Zümer 67 ve Enbiyâ 104 yan yana — açılmış kitabı kitap zannetmek ve Yazan'ı görmek üzerine</p>
+  <div class="tarih">deeplove &middot; 1447</div>
+</header>
 
-    <div class="kicker">Makale</div>
-    <h1>Sözün Gizli Farzı</h1>
-    <p class="subtitle">"Billetî hiye ahsen" — en güzel olanı seçme emri ve ilmin dili keskinleştirdiği an üzerine</p>
-  </header>
+<div class="dua">
+"Rabbimiz! Bize eşyayı hakikatiyle göster. Bizi lafızlarda bırakma; manaya ulaştır. Kalbimizi ayetlerin önüne geçirme, ayetleri kalbimize indir. Bildiğimizi iddia edenlerden değil, işitip teslim olanlardan eyle. Âmin."
+</div>
 
-  <div class="ayah">
-    <div class="arabic">ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ ۖ وَجَادِلْهُم <span class="hl">بِالَّتِي هِيَ أَحْسَنُ</span></div>
-    <p class="meal">"Rabbinin yoluna hikmetle ve güzel öğütle davet et; onlarla, en güzel olan hangisiyse onunla mücadele et."</p>
-    <div class="ref">Nahl 16:125</div>
-  </div>
+<p>Şimdi bu iki ayeti yan yana koyalım.</p>
 
-  <section>
-    <p>İlim öğrenen herkesin yolunun üzerinde görünmez bir eşik vardır. O eşiğe kadar ilim insanı yumuşatır: bilmediğini fark ettirir, sorduğu soruları çoğaltır, hüküm cümlelerini azaltır. Eşik geçildiğinde ise garip bir şey olur — aynı ilim, dili bilemeye başlar. Cümleler kısalır, kesinleşir, keskinleşir. Soru işaretleri kaybolur, yerlerini ünlemler alır. Kişi artık öğrendiklerini bir emanet gibi değil, bir silah gibi taşımaktadır.</p>
-    <p>Bu eşiğin adı yoktur ama alâmeti vardır: dinlemenin bitmesi. Karşıdaki konuşurken cevap hazırlanıyorsa, eşik geçilmiştir. Bu yazı, o eşikte duran bir levha üzerinedir — Nahl sûresinin yüz yirmi beşinci âyetindeki iki kelimelik bir ifade: <span class="inline-arabic">بِالَّتِي هِيَ أَحْسَنُ</span>, <em>billetî hiye ahsen</em>.</p>
-  </section>
+<div class="ayet">
+  <div class="kaynak">Zümer 39/67</div>
+  <p class="meal">"Allah'ı gereği gibi takdir edemediler. Kıyamet günü yeryüzü bütünüyle O'nun kabzasındadır; gökler de sağ eliyle dürülmüştür. O, onların ortak koştuklarından münezzeh ve yücedir."</p>
+</div>
 
-  <section>
-    <h2>Zâhir</h2>
-    <p class="h2-sub">Kelimenin sarfı, âyetin mîzanı</p>
-    <div class="divider"></div>
-    <p>Âyet, davetin üç kademesini sayar: <span class="term">hikmet</span>, <span class="term">mev'ıza-i hasene</span> ve <span class="term">cidâl</span>. Fahreddin Râzî bu üçlüyü muhatapların mertebelerine göre okur: hikmet hakikat ehline, güzel öğüt avâma, mücadele ise inat ehline. Fakat asıl incelik son kademededir. İlk ikisi doğrudan isimle gelmişken — hikmetle, güzel öğütle — üçüncüsü bir sıfat tamlamasıyla yetinmez; araya bir <span class="term">ism-i mevsûl</span> girer.</p>
-    <p>Âyet <em>"cidâl-i hasen ile mücadele et"</em> demiyor. <span class="inline-arabic">بِالَّتِي هِيَ أَحْسَنُ</span> diyor: <em>"o ki en güzel olandır — onunla."</em> Buradaki <em>elletî</em>, Arapçada bir şeyi topluluğun içinden çekip ayıran, işaret edip seçtiren bir yapıdır. <em>Ahsen</em> ise ism-i tafdîl: "güzel" değil, "en güzel." İkisi bir araya gelince mâna şu olur: mücadelenin önünde mümkün olan bütün tarzlar bir yelpaze gibi açılmıştır — sert, alaycı, susturucu, ezici, nazik, sabırlı, şefkatli — ve emir, bu yelpazenin içinden <em>en güzel olan tek tanesini</em> arayıp bulmayı, sonra yalnız onunla konuşmayı yüklemektedir.</p>
-    <p>Demek ki güzellik burada bir süs, bir tavsiye, bir "olsa iyi olur" değildir. Emrin bizzat içine yerleştirilmiş bir şarttır. Doğru söz söylemek emrin yarısıdır; onu en güzel tarzla söylemek diğer yarısı. Usûl âlimlerinin diliyle söylersek: mutlak emir vücûb ifade eder. Sözün doğruluğu nasıl aranıyorsa, üslûbun güzelliği de öyle aranacaktır — farza yakın bir ciddiyetle. Yarım bırakılan emir, yerine getirilmiş sayılmaz.</p>
-  </section>
+<p>Ve ardından…</p>
 
-  <section>
-    <h2>Bâtın</h2>
-    <p class="h2-sub">Emir kime iner: hasma mı, kalbe mi?</p>
-    <div class="divider"></div>
-    <p>Zâhirde bu emir, karşımızdakiyle nasıl konuşacağımızı düzenler. Bâtında ise yönü değişir: emir dışarıya değil, içeriye iner. Çünkü "en güzel olanı seç" demek, seçim yapılacak bir iç meydanın varlığını itiraf ettirmektir. O meydanda nefsin adayları da sıraya girmiştir: haklı çıkmanın hazzı, susturmanın zaferi, bilenin bilmeyene tepeden bakışı. En güzel olanı seçmek, önce bu adayları tanımayı, sonra onları tek tek geri çevirmeyi gerektirir. Emir, konuşmadan önce bir iç muhasebe farz kılmaktadır.</p>
-    <p>İşte ilmin en büyük tehlikesi burada saklıdır. Ârifler bilgiye <span class="term">hicâb-ı ekber</span> — en büyük perde — demişlerdir; çünkü mal ile gelen kibir kaba ve görünürdür, ilim ile gelen kibir ise takvâ kılığında dolaşır. Kişi keskinleşen dilini hakikatin kılıcı sanır; oysa kılıcın kabzası nefsin elindedir. Doğru cümle, yanlış makamdan söylendiğinde artık doğru değildir — çünkü sözün doğruluğu yalnız içeriğinde değil, çıktığı kaynaktadır. Aynı su, temiz kaptan şifa, paslı kaptan zehir olarak akar.</p>
-    <blockquote>
-      Rakibin seni yenemez; seni yenen, nefsinin haklı çıkma arzusudur.
-    </blockquote>
-    <p>Münâzara kelimesinin kökü de bu sırra işaret eder: <em>n-z-r</em>, bakmak. Aynı kökten <span class="term">intizâr</span> — beklemek — türemiştir. Gerçek münâzara, karşıdakinin nazarının tamamlanmasını bekleyebilmektir. Münâkaşada kimse beklemez; herkes, öteki konuşurken kendi cevabını biler. Demek ki münâzarayı münâkaşadan ayıran şey söz değil, sözlerin arasındaki <em>sabırdır</em>. Ayna acele etmez: bekler ve gösterir. İki aynanın birbirini parlatması ancak bu sükûnetle mümkündür; iki kılıcın birbirine değmesinden ise yalnız kıvılcım çıkar — ışık değil.</p>
-    <p class="dim">Ve belki en derindeki katman: <em>ahsen</em>, Cemîl olan'ın esmâsından bir pay taşır. "En güzel olanla mücadele et" emri, kuluna kendi ahlâkından giydirmek isteyen bir Rabbin davetidir. Üslûbun güzelliği, tevhidin dile yansımasıdır; çünkü karşımdakini ezdiğim an, ben ve o diye iki ayrı varlık vehmini en kaba haliyle sahnelemişimdir. En güzel tarz, ikiliğin inceldiği tarzdır.</p>
-  </section>
+<div class="ayet">
+  <div class="kaynak">Enbiyâ 21/104</div>
+  <p class="meal">"O gün göğü, yazılı kâğıt tomarını dürer gibi düreriz. İlk yaratmayı nasıl başlattıysak onu yine iade ederiz. Bu üzerimize aldığımız bir vaaddir. Şüphesiz biz bunu yaparız."</p>
+</div>
 
-  <section>
-    <h2>Hâl</h2>
-    <p class="h2-sub">Bu emir bugün, bu kalpte, bu klavyede nasıl yaşar?</p>
-    <div class="divider"></div>
-    <p>Bu yazının muhatabı, dilinden yara alan biri değil — dili yara açmaya meyilli olan herkes: yani en başta yazanın kendisi. İlim okuyanlar, okudukça kesinleşen ve keskinleşen kendi cümlelerimizin şahidiyiz. Kitaplar çoğaldıkça hüküm cümleleri de çoğalıyorsa, okunan şey ilim değil cephanedir.</p>
-    <p>Hâl makamında bu âyet, konuşmadan önce sorulacak tek bir soruya dönüşür: <em>Ben şimdi hakkı mı arıyorum, kendimi mi?</em> Cevap kalpte anında bellidir — kimse kendine bu konuda uzun süre yalan söyleyemez. Hakkı arayan kalpte bir genişlik, bir "kardeşimin dilinden çıksa da olur" ferahlığı vardır. Kendini arayan kalpte ise bir daralma, bir acele, bir "şimdi vururum" gerginliği. Söz ağızdan çıkmadan önce bu ikisinden hangisinin konuştuğunu dinlemek — işte <em>billetî hiye ahsen</em>'in günlük hayattaki sûreti budur.</p>
-    <p>Sonra üç küçük amel: <em>Beklemek</em> — karşıdaki bitirmeden cevabı kurmamak; intizârı ibadet bilmek. <em>Elemek</em> — yazılan cümleyi göndermeden önce yelpazeye bakmak: bu, mümkün olan tarzların en güzeli mi, yoksa sadece en keskini mi? <em>Eşitlenmek</em> — muhatap için dua ederken "ona hidayet ver" yerine "ikimize de aynaya bakmayı nasip et" demek; çünkü ilki gizli bir kibir taşıyabilir, ikincisi iki kulu aynı ihtiyaçta buluşturur.</p>
-    <p>Ve haksızlık karşısında susmakla kavgaya girmek arasında üçüncü bir makam olduğunu hatırlamak: <span class="term">sükûnetle şahitlik</span>. Meydanı boş bırakmadan, ringde dövüşmeden, kimseye doğrultulmamış bir cümleyi ortaya koyup çekilmek. Alan alır, almayan geçer. Aynanın işi budur; ayna kimseyi kovalamaz.</p>
-  </section>
+<div class="fasila"><span>هو</span></div>
 
-  <div class="centered-line">
-    Tartışmaların iki zemini vardır: biri münâzara ile müşâhedeye varır, diğeri münâkaşa ile benliğe. İlkinde "Hak nedir?" sorulur, ikincisinde "Haklı kim?" İlkinde rıza aranır, ikincisinde zafer.
-  </div>
+<p>İlk bakışta iki ayet de kıyametten bahsediyor gibi görünür.</p>
 
-  <div class="closing">
-    <svg class="rings" width="72" height="72" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-      <circle cx="60" cy="60" r="56" stroke="#c9a227" stroke-opacity="0.25" stroke-width="0.8"/>
-      <circle cx="60" cy="60" r="38" stroke="#c9a227" stroke-opacity="0.45" stroke-width="0.8"/>
-      <circle cx="60" cy="60" r="20" stroke="#c9a227" stroke-opacity="0.7" stroke-width="0.9"/>
-      <circle cx="60" cy="60" r="2.4" fill="#c9a227"/>
-    </svg>
-    <p>Yâ Rabbi, dilimizi ilmin kılıcı değil, rahmetinin aynası eyle. Konuşmadan önce kalbimize sor: hakkı mı arıyor, kendini mi? Ve bize, mümkün olan bütün sözlerin içinden hep en güzel olanı seçtir — çünkü Sen emrini yarım verecek değilsin, biz de yarım tutacak değiliz.</p>
-    <div class="hu-final">هو</div>
-  </div>
+<p>Fakat biraz yaklaşınca başka bir sır beliriyor.</p>
 
-  <footer>
-    deeplove · alaaddin eczanesi yakınlarında bir yerde
-  </footer>
+<p>Zümer Sûresi soruyla başlıyor aslında:</p>
+
+<p><span class="vurgu">"Allah'ı gereği gibi takdir edemediler."</span></p>
+
+<p>Yani mesele önce kıyamet değil.</p>
+
+<p>Mesele Allah tasavvuru.</p>
+
+<p>İnsan Allah'ı kendi zihninin içine sığdırınca, O'nu sadece sebepler arasında bir sebep gibi görünce, "O da varlıklardan biri" zannına düşünce…</p>
+
+<p>Kur'an cevap veriyor:</p>
+
+<p>Hayır.</p>
+
+<p>Senin "çok büyük" dediğin dünya bile, O'nun kudreti yanında kabzada duran bir zerre hükmündedir.</p>
+
+<p>Buradaki "kabza", "sağ el" gibi ifadeler İslam âlimlerince farklı şekillerde açıklanmıştır. Selef âlimleri bunları keyfiyetini Allah'a havale ederek kabul etmiş; birçok kelâm ve tefsir âlimi ise bunların Allah'ın kudret, hâkimiyet ve mutlak tasarrufunu ifade eden mecazî anlatımlar olduğunu söylemiştir. Her iki yaklaşımın ortak noktası şudur: Allah hiçbir mahlûka benzemez. Nitekim Kur'an'ın başka bir yerinde:</p>
+
+<blockquote>"O'nun benzeri hiçbir şey yoktur." (Şûrâ 42/11)</blockquote>
+
+<p>buyrulur.</p>
+
+<p>Yani ayet bize Allah'ın bir organını tarif etmiyor.</p>
+
+<p>Bizim idrakimize, <span class="vurgu">"Her şey O'nun mutlak tasarrufu altındadır."</span> hakikatini yaklaştırıyor.</p>
+
+<div class="fasila"><span>هو</span></div>
+
+<p>Sonra Enbiyâ geliyor.</p>
+
+<p>Bu defa aynı hakikati başka bir pencereden gösteriyor.</p>
+
+<p>Gökyüzünü…</p>
+
+<p>Biz sonsuz sanıyoruz.</p>
+
+<p>Milyarlarca galaksi…</p>
+
+<p>Milyarlarca ışık yılı…</p>
+
+<p>Kur'an diyor ki:</p>
+
+<p>Bir kâtibin yazdığı sayfayı dürmesi kadar kolay…</p>
+
+<p>Çünkü sonsuz görünen şey, sonsuz olana göre sonludur.</p>
+
+<div class="fasila"><span>هو</span></div>
+
+<p>Burada çok latif bir remiz var.</p>
+
+<p>Kitap dürülüyor.</p>
+
+<p>Neden kitap?</p>
+
+<p>Çünkü kâinat da okunacak bir kitaptır.</p>
+
+<p>İbn Arabî Hazretleri kâinata <em>"Kitâb-ı Tekvîn"</em> der.</p>
+
+<p>Kur'an ise <em>"Kitâb-ı Tedvîn."</em></p>
+
+<p>Birisi yazıyla konuşur.</p>
+
+<p>Diğeri varlıkla.</p>
+
+<p>Enbiyâ 104 sanki diyor ki:</p>
+
+<blockquote>"Okumanız için açmış olduğumuz kitabı, vakti gelince kapatacağız."</blockquote>
+
+<div class="fasila"><span>هو</span></div>
+
+<p>Fakat ayet burada bitmiyor.</p>
+
+<p><span class="vurgu">"İlk yaratmayı nasıl başlattıysak onu yine iade ederiz."</span></p>
+
+<p>Bu çok büyük bir tesellidir.</p>
+
+<p>Allah "yeniden yaratacağım" demiyor yalnızca.</p>
+
+<p>"İlk defa nasıl kolay olduysa…"</p>
+
+<p>diyor.</p>
+
+<p>Yani…</p>
+
+<p>İlk yaratılış ikinci yaratılışın delilidir.</p>
+
+<p>Kur'an sık sık bunu sorar:</p>
+
+<p>Hiç yoktan var eden, var ettikten sonra tekrar diriltmekte mi zorlanacak?</p>
+
+<p>Ve burada bir inceliğe daha dikkat etmeli.</p>
+
+<p>Ayet dürülüşü bir tehdit cümlesi içinde söylemiyor.</p>
+
+<p><span class="vurgu">"Va'den aleynâ"</span> — "üzerimize aldığımız bir söz" diyor.</p>
+
+<p>Kıyamet ayetleri içinde bu kadar şefkatli bir üslup azdır.</p>
+
+<p>Dürülüş, bir <em>ahid</em> cümlesinin içinde geliyor.</p>
+
+<p>Demek ki kitabın kapanışı bir felaket haberi değil; Söz Sahibinin sözünü tutmasıdır.</p>
+
+<div class="fasila"><span>هو</span></div>
+
+<p>Şimdi iki ayeti birlikte okuyunca gönle başka bir şey geliyor.</p>
+
+<p>Başlangıç:</p>
+
+<p>Allah gereği gibi bilinmedi.</p>
+
+<p>Sonuç:</p>
+
+<p>Çünkü insanlar açılmış kitabı kitap zannettiler.</p>
+
+<p>Halbuki kitap Yazanı gösteriyordu.</p>
+
+<div class="fasila"><span>هو</span></div>
+
+<p>Tasavvuf ehli bazen şöyle der:</p>
+
+<blockquote>"Kıyamet sadece dünyanın sonu değildir; kulun kendi vehminin de sonudur."</blockquote>
+
+<p>İnsan "Ben yapıyorum." dediği sürece, sayfalar açıktır.</p>
+
+<p>Bir gün…</p>
+
+<p>O kitap dürülür.</p>
+
+<p>"Ben" dediği bütün sayfalar kapanır.</p>
+
+<p>Geriye yalnız Hak kalır.</p>
+
+<p>Bu yüzden bazı arifler,</p>
+
+<blockquote>"Kıyamet kopmadan önce kıyametini kopar."</blockquote>
+
+<p>demişlerdir.</p>
+
+<p>Yani…</p>
+
+<p>Benliğin saltanatını dür.</p>
+
+<div class="fasila"><span>هو</span></div>
+
+<p>Bu bana İbrahim Sûresi'ndeki şu ayeti de hatırlatıyor:</p>
+
+<blockquote>"O gün yer başka bir yere, gökler de başka göklere dönüştürülür…" (İbrahim 14/48)</blockquote>
+
+<p>Demek ki mesele yalnız yok etmek değildir.</p>
+
+<p>Başka bir mertebeye geçirmektir.</p>
+
+<p>Tohumun çatlaması gibi…</p>
+
+<p>Anne rahminden çıkmak gibi…</p>
+
+<p>Dünyadan ahirete doğmak gibi…</p>
+
+<div class="fasila"><span>هو</span></div>
+
+<p>Ve gönlüme şu ince bağ düşüyor.</p>
+
+<p>Enbiyâ Sûresi diyor ki:</p>
+
+<p><span class="vurgu">"Göğü düreriz."</span></p>
+
+<p>Zümer Sûresi diyor ki:</p>
+
+<p><span class="vurgu">"Yeryüzü bütünüyle O'nun kabzasındadır."</span></p>
+
+<p>Biri yukarıyı…</p>
+
+<p>Biri aşağıyı anlatıyor.</p>
+
+<p>Sanki ikisi birlikte şöyle fısıldıyor:</p>
+
+<blockquote>"Sen ortada gördüğün bütün âlemi bağımsız sanıyorsun. Hâlbuki başı da sonu da, yukarısı da aşağısı da O'nun kudretindedir."</blockquote>
+
+<p>Bir de kapanışlarına bakalım.</p>
+
+<p>Zümer 67, <span class="vurgu">"Sübhânehû ve teâlâ"</span> ile bitiyor — tenzih.</p>
+
+<p>Enbiyâ 104, <span class="vurgu">"İnnâ künnâ fâilîn"</span> ile — tahakkuk.</p>
+
+<p>Biri diyor ki: "O, senin zannın gibi değildir."</p>
+
+<p>Diğeri diyor ki: "Ama vaadi, zannın gibi belirsiz de değildir."</p>
+
+<p>Celâl ile cemâl, aynı dürülüşte kucaklaşıyor.</p>
+
+<p>İnsan ise bu iki sonsuzluk arasında küçücük bir misafir…</p>
+
+<p>Ama öyle bir misafir ki, kalbi Rabbini tanımaya açılırsa, kâinatın açılışını da kapanışını da bir korku haberi olarak değil, Emanet Sahibinin emanetini dilediği vakit toplaması olarak okumaya başlar.</p>
+
+<div class="kapanis">
+  <p>Rabbimiz bize bu ayetleri yalnız kıyametin haberi olarak değil; her nefeste O'nun mutlak kudretini, kendi aczimizi ve O'na olan ihtiyacımızı hatırlatan bir uyanış vesilesi kılsın.</p>
+  <p><em>"Yevme tubeddelü'l-ardu gayra'l-ard…"</em> gelmeden önce, kalbimizi kendi rızasına çevirsin.</p>
+  <p class="amin">Âmin yâ Muîn.</p>
+  <div class="hu-kapanis">هو</div>
+</div>
+
+<footer>
+  deeplove
+  <span class="motto">not a sound, a return</span>
+</footer>
 
 </div>
 
