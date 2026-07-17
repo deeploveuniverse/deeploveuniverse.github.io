@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hayya ale's-Salâh — deeplove</title>
+<meta name="description" content="Tâhâ 131–132 üzerine bir davet denemesi: Ya kapı çalınıyorsa? Ya rızık namazdan çalınmıyor, namazla açılıyorsa?">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0b08;
+    --bg-soft: #14110c;
+    --gold: #c9a227;
+    --gold-soft: #a8862a;
+    --gold-faint: rgba(201, 162, 39, 0.28);
+    --ink: #e8e0cf;
+    --ink-dim: #b8ad95;
+    --line: rgba(201, 162, 39, 0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.22rem;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* هو filigran */
+  .watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Amiri', serif;
+    font-size: clamp(18rem, 55vw, 34rem);
+    color: rgba(201, 162, 39, 0.035);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    line-height: 1;
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 1.4rem;
+  }
+
+  /* ── Başlık bölgesi ── */
+  header {
+    text-align: center;
+    padding: 5.5rem 0 3.5rem;
+  }
+
+  .kategori {
+    font-size: 0.82rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-bottom: 2.4rem;
+  }
+
+  .besmele {
+    font-family: 'Amiri', serif;
+    font-size: 1.9rem;
+    color: var(--gold);
+    margin-bottom: 2.6rem;
+    opacity: 0.9;
+  }
+
+  h1 {
+    font-family: 'Amiri', serif;
+    font-weight: 400;
+    font-size: clamp(2.6rem, 8vw, 3.8rem);
+    color: var(--gold);
+    line-height: 1.25;
+    margin-bottom: 1.1rem;
+  }
+
+  .alt-baslik {
+    font-style: italic;
+    font-size: 1.28rem;
+    color: var(--ink-dim);
+    max-width: 30ch;
+    margin: 0 auto;
+  }
+
+  .ayrac {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 3rem auto;
+    color: var(--gold-faint);
+  }
+  .ayrac::before, .ayrac::after {
+    content: "";
+    height: 1px;
+    width: 72px;
+    background: linear-gradient(90deg, transparent, var(--gold-faint));
+  }
+  .ayrac::after {
+    background: linear-gradient(90deg, var(--gold-faint), transparent);
+  }
+  .ayrac span {
+    font-family: 'Amiri', serif;
+    font-size: 1.05rem;
+    color: var(--gold-soft);
+  }
+
+  /* ── Ayet kutusu ── */
+  .ayet {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 2.6rem 1.8rem;
+    margin: 3rem 0;
+    text-align: center;
+  }
+  .ayet .arapca {
+    font-family: 'Amiri', serif;
+    font-size: 1.75rem;
+    line-height: 2.3;
+    color: var(--gold);
+    direction: rtl;
+    margin-bottom: 1.6rem;
+  }
+  .ayet .meal {
+    font-style: italic;
+    color: var(--ink-dim);
+    font-size: 1.12rem;
+    max-width: 48ch;
+    margin: 0 auto 0.9rem;
+  }
+  .ayet .kaynak {
+    font-size: 0.88rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+  }
+
+  /* ── Kapı vuruşu: "ya … ise?" nakaratları ── */
+  .kapi {
+    text-align: center;
+    margin: 4.2rem auto;
+    padding: 0 1rem;
+  }
+  .kapi .vuruş {
+    font-size: 0.8rem;
+    letter-spacing: 0.55em;
+    color: var(--gold-faint);
+    margin-bottom: 1.1rem;
+    user-select: none;
+  }
+  .kapi p {
+    font-style: italic;
+    font-size: 1.55rem;
+    line-height: 1.55;
+    color: var(--gold);
+    max-width: 26ch;
+    margin: 0 auto;
+  }
+
+  /* ── Gövde ── */
+  section { margin: 3.4rem 0; }
+
+  h2 {
+    font-family: 'Amiri', serif;
+    font-weight: 400;
+    font-size: 1.85rem;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+    text-align: center;
+  }
+
+  p + p { margin-top: 1.35rem; }
+
+  em { color: var(--ink); }
+
+  .vurgu {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  /* ── Kapanış ── */
+  .kapanis {
+    text-align: center;
+    margin: 5rem 0 3rem;
+  }
+  .kapanis .hu {
+    font-family: 'Amiri', serif;
+    font-size: 3rem;
+    color: var(--gold);
+    margin-top: 2.2rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 3rem 0 4rem;
+    border-top: 1px solid var(--line);
+  }
+  footer .marka {
+    font-size: 0.95rem;
+    letter-spacing: 0.5em;
+    text-transform: lowercase;
+    color: var(--gold-soft);
+    margin-bottom: 0.7rem;
+  }
+  footer .slogan {
+    font-style: italic;
+    color: var(--ink-dim);
+    font-size: 1.02rem;
+  }
+
+  ::selection { background: var(--gold-faint); color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="watermark" aria-hidden="true">هو</div>
+
+<div class="page">
+
+  <header>
+    <div class="kategori">Makale · Alaaddin Eczanesi</div>
+    <div class="besmele">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ</div>
+    <h1>Hayya ale's-Salâh</h1>
+    <p class="alt-baslik">Ya bu ses, bir hüküm değil de bir kapı vuruşuysa?</p>
+  </header>
+
+  <div class="ayrac"><span>هو</span></div>
+
+  <section>
+    <p>Bazı sorular cevap istemez; kapı ister. "Ya öyleyse?" diye başlayan her cümle, aslında bir eşiğe dokunuştur. İnsanlığın duyduğu en eski, en sadık "ya öyleyse" ise günde beş kere minarelerden yükselir: <span class="vurgu">Hayya ale's-salâh.</span> Meallerde "haydi namaza" diye geçer; ama <em>hayya</em> emir kipinden çok bir çağrı nidasıdır — gel, yaklaş, koş. Ezan hüküm okumaz. Ezan kapı çalar. İçeri girmez, kolundan tutmaz; çalar ve bekler.</p>
+    <p>Bu yazı da bir hüküm değil. Bu yazı, Tâhâ sûresinin art arda gelen iki ayetinin — 131 ve 132'nin — gönül kapısında bıraktığı birkaç vuruştan ibaret. Kapıyı açmak okuyana kalmış.</p>
+  </section>
+
+  <div class="ayet">
+    <div class="arapca">وَلَا تَمُدَّنَّ عَيْنَيْكَ اِلٰى مَا مَتَّعْنَا بِه۪ٓ اَزْوَاجاً مِنْهُمْ زَهْرَةَ الْحَيٰوةِ الدُّنْيَا لِنَفْتِنَهُمْ ف۪يهِۜ وَرِزْقُ رَبِّكَ خَيْرٌ وَاَبْقٰى</div>
+    <p class="meal">"Onlardan bazı zümrelere, kendilerini imtihan edelim diye verdiğimiz dünya hayatının süsüne sakın gözlerini dikme. Rabbinin rızkı daha hayırlı ve daha kalıcıdır."</p>
+    <div class="kaynak">Tâhâ · 131</div>
+  </div>
+
+  <section>
+    <h2>Uzayan Göz</h2>
+    <p>Ayetteki yasak, bakmak değildir. <em>Lâ temuddenne ayneyke</em> — "medde" uzatmak demektir; yasaklanan, bakışı <em>uzatmaktır</em>. Göz değer ve geçer; bunda beis yok. Ama gözü bir şeyin üzerine serip orada bırakmak, ona görünmez bir iple bağlanmaktır. İp bir kere bağlandı mı, artık o şey nereye giderse kalp de oraya sürüklenir.</p>
+    <p>Yasaklanan manzaranın adı da inceliklidir: <span class="vurgu">zehratü'l-hayâti'd-dünyâ</span> — dünya hayatının çiçeği. Çiçek çirkin değildir; Kur'an dünyaya "çirkin" demiyor, "çiçek" diyor. Ama çiçeğin hükmü bellidir: sabah açar, akşam boynunu büker. Müfessirlerin bu kelimede gördüğü şey, ziynetin göz alıcı fakat çabuk solan yüzüdür. Ve ayet o çiçeğin niçin verildiğini de saklamaz: <em>li neftinehum fîh</em> — onları onunla imtihan edelim diye. Fitne, kuyumcunun altını ateşte ayrıştırmasından gelir. Demek ki vitrindeki debdebe ikram değil, ateşe sürülmüş bir mihenktir.</p>
+    <p>Çağımızın en geniş vitrini avucumuzda duruyor. Parmak kaydıkça göz uzuyor: başkasının evi, arabası, sofrası, seyahati — zehranın piksellenmiş hâli. Ayet sanki bu çağa eğilmiş de kulağımıza söylüyor: görmek serbest, dikmek yasak. Çünkü uzayan her gözün ucunda kısalan bir kalp var.</p>
+  </section>
+
+  <div class="kapi">
+    <div class="vuruş">✦ ✦ ✦</div>
+    <p>Ya göz uzadıkça<br>kalp kısalıyorsa?</p>
+  </div>
+
+  <section>
+    <h2>İki Bakış, Bir Çiçek</h2>
+    <p>Peki sebepler âlemine hiç mi bakmayacağız? Rabbimiz eşyayı görmemizi istemişse, nazarı büsbütün kapatmak da olmaz. Sır şurada: ayet nazarı değil, nazarın <em>niyetini</em> terbiye ediyor. Aynı çiçeğe iki kişi bakar. Biri "keşke benim olsa" der — gözü uzamıştır, çiçekte konaklamıştır. Öteki "Sübhânallah" der — gözü kısalmış, kalbi uzamıştır; çiçekten geçip Bahçıvan'a varmıştır. Birincisi temellük nazarıdır, ikincisi ibret nazarı. Yasak olan birincidir; ikincisi zaten ibadettir.</p>
+    <p>Ârif eşyaya bakar, ama bakışı eşyada gecelemez. Her sûret ona bir ayna olur; aynayı sever fakat aynada kalmaz. Aynada kalan, aynadakini unutur.</p>
+    <p>Bir mihenk isteyene: bir şeye baktıktan sonra içinde kalan tortuya bak. Şükür mü kaldı, sızı mı? Şükür kaldıysa nazar ibretti. Sızı kaldıysa göz uzamış demektir — o an bakışı geri çağırmalı, bir istiğfar ile gözü yıkamalı.</p>
+  </section>
+
+  <div class="kapi">
+    <div class="vuruş">✦ ✦ ✦</div>
+    <p>Ya baktığın her şey<br>bir ayna ise —<br>ve sen aynada kaldıysan?</p>
+  </div>
+
+  <div class="ayet">
+    <div class="arapca">وَأْمُرْ اَهْلَكَ بِالصَّلٰوةِ وَاصْطَبِرْ عَلَيْهَاۜ لَا نَسْـَٔلُكَ رِزْقاًۜ نَحْنُ نَرْزُقُكَۜ وَالْعَاقِبَةُ لِلتَّقْوٰى</div>
+    <p class="meal">"Ailene namazı emret, kendin de onda sabırla sebat et. Biz senden rızık istemiyoruz; seni Biz rızıklandırırız. Güzel âkıbet takvânındır."</p>
+    <div class="kaynak">Tâhâ · 132</div>
+  </div>
+
+  <section>
+    <h2>Seher Vakti Bir Kapı</h2>
+    <p>Sûrenin şefkatli sırasına bakın: 131 gözü toplar, 132 kalbi namaza koyar. Dağılan nazarın ilacı, kıbleye sabitlenen nazardır. Dünyanın vitrini karşısında daralan göğse verilen reçete iki kelimedir: <span class="vurgu">salât</span> ve <span class="vurgu">ıstabir</span>.</p>
+    <p>Ve bu ayetin en güzel tefsiri bir kapının önünde yazılmıştır. Rivayet ederler ki bu ayet indikten sonra Efendimiz aleyhissalâtü vesselâm, aylarca her sabah namazı vaktinde Hz. Ali ile Hz. Fâtıma'nın kapısına uğrar, <em>"es-salâh, ehle'l-beyt"</em> der ve bu ayeti okurdu. Dikkat: içeri girmez, kapıyı yumruklamaz, hesap sormaz. Selam verir ve geçer. Emrin sûreti, seher vaktinde çalınan nazik bir kapıdır. Davetin edebi budur işte — ısrar değil, koku bırakmak. Söz azaltıp hâl çoğaltmak.</p>
+    <p>Ayetin ikinci emri de bunu mühürler: <em>ıstabir</em> — sıradan sabır değil; kendini sabra sara sara sebat etmek, tekrarda direnmek. Evdeki en güçlü emir, seccadenin kendisidir. Çocuk söze değil, sabah karanlığında kalkan bir sırta bakar. Yıllar sonra hatırlanacak olan bir azar değil, bir seher sükûnetinin kokusudur.</p>
+    <p>Sonra o çarpıcı cümle gelir: <em>lâ nes'eluke rizkâ</em> — Biz senden rızık istemiyoruz. Namaz, Allah'ın bir ihtiyacı değildir; sofrayı kuran O'dur, davet edilen biziz. Kul "namaz kılarsam işim aksar" hesabındayken ayet defteri ters çevirir: sen Bizi doyurmuyorsun, Biz seni doyuruyoruz. Rızık kaygısı bir perdedir; perde kalkınca geriye tek cümle kalır: <em>ve'l-âkibetü li't-takvâ</em> — son, korunmuş bir kalbindir.</p>
+  </section>
+
+  <div class="kapi">
+    <div class="vuruş">✦ ✦ ✦</div>
+    <p>Ya rızık namazdan çalınmıyor,<br>namazla açılıyorsa?</p>
+  </div>
+
+  <section>
+    <h2>Ya Gelirsen?</h2>
+    <p>Şimdi baştaki soruya dönelim. Günde beş kere semadan sarkıtılan o ip — <em>hayya ale's-salâh</em> — bir hüküm mü, bir davet mi? Hüküm olsaydı cevabı korku olurdu. Davet olduğu için cevabı iştiyaktır. Ve her davet, içinde bir "ya öyleyse" taşır:</p>
+    <p><em>Ya bu ses seni çağırıyorsa — kalabalığın içinden, ismini bilerek?</em></p>
+    <p><em>Ya beş vakit, günün beş yerine gizlenmiş beş kapıysa — ve her birinin ardında seni bekleyen varsa?</em></p>
+    <p><em>Ya bugüne kadar kaçırdığını sandığın hiçbir şey kaçmamışsa da, asıl kaçan o kapıların önünden geçip gittiğin anlar ise?</em></p>
+    <p>Bu soruların cevabı düşünülmez; yürünür. <em>Hayya</em>, "düşün" demiyor — "gel" diyor. Bir adım, bir abdest, bir tekbir. Kapı zaten aralık; çalan da aslında biz değiliz. Çalan O'dur, açması bize kalmıştır.</p>
+  </section>
+
+  <div class="kapanis">
+    <p class="alt-baslik" style="font-size:1.35rem;">Ezan yine okunacak.<br>Ya bu sefer icabet edersen?</p>
+    <div class="hu">هو</div>
+  </div>
+
+  <footer>
+    <div class="marka">deeplove</div>
+    <div class="slogan">bir ses değil, bir dönüş</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
