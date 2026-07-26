@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zerreden Küll'e Hilâfet — deeplove</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0c0e;
+  --bg-soft:#111318;
+  --gold:#c9a227;
+  --gold-soft:#d9be6a;
+  --ink:#e9e4d8;
+  --muted:#8f897c;
+  --line:rgba(201,162,39,.22);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:
+    radial-gradient(120% 80% at 50% 0%, #14161b 0%, var(--bg) 62%);
+  color:var(--ink);
+  font-family:'Cormorant Garamond', Georgia, serif;
+  font-size:20px;
+  line-height:1.85;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* هو watermark */
+.watermark{
+  position:fixed;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  font-family:'Amiri', serif;
+  font-size:44vh;
+  color:var(--gold);
+  opacity:.035;
+  pointer-events:none;
+  user-select:none;
+  z-index:0;
+  line-height:1;
+}
+
+.wrap{
+  position:relative;
+  z-index:1;
+  max-width:720px;
+  margin:0 auto;
+  padding:14vh 28px 12vh;
+}
+
+/* Header */
+.eyebrow{
+  font-size:.72rem;
+  letter-spacing:.42em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-align:center;
+  margin-bottom:2.2rem;
+}
+h1{
+  font-weight:400;
+  font-size:clamp(2.4rem,7vw,3.6rem);
+  line-height:1.12;
+  text-align:center;
+  margin:0 0 1.4rem;
+  color:var(--ink);
+}
+.epigraph{
+  text-align:center;
+  color:var(--gold-soft);
+  font-style:italic;
+  font-size:1.05rem;
+  margin:0 auto 1rem;
+  max-width:34ch;
+}
+.epigraph .ar{
+  display:block;
+  font-family:'Amiri', serif;
+  font-style:normal;
+  font-size:1.5rem;
+  margin-bottom:.5rem;
+  color:var(--gold);
+  direction:rtl;
+}
+.epigraph .ref{
+  display:block;
+  font-style:normal;
+  font-size:.78rem;
+  letter-spacing:.2em;
+  color:var(--muted);
+  margin-top:.6rem;
+}
+
+/* Section marker */
+.rub{
+  text-align:center;
+  color:var(--gold);
+  opacity:.55;
+  font-family:'Amiri', serif;
+  font-size:1.5rem;
+  margin:4.2rem 0 3.2rem;
+  line-height:1;
+}
+
+h2{
+  font-weight:400;
+  font-size:1.72rem;
+  letter-spacing:.02em;
+  color:var(--gold-soft);
+  text-align:center;
+  margin:0 0 1.8rem;
+}
+p{margin:0 0 1.35rem;}
+em{font-style:italic;color:var(--gold-soft);}
+
+/* Ayet block */
+.ayet{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:2.2rem 0;
+  margin:2.6rem 0;
+  text-align:center;
+  background:linear-gradient(180deg, rgba(201,162,39,.045), transparent 70%);
+}
+.ayet .ar{
+  font-family:'Amiri', serif;
+  direction:rtl;
+  font-size:1.85rem;
+  line-height:2.1;
+  color:var(--gold);
+  margin-bottom:1rem;
+  display:block;
+}
+.ayet .meal{
+  font-size:1.12rem;
+  font-style:italic;
+  color:var(--ink);
+  margin:0 auto .8rem;
+  max-width:40ch;
+}
+.ayet .ref{
+  font-size:.74rem;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* Three tiers */
+.katman{margin:2.6rem 0;}
+.katman-baslik{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  margin-bottom:1rem;
+}
+.katman-baslik span{
+  font-size:.76rem;
+  letter-spacing:.4em;
+  text-transform:uppercase;
+  color:var(--gold);
+  white-space:nowrap;
+}
+.katman-baslik:after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:var(--line);
+}
+.katman p{color:#ded8cb;}
+
+/* Zerreler / closing */
+.zubde{
+  text-align:center;
+  font-size:1.2rem;
+  font-style:italic;
+  color:var(--gold-soft);
+  margin:3rem auto;
+  max-width:36ch;
+  line-height:1.7;
+}
+
+.dua{
+  border:1px solid var(--line);
+  padding:2.6rem 2rem;
+  margin-top:3rem;
+  text-align:center;
+  background:rgba(201,162,39,.03);
+}
+.dua h2{margin-bottom:1.4rem;}
+.dua p{color:var(--ink);font-size:1.06rem;margin-bottom:.9rem;}
+.dua .amin{
+  color:var(--gold);
+  letter-spacing:.3em;
+  font-size:.85rem;
+  text-transform:uppercase;
+  margin-top:1.6rem;
+}
+
+footer{
+  margin-top:6rem;
+  text-align:center;
+  color:var(--muted);
+  font-size:.82rem;
+  letter-spacing:.24em;
+}
+footer .hu{
+  font-family:'Amiri', serif;
+  font-size:2.2rem;
+  color:var(--gold);
+  display:block;
+  margin-bottom:1.2rem;
+  letter-spacing:0;
+  opacity:.8;
+}
+
+/* entrance */
+.fade{opacity:0;transform:translateY(14px);animation:rise 1.4s ease forwards;}
+.fade:nth-of-type(2){animation-delay:.15s;}
+@keyframes rise{to{opacity:1;transform:none;}}
+@media (prefers-reduced-motion: reduce){
+  .fade{animation:none;opacity:1;transform:none;}
+  html{scroll-behavior:auto;}
+}
+@media (max-width:640px){
+  body{font-size:18px;}
+  .wrap{padding:9vh 22px 8vh;}
+  .ayet .ar{font-size:1.5rem;line-height:1.9;}
+  .watermark{font-size:34vh;}
+}
+</style>
+</head>
+<body>
+
+<div class="watermark" aria-hidden="true">هو</div>
+
+<div class="wrap">
+
+  <div class="fade">
+    <div class="eyebrow">Makale</div>
+    <h1>Zerreden Küll'e Hilâfet</h1>
+    <div class="epigraph">
+      <span class="ar">كُلَّ يَوْمٍ هُوَ فِي شَأْنٍ</span>
+      O, her an bir şe'ndedir.
+      <span class="ref">Rahmân 55:29</span>
+    </div>
+  </div>
+
+  <div class="rub" aria-hidden="true">۞</div>
+
+  <section class="fade">
+    <h2>Acziyetin Kapısı</h2>
+    <p>İnsan kendi bedenindeki zerreleri dahi yönetemez. Kalbin atışı, nefesin gelişi, hücrenin bölünmesi kendi iradesiyle olmaz. Uykuda kanını kim çevirir? Bir yaranın kapanmasına imzayı kim atar? Sabaha çıkacağını hangi defterden okudun?</p>
+    <p>Acziyet bir eksiklik değil, bir kapıdır. Kapı olduğu için de eşiğinde eğilmek gerekir; eğilmeden geçilen kapı, kapı değil duvardır. İnsan elinden geleni yapar, sonra elinden gelmeyene bakar — <em>hilâfet tam orada başlar.</em> Zira ancak elinde olmayanı bilen, elindekini emanet bilir.</p>
+    <p>Bu yüzden yolun büyükleri kudretten değil, acizden söz etmiştir. Aczini bilmek ilmin sonu değil, ilme açılan ilk penceredir: kul, kendi hiçliğini gördüğü nispette Sahibini görür.</p>
+  </section>
+
+  <div class="rub" aria-hidden="true">۞</div>
+
+  <section class="fade">
+    <h2>Hilâfet</h2>
+
+    <div class="ayet">
+      <span class="ar">وَإِذْ قَالَ رَبُّكَ لِلْمَلَٰٓئِكَةِ إِنِّى جَاعِلٌ فِى ٱلْأَرْضِ خَلِيفَةً</span>
+      <div class="meal">"Hani Rabbin meleklere, 'Ben yeryüzünde bir halîfe kılacağım' demişti."</div>
+      <div class="ref">Bakara 2:30</div>
+    </div>
+
+    <div class="katman">
+      <div class="katman-baslik"><span>Zâhir</span></div>
+      <p>Ayetin fiili dikkat ister: <em>hâlikun</em> (yaratacağım) değil, <em>câ'ilun</em> (kılacağım) buyrulur. <em>Halk</em> vücut vermektir; <em>ca'l</em> ise nispet, vazife ve mertebe vermektir. Demek ki insanın yaratılışı ayrı, halîfe kılınışı ayrıdır. Var olmak insanı halîfe yapmaz; taşınan emanet yapar.</p>
+      <p><em>Halîfe</em> kelimesi <em>h-l-f</em> kökündendir: ardından gelmek, arkada kalmak, birinin yerine geçmek. Aynı kökten <em>halef</em> (sonra gelen), <em>ihtilâf</em> (arkadan ayrı düşmek), <em>hulf</em> (sözden dönmek) türer. Kelimenin kendi mizacında bile bir uyarı gizlidir: halîfe önde yürüyen değil, <em>birinin ardından gelen ve onun adına duran</em>dır.</p>
+      <p>Taberî'ye göre halîfe, birbirinin ardından gelen nesillerdir; İbn Kesîr bunu karn karn devam eden beşerî silsile olarak okur. Râzî ise "halîfetullah" tabirinin ancak şu şartla caiz olduğunu söyler: Allah gaib olduğu için değil, kul O'nun hükmünü izhâr ettiği için. Meleklerin sorusu cevapsız kalmaz; cevap hemen ardından gelir: hilâfetin sırrı kılıçta değil, <em>ilm-i esmâ</em>dadır (2:31). İsimleri bilen, isimlerin sahibine emanetçi olur.</p>
+    </div>
+
+    <div class="katman">
+      <div class="katman-baslik"><span>Bâtın</span></div>
+      <p>Halîfe, mülkün sahibi değil; aynanın kendisidir. İbn Arabî'nin lisanıyla Âdem, âlem aynasının <em>cilâ</em>sıdır — ayna cilâlanmadıkça sûret görünmez; görünen sûret de aynanın malı değildir. Cîlî'nin tabiriyle insan <em>nüsha-i câmia</em>dır: bütün isimleri kendinde toplayan bir mecmûa. Öyleyse hilâfet, isimlere hükmetmek değil, <em>isimlere mahal olmak</em>tır.</p>
+      <p>Aynanın hüneri yoktur, temizliği vardır. Kudret iddia eden ayna, üzerine düşen sûreti kendine mal etmiş olur; bu da aynanın körelmesidir. Bir aynanın tek işi vardır: kendini araya karıştırmamak.</p>
+      <p>Ve kelime yine hatırlatır: halîfe <em>halef</em>tir, öne geçen değil. Öne geçen halîfe olmaktan çıkar, dava sahibi olur. Emanet taşıyan el ile mülke uzanan el, aynı el olamaz.</p>
+    </div>
+
+    <div class="katman">
+      <div class="katman-baslik"><span>Hâl</span></div>
+      <p>Hilâfet kalbe bir makam iddiası olarak girerse, girdiği yerde firavunluk büyütür; bir emanet şuuru olarak girerse, girdiği yeri yumuşatır. Alâmeti bellidir: emaneti taşıyan, <em>alırken korkar, verirken sevinir.</em></p>
+      <p>Sabah gözünü açtığında ilk cümlen "benim günüm" değil "O'nun günü, bana emanet" olduğunda; elindeki işi, malı, evladı ve sözü tutarken parmaklarını gevşettiğinde; yetkin olduğun yerde sesini alçalttığında — hilâfet o gün, o evde, o mecliste tezahür etmiş olur.</p>
+      <p>Bugün için ölçü: bir kere "benim" diyeceğin yerde sus, "emanet" de. Emaneti taşıyanın yürüyüşü başkadır; kırmadan taşımak için yavaşlamak zorundadır. Acele, mülk sahiplerinin yürüyüşüdür.</p>
+    </div>
+  </section>
+
+  <div class="rub" aria-hidden="true">۞</div>
+
+  <section class="fade">
+    <h2>Cüz ile Küll</h2>
+
+    <div class="ayet">
+      <span class="ar">وَإِن مِّن شَىْءٍ إِلَّا يُسَبِّحُ بِحَمْدِهِۦ وَلَٰكِن لَّا تَفْقَهُونَ تَسْبِيحَهُمْ</span>
+      <div class="meal">"Hiçbir şey yoktur ki O'nu hamd ile tesbih etmesin; fakat siz onların tesbihini anlamazsınız."</div>
+      <div class="ref">İsrâ 17:44</div>
+    </div>
+
+    <div class="katman">
+      <div class="katman-baslik"><span>Zâhir</span></div>
+      <p>Yedi gök, yer ve onlarda bulunan her şey tesbih hâlindedir. Müfessirlerin çoğu bunu hakiki bir tesbih olarak okur: eşyanın kendi lisanıyla, bize kapalı bir dille. Kusur bizdedir — ayet "onlar tesbih etmez" demez, <em>"siz anlamazsınız"</em> der. Sağırlık sesin yokluğuna delil değildir.</p>
+    </div>
+
+    <div class="katman">
+      <div class="katman-baslik"><span>Bâtın</span></div>
+      <p>Kâinat zaten secdededir. Zerre yörüngesinde, kan damarında, yaprak ışığa dönüşünde — hepsi emre münkâddır. İnsanın farkı itaat değil <em>şuur</em>dur: o secdeye iradesiyle katılabilen tek varlık. Onun için insanın secdesi, kâinatın secdesinin dile gelişidir; küll cüzde konuşur.</p>
+      <p>Ve şe'n sırrı buradan bakılır: zerre her an yeniden tecellî almaktadır. Sen zerreye hükmedemezsin, çünkü senin elin daima <em>bir önceki âna</em> uzanır; zerre çoktan yeni bir şe'ne geçmiştir. Halîfe, tecellîye yetişmeye çalışan değil; tecellînin geçtiği yerde durup edeple bekleyendir.</p>
+    </div>
+
+    <div class="katman">
+      <div class="katman-baslik"><span>Hâl</span></div>
+      <p>İnsan zerrelerine hükmedemez; fakat yönünü Hakk'a çevirdiğinde zerrelerin secdesine şuurla iştirak eder. Hükmetmek değil <em>iştirak</em> — hilâfetin ilk dersi budur.</p>
+      <p>Kalbini Hakk'a teslim eden, kâinatın secdesini okumaya başlar. Okumak da bir çeşit halîfeliktir; zira Kitap, kendini emanetçiye açar.</p>
+    </div>
+  </section>
+
+  <div class="rub" aria-hidden="true">۞</div>
+
+  <section class="fade">
+    <h2>Nebevî Hilâfet</h2>
+    <p>Resûlullah'ın (s.a.v.) büyüklüğü, eşyaya kendi kuvvetiyle tesir etmesinde değil; Rahmet'in aynası oluşundadır. <em>"Biz seni ancak âlemlere rahmet olarak gönderdik."</em> (Enbiyâ 21:107)</p>
+    <p>Avucundaki taşların tesbihi, hurma kütüğünün — <em>hannâne</em>nin — iniltisi, parmaklarından akan su... Bunlar bir kudret gösterisi değil, aynalığın remzidir. Hannâne inledi, çünkü ayrılığı fark etti. Taş tesbih etti, çünkü tesbihini işiten bir avuç bulmuştu. Mucize, tabiatın bozulması değil; <em>tabiatın asıl lisanının bir an duyulması</em>dır.</p>
+    <p>Ve o mübarek zat, en yüksek makamda dahi kendini <em>abd</em> diye andı. Mi'racda zikredilen sıfat sultanlık değil kulluktu: "Kulunu bir gece yürüten..." (İsrâ 17:1). Demek ki hilâfetin zirvesi, kulluğun zirvesidir. En yükseğe çıkarılan, en çok kul olandır.</p>
+  </section>
+
+  <div class="rub" aria-hidden="true">۞</div>
+
+  <section class="fade">
+    <h2>Zerrelerin Secdesi</h2>
+    <p>Her nefes zikre döndüğünde, her bakış edeple yöneldiğinde, zerreler secdelerini şuurla yaşamaya başlar. O vakit beden bir dergâh olur: kan devranda, nefes zikirde, göz mürakabede.</p>
+    <p>Zerre secdeden nasıl kaldırılır? Haram lokmayla, kırıcı sözle, gafletle. Zerre yerindeydi; onu yerinden eden biziz. Tövbe de bu yüzden yeni bir şey inşa etmek değil, <em>zerreyi yerine iade etmek</em>tir.</p>
+    <div class="zubde">Hilâfet, zerrelere hükmetmek değil;<br>onları secdeden ayırmamaktır.</div>
+  </section>
+
+  <section class="dua fade">
+    <h2>Duâ</h2>
+    <p>Yâ Rabbi... Zerrelerimiz secdeden başını kaldırmasın.</p>
+    <p>Kalbimizi Senin rızanın çekimine teslim eyle.</p>
+    <p>Bize hükmetmeyi değil, emanet taşımayı öğret.</p>
+    <p>Cüzde Seni görmeyi, küllü Seninle sevmeyi nasip eyle.</p>
+    <div class="amin">Âmin</div>
+  </section>
+
+  <footer>
+    <span class="hu">هو</span>
+    bir ses değil, bir dönüş
+  </footer>
+
+</div>
+</body>
+</html>
