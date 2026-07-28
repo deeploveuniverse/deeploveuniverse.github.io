@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tahiyyât — Sahiplik İddiasının Bırakıldığı Yer | deeplove</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --siyah:#0b0b0d;
+    --gece:#121216;
+    --altin:#c9a227;
+    --altin-soluk:#8f7420;
+    --sut:#e8e3d9;
+    --kul:#9a958c;
+    --cizgi:rgba(201,162,39,.22);
+  }
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--siyah);
+    color:var(--sut);
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-weight:300;
+    font-size:20px;
+    line-height:1.85;
+    letter-spacing:.2px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* هو filigranı */
+  .filigran{
+    position:fixed;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    font-family:'Amiri',serif;
+    font-size:min(58vw,720px);
+    color:var(--altin);
+    opacity:.032;
+    pointer-events:none;
+    user-select:none;
+    z-index:0;
+    line-height:1;
+  }
+
+  .sayfa{
+    position:relative;
+    z-index:1;
+    max-width:760px;
+    margin:0 auto;
+    padding:0 28px 120px;
+  }
+
+  /* ——— Başlık ——— */
+  header{
+    padding:26vh 0 0;
+    text-align:center;
+  }
+
+  .ustyazi{
+    font-size:13px;
+    letter-spacing:.42em;
+    text-transform:uppercase;
+    color:var(--altin-soluk);
+    margin-bottom:38px;
+  }
+
+  h1{
+    font-family:'Amiri',serif;
+    font-weight:400;
+    font-size:clamp(46px,9vw,86px);
+    color:var(--altin);
+    margin:0 0 10px;
+    line-height:1.1;
+    letter-spacing:.02em;
+  }
+
+  .altbaslik{
+    font-style:italic;
+    font-size:clamp(20px,3.4vw,26px);
+    color:var(--kul);
+    margin:0;
+  }
+
+  .nisan{
+    width:1px;
+    height:110px;
+    margin:56px auto 0;
+    background:linear-gradient(to bottom,transparent,var(--altin-soluk),transparent);
+  }
+
+  /* ——— Metin bloğu ——— */
+  .metin{
+    margin:96px 0;
+    padding:52px 34px;
+    border-top:1px solid var(--cizgi);
+    border-bottom:1px solid var(--cizgi);
+    background:linear-gradient(to bottom,rgba(201,162,39,.035),transparent 60%);
+    text-align:center;
+  }
+
+  .arapca{
+    font-family:'Amiri',serif;
+    direction:rtl;
+    font-size:clamp(24px,4.6vw,32px);
+    line-height:2.3;
+    color:var(--sut);
+  }
+
+  .arapca .ayrac{color:var(--altin);opacity:.55;padding:0 .35em;}
+
+  .meal{
+    margin-top:34px;
+    font-style:italic;
+    color:var(--kul);
+    font-size:18px;
+    line-height:1.9;
+  }
+
+  /* ——— Giriş ——— */
+  .giris p:first-of-type::first-letter{
+    font-family:'Amiri',serif;
+    float:left;
+    font-size:74px;
+    line-height:.82;
+    padding:6px 14px 0 0;
+    color:var(--altin);
+  }
+
+  /* ——— Bölümler ——— */
+  section{margin:110px 0 0;}
+
+  .bolum-basi{
+    display:flex;
+    align-items:baseline;
+    gap:18px;
+    margin-bottom:12px;
+  }
+
+  .bolum-basi::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--cizgi);
+  }
+
+  h2{
+    font-family:'Amiri',serif;
+    font-weight:400;
+    font-size:34px;
+    color:var(--altin);
+    margin:0;
+    letter-spacing:.04em;
+  }
+
+  .tarif{
+    display:block;
+    font-family:'Cormorant Garamond',serif;
+    font-size:14px;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--altin-soluk);
+    margin-bottom:34px;
+  }
+
+  h3{
+    font-weight:500;
+    font-size:23px;
+    color:var(--sut);
+    margin:48px 0 -6px;
+    letter-spacing:.01em;
+  }
+
+  p{margin:22px 0;}
+
+  em{color:#d8cfae;font-style:italic;}
+  strong{color:var(--altin);font-weight:500;}
+
+  .ar{font-family:'Amiri',serif;font-size:1.12em;color:#d8cfae;direction:rtl;unicode-bidi:isolate;}
+
+  /* ——— İktibas ——— */
+  blockquote{
+    margin:48px 0;
+    padding:4px 0 4px 28px;
+    border-left:1px solid var(--altin-soluk);
+    font-style:italic;
+    font-size:22px;
+    line-height:1.75;
+    color:#d8cfae;
+  }
+
+  blockquote .kaynak{
+    display:block;
+    margin-top:14px;
+    font-style:normal;
+    font-size:14px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--kul);
+  }
+
+  /* ——— Eşik: sayfanın imzası ——— */
+  .esik{
+    margin:120px 0;
+    text-align:center;
+  }
+
+  .esik-cizgi{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    color:var(--altin-soluk);
+    font-size:12px;
+    letter-spacing:.34em;
+    text-transform:uppercase;
+  }
+
+  .esik-cizgi::before,
+  .esik-cizgi::after{
+    content:"";
+    height:1px;
+    width:64px;
+    background:var(--cizgi);
+  }
+
+  .esik-soz{
+    margin-top:34px;
+    font-family:'Amiri',serif;
+    font-size:clamp(22px,3.6vw,29px);
+    line-height:1.8;
+    color:var(--altin);
+  }
+
+  /* ——— Hâl maddeleri ——— */
+  .hal-madde{
+    margin:40px 0;
+    padding-left:26px;
+    border-left:1px solid rgba(201,162,39,.14);
+  }
+
+  .hal-madde .oncu{
+    display:block;
+    font-family:'Amiri',serif;
+    color:var(--altin);
+    font-size:19px;
+    margin-bottom:6px;
+  }
+
+  /* ——— Dua ——— */
+  .dua{
+    margin:130px 0 0;
+    padding:54px 30px;
+    border:1px solid var(--cizgi);
+    text-align:center;
+    background:linear-gradient(to bottom,rgba(201,162,39,.04),transparent);
+  }
+
+  .dua p{
+    font-style:italic;
+    font-size:21px;
+    line-height:1.9;
+    color:#d8cfae;
+    margin:0 0 18px;
+  }
+
+  .amin{
+    font-family:'Amiri',serif;
+    font-size:26px;
+    color:var(--altin);
+    margin:0;
+  }
+
+  /* ——— Künye ——— */
+  footer{
+    margin-top:110px;
+    padding-top:36px;
+    border-top:1px solid var(--cizgi);
+    text-align:center;
+    color:var(--kul);
+    font-size:14px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+  }
+
+  footer .hu{
+    display:block;
+    font-family:'Amiri',serif;
+    font-size:36px;
+    color:var(--altin);
+    letter-spacing:0;
+    text-transform:none;
+    margin-bottom:22px;
+    opacity:.8;
+  }
+
+  /* ——— Açılış ——— */
+  .acilis{
+    opacity:0;
+    transform:translateY(14px);
+    animation:bel 1.5s ease forwards;
+  }
+  .acilis.g2{animation-delay:.5s;}
+  .acilis.g3{animation-delay:1s;}
+
+  @keyframes bel{to{opacity:1;transform:none;}}
+
+  @media (prefers-reduced-motion:reduce){
+    .acilis{animation:none;opacity:1;transform:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  @media (max-width:560px){
+    body{font-size:18px;}
+    .sayfa{padding:0 20px 90px;}
+    header{padding-top:16vh;}
+    .metin{padding:38px 18px;}
+    h2{font-size:29px;}
+    blockquote{font-size:20px;padding-left:20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="filigran" aria-hidden="true">هو</div>
+
+<div class="sayfa">
+
+  <header>
+    <div class="ustyazi acilis">deeplove &middot; oturuşun sırrı</div>
+    <h1 class="acilis g2">التَّحِيَّات</h1>
+    <p class="altbaslik acilis g3">Sahiplik iddiasının bırakıldığı yer</p>
+    <div class="nisan acilis g3"></div>
+  </header>
+
+  <div class="metin">
+    <div class="arapca">
+      اَلتَّحِيَّاتُ لِلّٰهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ<span class="ayrac">۞</span>
+      اَلسَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللّٰهِ وَبَرَكَاتُهُ<span class="ayrac">۞</span>
+      اَلسَّلَامُ عَلَيْنَا وَعَلٰى عِبَادِ اللّٰهِ الصَّالِحِينَ<span class="ayrac">۞</span>
+      أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللّٰهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ
+    </div>
+    <p class="meal">
+      Bütün tahiyyeler, salâvat ve tayyibât Allah'ındır. Selâm sana ey Nebî, Allah'ın rahmeti ve
+      bereketleri de. Selâm bizim ve Allah'ın sâlih kullarının üzerine olsun. Şehâdet ederim ki
+      Allah'tan başka ilâh yoktur; ve şehâdet ederim ki Muhammed O'nun kulu ve resûlüdür.
+    </p>
+  </div>
+
+  <div class="giris">
+    <p>
+      Namaz bir yolculuktur. Kıyamda durulur, rükûda eğilinir, secdede yüz yere konur. Sonra o
+      yolculuğun sonunda insan <em>oturur</em>. Ve konuşmaya tam orada başlar. Çünkü huzura varan
+      artık yürümez; varış, oturuştur.
+    </p>
+    <p>
+      Bu sayfa, o oturuşun içine bakma denemesidir. Bir bilgi dökümü değil; her gün beş kez
+      tekrarladığımız birkaç cümlenin, tekrarın altında saklı kalan mânâsını yeniden duyma
+      çabasıdır. Zâhir, Bâtın ve Hâl olarak üç kapıdan geçeceğiz. Üçü de aynı odaya açılıyor.
+    </p>
+  </div>
+
+  <!-- ZÂHİR -->
+  <section id="zahir">
+    <div class="bolum-basi"><h2>الظَّاهِر</h2></div>
+    <span class="tarif">Zâhir &middot; kelimenin kökü ve nakil</span>
+
+    <h3>Tahiyye: hayat dilemek</h3>
+    <p>
+      <strong>Tahiyyât</strong>, <span class="ar">ح ي ي</span> kökünden gelir; aynı kökten
+      <em>hayât</em> doğar. Arapların birbirine söylediği <span class="ar">حَيَّاكَ اللّٰه</span>
+      — "Allah seni yaşatsın" — bu kökün selâmıdır. Yani tahiyye, en yalın hâliyle, birine hayat
+      dilemektir.
+    </p>
+    <p>
+      Kelime cahiliyede hükümdarlara sunulan tazim ifadelerinin de adıydı. Bu sebeple İbn Hacer,
+      <em>Fethu'l-Bârî</em>'de tahiyyâtın anlam yelpazesini <strong>mülk, bekâ, azamet ve
+      selâmet</strong> diye sıralar. Cümlenin yaptığı iş böylece açılır: insanların birbirine
+      sunageldiği ne kadar yüceltme, ne kadar mülk ve devam nisbeti varsa — hepsi tek bir adrese
+      iade edilmektedir. <em>Lillâh.</em>
+    </p>
+    <p>
+      <strong>Salavât</strong> hem namazları hem duaları kuşatır; <strong>tayyibât</strong> ise
+      temiz sözü, temiz ameli, temiz kazancı. Kadîm bir taksime göre bu üçlü, kulun sunabileceği
+      ibadetin bütün cinslerini toplar: bedenî olan, malî olan, kalbî olan.
+    </p>
+
+    <h3>Teşehhüd: şahitliğe yönelmek</h3>
+    <p>
+      Bu duaya adını veren kelime ise <strong>teşehhüd</strong>tür; kökü <span class="ar">ش ه د</span>,
+      yani <em>şehide</em>: şahit olmak, hazır bulunmak, bilerek tasdik etmek. Kelime Arapçada
+      <em>tefe''ul</em> bâbındandır. Bu bâb, bir hâli bilinçle kuşanmayı, ona yönelmeyi ifade eder.
+      Öyleyse teşehhüd, "şehâdet cümlesini okumak" değil; <strong>şahitlik makamına
+      yönelmek</strong>tir.
+    </p>
+
+    <h3>Rivayet</h3>
+    <p>
+      Metnin kaynağı İbn Mes'ûd rivayetidir. Efendimiz teşehhüdü, ashâbına
+      <em>"Kur'ân'dan bir sûreyi öğretir gibi"</em> öğretmiştir. Bir de tefsir kitaplarından çok
+      tasavvuf edebiyatında dolaşan meşhur bir okuyuş vardır: Tahiyyât'ın Mi'râc gecesindeki
+      muhâverenin metni olduğu — kulun <em>et-tahiyyâtü lillâh</em>'ı, Hakk'ın
+      <em>es-selâmü aleyke</em>'si, Efendimiz'in ümmetini de katan <em>aleynâ</em>'sı. Bunu sahih
+      bir isnadla temellendiremiyoruz; <strong>işârî</strong> bir okuyuştur. Fakat asırlarca
+      taşınmasının sebebi, metnin kendi iç yapısında duruyor. Aşağıda görülecek.
+    </p>
+  </section>
+
+  <!-- Eşik -->
+  <div class="esik">
+    <div class="esik-cizgi">eşik</div>
+    <p class="esik-soz">
+      Cümle "aleyhi" değil, <strong>"aleyke"</strong>dir.<br>
+      Gıyâb değil, hitap.
+    </p>
+  </div>
+
+  <!-- BÂTIN -->
+  <section id="batin">
+    <div class="bolum-basi"><h2>الْبَاطِن</h2></div>
+    <span class="tarif">Bâtın &middot; iç katman</span>
+
+    <h3>Muhataba dönüş</h3>
+    <p>
+      Namazda oturan kul, üçüncü bir şahıstan bahsetmiyor; muhatabına dönüyor.
+      <em>Es-selâmü aleyke</em> — "sana". Mi'râc okuyuşunun asıl dayanağı burada: namaz mü'minin
+      mi'râcıdır ve teşehhüd o mi'râcın huzur ânıdır.
+    </p>
+    <p>
+      Küçük bir tarihî not, bu tercihin ağırlığını gösterir. İbn Mes'ûd'dan, Efendimiz'in
+      vefatından sonra gıyâb sîgasıyla <em>"es-selâmü ale'n-nebiyy"</em> dediği nakledilir. Cumhur
+      yine de <strong>"aleyke"</strong>de karar kılmıştır. Yani ümmet, dilbilgisinin değil
+      <strong>huzurun</strong> tarafını seçmiştir. Bu tercihin kendisi bir akîde beyanıdır.
+    </p>
+
+    <h3>İade metni</h3>
+    <p>
+      Tahiyyât baştan sona bir <strong>iade</strong>dir. Hayat O'nun, mülk O'nun, temiz olan O'nun;
+      elimizde tuttuğumuzu sandığımız hiçbir şeyin bize ait olmadığını ikrar ediyoruz. Selâm bile
+      bizim değil: <em>es-Selâm</em> Allah'ın ismidir. Kul selâm verirken kendinden bir şey
+      vermiyor — Sahibinin ismini, Sahibine ait olan kullara iade ediyor.
+    </p>
+
+    <blockquote>
+      Tahiyyât, sahiplik iddiasının bırakıldığı yerdir. Bırakmadan kalkarsan, oturmamış olursun.
+    </blockquote>
+
+    <h3>"Ben"in en sona bırakılışı</h3>
+    <p>
+      Tertibe bak: <strong>Allah → Nebî → biz ve sâlih kullar → şehâdet.</strong> Ahadiyyetten
+      kesrete iniş, sonra tevhidle bağlanış. Ve şu incelik: kul kendine tek başına selâm istemiyor.
+      <em>Es-selâmü <strong>aleynâ</strong></em> — "bize". Kurtuluş talebinde bile ferdî bir iddia
+      bırakmıyor; kendini sâlihlerin arasına gizliyor. Nefsin en ince kılığı olan "ben kurtulayım"
+      arzusu, tam da o kelimede eksiltiliyor.
+    </p>
+    <p>
+      Sonda gelen "ben" ise nefsin geri dönüşü değildir. Çünkü <strong>şehâdet vekâlet kabul
+      etmez</strong>. Kimse senin yerine şahitlik edemez: baban da, mürşidin de, cemaatin de. Metin
+      her şeyi iade ediyor, kendini çoğulun içine gizliyor, sonra tek bir yerde "ben"i geri
+      çağırıyor — <em>taşınamayan sorumluluğun tam olduğu yerde</em>. İadeden sonra elde kalan tek
+      "ben", şahit olan bendir. Gerisi zaten bizim değildi.
+    </p>
+
+    <h3>Şehâdet: yeni bir iddia değil, eski bir imza</h3>
+    <p>
+      Fıkıhta şehâdetin tek şartı vardır: hâdisenin ânında orada bulunmuş olmak. Görmeyen şahitlik
+      edemez. Öyleyse her rekâtta "eşhedü" diyen kul, hangi mecliste hazır bulunmuştu?
+    </p>
+    <blockquote>
+      "…Ben sizin Rabbiniz değil miyim? Dediler ki: Evet, <em>şehidnâ</em> — şahit olduk."
+      <span class="kaynak">A'râf 7/172</span>
+    </blockquote>
+    <p>
+      Zaten <em>şehidnâ</em> demişiz. Teşehhüd yeni bir dava açmak değil, <strong>eski bir ifadenin
+      tazelenmesi</strong>; her namazda mîsâkın altına atılan yeni bir imza. Bu yüzden şehâdet
+      öğrenilmez, <em>hatırlanır</em>.
+    </p>
+    <p>
+      Daha incesi de var: <span class="ar">شَهِدَ اللّٰهُ أَنَّهُ لَا إِلٰهَ إِلَّا هُوَ</span> —
+      tevhide ilk şahitlik eden, Allah'ın kendisidir (Âl-i İmrân 3/18). Bizim "eşhedü"müz bir iddia
+      ortaya atmak değil, çoktan verilmiş bir şehâdete <strong>katılmak</strong>tır. Şâhid,
+      <em>eş-Şehîd</em> olanın şehâdetiyle şâhid olur. Cümle bizim ağzımızdan çıkıyor, ama bize ait
+      değil.
+    </p>
+
+    <h3>Tefe''ul bâbındaki dürüstlük</h3>
+    <p>
+      Tefe''ul bâbı bir hâli kuşanmayı gösterir demiştik; çoğu yerde bir de <strong>tekellüf</strong>
+      taşır: henüz sahibi olmadığın hâli giyinmek. <em>Tesabbur</em> sabır değil, sabra çalışmaktır.
+      <em>Tehallüm</em> hilim sahibi olmak değil, hilmi zorlamaktır.
+    </p>
+    <p>
+      O hâlde <strong>teşehhüd</strong>, "şahit olmak" değil; henüz tam şahit olamamışken şahitliğe
+      soyunmaktır. Bu bir eksiklik itirafıdır ve tam da bu yüzden dürüsttür. Her gün beş kez,
+      olmadığımız şeyi giyiniyoruz — ta ki giysi tene, taklit tahkîke dönüşünceye kadar. Namaz bu
+      sebeple bir <em>terbiye</em>dir; bir defada olsaydı tekrarı gerekmezdi.
+    </p>
+
+    <h3>Önce kul, sonra resûl</h3>
+    <p>
+      Metnin son kelimeleri: <em>abdühû ve rasûlüh.</em> Önce <strong>kul</strong>, sonra
+      <strong>resûl</strong>. Ekberî çizgide bu bir sıralama tercihi değil, bir mertebe beyanıdır:
+      risâlet bir vazife, ubûdiyyet ise bir <em>makam</em>dır; en yücesi, hiçbir sıfat iddiasının
+      kalmadığı <strong>abd-i mahz</strong>tır. Kul, Efendimiz'i en yüksek vasfıyla anarken bile
+      "kul" diyor. Kendi yerini nereye koyacağını orada öğreniyor.
+    </p>
+  </section>
+
+  <!-- HÂL -->
+  <section id="hal">
+    <div class="bolum-basi"><h2>الْحَال</h2></div>
+    <span class="tarif">Hâl &middot; yaşanır karşılık</span>
+
+    <p>
+      Namaz <em>"Allahu ekber"</em> ile bağlanır, <em>selâm</em> ile çözülür. Girişte dünya haram
+      olur, çıkışta helâl kılınır. Teşehhüd tam o eşikte oturur: ne büsbütün içeride, ne dışarıda —
+      <strong>kapının ağzında</strong>. Bu yüzden onun asıl sorusu şudur:
+      <em>huzurdan neyi yanına alarak kalkıyorsun?</em>
+    </p>
+
+    <div class="hal-madde">
+      <span class="oncu">Otururken bırak.</span>
+      Ellerini dizlerine koyduğunda, bugüne kadar sana ait sandığın ne varsa — sesin, sanatın, adın,
+      ilmin, evlâdın — hepsini o <em>lillâh</em>'ın içine bırak. Bırakmadan kalkarsan, oturmamış
+      olursun.
+    </div>
+
+    <div class="hal-madde">
+      <span class="oncu">"Aleyke" derken gerçekten muhatap ol.</span>
+      Alışkanlığın diliyle değil, huzurun diliyle. Bir tek o cümleyi hakkıyla söylemek, bütün rekâtı
+      diriltir.
+    </div>
+
+    <div class="hal-madde">
+      <span class="oncu">Cümleni çoğul kur.</span>
+      Kendine bir şey dilerken "bana ver" değil, "bize ver" de. Nefsin en çok bu küçük değişiklikten
+      rahatsız olur; rahatsızlığı, doğru yerde olduğunun işaretidir.
+    </div>
+
+    <div class="hal-madde">
+      <span class="oncu">Selâmı emanet bil.</span>
+      Gün içinde birine selâm verirken Allah'ın ismini taşıdığını hatırla. O zaman selâm bir ağız
+      alışkanlığı olmaktan çıkar, bir <em>emanet teslimi</em>ne dönüşür. Kalbinde kavga taşıyanın
+      dili, "es-selâmü aleyküm"ü kolay kolay söyleyemez.
+    </div>
+
+    <div class="hal-madde">
+      <span class="oncu">Gün sonunda hizmetini say, adını değil.</span>
+      Metin, Efendimiz'i anarken önce <em>"kul"</em> der; en yüce vasıf oradadır. Öyleyse akşam
+      dönüp bakarken şunu yokla: bugün yaptıklarımın kaçında adımın geçmesini bekledim? Kulluk,
+      yapılan işten kendini usulca çekebilmektir. İş kalır, sen görünmezsin — ve bu bir kayıp
+      değil, bir yakınlıktır.
+    </div>
+
+    <p>
+      Ve son olarak: içeride bırakıp çıktığın huzur, huzur değil <em>mola</em>dır. Selâm veriyorsan,
+      kalkarken elinde selâm olmalı. Şahitlik selâma, selâm emniyete, emniyet <em>es-Selâm</em>
+      isminden nasibe açılır.
+    </p>
+  </section>
+
+  <div class="dua">
+    <p>
+      Rabbim bu duayı yalnız dudakta bırakmasın; hâle, ahlâka ve nazara indirsin.
+      Tekellüfümüzü tahkîke çevirsin. Namazdaki teşehhüdü ömrün teşehhüdüne dönüştürsün.
+      Dilimiz "eşhedü" derken hâlimiz de o şahitliği doğrulasın; son nefeste aynı şahitliği
+      lütfuyla kolaylaştırsın.
+    </p>
+    <p class="amin">آمين يا مُعِين</p>
+  </div>
+
+  <footer>
+    <span class="hu">هو</span>
+    deeplove &middot; bir ses değil, bir dönüş
+  </footer>
+
+</div>
+
+</body>
+</html>
