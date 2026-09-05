@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Göz Kendini Göremez — Ve Fî Enfusikum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --zemin:#0b0b0d;
+  --zemin-2:#121216;
+  --altin:#c9a227;
+  --altin-soluk:#8a7434;
+  --metin:#e8e3d8;
+  --metin-soluk:#a9a293;
+  --cizgi:rgba(201,162,39,.22);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--zemin);
+  color:var(--metin);
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:20px;
+  font-weight:300;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* هو filigranı */
+.filigran{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+  z-index:0;
+}
+.filigran span{
+  font-family:'Amiri',serif;
+  font-size:46vh;
+  line-height:1;
+  color:var(--altin);
+  opacity:.035;
+  user-select:none;
+}
+
+.sayfa{
+  position:relative;
+  z-index:1;
+  max-width:44rem;
+  margin:0 auto;
+  padding:7rem 1.6rem 6rem;
+}
+
+/* Başlık */
+.serlevha{
+  text-align:center;
+  padding-bottom:3.5rem;
+  border-bottom:1px solid var(--cizgi);
+  margin-bottom:3.5rem;
+}
+.besmele{
+  font-family:'Amiri',serif;
+  font-size:1.35rem;
+  color:var(--altin-soluk);
+  margin-bottom:2.6rem;
+  letter-spacing:.02em;
+}
+h1{
+  font-weight:400;
+  font-size:clamp(2.4rem,7vw,3.6rem);
+  line-height:1.15;
+  margin:0 0 .8rem;
+  color:var(--metin);
+  letter-spacing:.01em;
+}
+.altbaslik{
+  font-style:italic;
+  font-size:1.15rem;
+  color:var(--metin-soluk);
+  margin:0;
+}
+
+/* Ayet bloğu */
+.ayet{
+  margin:3.2rem 0;
+  padding:2.2rem 1.6rem;
+  background:var(--zemin-2);
+  border-top:1px solid var(--cizgi);
+  border-bottom:1px solid var(--cizgi);
+  text-align:center;
+}
+.ayet .arapca{
+  font-family:'Amiri',serif;
+  font-size:1.9rem;
+  line-height:2;
+  color:var(--altin);
+  direction:rtl;
+  margin-bottom:1.1rem;
+}
+.ayet .okunus{
+  font-style:italic;
+  color:var(--metin-soluk);
+  font-size:1.05rem;
+  margin-bottom:.7rem;
+}
+.ayet .meal{
+  font-size:1.15rem;
+  color:var(--metin);
+}
+.ayet .kaynak{
+  display:block;
+  margin-top:.9rem;
+  font-size:.92rem;
+  letter-spacing:.08em;
+  color:var(--altin-soluk);
+}
+
+h2{
+  font-weight:400;
+  font-size:1.85rem;
+  color:var(--altin);
+  margin:3.6rem 0 .4rem;
+  letter-spacing:.01em;
+}
+h2 + .h2alt{
+  margin:0 0 1.6rem;
+  font-style:italic;
+  color:var(--metin-soluk);
+  font-size:1.02rem;
+}
+h3{
+  font-weight:500;
+  font-size:1.32rem;
+  color:var(--metin);
+  margin:2.6rem 0 .6rem;
+}
+p{margin:0 0 1.25rem;}
+
+.ar{font-family:'Amiri',serif;font-size:1.12em;color:var(--altin);}
+em{color:var(--metin);}
+strong{font-weight:600;color:var(--altin);}
+
+blockquote{
+  margin:2rem 0;
+  padding:.2rem 0 .2rem 1.4rem;
+  border-left:2px solid var(--altin-soluk);
+  font-style:italic;
+  color:var(--metin-soluk);
+}
+blockquote p{margin-bottom:.6rem;}
+blockquote p:last-child{margin-bottom:0;}
+
+ul{padding-left:1.3rem;margin:0 0 1.4rem;}
+li{margin-bottom:.55rem;}
+
+/* Basar / basiret çifti */
+.cift{
+  margin:1.8rem 0 2.2rem;
+  border-top:1px solid var(--cizgi);
+}
+.cift div{
+  display:flex;
+  gap:1rem;
+  padding:.75rem 0;
+  border-bottom:1px solid var(--cizgi);
+  font-size:1.02rem;
+}
+.cift div span:first-child{
+  flex:0 0 8.5rem;
+  color:var(--metin-soluk);
+  font-style:italic;
+}
+.cift div span:last-child{color:var(--metin);}
+
+/* Üç hareket */
+.hareket{
+  margin:2rem 0;
+  padding-left:1.4rem;
+  border-left:1px solid var(--cizgi);
+}
+.hareket h4{
+  margin:1.6rem 0 .3rem;
+  font-weight:500;
+  font-size:1.15rem;
+  color:var(--altin);
+}
+.hareket h4:first-child{margin-top:0;}
+.hareket p{margin-bottom:.4rem;font-size:1.02rem;}
+
+/* Hulâsa */
+.hulasa{
+  margin:3rem 0;
+  border:1px solid var(--cizgi);
+}
+.hulasa div{
+  padding:1.2rem 1.4rem;
+  border-bottom:1px solid var(--cizgi);
+}
+.hulasa div:last-child{border-bottom:none;}
+.hulasa h4{
+  margin:0 0 .35rem;
+  font-weight:400;
+  font-size:1.28rem;
+  color:var(--altin);
+}
+.hulasa p{margin:0;font-size:1.02rem;color:var(--metin-soluk);}
+
+/* Dua */
+.dua{
+  margin:4rem 0 2rem;
+  padding:2.4rem 1.6rem;
+  text-align:center;
+  background:var(--zemin-2);
+  border-top:1px solid var(--cizgi);
+  border-bottom:1px solid var(--cizgi);
+  font-style:italic;
+  font-size:1.12rem;
+  line-height:2.1;
+  color:var(--metin);
+}
+.dua .amin{
+  display:block;
+  margin-top:1.4rem;
+  font-style:normal;
+  font-family:'Amiri',serif;
+  color:var(--altin);
+  font-size:1.25rem;
+}
+
+.hu{
+  text-align:center;
+  margin-top:4rem;
+  font-family:'Amiri',serif;
+  font-size:2.4rem;
+  color:var(--altin);
+  opacity:.75;
+}
+.imza{
+  text-align:center;
+  margin-top:1rem;
+  font-size:.95rem;
+  letter-spacing:.14em;
+  color:var(--altin-soluk);
+}
+
+@media (max-width:640px){
+  body{font-size:18px;}
+  .sayfa{padding:4rem 1.2rem 4rem;}
+  .ayet .arapca{font-size:1.5rem;}
+  .cift div{flex-direction:column;gap:.15rem;}
+  .cift div span:first-child{flex:none;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+}
+</style>
+</head>
+<body>
+
+<div class="filigran"><span>هو</span></div>
+
+<main class="sayfa">
+
+  <header class="serlevha">
+    <div class="besmele">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
+    <h1>Göz Kendini Göremez</h1>
+    <p class="altbaslik">Ve fî enfusikum — Zâriyât sûresi, 21. âyet üzerine</p>
+  </header>
+
+  <div class="ayet">
+    <div class="arapca">وَفِي أَنْفُسِكُمْ ۚ أَفَلَا تُبْصِرُونَ</div>
+    <div class="okunus">Ve fî enfusikum, e-fe lâ tubsırûn.</div>
+    <div class="meal">“Kendi nefislerinizde de nice deliller vardır. Hâlâ görmüyor musunuz?”</div>
+    <span class="kaynak">Zâriyât, 51/21</span>
+  </div>
+
+  <p>Âyet yalnızca “kendinize bakın” demiyor. “İçinizde, öz varlığınızda, nefislerinizde…” diyor. Sonunda da “Bilmiyor musunuz?” değil, <em>“Görmüyor musunuz?”</em> diye soruyor. Çünkü burada istenen yalnız zihinsel bilgi değil; basîretle müşâhededir.</p>
+
+  <h2>Zâhir</h2>
+  <p class="h2alt">Bedendeki ve yaratılıştaki âyetler</p>
+
+  <p>Âyetin ilk kapısı insanın yaratılışıdır. Bir damladan başlayıp biçimlenen beden; atan kalp, nefes alan akciğer, gören göz, işiten kulak, hatırlayan zihin… İnsan bunların hiçbirini kendi eliyle kurmadı. Kalbin atmasını emretmiyor, uykudayken nefesini yönetmiyor, yarasının kapanmasını adım adım idare etmiyor.</p>
+
+  <p>İnsan bedenine bakınca iki hakikat birlikte görünür: yaratılıştaki olağanüstü ölçü ve o ölçü karşısındaki insanın aczi. Kalp, “Ben çalıştırıyorum” denmeden çalışır. Göz, kendisini göremez ama bütün sûretleri görür. Akıl, nice şeyi kavrar fakat kendisine verilen kavrama kudretini nereden aldığını kuşatamaz.</p>
+
+  <blockquote>
+    <p>Sana bu kadar yakın deliller dururken, şahidi neden yalnız uzaklarda arıyorsun?</p>
+  </blockquote>
+
+  <h3>Söylenmeyen kelime</h3>
+
+  <p>Âyette ince bir <strong>hazf</strong> vardır. “Ve fî enfusikum” der, fakat “<span class="ar">آيات</span> — âyetler” kelimesini söylemez; onu bir önceki âyetten devralır. Müfessirlerin bir kısmı bu düşüşü şöyle okumuştur: sayılamayacak olan zikredilmez. Yeryüzünün âyetleri “vardır” diye söylenebilir; nefsinkiler söylenmeden bırakılır.</p>
+
+  <h3>Arz, enfüs, semâ</h3>
+
+  <p>Sıralamaya dikkat edelim. Yirminci âyet yeryüzünü gösterir: <em>“Kesin olarak inananlar için yeryüzünde âyetler vardır.”</em> Yirmi birinci âyet nazarı içeri çevirir. Yirmi ikinci âyet ise yukarıyı gösterir: <em>“Gökte de rızkınız ve size vaad olunan şeyler vardır.”</em></p>
+
+  <p>Yani âyet içeride, rızık yukarıda. Nefsin âdeti ise tam tersidir: mânâyı dışarıda arar, rızkı kendi elinde sanır. Âyet bu iki yönü yerli yerine oturtur — ve insanı arz ile semâ arasına, berzah makamına yerleştirir. Okunması istenen âyet, okuyanın kendisidir.</p>
+
+  <p>Dağın oluşumu âyet olduğu gibi gözyaşı da âyettir. Yıldızın yörüngesi âyet olduğu gibi kalbin ritmi de âyettir. Tohumun yarılması ne kadar hayret vericiyse, insanın bir sözü işitip mahcup olması, merhametle yumuşaması ve tövbeye dönmesi de o kadar hayret vericidir.</p>
+
+  <h3>Çoğul kipin sırrı</h3>
+
+  <p>Âyet “fî nefsike” demiyor; <strong>“fî enfusikum”</strong> diyor. Çoğul. Kur’ân’ın dilinde bu kalıp çoğu yerde “birbiriniz” mânâsına gelir:</p>
+
+  <ul>
+    <li><span class="ar">وَلَا تَلْمِزُوا أَنْفُسَكُمْ</span> — “Birbirinizi ayıplamayın.” (Hucurât, 49/11)</li>
+    <li><span class="ar">فَسَلِّمُوا عَلَىٰ أَنْفُسِكُمْ</span> — “Birbirinize selâm verin.” (Nûr, 24/61)</li>
+    <li><span class="ar">لَا تُخْرِجُونَ أَنْفُسَكُمْ مِنْ دِيَارِكُمْ</span> — “Birbirinizi yurdunuzdan çıkarmayın.” (Bakara, 2/84)</li>
+  </ul>
+
+  <p>O hâlde “nefislerinizdeki âyetler”, yalnız kendi içine bakmakla değil, birbirinizin yüzünde okumakla da görülür.</p>
+
+  <p>Ve sûrenin yayı nerede tamamlanıyor:</p>
+
+  <blockquote>
+    <p>“Ben cinni ve insi ancak bana kulluk etsinler diye yarattım.” (Zâriyât, 51/56)</p>
+  </blockquote>
+
+  <p>Nefisteki âyetin varış yeri kendini keşfetmek değil, kulluktur.</p>
+
+  <h2>Bâtın</h2>
+  <p class="h2alt">Nefsin içinde görünen, fakat nefse ait olmayan</p>
+
+  <p>“Enfusikum” kelimesi yalnız bedenleri değil; nefisleri, benlikleri ve insanın iç dünyasını da kuşatır. Âyetin bâtın kapısında insan artık yalnız gözünün yapısına değil, <em>görenin kim olduğuna</em> yönelir.</p>
+
+  <p>İçimizden bir düşünce geçiyor. Bir niyet doğuyor. Bazen gönül hiç beklemediği anda yumuşuyor; bazen doğruyu bildiği hâlde daralıyor; bazen de yıllarca taşıdığı bir perde tek bir cümleyle düşüyor. Burada şu soru belirir:</p>
+
+  <blockquote>
+    <p>Bende olan bu hareketlerin hangisi bana mülk, hangisi bana emanet?</p>
+  </blockquote>
+
+  <p>İnsan kendi içinde hem aczini hem de kendisine lütfedilmiş istidadı görür. Bir tarafta hevâ, korku, sahiplenme ve üstünlük arzusu; öte tarafta vicdan, merhamet, tövbe ve hakikate yöneliş… Bunların mücadelesine bakmak, âyetin nefisteki tecellîlerini okumaktır.</p>
+
+  <p>Fakat bâtınî okuyuşun ince bir tehlikesi vardır: insan, kendi içinden geçen her şeyi ilâhî işaret sanabilir. Hâlbuki nefiste âyet bulunması, nefsin her söylediğinin hak olması demek değildir. <em>Ayna güneşi gösterebilir; üzerindeki lekeyi de gösterebilir. Güneş başka, leke başkadır.</em></p>
+
+  <p>Bu sebeple içe bakışın ölçüsü Kur’ân, sünnet, vicdanın selâmeti, aklın muhâkemesi ve edeptir. İçinden gelen şey insanı daha merhametli, daha doğru, daha sorumlu ve daha mütevazı kılıyorsa nurdan bir iz taşıması umulur. Kendisini seçilmiş, üstün, sorgulanamaz yahut başkalarının hukukundan müstağnî gösteriyorsa, orada nefsin ince payından sakınmak gerekir.</p>
+
+  <p>Âyet, “Nefsinize bakıp nefisle büyülenin” demiyor; “Nefislerinizdeki âyetleri görün” diyor. Âyet, kendinde durmaz; işaret ettiği yere geçirir. Parmağa bakıp kalmak başka, parmağın gösterdiği aya yönelmek başkadır.</p>
+
+  <h3>Aynasız göz</h3>
+
+  <p>Göz kendisini göremez ama bütün sûretleri görür. Âyetin bütün inceliği burada saklıdır: kendini göremeyen bir uzva “görmüyor musunuz?” diye soruluyor.</p>
+
+  <p>Bu, imkânsız bir talep değil; bir <strong>ayna talebi</strong>dir. Göz kendini ancak başka bir yüzeyde görür. Nefs de öyle. Nefsin kendini yalnız kendi içinde denetlemesi — kendi hükmüne kendi şahitlik etmesi — âyetin değil, hevânın kapısıdır. Onun için “enfusikum” çoğuldur: mü’min mü’minin aynasıdır; sohbet, ihvân ve mürşid tesadüf değil, usûldür.</p>
+
+  <h3>“Fî” — delil sana senden yakın</h3>
+
+  <p>Âyet “üzerinizde” değil, “içinizde — <span class="ar">في أنفسكم</span>” buyuruyor. Bu “fî”, mânâyı derinleştirir. Aranan delil insana dışarıdan iliştirilmiş değildir; var oluşunun dokusuna işlenmiştir.</p>
+
+  <p>Nefesine bakar: geldi, fakat onu ben yaratmadım; gitti, fakat onu geri getirmeye mutlak kudretim yok. Sevgiye bakar: kalbimde doğdu, fakat onu emirle meydana getiremedim. Hidâyete bakar: nice sözü daha önce işitmiştim; bugün aynı söz neden içimi açtı?</p>
+
+  <p>Burada Fâtiha’nın dengesi belirir: <em>“Yalnız Sana kulluk ederiz ve yalnız Senden yardım dileriz.”</em> Kulluk bize nispet edilmiştir; yardım ve kudret O’ndan dilenir. Ne bütünüyle kendine mâl etmek, ne de emanetten kaçmak…</p>
+
+  <h3>Seyreden değil, seyredilen</h3>
+
+  <p>İçteki hâlleri şâhitlik makamından seyretmek doğrudur; fakat bir adım daha vardır. Fussilet’te aynı çift geçer ve şöyle biter:</p>
+
+  <div class="ayet">
+    <div class="arapca">سَنُرِيهِمْ آيَاتِنَا فِي الْآفَاقِ وَفِي أَنْفُسِهِمْ</div>
+    <div class="meal">“Onlara âfâkta ve kendi nefislerinde âyetlerimizi göstereceğiz… Rabbinin her şeye şâhid olması yetmez mi?”</div>
+    <span class="kaynak">Fussilet, 41/53</span>
+  </div>
+
+  <p>Yani nefisteki âyet, senin göresin diye değil; <strong>O’nun seni gördüğü yer</strong> olduğu için âyettir. Seyredenden seyredilene geçiş — murâkabe budur. Kelimenin kökü <span class="ar">رقب</span>’dir: hem gözetlemek, hem gözetim altında olmak. Nefsini seyreden kişi hâlâ bir seyirci edinmiştir; nefsinin görülmekte olduğunu bilen kişi seyirciyi de teslim etmiştir.</p>
+
+  <h3>“E-fe lâ” — hayret ve sarsıcı soru</h3>
+
+  <p>“E-fe lâ”, kuru bir soru değildir. İçinde nâzik fakat sarsıcı bir ikaz vardır: <em>Bunca yakınken nasıl görmezsiniz? Her an kendinizle birlikteyken, içinizdeki delilleri nasıl kaçırırsınız?</em></p>
+
+  <p>İnsan uzak mucizeler arar; fakat her nefeste hayatın yokluktan devşirilişini fark etmez. Gökyüzünde bir işaret bekler; fakat gözünün gökyüzünü görebilmesini sıradan sayar. Kendisine olağanüstü bir söz söylensin ister; fakat vicdanın en sessiz uyarısını bastırır.</p>
+
+  <p>Mesnevî’nin diliyle insan, suyun içindeki balık gibi suyu arar. Yakınlık bazen görmeye perde olur. Âyet, alışkanlığın kabuğunu kırar:</p>
+
+  <blockquote>
+    <p>Sen kendine alıştın diye yaratılışın sıradanlaşmadı.</p>
+  </blockquote>
+
+  <h3>“Tubsırûn” — bakmak değil, görmek</h3>
+
+  <p>Basar sûreti görür. Basîret ise sûretin taşıdığı mânâyı okur.</p>
+
+  <div class="cift">
+    <div><span>Göz yaş görür</span><span>basîret aczi yahut rahmeti okur</span></div>
+    <div><span>Göz yaşlanmayı görür</span><span>basîret emanetin geçiciliğini okur</span></div>
+    <div><span>Göz başarıyı görür</span><span>basîret tevfîki görür</span></div>
+    <div><span>Göz hatayı görür</span><span>basîret tövbe kapısının hâlâ açık olduğunu görür</span></div>
+    <div><span>Göz ayrı insanlar görür</span><span>basîret hepsinin aynı muhtaçlıkta buluştuğunu görür</span></div>
+  </div>
+
+  <p>Fakat basîret, zâhiri küçümsemek değildir. Hakikî basîret, görüneni inkâr etmeden görünendeki işareti fark eder. Bedeni ihmal ederek ruha ulaşılamaz; kul hakkını çiğneyerek tevhid yaşanamaz; sebepleri terk ederek tevekkül kurulamaz.</p>
+
+  <h2>Hâl</h2>
+  <p class="h2alt">Âyet sende nasıl yaşanır?</p>
+
+  <p>Âyetin hâli, aynanın önünde kendini seyretmek değil; kendinde görüneni kendine mâl etmeden, kusurdan da kaçmadan şâhit olmaktır. Âyet yeni bir amel istemiyor; bir <strong>çıkarma</strong> istiyor. Görme zaten var, üzerine alışkanlık örtülmüş. İstenen, örtünün kaldırılmasıdır.</p>
+
+  <p>Meselâ öfke geldiğinde: “Bu öfke benim hakikatimdir” deme; “Bunun benimle hiçbir ilgisi yok” da deme. <em>“Şu anda nefsimde öfke tecellî etti; bana düşen onu adalet ve edep ölçüsüne taşımaktır”</em> de.</p>
+
+  <p>Bir güzellik doğduğunda: “Ne güzel söyledim” diye sahiplenme; fakat “Ben hiçbir şey yapmadım” diyerek şükrü ve sorumluluğu da terk etme. <em><span class="ar">هٰذَا مِنْ فَضْلِ رَبِّي</span> — bu Rabbimin lütfundandır</em> de ve emanete sahip çık.</p>
+
+  <p>Bir kusur görüldüğünde ise: “Mâdem fâil O, benim kusurum yok” deme. Bu, tevhidin değil, nefsin kaçışıdır. Kur’ân’ın terbiyesi daha incedir: tevfîk Allah’tan bilinir, kusur karşısında kul istiğfar eder. İyilik şükre, hata tövbeye götürür. Her iki hâlde de benlik şişmez.</p>
+
+  <h3>Üç hareket</h3>
+
+  <div class="hareket">
+    <h4>Gör</h4>
+    <p>İçinden geçeni hemen yargılamadan fark et: “Şimdi bende ne oluyor?”</p>
+
+    <h4>Ayır</h4>
+    <p>Gelen hâlin yönünü tart: “Bu beni rahmete, hakka ve sorumluluğa mı götürüyor; yoksa sahiplenmeye, üstünlüğe ve kaçışa mı?”</p>
+
+    <h4>İade et</h4>
+    <p>Güzelliği lütuf bil, kusuru istiğfâra götür: “Yâ Rabbi, hayır Sendendir; kusurum için mağfiretini dilerim. Beni nefsime bırakma.”</p>
+  </div>
+
+  <p>Böylece âyet bilgi olmaktan çıkar, murâkabeye dönüşür.</p>
+
+  <h3>Üç küçük tatbik</h3>
+
+  <p><strong>Bakışın yönünü tersine çevir.</strong> Rızık için içine, mânâ için dışarıya bakmak nefsin âdetidir. Sıkıldığında yukarı bak — <em>“gökte rızkınız var.”</em> Anlam aradığında içine bak — <em>“nefislerinizde âyetler var.”</em> Bu tek düzeltme, günün yarısını yerine oturtur.</p>
+
+  <p><strong>İçinden geçeni tek başına tasdik etme.</strong> Bir hâl, bir işaret, bir açılış geldiğinde onu kendi mahkemende karara bağlama. Bir yüze götür. Ayna olmadan göz kendini göremez — âyetin çoğul kipi bunu söylüyor.</p>
+
+  <p><strong>“Ben kimim?” yerine “kimin nazarı altındayım?” diye sor.</strong> Birincisi seni kendinde bırakır, ikincisi seni geçirir. <em><span class="ar">إِنَّ اللَّهَ كَانَ عَلَيْكُمْ رَقِيبًا</span> — “Muhakkak Allah üzerinizde Rakîb’dir.”</em> (Nisâ, 4/1)</p>
+
+  <h2>Üç eksende hulâsa</h2>
+
+  <div class="hulasa">
+    <div>
+      <h4>Zâhir</h4>
+      <p>Bedeninde, yaratılışında, nefesinde ve hayat düzeninde İlâhî kudretin delillerini gör.</p>
+    </div>
+    <div>
+      <h4>Bâtın</h4>
+      <p>Düşüncelerinde, aczinde, vicdanında, dönüşlerinde ve gönül hareketlerinde sana ait olmayan lütfu fark et.</p>
+    </div>
+    <div>
+      <h4>Hâl</h4>
+      <p>Geleni gözle; hayrı sahiplenmeden şükret, kusurdan kaçmadan tövbe et ve her hâli kulluğa çevir.</p>
+    </div>
+  </div>
+
+  <p>Bu âyet, “Kendini tanırsan kendini yüceltirsin” demez. Tam tersine, insan kendine sahih biçimde baktıkça kendi kendine yeterli olmadığını görür. Nefsini tanımak burada nefsin gizli yüceliğini keşfetmek değil; muhtaçlığının içinden Rabbine delil bulmaktır.</p>
+
+  <div class="dua">
+    Yâ Basîr, gözümü yalnız sûretlere baktırma;<br>
+    nefsimde gösterdiğin âyetleri nefsime mâl ettirme.<br>
+    Lütfunu gördüğümde şükür, kusurumu gördüğümde istiğfâr nasip et.<br>
+    İçimden geçeni hemen “Sen’den” diye sahiplenmekten,<br>
+    nefsimden olanı da tevhid perdesiyle örtmekten koru.<br>
+    Beni kendime bakarken kendimde bırakma;<br>
+    âyetten Müessir’e, nakıştan Nakkâş’a geçir.<br>
+    Bize kendimizi gösterme; kendimizde Sen’i göster.<br>
+    <span class="amin">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ<br>Âmîn Yâ Muîn</span>
+  </div>
+
+  <div class="hu">هو</div>
+
+
+</main>
+</body>
+</html>
