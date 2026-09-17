@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gül Kokulu Kelepçe — Eşeddü Hubben Lillâh</title>
+<meta name="description" content="Bakara 165, Yûnus 22 ve Furkân 43 üzerine bir tefekkür: nidd, hubb, hevâ ve kur' kelimelerinin köklerinde bağın cinsi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --kagit:#f6f2f1;
+  --murekkep:#241d22;
+  --gul:#8c3a4e;
+  --sonuk:#6d6065;
+  --cizgi:#e0d6d4;
+  --vurgu-zemin:#efe7e6;
+  --olcu:34rem;
+}
+:root:not([data-theme="light"]){
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --kagit:#161214;
+    --murekkep:#e8e0de;
+    --gul:#d99aa8;
+    --sonuk:#a4959a;
+    --cizgi:#332a2e;
+    --vurgu-zemin:#1e1719;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --kagit:#161214;
+  --murekkep:#e8e0de;
+  --gul:#d99aa8;
+  --sonuk:#a4959a;
+  --cizgi:#332a2e;
+  --vurgu-zemin:#1e1719;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--kagit);
+  color:var(--murekkep);
+  font-family:"EB Garamond",Georgia,"Times New Roman",serif;
+  font-size:1.18rem;
+  line-height:1.78;
+  font-feature-settings:"liga" 1,"onum" 1;
+}
+.sayfa{
+  max-width:var(--olcu);
+  margin:0 auto;
+  padding:3.5rem 1.4rem 5rem;
+}
+img{max-width:100%}
+
+/* ——— hüve ve besmele ——— */
+.huve{
+  font-family:"Amiri",serif;
+  text-align:center;
+  color:var(--gul);
+  font-size:1.9rem;
+  line-height:1;
+  margin:0 0 2.4rem;
+}
+.besmele{
+  font-family:"Amiri",serif;
+  direction:rtl;
+  text-align:center;
+  font-size:1.55rem;
+  line-height:2;
+  margin:0 0 3.2rem;
+  color:var(--murekkep);
+}
+
+/* ——— başlık ——— */
+h1{
+  font-weight:500;
+  font-size:clamp(2.1rem,8vw,2.9rem);
+  line-height:1.15;
+  letter-spacing:-0.012em;
+  text-align:center;
+  margin:0 0 .7rem;
+}
+.ustbaslik{
+  text-align:center;
+  font-style:italic;
+  color:var(--sonuk);
+  font-size:1.02rem;
+  line-height:1.6;
+  margin:0 0 2.6rem;
+}
+
+/* ——— âyet bloğu ——— */
+.ayet{
+  margin:0 0 3rem;
+  padding:1.9rem 0;
+  border-top:1px solid var(--cizgi);
+  border-bottom:1px solid var(--cizgi);
+  text-align:center;
+}
+.arapca{
+  font-family:"Amiri",serif;
+  direction:rtl;
+  font-size:1.6rem;
+  line-height:2.15;
+  margin:0 0 1.1rem;
+}
+.okunus{
+  font-style:italic;
+  color:var(--sonuk);
+  font-size:1.02rem;
+  line-height:1.65;
+  margin:0 0 .9rem;
+}
+.meal{margin:0 0 .7rem}
+.kunye{
+  font-size:.92rem;
+  color:var(--sonuk);
+  letter-spacing:.02em;
+  margin:0;
+}
+
+/* ——— bölümler ——— */
+h2{
+  font-weight:500;
+  font-size:1.85rem;
+  letter-spacing:.01em;
+  margin:3.4rem 0 .15rem;
+  padding-top:2.2rem;
+  border-top:1px solid var(--cizgi);
+  color:var(--gul);
+}
+h2 + .altbaslik{
+  font-style:italic;
+  color:var(--sonuk);
+  margin:0 0 1.8rem;
+  font-size:1.02rem;
+}
+h3{
+  font-weight:600;
+  font-size:1.22rem;
+  line-height:1.4;
+  margin:2.5rem 0 .6rem;
+}
+h4{
+  font-weight:600;
+  font-size:1.1rem;
+  margin:1.9rem 0 .3rem;
+  color:var(--gul);
+}
+p{margin:0 0 1.15rem}
+
+/* ——— iç unsurlar ——— */
+.kok{
+  font-family:"Amiri",serif;
+  direction:rtl;
+  unicode-bidi:isolate;
+  font-size:1.18em;
+  color:var(--gul);
+}
+em{font-style:italic}
+strong{font-weight:600}
+
+.dikkat{
+  margin:2rem 0;
+  padding:.2rem 0 .2rem 1.3rem;
+  border-left:2px solid var(--gul);
+  font-style:italic;
+  font-size:1.14rem;
+  line-height:1.65;
+  color:var(--murekkep);
+}
+.dikkat p{margin:0}
+
+.iktibas{
+  margin:2.2rem 0;
+  padding:1.4rem 1.3rem;
+  background:var(--vurgu-zemin);
+  text-align:center;
+}
+.iktibas .arapca{font-size:1.4rem;line-height:2.05;margin-bottom:.8rem}
+.iktibas .meal{margin:0;font-size:1.04rem}
+.iktibas .kunye{margin-top:.5rem}
+
+.mana-listesi{
+  list-style:none;
+  margin:1.3rem 0 1.6rem;
+  padding:0;
+}
+.mana-listesi li{
+  margin:0 0 .75rem;
+  padding-left:1.1rem;
+  border-left:1px solid var(--cizgi);
+}
+.mana-listesi li span{color:var(--gul);font-style:italic}
+
+.not{
+  font-size:1rem;
+  color:var(--sonuk);
+  font-style:italic;
+}
+
+/* ——— hulâsa ——— */
+.hulasa h4{margin-top:1.7rem}
+.hulasa p{margin-bottom:.9rem}
+
+/* ——— münâcât ——— */
+.munacat{
+  margin:3.8rem 0 0;
+  padding-top:2.4rem;
+  border-top:1px solid var(--cizgi);
+  text-align:center;
+  font-size:1.1rem;
+  line-height:1.95;
+  color:var(--murekkep);
+}
+.munacat .arapca{font-size:1.35rem;margin:1.1rem 0 .4rem}
+.munacat .amin{color:var(--gul);font-style:italic}
+.son{
+  font-family:"Amiri",serif;
+  text-align:center;
+  color:var(--gul);
+  font-size:1.7rem;
+  margin:2.8rem 0 0;
+}
+
+@media (max-width:560px){
+  body{font-size:1.1rem;line-height:1.72}
+  .sayfa{padding:2.6rem 1.15rem 3.5rem}
+  .arapca{font-size:1.38rem;line-height:2.05}
+  .iktibas{padding:1.15rem .9rem}
+}
+</style>
+</head>
+<body>
+<main class="sayfa">
+
+<p class="huve">هو</p>
+<p class="besmele">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</p>
+
+<h1>Gül Kokulu Kelepçe</h1>
+<p class="ustbaslik">Eşeddü hubben lillâh — Bakara sûresi, 165. âyet üzerine</p>
+
+<section class="ayet">
+  <p class="arapca">وَمِنَ النَّاسِ مَنْ يَتَّخِذُ مِنْ دُونِ اللّٰهِ اَنْدَادًا يُحِبُّونَهُمْ كَحُبِّ اللّٰهِ ۚ وَالَّذ۪ينَ اٰمَنُٓوا اَشَدُّ حُبًّا لِلّٰهِ</p>
+  <p class="okunus">Ve mine’n-nâsi men yettehizü min dûnillâhi endâden yuhıbbûnehum ke-hubbillâh, vellezîne âmenû eşeddü hubben lillâh.</p>
+  <p class="meal">“İnsanlardan kimi, Allah’ın berisinde O’na denkler edinir; onları Allah’ı sever gibi severler. İman edenler ise Allah’ı sevmede daha şiddetlidir.”</p>
+  <p class="kunye">Bakara, 2/165</p>
+</section>
+
+<p>Kalp bağlanmadan duramaz. Mesele bağlanıp bağlanmamak değildir — bağın cinsidir. Hevâ da bağlar, vird de bağlar; biri sahibini beraberinde indirir, öteki yükseltir. Kelepçe aynı kelepçedir, bilek aynı bilek. Kime bağlandığın her şeyi değiştirir.</p>
+
+<p>Âyet sevmeyi yasaklamıyor. Sevginin <strong>nereye bağlandığını</strong> soruyor.</p>
+
+<h2>Zâhir</h2>
+<p class="altbaslik">Kelimenin kendi şahitliği</p>
+
+<h3><em>Nidd</em> — denk saymak ve kaçmak</h3>
+<p><strong>Endâd</strong>, <em>nidd</em>’in çoğuludur. <span class="kok">ن د د</span> kökü iki yöne birden açılır. Bir yanda <em>denklik, muâdele, karşıya koyma</em>; öbür yanda <em>nedde</em> — ürküp kaçmak, sürüden ayrılan devenin firarı.</p>
+<p>Râgıb’ın koyduğu incelik şudur: <em>nidd</em>, <em>misl</em> değildir. Misl yalnızca benzer; nidd ise benzerken aynı zamanda karşıya geçer. Yani denk sayıp hizaya koymak — bir muhâlefet vardır içinde.</p>
+<p>Ve kökün ikinci mânâsı ilkini açıklar. Her nidd bir kaçıştır. İnsan putunu sevmez aslında; putuna <em>sığınır</em>.</p>
+
+<h3><em>Hubb</em> — tane mi, kabarcık mı</h3>
+<p><span class="kok">ح ب ب</span> kökünde <em>habbe</em> vardır: tane, çekirdek. Sevgi, kalbin toprağına düşüp orada kök salan şeydir.</p>
+<p>Fakat aynı kökte bir de <em>hubâb</em> vardır: suyun yüzündeki kabarcık.</p>
+<p>Tek kökte hem tohum hem köpük. İkisi de başta parlar, ikisi de yuvarlaktır; hangisi olduğunu zaman gösterir. Tane toprağa gömülür ve çoğalır; kabarcık yüzeyde durur ve ilk dalgada söner.</p>
+<blockquote class="dikkat"><p>Sevginin cinsi, güzel havada değil, dalga geldiğinde anlaşılır.</p></blockquote>
+
+<h3><em>Eşeddü hubben</em> — şiddet değil, sağlamlık</h3>
+<p><strong>Şedd</strong> bağlamak demektir. Buradaki şiddet taşkınlık, coşku, gürültü değildir; <strong>bağın sağlamlığıdır</strong>. Bir şeyi sıkıca bağlamak, ona <em>şedd</em> etmektir.</p>
+<p>Mü’minin sevgisi daha yüksek sesli değil, daha <strong>kopmazdır</strong>.</p>
+<p>Ve bu bir tesadüf değildir: <em>şedd</em>’in tabiatı tekrardır. Bir ipi sağlam yapan, onu tek seferde germek değil, tur tur sarmaktır. Âyetin sonunda virdin tarifi saklıdır.</p>
+
+<h3>Söylenmeyen cevap</h3>
+<p>Âyetin devamında ince bir <strong>hazf</strong> vardır. <em>“Velev yera’llezîne zalemû iz yeravne’l-azâbe…”</em> — “O zulmedenler azabı gördükleri vakit bir bilselerdi…” denir ve cümle tamamlanmaz. Cevabı düşmüştür.</p>
+<p>Müfessirlerin bir kısmı bunu şöyle okur: söylenmeyen, söylenebilecek olandan daha ağırdır. Sayılamayan zikredilmez. Hazfin kendisi dehşetin ifadesidir.</p>
+
+<h2>Bâtın</h2>
+<p class="altbaslik">Putun yer değiştirmesi</p>
+
+<h3><em>Ke-hubbillâh</em> — kıyas miktarda değil, cinstedir</h3>
+<p>Âyet “Allah’ı sevdikleri kadar severler” demiyor; <em>“Allah’ı sever gibi severler”</em> diyor. Buradaki benzetme ölçüde değil, <strong>cinstedir.</strong></p>
+<p>Muhabbet tek bir cevherdir. Onu bölmek, iki kaynağa nispet etmek şirktir. Onun için tevhîd önce lisanda değil, <strong>sevgide</strong> kurulur. Dil “bir” derken kalp “iki” diyorsa, kelimenin hükmü kalbe inmemiş demektir.</p>
+<p>Ve endâd taştan olmak zorunda değildir. Kalpte O’nunla aynı hizaya konan her şey bir nidd’dir: nefs, mal, mevki, isim — hatta kendi amelin, hatta kendi hâlin. En ince put, insanın kendi hâlini sevmesidir.</p>
+
+<h3>Sevginin kaynağı nerede</h3>
+<div class="iktibas">
+  <p class="arapca">يُحِبُّهُمْ وَيُحِبُّونَهُ</p>
+  <p class="meal">“O onları sever, onlar da O’nu severler.”</p>
+  <p class="kunye">Mâide, 5/54</p>
+</div>
+<p>Önce O sever, sonra sevilir. Bizim muhabbetimiz O’nun muhabbetinin aksidir. Onun için şiddetlidir — çünkü kaynağı bizde değildir. Kendinden kaynaklanan bir sevgi, kendi yorgunluğuyla biter; aksolan sevgi, aslı durdukça durur.</p>
+
+<h3>Kuvvet parçalı değildir</h3>
+<p>Âyetin asıl teşhisi sondadır:</p>
+<div class="iktibas">
+  <p class="arapca">اَنَّ الْقُوَّةَ لِلّٰهِ جَم۪يعًا</p>
+  <p class="meal">“Bütün kuvvet Allah’ındır.”</p>
+</div>
+<p>Endâd, <strong>kuvveti parçalı görmenin gölgesidir.</strong> İnsan gücün dağıldığını sanır; o yüzden her parçaya ayrı bir kapı açar, her kapıya ayrı bir sevgi yerleştirir. Kapılar çoğaldıkça kalp bölünür.</p>
+<p>Tevhîd-i ef‘âl yerleştiğinde put kendiliğinden düşer — kırılmasına bile gerek kalmaz. Zaten hiçbir zaman ayakta değildi; ayakta tutan, insanın ona yüklediği zandı.</p>
+
+<h3>Fırtına ne yapar, ne yapamaz</h3>
+<div class="iktibas">
+  <p class="arapca">حَتّٰٓى اِذَا كُنْتُمْ فِي الْفُلْكِ وَجَرَيْنَ بِهِمْ بِر۪يحٍ طَيِّبَةٍ وَفَرِحُوا بِهَا</p>
+  <p class="meal">“Nihayet siz gemide iken, gemiler içindekileri hoş bir rüzgârla alıp götürdüğünde ve onunla sevindiklerinde…”</p>
+  <p class="kunye">Yûnus, 10/22</p>
+</div>
+<p><strong>Fülk</strong> — gemi. Kökü <em>felek</em> ile aynıdır: dönen, yüzen, yörüngede olan. İnsanın bindiği her şey bir felektir; hepsi döner.</p>
+<p><strong>Âsıf</strong> — <em>‘asf</em>’tan. Aynı kök Rahmân sûresinde <em>“ze’l-‘asfi”</em> olarak geçer: savrulan saman çöpü. Fırtına, sağlam sandığın şeyi çöpe çeviren rüzgârdır.</p>
+<p><strong>Muhlisîn</strong> — <em>halasa</em>: katışıktan arınmak. Aynı kök Nahl 66’da <em>“lebenen hâlisan”</em> olarak geçer: kan ile fışkı arasından süzülüp çıkan saf süt. İhlâs bir ekleme değil, bir <strong>ayıklanmadır</strong>. Yeni bir şey katmaz; karışanı ayırır.</p>
+<p>Bu sebeple fırtına ihlâsı meydana getirmez; <strong>var olanı açığa çıkarır.</strong> Endâd dediğimiz şey iyi havanın ilâhıdır — dalga gelince kendiliğinden buharlaşır. Bakara’nın koyduğu teşhisi deniz uygular.</p>
+<p><em>“Zannû ennehum uhîta bihim”</em> — kuşatıldıklarını sandılar. Oysa zaten kuşatılmışlardı: <em>“vallâhu min verâihim muhît.”</em> Fırtına yeni bir hâl kurmadı; yalnızca <strong>fiilin failini düzeltti.</strong></p>
+
+<h3>Hitaptan düşmek</h3>
+<p>Âyetteki asıl dil hadisesi <em>iltifât</em>tır. Başta hitap sanadır: <em>yüseyyirukum</em>, <em>küntüm</em> — “sizi yürütür”, “siz gemide iken”. Ama tam “hoş bir rüzgârla akıp gittiler ve sevindiler” denince hitap üçüncü şahsa döner: <em>bihim</em>, <em>ferihû</em>.</p>
+<p>Hoş rüzgârda sevinen, farkında olmadan <strong>hitaptan düşmüştür.</strong> Kendisine seslenilen değil, hakkında konuşulan biri olmuştur.</p>
+<blockquote class="dikkat"><p>Muhatap kalmanın adı zikirdir.</p></blockquote>
+<p>Ve bir sonraki âyetin acıtıcılığı buradadır: kurtarılınca azarlar. Demek ki sıkıntının ihlâsı <strong>ödünç ihlâstır</strong> — dalgayla gelir, dalgayla gider.</p>
+
+<h3>Fırtınanın sökemediği</h3>
+<div class="iktibas">
+  <p class="arapca">اَرَاَيْتَ مَنِ اتَّخَذَ اِلٰهَهُ هَوٰيهُ</p>
+  <p class="meal">“Hevâsını kendisine ilâh edineni gördün mü?”</p>
+  <p class="kunye">Furkân, 25/43</p>
+</div>
+<p><span class="kok">ه و ي</span> kökü Kur’ân’ın en ürpertici köklerindendir. Tek kökte dört mânâ üst üste durur:</p>
+<ul class="mana-listesi">
+  <li><span>hevâ</span> — düşmek: <em>“ve’n-necmi izâ hevâ”</em></li>
+  <li><span>hevâ</span> — hava, boşluk: <em>“ef’idetuhum hevâ”</em>, kalpleri bomboş hava</li>
+  <li><span>hâviye</span> — dipsiz uçurum: <em>“fe-ummuhû hâviyeh”</em></li>
+  <li><span>hevâ</span> — tutku</li>
+</ul>
+<p>Araplar tutkuya <em>hevâ</em> denmesinin sebebini şöyle açıklar: <strong>sahibini beraberinde düşürdüğü için.</strong> Kelime sonunu kendi içinde taşıyor.</p>
+<p>Ve dikkat: Bakara’da put dışarıda duruyordu. Burada heykel yoktur. <strong>Son put taştan değildir.</strong></p>
+<p>Hevânın tehlikesi şudur: hevâ hiçbir zaman “ben istiyorum” demez. Daima <strong>“bu doğrudur”</strong> der. Kendine delil üretir, âyet bile bulur. Hevâsını ilâh edinen kişi hâkim ile sanığı aynı kişi yapmıştır.</p>
+<p>Onun için âyet devam eder: <em>“sen onun üzerine vekîl değilsin.”</em> Bu bir azarlama değil, bir tariftir: ikna edilecek bir merci kalmamıştır ortada; mahkeme kendi içinde kapanmıştır.</p>
+<p>Bakara’nın <em>“bütün kuvvet Allah’ındır”</em> hükmü buraya bağlanır. Dışarıdaki putlar kuvveti <strong>parçalı</strong> sanmaktan doğar; hevâ ise kuvveti <strong>kendinde</strong> sanmaktan.</p>
+
+<h3>Cem‘ ve fark — Kitab’ın kendi ismi</h3>
+<p>Aynı sanat Kitab’ın isminde de işler.</p>
+<p><span class="kok">ق ر أ</span> kökünün aslını İbn Fâris tek kelimeyle verir: <strong>cem‘</strong> — toplamak. Araplar <em>“mâ kara’at hâzihi’n-nâkatu selen kattu”</em> derler: bu deve rahminde hiç yavru <em>toplamadı</em>. Okumak, dağınık harfleri bir araya devşirmektir. Kur’ân: <strong>el-câmi‘</strong>, toplayan.</p>
+<p>Ve aynı kök <em>kur’</em> kelimesini verir — Bakara 228’deki <em>“selâsete kurû’”</em>. Bu kelime Arapça’nın meşhur <em>ezdâd</em>ındandır: hem hayız hem tuhr, hem akıtma hem tutma. Tek kelime, iki zıt. Tıpkı <em>nidd</em>’de olduğu gibi.</p>
+<p>Nitekim aynı Kitab’ın iki ismi vardır: <strong>Kur’ân</strong> — <em>cem‘</em>, toplayan. <strong>Furkân</strong> — <em>fark</em>, ayıran.</p>
+<p>İsrâ sûresi ikisini tek âyette çakıştırır:</p>
+<div class="iktibas">
+  <p class="arapca">وَقُرْاٰنًا فَرَقْنَاهُ لِتَقْرَاَهُ عَلَى النَّاسِ عَلٰى مُكْثٍ</p>
+  <p class="meal">“Bir Kur’ân ki onu ayırdık — insanlara ağır ağır okuyasın diye.”</p>
+  <p class="kunye">İsrâ, 17/106</p>
+</div>
+<p>Cem‘i parçaladık ki toplayarak okuyasın. Kelime kendi zıddıyla aynı cümlede duruyor.</p>
+<p>Tasavvufun <em>cem‘</em> ve <em>fark</em> ıstılahı bunun üzerine kuruludur. Kul farkta yaşar, cem‘de yok olur; <em>cem‘u’l-cem‘</em> ise ikisini birden görmektir — Kur’ân okuyan kişinin hâli gibi: ayrı ayrı harfler, tek mânâ.</p>
+<p>Hicr sûresinin tehdidi de böyle anlaşılır: <em>“ellezîne cealü’l-Kur’âne ‘ıdîn”</em> — Kur’ân’ı parça parça edenler. Yani <strong>câmi‘ olanı dağıtanlar.</strong> Suç, ismin kendisine aykırı davranmaktır.</p>
+<p class="not">(İmam Şâfiî’nin <em>Kur’ân</em>’ı müştak saymayıp Tevrât gibi has isim kabul etmesi de bir edeptir: ismi köke indirgememek.)</p>
+
+<h2>Hâl</h2>
+<p class="altbaslik">Bağın cinsini tanımak</p>
+
+<h3>Sarsıntı, putun ölçüsüdür</h3>
+<p>Bir şey elinden alınsa ne kadar sarsılırsın? Sarsıntının şiddeti, ona verdiğin <em>nidd</em> payını gösterir.</p>
+<p>Kalp kendi putlarını çoğu zaman ancak kaybederken tanır. Bu bir ceza değil, bir teşhistir.</p>
+<p>Fakat dikkat: âyet sevmeyi yasaklamıyor. Eşini, evlâdını, işini, sesini sevmek nidd değildir. Nidd, sevgiyi O’nun <strong>berisinde</strong> — <em>min dûnihî</em> — kurmaktır. Aynı sevgi, O’ndan bir şube olarak sevilince muhabbet; müstakil bir kaynak sayılınca put olur.</p>
+<blockquote class="dikkat"><p>Fark sevginin miktarında değil, nereye bağlandığındadır.</p></blockquote>
+
+<h3>İlk refleks, kalbin gerçek adresidir</h3>
+<p>Sıkıntı geldiğinde ilk hangi kapıyı çaldığına bak. Telefon mu, hesap mı, isim mi — yoksa <em>Hasbiyallâh</em> mı.</p>
+<p>İnsan neye inandığını sözüyle söyler, neye bağlandığını refleksiyle.</p>
+
+<h3>Asıl iş fırtınadan sonra başlar</h3>
+<p>Darlık kalbin adres defterini açar; mesele o hâli <strong>hoş rüzgârda tutabilmektir.</strong></p>
+<p>Ölçü şudur: iyi giden bir işin ortasında <em>“vecerayne bihim”</em>e mi düşüyorsun? Yani muhatap olmaktan çıkıp seyredilen birine mi dönüyorsun?</p>
+<p>Sevinç haramda değil; sevinçte gafildir tehlike.</p>
+
+<h3>Hevâ, istediğinden değil, konuşmasından tanınır</h3>
+<p>İşareti şudur: <strong>hüküm delilden önce gelir.</strong> Kararı vermişsindir, sonra ona uygun bir gerekçe ararsın — ve çoğu zaman bulursun.</p>
+<p>Mihenk: bir meselede nefsinin aleyhine çıkan bir sonuca en son ne zaman vardın? Hiç varmıyorsan, orada mahkeme değil tiyatro vardır.</p>
+<p>Ve hevâyı tek başına denetleyemezsin. Nefsin kendi hükmüne kendi şahitlik etmesi, âyetin değil hevânın kapısıdır. Onun için sohbet, ihvân ve mürşid tesadüf değil usûldür.</p>
+
+<h3>Okumak, önce kendini toplamaktır</h3>
+<p>İlk emir <em>ikra’</em> idi. Bilgi verilmedi; <strong>cem‘ emri</strong> verildi.</p>
+<p>Dağınık bir kalbe âyet iner ama tutunmaz. <em>Hıfz</em>, hem korumak hem ezberlemektir — ikisi tek kelimedir, çünkü tek iştir.</p>
+<p>Ve <em>“alâ mukşin”</em> — ağır ağır, ara vererek. Cem‘ acele kaldırmaz.</p>
+
+<h3>Vird — tekrar tekrar bağlanmak</h3>
+<p><em>Şedd</em>’in tabiatı tekrardır. Bağ, tek hamlede değil, tur tur sarılarak sağlamlaşır.</p>
+<p>Virdin işi budur: kalbi hoş rüzgârda da muhatap tutmak. Her tekrar bir devşirmedir — dağılanı geri toplamak, düşeni yeniden almak.</p>
+<p>Kelepçe de bir bağdır, kanat da. Aralarındaki fark, bağlandığı yerin yönüdür.</p>
+
+<h2>Üç âyetin tek damarı</h2>
+<p><strong>Bakara 165</strong> teşhis koyar: sevgi bölünmüştür.</p>
+<p><strong>Yûnus 22</strong> geçici ilacı gösterir: fırtına putları söker — fakat sular durulunca geri gelirler.</p>
+<p><strong>Furkân 43</strong> fırtınanın sökemediğini söyler: çünkü o put gemiye seninle birlikte binmiştir.</p>
+<p>Çözüm ise yine ilk âyetin son cümlesindedir: <strong>eşeddü hubben lillâh.</strong> Fırtınaya ihtiyaç duymayan bir bağ.</p>
+
+<section class="hulasa">
+<h2>Üç eksende hulâsa</h2>
+
+<h4>Zâhir</h4>
+<p><em>Nidd</em> denk sayıp kaçmak, <em>hubb</em> tane ve kabarcık, <em>hevâ</em> tutku ve uçurum, <em>kur’</em> toplamak ve ayırmak. Kelime hükmünü kendi kökünde taşır.</p>
+
+<h4>Bâtın</h4>
+<p>Put dışarıdan içeriye göç eder: önce taş, sonra hâl, en sonunda hevâ. Kuvveti parçalı sanan kapı çoğaltır; tevhîd-i ef‘âl yerleşince put kendiliğinden düşer.</p>
+
+<h4>Hâl</h4>
+<p>Sevdiğini O’nun berisinde değil, O’ndan bir şube olarak sev. Sarsıntını ölç, ilk refleksine bak, hükmünü delilinden sonra kur ve bağı tekrarla sağlamlaştır.</p>
+</section>
+
+<section class="munacat">
+<p>
+Yâ Vedûd, muhabbeti Sen verdin; onu Senden gayrıya kaynak edinmekten koru.<br>
+Kalbimize düşeni tane kıl, kabarcık kılma.<br>
+Sevdiklerimizi Senin berinde değil, Senden bir şube olarak sevdir.<br>
+Fırtınada hatırlayıp sâhilde unutanlardan eyleme;<br>
+hoş rüzgârda da muhatap kıl, hitabından düşürme.<br>
+Hükmümüzü hevâmızdan değil, rızandan aldır.<br>
+Pîrimiz eliyle terkîb ettiği virdi kalbimizin kelepçesi,<br>
+kelepçeyi kanat eyle.<br>
+Sadrımıza düşen feyzi bizden düşürtme.
+</p>
+<p class="arapca">وَالَّذ۪ينَ اٰمَنُٓوا اَشَدُّ حُبًّا لِلّٰهِ</p>
+<p class="amin">Âmîn Yâ Vedûd</p>
+</section>
+
+<p class="son">هو</p>
+
+</main>
+</body>
+</html>
