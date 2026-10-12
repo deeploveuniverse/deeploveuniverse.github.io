@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bağlayan, Dönen, Bulan — Akıl, Kalb ve Vicdan</title>
+<meta name="description" content="Kâf sûresi 37. âyet üzerine: akıl, kalb ve vicdanın Kur'ân aynasında birbirini tashih etmesi. Zâhir, Bâtın, Hâl.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --zemin: #eef0ec;
+    --kagit: #f8f8f4;
+    --murekkep: #1f2a35;
+    --soluk: #5b6672;
+    --lacivert: #24456b;
+    --altin: #8a6a2a;
+    --cizgi: #cfd4cc;
+    --golge: rgba(31, 42, 53, 0.06);
+    --serif: "EB Garamond", Garamond, "Times New Roman", serif;
+    --arabi: "Amiri", "Traditional Arabic", "Scheherazade New", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --zemin: #121821;
+      --kagit: #18202b;
+      --murekkep: #e3e1d8;
+      --soluk: #9aa3ad;
+      --lacivert: #8fb0d6;
+      --altin: #cdae6a;
+      --cizgi: #2c3644;
+      --golge: rgba(0, 0, 0, 0.25);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--zemin);
+    color: var(--murekkep);
+    font-family: var(--serif);
+    font-size: 1.18rem;
+    line-height: 1.75;
+  }
+  main {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.4rem 4rem;
+  }
+  .hu {
+    font-family: var(--arabi);
+    text-align: center;
+    color: var(--altin);
+    font-size: 1.9rem;
+    margin: 0;
+  }
+  .besmele {
+    font-family: var(--arabi);
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0.6rem 0 2.6rem;
+  }
+  h1 {
+    font-weight: 500;
+    font-size: clamp(2.3rem, 7vw, 3.2rem);
+    line-height: 1.1;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 0.01em;
+  }
+  .altbaslik {
+    text-align: center;
+    font-style: italic;
+    color: var(--soluk);
+    margin: 0.6rem 0 2.8rem;
+  }
+  .ayet {
+    background: var(--kagit);
+    border-top: 2px solid var(--altin);
+    border-bottom: 1px solid var(--cizgi);
+    padding: 1.8rem 1.5rem 1.4rem;
+    margin: 2rem 0;
+    text-align: center;
+    box-shadow: 0 1px 0 var(--golge);
+  }
+  .ayet .arabi {
+    font-family: var(--arabi);
+    font-size: 1.85rem;
+    line-height: 2.1;
+    margin: 0 0 0.8rem;
+  }
+  .ayet .okunus { font-style: italic; color: var(--soluk); margin: 0 0 0.6rem; }
+  .ayet .meal { margin: 0 0 0.6rem; }
+  .ayet .kaynak { font-size: 0.95rem; color: var(--altin); margin: 0; }
+  .arabi-satir {
+    font-family: var(--arabi);
+    font-size: 1.35rem;
+    line-height: 2;
+  }
+  h2 {
+    font-weight: 500;
+    font-size: 2.1rem;
+    text-align: center;
+    color: var(--lacivert);
+    margin: 4.2rem 0 0;
+  }
+  h2 + .bolum-alt {
+    text-align: center;
+    font-style: italic;
+    color: var(--soluk);
+    margin: 0.2rem 0 1.8rem;
+  }
+  h2 + .bolum-alt::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 1px;
+    background: var(--altin);
+    margin: 1.2rem auto 0;
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 2.4rem 0 0.4rem;
+  }
+  p { margin: 0 0 1.1rem; }
+  em { color: inherit; }
+  blockquote {
+    margin: 1.8rem 0;
+    padding: 0.2rem 0 0.2rem 1.3rem;
+    border-left: 2px solid var(--altin);
+    font-style: italic;
+    font-size: 1.25rem;
+  }
+  blockquote p { margin: 0; }
+  .karsilik {
+    margin: 1.6rem 0;
+    border-top: 1px solid var(--cizgi);
+  }
+  .karsilik div {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--cizgi);
+  }
+  .karsilik dt { font-weight: 600; color: var(--lacivert); }
+  .karsilik dd { margin: 0; }
+  .karsilik dd span { display: block; color: var(--soluk); font-size: 1rem; font-style: italic; }
+  .isaretler { padding: 0; margin: 1.4rem 0; list-style: none; }
+  .isaretler li { margin: 0 0 1.4rem; }
+  .isaretler strong { color: var(--lacivert); font-weight: 600; }
+  .isaretler .arabi-satir { display: block; margin: 0.4rem 0 0.2rem; text-align: right; }
+  .adimlar {
+    counter-reset: adim;
+    display: grid;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+  .adim {
+    background: var(--kagit);
+    padding: 1.1rem 1.3rem 0.4rem;
+    border-left: 2px solid var(--lacivert);
+  }
+  .adim h4 {
+    margin: 0 0 0.3rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+  .adim h4::before {
+    counter-increment: adim;
+    content: counter(adim) ". ";
+    color: var(--altin);
+  }
+  .hulasa {
+    display: grid;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+  .hulasa section {
+    padding: 1rem 0 0.2rem;
+    border-top: 1px solid var(--cizgi);
+  }
+  .hulasa h4 {
+    margin: 0 0 0.3rem;
+    color: var(--lacivert);
+    font-weight: 600;
+    font-size: 1.15rem;
+  }
+  .dua {
+    margin: 4rem 0 2rem;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.9;
+  }
+  .dua .arabi-satir { font-style: normal; display: block; margin: 1.2rem 0 0.2rem; font-size: 1.6rem; }
+  .dua .amin { font-style: normal; color: var(--altin); }
+  .son { margin-top: 2.5rem; }
+  @media (max-width: 30rem) {
+    body { font-size: 1.1rem; }
+    main { padding-top: 2.5rem; }
+    .karsilik div { grid-template-columns: 1fr; gap: 0.1rem; }
+    .ayet { padding: 1.4rem 1rem 1.1rem; }
+    .ayet .arabi { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<p class="hu" lang="ar" dir="rtl">هو</p>
+<p class="besmele" lang="ar" dir="rtl">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</p>
+
+<h1>Bağlayan, Dönen, Bulan</h1>
+<p class="altbaslik">Akıl, kalb ve vicdan — Kâf sûresi, 37. âyet üzerine</p>
+
+<div class="ayet">
+  <p class="arabi" lang="ar" dir="rtl">إِنَّ فِي ذَٰلِكَ لَذِكْرَىٰ لِمَن كَانَ لَهُ قَلْبٌ أَوْ أَلْقَى السَّمْعَ وَهُوَ شَهِيدٌ</p>
+  <p class="okunus">İnne fî zâlike le-zikrâ li-men kâne lehû kalbun ev elke's-sem'a ve huve şehîd.</p>
+  <p class="meal">“Şüphesiz bunda, kalbi olan yahut hazır bulunarak kulak veren kimse için bir öğüt vardır.”</p>
+  <p class="kaynak">Kâf, 50/37</p>
+</div>
+
+<p>Kul, yaşadığı bir hâlin içinde kendisini Hakk'a yaklaştıracak yönü nasıl fark eder? Vicdanıyla mı, aklıyla mı, kalbiyle mi? Ve bunların Kur'ân'ın rehberliğinde birbirini tashih ettiğinden nasıl emin olur?</p>
+
+<p>Kur'ân bu üçünü birbirinden koparmaz. Onları tek bir idrakin üç yüzü olarak okur. Âyet de tek bir şart koymaz, üç şart koyar: <em>kalb</em>, <em>kulak vermek</em> ve <em>hazır bulunmak</em>.</p>
+
+<h2>Zâhir</h2>
+<p class="bolum-alt">Üç kelimenin kökü</p>
+
+<p>Kelimelerin kökü, her birinin insanda ne iş gördüğünü söyler.</p>
+
+<dl class="karsilik">
+  <div>
+    <dt>Akıl</dt>
+    <dd>Bağlar.<span>ʿ-k-l kökü; devenin dizine vurulan bağ olan ikâl ile aynı köktendir. Akıl sınır çizer, kaymayı önler.</span></dd>
+  </div>
+  <div>
+    <dt>Kalb</dt>
+    <dd>Döner.<span>k-l-b kökü; evrilmek, dönmek. Kalb sabit değildir ve sabitlenmeye muhtaçtır.</span></dd>
+  </div>
+  <div>
+    <dt>Vicdan</dt>
+    <dd>Bulur.<span>v-c-d kökü; vecd ile aynı köktendir. Vicdan, içte zaten var olanı bulandır.</span></dd>
+  </div>
+</dl>
+
+<p>Resûlullah'ın en çok tekrarladığı dualardan biri bu yüzden kalbe dairdir:</p>
+<p class="arabi-satir" lang="ar" dir="rtl">يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ</p>
+<p><em>“Ey kalpleri çeviren, kalbimi dînin üzere sabit kıl.”</em> (Tirmizî)</p>
+
+<h3>Âyetin üç şartı</h3>
+<p>Müfessirler âyetteki <strong>kalb</strong>i idrak eden kalb olarak anlamışlardır. <strong>İlkâu's-sem'</strong>, kulağı bırakıvermek, vahye bütünüyle kulak vermektir. <strong>Şehîd</strong> ise zihni dağınık olmadan huzurda bulunandır. Söz, bu üçünün bir araya geldiği yerde öğüde dönüşür.</p>
+
+<h3>İlhamın yeri</h3>
+<p>Şems sûresi aynı hakikati fıtrat tarafından söyler:</p>
+
+<div class="ayet">
+  <p class="arabi" lang="ar" dir="rtl">فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا</p>
+  <p class="meal">“Ona hem sapmasını hem de korunmasını ilham etti.”</p>
+  <p class="kaynak">Şems, 91/8</p>
+</div>
+
+<p>Nefse hem fücûrunun hem takvâsının bilgisi verilmiştir. Vicdan bu ilhamın mekânıdır. İnsan doğruyu dışarıdan öğrenmeden önce, onu içinde bir sızı ya da bir genişlik olarak tanır.</p>
+
+<h2>Bâtın</h2>
+<p class="bolum-alt">Eşik, kapı ve içeride bulunan</p>
+
+<p>Ehl-i tasavvuf bu üçünü bir sıra olarak okur. Akıl kapının eşiğidir, kalb kapının kendisidir, vicdan ise kapıdan girenin içeride bulduğu şeydir.</p>
+
+<p>Hiçbiri tek başına emin değildir. Akıl nefse hizmet ederse <em>akl-ı maaş</em> olur ve yalnızca hesap yapar. Kalb dönmeye meyillidir ve her rüzgârla başka bir yöne kıvrılabilir. Vicdan da nefsin perdesi altında körelebilir, sesi kısılır.</p>
+
+<blockquote><p>Üç göz de görür; fakat hangisinin neyi gördüğünü ancak ortak bir nur gösterir.</p></blockquote>
+
+<h3>“Ev” — rahmetin kapısı</h3>
+<p>Âyetteki <strong>“ev”</strong>, yani “yahut”, bir rahmet kapısıdır. Kalbi açık olana söz doğrudan iner. Kalbi henüz açılmamış olan ise kulak verir ve hazır bulunur. Vahyi dinlemek, kalbin henüz göremediğini akla emanet etmektir. Yol kapanmaz; yalnızca bir kapıdan diğerine geçilir.</p>
+
+<h3>Mizan</h3>
+<p>Kur'ân bu üçünün üstünde bir mizan olarak durur. Aklın bağını doğru yere vurduran, kalbin dönüşünü doğru yöne çeviren, vicdanın bulduğunu sahih kılan odur. Üç gözü de aynı nura tutan aynadır.</p>
+
+<h3>Furkan</h3>
+<p>Tashihin anahtarı Enfâl sûresindedir:</p>
+
+<div class="ayet">
+  <p class="arabi" lang="ar" dir="rtl">إِن تَتَّقُوا اللَّهَ يَجْعَل لَّكُمْ فُرْقَانًا</p>
+  <p class="meal">“Eğer Allah'tan sakınırsanız, size hakla bâtılı ayırt edecek bir furkan verir.”</p>
+  <p class="kaynak">Enfâl, 8/29</p>
+</div>
+
+<p>Ayırt etme gücü bir yöntemle kazanılmaz. Takvânın meyvesi olarak ihsan edilir. Ölçüyü kul kurmaz; kulun sakınması, ölçünün kalbe yerleşmesine yer açar.</p>
+
+<h2>Hâl</h2>
+<p class="bolum-alt">Hâlin içinde yön nasıl bulunur?</p>
+
+<p>Bir hâlin ortasındayken yön nasıl fark edilir? Yol ehli bize birkaç işaret bırakmıştır.</p>
+
+<ul class="isaretler">
+  <li>
+    <strong>Kalbe danışmak.</strong> Vâbisa'ya söylenen sözde Resûlullah buyurur:
+    <span class="arabi-satir" lang="ar" dir="rtl">اسْتَفْتِ قَلْبَكَ، الْبِرُّ مَا اطْمَأَنَّتْ إِلَيْهِ النَّفْسُ وَاطْمَأَنَّ إِلَيْهِ الْقَلْبُ، وَالْإِثْمُ مَا حَاكَ فِي النَّفْسِ وَتَرَدَّدَ فِي الصَّدْرِ، وَإِنْ أَفْتَاكَ النَّاسُ وَأَفْتَوْكَ</span>
+    <em>“Kalbine danış. İyilik, nefsin ve kalbin içinde yatıştığı şeydir. Günah ise içini tırmalayan, göğsünde gidip gelen şeydir, insanlar sana fetvâ verse de.”</em> (Ahmed b. Hanbel)
+  </li>
+  <li>
+    <strong>Sükûn ile acele.</strong>
+    <span class="arabi-satir" lang="ar" dir="rtl">الْأَنَاةُ مِنَ اللَّهِ وَالْعَجَلَةُ مِنَ الشَّيْطَانِ</span>
+    <em>“Teennî Allah'tandır, acele şeytandan.”</em> (Tirmizî) Hakk'tan gelen yön itmez, bekleyebilir. Vesvese ise sıkıştırır ve hemen şimdi ister.
+  </li>
+  <li>
+    <strong>Nefsin tadı.</strong> Seni büyüten, haklı çıkaran, övülmeni sağlayan yön çoğu zaman nefsin yönüdür. Seni biraz eksilten, eğilten ama içini genişleten yön ise Hakk'a doğrudur, zor da olsa.
+  </li>
+  <li>
+    <strong>Ayna.</strong>
+    <span class="arabi-satir" lang="ar" dir="rtl">الْمُؤْمِنُ مِرْآةُ الْمُؤْمِنِ</span>
+    <em>“Mü'min mü'minin aynasıdır.”</em> (Ebû Dâvûd) İnsan kendi hâlini içeriden tam göremez. Sohbet, ihvân ve mürşidin nazarı bunun içindir.
+  </li>
+</ul>
+
+<h3>Üçünün buluşması</h3>
+<p>Bir yön belirdiğinde onu sırayla üç kapıdan geçir:</p>
+
+<div class="adimlar">
+  <section class="adim">
+    <h4>Akla sor</h4>
+    <p>“Bu, Kitab'a ve hakikate aykırı mı?” Akıl burada bağını vurur: aykırıysa yol orada biter.</p>
+  </section>
+  <section class="adim">
+    <h4>Kalbe sor</h4>
+    <p>“Burada genişlik mi var, daralma mı?” Kalb, dönüşünün yönünü haber verir.</p>
+  </section>
+  <section class="adim">
+    <h4>Vicdana sor</h4>
+    <p>“Bunu Rabbimin huzurunda, O'nun nazarı altında yapabilir miyim?” Vicdan içeride bulduğunu söyler.</p>
+  </section>
+</div>
+
+<p>Üçü aynı anda evet diyorsa yol açıktır. Biri durursa sen de dur. Durmak da bir yürüyüştür; teennî, Allah'tandır.</p>
+
+<h3>Yürüyene gösterilen yol</h3>
+
+<div class="ayet">
+  <p class="arabi" lang="ar" dir="rtl">وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا</p>
+  <p class="meal">“Bizim uğrumuzda mücâhede edenleri elbette yollarımıza ileteceğiz.”</p>
+  <p class="kaynak">Ankebût, 29/69</p>
+</div>
+
+<p>Eminlik çoğu zaman yürümeden gelmez. Samimiyetle yürüyene yol gösterilir. Eminlik yolun sonunda bekleyen bir sonuç değildir; yolda verilen bir lütuftur.</p>
+
+<h2>Üç eksende hulâsa</h2>
+<p class="bolum-alt">Bağlamak, dönmek, bulmak</p>
+
+<div class="hulasa">
+  <section>
+    <h4>Zâhir</h4>
+    <p>Akıl bağlar, kalb döner, vicdan bulur. Âyet kalb, kulak ve huzur ister.</p>
+  </section>
+  <section>
+    <h4>Bâtın</h4>
+    <p>Üçü de perdelenebilir. Onları tashih eden Kitab'ın mizanı, onlara ayırt etme gücü veren takvâdır.</p>
+  </section>
+  <section>
+    <h4>Hâl</h4>
+    <p>Kalbe danış, aceleden sakın, nefsin tadını tanı, aynaya bak. Üçü birden evet demeden yürüme; yürüdüğünde de yolu lütuf bil.</p>
+  </section>
+</div>
+
+<div class="dua">
+  <p>
+    Yâ Hâdî, aklımı nefsime bağlama, Sana bağla;<br>
+    kalbimi dünyaya çevirme, Sana çevir;<br>
+    vicdanımı perdeleme, Seni bulduğu yerde açık tut.<br>
+    İçimden geçeni hemen hak sanmaktan,<br>
+    hakkı da içimdeki korkuya feda etmekten koru.<br>
+    Kitabını bana mizan, sohbeti ayna, yolu lütuf eyle.<br>
+    Acelemi teennîye, şüphemi itmi'nâna çevir.
+    <span class="arabi-satir" lang="ar" dir="rtl">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ</span>
+    <span class="amin">Âmîn Yâ Hâdî</span>
+  </p>
+</div>
+
+<p class="hu son" lang="ar" dir="rtl">هو</p>
+
+</main>
+</body>
+</html>
