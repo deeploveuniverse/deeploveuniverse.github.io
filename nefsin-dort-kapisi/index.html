@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Burçlar ve Nefsin Dört Kapısı — deeplove</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Amiri:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#221E17;
+    --ink-soft:#5C5446;
+    --amber:#A9781F;
+    --amber-soft:#C0913B;
+    --hair:#DBD1BF;
+    --fog-0:#FCFAF4;
+    --fog-1:#F1EAD9;
+    --fog-2:#E5DBC6;
+    --ates:#9C4A2A;
+    --toprak:#66673A;
+    --hava:#5F7491;
+    --su:#2D5E6A;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Cormorant Garamond", Georgia, serif;
+    color:var(--ink);
+    background:radial-gradient(ellipse 135% 100% at 50% 14%, var(--fog-0) 0%, var(--fog-1) 50%, var(--fog-2) 100%) fixed;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  .grain{
+    position:fixed; inset:0; z-index:60; pointer-events:none; opacity:.05; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
+
+  /* ---------- top ---------- */
+  .back{
+    display:inline-block; margin:1.6rem 0 0 1.5rem;
+    font-family:"Inter", sans-serif; font-size:.6rem; font-weight:500;
+    letter-spacing:.36em; text-transform:uppercase; color:var(--ink-soft); text-decoration:none;
+  }
+  .back:hover{color:var(--amber);}
+
+  header.opening{
+    max-width:720px; margin:0 auto; padding:5rem 1.5rem 3rem; text-align:center;
+  }
+  .opening .ref{
+    font-family:"Inter", sans-serif; font-size:.6rem; font-weight:500;
+    letter-spacing:.32em; text-transform:uppercase; color:var(--amber); margin-bottom:1.4rem;
+  }
+  .opening h1{
+    font-weight:400; font-size:clamp(2.3rem, 7vw, 3.6rem); line-height:1.08; letter-spacing:.01em;
+  }
+  .opening .lede{
+    font-style:italic; font-size:clamp(1.15rem, 3.5vw, 1.35rem); color:var(--ink-soft); margin-top:1.2rem;
+  }
+
+  main{max-width:680px; margin:0 auto; padding:0 1.5rem;}
+  section{padding:2.5rem 0;}
+  h2{
+    font-weight:500; font-size:clamp(1.6rem, 4.6vw, 2rem); line-height:1.15; margin-bottom:1.2rem;
+  }
+  p{font-size:1.18rem; line-height:1.85; margin-bottom:1rem;}
+  .rule{width:60px; height:1px; background:var(--amber); opacity:.6; margin:1rem auto;}
+
+  /* ---------- kapı table ---------- */
+  .scroll{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  table{width:100%; border-collapse:collapse; font-size:1.08rem; line-height:1.5;}
+  th{
+    font-family:"Inter", sans-serif; font-size:.58rem; font-weight:500; letter-spacing:.24em;
+    text-transform:uppercase; color:var(--ink-soft); text-align:left; padding:.6rem .6rem .6rem 0;
+    border-bottom:1px solid var(--hair);
+  }
+  td{padding:.85rem .6rem .85rem 0; border-bottom:1px solid var(--hair); vertical-align:top;}
+  td:first-child{font-weight:600; white-space:nowrap; padding-right:1rem;}
+  .kapilar td:nth-child(2){color:var(--amber); white-space:nowrap; font-style:italic;}
+
+  /* ---------- map ---------- */
+  .harita{padding-top:3rem;}
+  .wheel-wrap{
+    position:relative; width:min(94vw, 460px); margin:1.5rem auto .6rem;
+  }
+  .wheel-wrap::before{
+    content:""; position:absolute; inset:-12%; border-radius:50%; pointer-events:none;
+    background:conic-gradient(from 0deg, transparent 0deg, rgba(224,176,120,.14) 70deg, rgba(193,138,60,.18) 140deg, transparent 220deg, rgba(210,160,95,.1) 300deg, transparent 360deg);
+    filter:blur(40px); animation:turn 120s linear infinite;
+  }
+  @keyframes turn{to{transform:rotate(360deg);}}
+  svg.wheel{display:block; width:100%; height:auto; position:relative; overflow:visible;}
+  .cell{cursor:pointer; transition:fill-opacity .35s ease, stroke .35s ease;}
+  .cell:hover{fill-opacity:.5 !important;}
+  .sign-group.active .cell{stroke:var(--amber); stroke-width:1.2;}
+  .glyph{
+    font-family:"Segoe UI Symbol","Noto Sans Symbols 2","Noto Sans Symbols","Apple Symbols","DejaVu Sans",serif;
+    font-size:17px; fill:var(--ink-soft); cursor:pointer; transition:fill .3s ease;
+  }
+  .sign-group.active .glyph{fill:var(--amber);}
+  .glyph-hit{fill:transparent; cursor:pointer;}
+  .center-name{font-family:"Cormorant Garamond", serif; font-size:24px; font-weight:500; fill:var(--ink);}
+  .center-el{font-family:"Inter", sans-serif; font-size:7.5px; letter-spacing:2.6px; fill:var(--amber);}
+  .legend{
+    text-align:center; font-style:italic; font-size:1.02rem; color:var(--ink-soft); margin-top:.4rem;
+  }
+  .names{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:.2rem .9rem; margin:1.6rem auto 0; max-width:560px;
+  }
+  .names button{
+    background:none; border:none; cursor:pointer; font-family:"Cormorant Garamond", serif;
+    font-size:1.12rem; color:var(--ink-soft); padding:.25rem .15rem; border-bottom:1px solid transparent;
+    transition:color .3s ease, border-color .3s ease;
+  }
+  .names button:hover{color:var(--amber);}
+  .names button[aria-pressed="true"]{color:var(--amber); border-bottom-color:var(--amber);}
+
+  /* ---------- panel ---------- */
+  .panel{padding-top:3rem; scroll-margin-top:1rem; transition:opacity .3s ease;}
+  .panel.fading{opacity:0;}
+  .panel-head{display:flex; align-items:baseline; gap:1rem; margin-bottom:.4rem;}
+  .panel-head .g{
+    font-family:"Segoe UI Symbol","Noto Sans Symbols 2","Apple Symbols",serif;
+    font-size:1.8rem; color:var(--el, var(--amber)); line-height:1;
+  }
+  .panel-head h2{margin-bottom:0;}
+  .panel .el{
+    font-family:"Inter", sans-serif; font-size:.58rem; font-weight:500; letter-spacing:.3em;
+    text-transform:uppercase; color:var(--el, var(--amber)); margin-bottom:1.4rem;
+  }
+  .panel .intro{font-style:italic; color:var(--ink-soft);}
+  .panel table{margin:1.6rem 0 2.4rem;}
+  .kapi{
+    padding:1.4rem 0 1.4rem 1.2rem; border-left:1px solid var(--hair); position:relative; scroll-margin-top:1.5rem;
+  }
+  .kapi::before{
+    content:""; position:absolute; left:-4px; top:2.05rem; width:7px; height:7px; border-radius:50%;
+    background:var(--el, var(--amber)); opacity:var(--o, 1);
+  }
+  .kapi h3{font-weight:500; font-size:1.4rem; line-height:1.2; margin-bottom:.5rem;}
+  .kapi h3 span{font-style:italic; font-weight:400; color:var(--ink-soft);}
+  .kapi.flash{animation:flash 1.6s ease;}
+  @keyframes flash{0%{background:rgba(169,120,31,.12);} 100%{background:transparent;}}
+  .besmele{
+    margin-top:2rem; padding:1.4rem 0; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair);
+    text-align:center; font-style:italic; font-size:1.25rem; color:var(--ink);
+  }
+  .besmele b{
+    display:block; font-style:normal; font-family:"Inter", sans-serif; font-size:.58rem; font-weight:500;
+    letter-spacing:.3em; text-transform:uppercase; color:var(--amber); margin-bottom:.5rem;
+  }
+  .step{display:flex; justify-content:space-between; margin-top:1.8rem; gap:1rem;}
+  .step button{
+    background:none; border:none; cursor:pointer; font-family:"Cormorant Garamond", serif;
+    font-size:1.1rem; color:var(--ink-soft); padding:.4rem 0;
+  }
+  .step button:hover{color:var(--amber);}
+
+  /* ---------- closing ---------- */
+  .closing{text-align:center; padding:5rem 0 2rem;}
+  .closing p{max-width:52ch; margin-left:auto; margin-right:auto;}
+  .ayet{
+    font-family:"Amiri", serif; font-size:clamp(1.55rem, 5vw, 2.05rem); line-height:2.1; direction:rtl;
+    color:var(--ink); margin:2.6rem auto 1.2rem; max-width:560px;
+  }
+  .translit{font-style:italic; color:var(--ink-soft); font-size:1.08rem;}
+  .meal{font-size:1.22rem;}
+  .meal cite{display:block; font-style:normal; font-family:"Inter", sans-serif; font-size:.58rem; letter-spacing:.3em; text-transform:uppercase; color:var(--amber); margin-top:.6rem;}
+  .last{font-size:1.4rem; font-style:italic; margin-top:2.4rem;}
+
+  footer{text-align:center; padding:3rem 1.5rem 5rem;}
+  .hu-return{
+    font-family:"Amiri", serif; font-size:3rem; color:rgba(169,120,31,.5);
+    text-shadow:0 0 34px rgba(193,138,60,.18); display:block; margin-bottom:1rem;
+  }
+  footer a{
+    font-family:"Inter", sans-serif; font-size:.6rem; font-weight:500; letter-spacing:.36em;
+    text-transform:uppercase; color:var(--ink-soft); text-decoration:none;
+  }
+  footer a:hover{color:var(--amber);}
+
+  @media (max-width:520px){
+    p{font-size:1.1rem;}
+    table{font-size:1rem;}
+    .glyph{font-size:15px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .wheel-wrap::before{animation:none;}
+    .panel{transition:none;}
+    .kapi.flash{animation:none;}
+  }
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<a class="back" href="../">deeplove</a>
+
+<header class="opening">
+  <p class="ref">Makale &middot; Fecr 27&ndash;30</p>
+  <h1>Burçlar ve Nefsin Dört Kapısı</h1>
+  <p class="lede">Harita mutmainnede biter, ayet devam eder.</p>
+</header>
+
+<main>
+  <section>
+    <h2>Niyet</h2>
+    <p>Burç burada bir hüküm değil, bir eşiktir. İnsanın kendini tanımak için zaten kullandığı dildir. Bu çalışma kapıyı o tanıdık yerden açar ve okuyanı nefs mertebelerinin yoluna davet eder.</p>
+    <p>Ayna kesimi ışığı nasıl kırdığını belirler, ışığın kendisini belirlemez. Burç yolu yürüyen ayağın biçimidir. Nefs mertebesi ise yürünen yoldur. Biri değişmez, öteki değişir.</p>
+    <p>Bu yüzden burç dili yolculuğun başında ağır, sonunda hafiftir. Kişi yürüdükçe burcunu değil, kalbini okumaya başlar. Burç, kaderi bildiren bir hesap olarak değil, mizacı gösteren bir işaret olarak alınır.</p>
+  </section>
+
+  <section>
+    <h2>Dört kapı</h2>
+    <p>Zâhir ile bâtın sınırı mutmainnede çizilir. Ondan sonrası sûret kabul etmez, tasvir orada susar. Her burcun dört sesi bu dört kapıdan konuşur.</p>
+    <div class="scroll">
+      <table class="kapilar">
+        <thead><tr><th>Kapı</th><th>Ayet</th><th>Ses neyle konuşur</th><th>Ses ne ister</th></tr></thead>
+        <tbody>
+          <tr><td>Emmâre</td><td>Yûsuf 53</td><td>Arzu, korku, sahiplenme</td><td>Burcun gücünü kendine çevirmek</td></tr>
+          <tr><td>Levvâme</td><td>Kıyâme 2</td><td>Pişmanlık, sitem, yanma</td><td>Burcun gölgesini görüp kınamak</td></tr>
+          <tr><td>Mülhime</td><td>Şems 8</td><td>İlham, sezgi, ayırt etme</td><td>Burcun hediyesini başkasına sunmak</td></tr>
+          <tr><td>Mutmainne</td><td>Fecr 27&ndash;28</td><td>Sükûn, teslimiyet</td><td>Burcun özünü Rabbine iade etmek</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:1.4rem">Sesler oturdukları yeri değil, gittikleri yönü gösterir. Okuyan her an şunu sorar: bu ses şimdi hangi kapıdan konuşuyor?</p>
+  </section>
+
+  <section class="harita" aria-labelledby="harita-baslik">
+    <h2 id="harita-baslik" style="text-align:center">Harita</h2>
+    <p class="legend">Kendi burcundan gir. Dıştan içe: emmâre, levvâme, mülhime, mutmainne.</p>
+    <div class="wheel-wrap">
+      <svg class="wheel" id="wheel" viewBox="0 0 400 400" role="group" aria-label="On iki burç ve dört nefs kapısı haritası"></svg>
+    </div>
+    <div class="names" id="names" role="group" aria-label="Burçlar"></div>
+  </section>
+
+  <section class="panel" id="panel" aria-live="polite"></section>
+
+  <section class="closing">
+    <h2>Eşikten içeri</h2>
+    <p>On iki burç, on iki kapı aralığıdır; dört ses ise her kapının ardındaki aynı yoldur. Kesim farklıdır, yansıyan Yüz birdir.</p>
+    <p>Yürüdükçe burç dili hafifler, nefs dili belirginleşir. Mutmainneden sonrasında üç makam daha vardır fakat onlar bu haritada yoktur. Orada okuyan susar ve okunan olur.</p>
+    <div class="rule"></div>
+    <p class="ayet" lang="ar">يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ۝ ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً ۝ فَادْخُلِي فِي عِبَادِي ۝ وَادْخُلِي جَنَّتِي</p>
+    <p class="translit">Yâ eyyetühe'n-nefsü'l-mutmainneh. İrciî ilâ rabbiki râdıyeten mardıyyeh. Fedhulî fî ıbâdî. Vedhulî cennetî.</p>
+    <p class="meal">“Ey mutmain nefs! Sen O'ndan razı, O da senden razı olarak Rabbine dön. Kullarımın arasına gir. Cennetime gir.”<cite>Fecr 27&ndash;30</cite></p>
+    <p class="last">Harita mutmainnede biter, ayet devam eder.</p>
+  </section>
+</main>
+
+<footer>
+  <span class="hu-return" lang="ar" aria-hidden="true">هو</span>
+  <a href="../">deeplove — not a sound, a return</a>
+</footer>
+
+<script>
+(function(){
+  var KAPI = ["Emmâre","Levvâme","Mülhime","Mutmainne"];
+  var EL = {
+    ates:  {ad:"Ateş",   renk:"var(--ates)",   hex:"#9C4A2A", yol:"Ateş burçlarının yolu, yakıcı olanın ısıtan ateşe dönüşmesidir."},
+    toprak:{ad:"Toprak", renk:"var(--toprak)", hex:"#66673A", yol:"Toprak burçlarının yolu, tutan elin açılması ve sert toprağın bereketli toprağa dönmesidir."},
+    hava:  {ad:"Hava",   renk:"var(--hava)",   hex:"#5F7491", yol:"Hava burçlarının yolu, dağılan nefesin zikre, sözün manaya dönmesidir."},
+    su:    {ad:"Su",     renk:"var(--su)",     hex:"#2D5E6A", yol:"Su burçlarının yolu, bulanık suyun durulmasıdır; her canlı sudan yaratılmıştır (Enbiyâ 30)."}
+  };
+
+  var B = [
+  {ad:"Koç", slug:"koc", g:"♈", el:"ates",
+   tablo:["“Önce ben. Bekleyen kaybeder.” Sabırsızlık ve öfke cesaret kılığına girer.","“Yine düşünmeden daldın, yine kırdın.” Kafasını duvara vuran koç.","“Bu cesaret başkası içindir; zayıfın önüne geç.”","İsmâil'e fidye olarak inen koç (Sâffât 107): kendini fedâ edebilen. Cesaret teslimiyete döner."],
+   kapi:[["Saldıran Koç","“Önce ben. Bekleyen kaybeder.” Bu ses cesareti bir hak sanar, sabırsızlığı da cesaret kılığına sokar. Öfkesi çabuk parlar, çabuk söner, ama ardında kırık bırakır. Kendini her kapının önünde ilk görmek ister."],
+         ["Duvara Vuran","“Yine düşünmeden daldın, yine kırdın.” Koç kafasını aynı duvara tekrar tekrar vurur. Bu ses o yorgunluğu fark eder. Hediyesi, hatayı saklamadan kabul etmesidir. Tehlikesi, pişmanlığı da bir hamleye çevirip kendine saldırmasıdır."],
+         ["Öncü","“Bu cesaret başkası içindir; zayıfın önüne geç.” Aynı ateş artık korkanın yerine yolu açmak için yanar. İlk adımı atma kabiliyeti hizmete döner. İncelik şudur: öncü, önde olmayı hâlâ kendine nispet edebilir."],
+         ["Kurbanlık Koç","İsmâil'e fidye olarak inen koç, “büyük bir kurban” (Sâffât 107). Bu ses saldırmaz, boyun uzatır. Cesaretin en yükseği, kendini fedâ edebilmektir. Koçun boynuzu artık bir silah değil, teslimiyetin tacıdır."]],
+   bes:"Hamle yapmadan önceki tek adımlık duraklama."},
+
+  {ad:"Boğa", slug:"boga", g:"♉", el:"toprak",
+   tablo:["“Benim olan benimdir; rahatımı bozma.” Mülke ve hazza yapışma.","“Eline sarıldıkça elin boşaldı.”","“Bu tat bir ikram.” Güzellik nimetin izine, haz şükre döner.","Yeryüzünde vakarla yürüyen Rahmân kulu (Furkân 63). İnat, toprağın sabrına döner."],
+   kapi:[["Sahiplenen","“Benim olan benimdir; rahatımı bozma.” Bu ses güvenliği mülkte, huzuru hazda arar. Sadakati bile bir sahiplenmedir. Değişime inatla direnir, çünkü her değişim bir kayıp gibi görünür."],
+         ["Boş Eller","“Eline sarıldıkça elin boşaldı.” Biriktirdiği şeyin kendisini doyurmadığını fark eden sestir. Hediyesi, haz ile huzurun aynı şey olmadığını görmesidir. Tehlikesi, bu boşluğu yeni bir sahiplikle doldurmaya koşmasıdır."],
+         ["Şükreden","“Bu tat bir ikram.” Güzellik, nimetin üzerindeki imzaya döner. Aynı duyular artık almak için değil, tanımak için çalışır. İncelik şudur: şükrün kendisi de bir rahatlık, bir sahip olunan hâl olabilir."],
+         ["Vakarla Yürüyen","“Rahmân'ın kulları yeryüzünde vakarla yürürler” (Furkân 63). İnat, toprağın sabrına dönüşmüştür. Bu ses tutmaz, taşır. Toprak gibi her şeyi kabul eder ve bereketle geri verir."]],
+   bes:"Bir şeyi tutmadan önce kimin emaneti olduğunu bilmek."},
+
+  {ad:"İkizler", slug:"ikizler", g:"♊", el:"hava",
+   tablo:["“Her şeyi biliyorum, hiçbir şeye bağlı değilim.” Laf, dağınıklık, iki yüz.","“Söylediğinle yaptığın ayrı düştü.” Nifak korkusu.","Söz köprü olur. İki dünya arasında tercüman olan dil.","İkilik tevhide döner: nefy ve isbat, “Lâ ilâhe illâllah” iki kanatla tek uçuştur."],
+   kapi:[["İki Dilli","“Her şeyi biliyorum, hiçbir şeye bağlı değilim.” Bu ses sözle oynar, sözle kaçar. Her ortama uygun bir yüz bulur. Merakı derinleşmez, konudan konuya kona kona dağılır."],
+         ["Aynadaki İkiz","“Söylediğinle yaptığın ayrı düştü.” İki yüzün arasındaki boşluğu fark eden sestir; nifak korkusu buradan doğar. Hediyesi, sözün ağırlığını hissetmesidir. Tehlikesi, bu sitemi de akıllı bir söz oyununa çevirmesidir."],
+         ["Tercüman","Söz köprü olur. İki dünya, iki insan, iki dil arasında tercümanlık yapan dildir bu. İncelik şudur: tercüman, sözün sahibi olduğunu sanabilir."],
+         ["Kelime-i Tevhid","İkilik tevhide döner. “Lâ ilâhe” nefydir, “illâllah” isbattır; iki kanat, tek uçuş. İkizlerin iki sesi artık birbirini yalanlamaz, aynı kelimeyi söyler. Dil ile kalp bir olmuştur."]],
+   bes:"Konuşmadan önce bir nefes susmak."},
+
+  {ad:"Yengeç", slug:"yengec", g:"♋", el:"su",
+   tablo:["“Kabuğuma çekilirim, kimse giremez. Bana borçlusunuz.” Alınganlık ve sahiplenen sevgi.","“Kabuğun seni korudu ama seni de hapsetti.” Geçmişe takılıp kalmak.","Şefkat yuvaya döner. Rahim ile rahmetin aynı kökten geldiğini bilen kalp.","Mûsâ'nın annesi: evladını suya bırakan, kalbi Allah'ın bağladığı anne (Kasas 7, 10)."],
+   kapi:[["Kabuk","“Kabuğuma çekilirim, kimse giremez. Bana borçlusunuz.” Bu ses sevgiyi sahiplenerek yaşar. Şefkati bir bağ, bağı bir alacak defterine dönüştürür. Kırıldığında söylemez, içine kapanır ve sayar."],
+         ["Geçmişin Mahkûmu","“Kabuğun seni korudu ama seni de hapsetti.” Eski yaraları bırakamadığını fark eden sestir. Hediyesi, korunmanın bir bedeli olduğunu görmesidir. Tehlikesi, özlemle pişmanlık arasında yan yana yürüyüp hiç ileri gitmemesidir."],
+         ["Yuva","Rahim ile rahmet aynı kökten gelir. Şefkat artık sahiplenmez, barındırır. Bu ses herkese bir yuva olur. İncelik şudur: yuva olan, girenleri bırakmak istemeyebilir."],
+         ["Mûsâ'nın Annesi","“Onu emzir, başına bir şey gelmesinden korkarsan denize bırak” (Kasas 7). Anne evladını suya bırakır, kalbi boşalmaya yüz tutar, Allah o kalbi bağlar (Kasas 10). Şefkatin en yükseği, sevdiğini sahibine teslim etmektir."]],
+   bes:"Sevdiğine sarılırken onu Allah'a emanet etmek."},
+
+  {ad:"Aslan", slug:"aslan", g:"♌", el:"ates",
+   tablo:["“Bana bakın. Alkış yoksa ben yokum.” Görülme açlığı.","“Seni seviyorlar mı, yoksa yalnızca korkuyorlar mı?” Kırılan gururun utancı.","“Işığın senin değil; başkasını da ısıt.” Cömertliğe dönen kalp.","Esedullah: yüzüne tükürülünce kılıcını indiren, nefsi için vurmayan aslan."],
+   kapi:[["Kükreyen","“Bana bakın. Alkış yoksa ben yokum.” Bu ses görülmeye açtır. Sevgiyi hayranlıkla, saygıyı itaatle karıştırır. Cömertliği bile bir sahnedir; verdiğinin karşılığını alkışta bekler."],
+         ["Yaralı Kral","“Seni seviyorlar mı, yoksa yalnızca korkuyorlar mı?” Alkış kesildiğinde gelen sorudur bu. Gurur kırılınca utanca döner. Hediyesi, tacın ağırlığını hissetmesidir. Tehlikesi, utancı da gururla örtmeye çalışmasıdır."],
+         ["Isıtan Güneş","“Işığın senin değil; başkasını da ısıt.” Aslanın yıldızı güneştir ve güneş kimseden alkış beklemeden doğar. Kalp burada cömertliğe döner. İncelik şudur: ışık veren, ışığın kaynağı olduğunu sanabilir."],
+         ["Esedullah","Allah'ın aslanı. Hz. Ali savaşta yüzüne tükürülünce kılıcını indirmişti, çünkü artık nefsi için vuracaktı. Bu ses gücünü kendine değil, Hakk'a bağlar. Krallık, kulluğa dönüşmüştür."]],
+   bes:"Alkışın gelmediği anda kalan sükûnet."},
+
+  {ad:"Başak", slug:"basak", g:"♍", el:"toprak",
+   tablo:["“Hata var. Kusursuz değilsen değersizsin.” Başkasında kusur avcılığı.","Kendi kusurunu bitmeden sayan ses. Temizlik vesveseye döner.","Ayrıntıda ilahi sanatı görmek. Kusuru bulmak yerine örtmek, Settâr'ın ahlâkı.","Meryem'in mihrabı: hizmetle arınmış kalp, rızkı “Allah katından” bilir (Âl-i İmrân 37)."],
+   kapi:[["Kusur Avcısı","“Hata var. Kusursuz değilsen değersizsin.” Bu ses düzeni bir üstünlük aracı olarak kullanır. Başkasının eksiğini bulmak ona güven verir. Hizmet eder gibi görünür ama aslında denetler."],
+         ["Vesveseli","Aynı göz içe döner ve kendi kusurunu bitmeden sayar. Temizlik vesveseye, titizlik kaygıya dönüşür. Hediyesi, kendi üzerinde çalışmaktan kaçmamasıdır. Tehlikesi, hiçbir abdestin onu yeterince temiz hissettirmemesidir."],
+         ["Örten","Ayrıntıyı gören göz artık ilahi sanatın inceliğini görür. Kusuru bulmak yerine örtmeyi seçer; bu, Settâr isminin ahlâkıdır. İncelik şudur: örttüğünü görmesi, hâlâ görmesidir."],
+         ["Mihraptaki Meryem","Başak burcunun sembolü başak tutan bir bakiredir. Meryem mihrapta hizmetle arınmış bir kalptir. Zekeriyyâ rızkın nereden geldiğini sorduğunda “Allah katından” der (Âl-i İmrân 37). Temizlik artık bir çaba değil, bir kabuldür."]],
+   bes:"Bir kusur gördüğünde, söylemeden önce örtmek."},
+
+  {ad:"Terazi", slug:"terazi", g:"♎", el:"hava",
+   tablo:["“Herkes beni sevsin.” Hoş görünmek için hakikatten ödün vermek.","“Karar vermedin ve kararsızlığın birini yaraladı.”","Adalet: tartıda hakkı gözetmek, uyumu hakikatin hizmetine koymak.","Mîzân: göğü yükselten ve teraziyi koyan (Rahmân 7–9). Kalbin terazisi Hakk'ın elindedir."],
+   kapi:[["Hoş Görünen","“Herkes beni sevsin.” Bu ses uyumu bir ihtiyaç olarak yaşar. Kimseyi kırmamak için hakikatten ödün verir. Zarafeti bazen bir kalkan, nezaketi bazen bir pazarlıktır."],
+         ["Kararsız","“Karar vermedin ve kararsızlığın birini yaraladı.” Tarafsız kalmanın da bir taraf olduğunu fark eden sestir. Hediyesi, adaletin sadece denge olmadığını görmesidir. Tehlikesi, bu sitemle bile kendini sonsuzca tartmasıdır."],
+         ["Adil","Uyum artık hakikatin hizmetindedir. Bu ses tartıda hakkı gözetir, gerektiğinde sevilmemeyi göze alır. İncelik şudur: adil olan, kendi terazisinin şaşmaz olduğunu sanabilir."],
+         ["Mîzân","“Göğü yükseltti ve mîzânı koydu; tartıda aşırı gitmeyin” (Rahmân 7–9). Kalbin terazisi artık onu tutanın elindedir. Bu ses tartmaz, tartılır ve buna razıdır. Denge, kendi çabasıyla değil teslimiyetle kurulur."]],
+   bes:"Kimsenin onayını beklemeden doğruyu tartmak."},
+
+  {ad:"Akrep", slug:"akrep", g:"♏", el:"su",
+   intro:"Ölüm ve yeniden doğuşun burcu sayılır. Eski gelenek ona üç sembol verir: akrep, kartal, anka. Burcun kendi mitolojisinde bir seyr-i sülûk saklıdır.",
+   tablo:["“Kimseye güvenme. Sokulmadan önce sen sok.” Kıskançlık, kontrol, içte biriken hesap.","“Yine yaptın, yine zehirledin.” Zehri içe çeviren pişmanlık.","“Bak, onun öfkesinin altında korku var.” Gizliyi görme kabiliyeti ilhama döner.","Anka: ölmeden önce ölen. Zehirden panzehir, iğneden şifa."],
+   kapi:[["Akrep","“Kimseye güvenme. Sokulmadan önce sen sok.” Derinliği gerçektir ama sahip olmak için kullanılır. Kıskançlık, kontrol ve içte biriken hesap bu kapıdan konuşur. Sırları bilir, silah olarak saklar."],
+         ["Kendini Sokan","“Yine yaptın, yine zehirledin.” Zehri içe çevirir. Hediyesi kendine yalan söyleyememesidir. Tehlikesi, pişmanlığın kendisinin yeni bir zehir olmasıdır."],
+         ["Kartal","“Bak, onun öfkesinin altında korku var.” Gizliyi görme kabiliyeti ilhama döner. İncelik şudur: kartal yükseklikten herkesi gördüğünü sanabilir."],
+         ["Anka","Ölmeden önce ölen. Neredeyse konuşmaz, konuşursa “Hasbiyallah” der. Sır artık silah değil, emanettir. Akrebin zehrinden panzehir yapılır; yaralayan iğne şifa veren ele döner."]],
+   bes:"İğne inmeden önceki yarım nefeste kendini fark etmek."},
+
+  {ad:"Yay", slug:"yay", g:"♐", el:"ates",
+   tablo:["“Ben doğruyu biliyorum, bağlanmak bana göre değil.” Hakikat adına kaçış.","“Yine gittin; kaçtığın şey seninle geldi.”","“Her yolda bir ayet var.” Sefer ibrete, merak tefekküre döner.","“Attığın zaman sen atmadın” (Enfâl 17). Ok hedefini bulur, atan el teslimdir."],
+   kapi:[["Kaçan Yolcu","“Ben doğruyu biliyorum, bağlanmak bana göre değil.” Bu ses hakikat adına kaçar. Özgürlüğü sorumluluktan uzak durmakla karıştırır. Bildiğini öğretmeye, öğrendiğini ise yaşamaya süre bulamaz."],
+         ["Yolda Kaybolan","“Yine gittin; kaçtığın şey seninle geldi.” Her yeni şehirde aynı yüzü aynada görmektir bu. Hediyesi, sorunun yolda değil yolcuda olduğunu fark etmesidir. Tehlikesi, bu fark edişten de bir sonraki yolculuğa kaçmasıdır."],
+         ["İbret Yolcusu","“Her yolda bir ayet var.” Seyr-i âfâk, seyr-i enfüse döner. Merak tefekküre, sefer ibrete dönüşür. İncelik şudur: gördüğü ayetleri anlatmak, onlarla yaşamaktan daha tatlı gelebilir."],
+         ["Atan El","“Attığın zaman sen atmadın, Allah attı” (Enfâl 17). Yayın oku artık hedefini kendi bilgisiyle aramaz. Atan el teslimdir, ok da o yüzden yerini bulur. Yolcu hâlâ yürür, ama artık varmıştır."]],
+   bes:"Yola çıkarken “kimin için” diye sormak."},
+
+  {ad:"Oğlak", slug:"oglak", g:"♑", el:"toprak",
+   tablo:["“Zirve benim olmalı. Duygu zayıflıktır.”","“Tırmandın, ama yanında kimse kalmadı.”","Disiplin ibadete, sorumluluk emanete döner. Zirve bir hizmet makamıdır.","Mûsâ'nın dağı: tecelliyle dağ un ufak olur, Mûsâ yere düşer ve “Sübhâneke” der (A'râf 143)."],
+   kapi:[["Tırmanan","“Zirve benim olmalı. Duygu zayıflıktır.” Bu ses değerini makamla ölçer. Disiplini bir zırh, soğukluğu bir güç sanar. İnsanlar ona basamak gibi görünebilir."],
+         ["Zirvedeki Yalnız","“Tırmandın, ama yanında kimse kalmadı.” Zirveye varınca gelen boşlukla yüzleşen sestir. Hediyesi, başarının kalbi doyurmadığını görmesidir. Tehlikesi, bu boşluğu daha yüksek bir zirveyle kapatmaya çalışmasıdır."],
+         ["Emanetçi","Disiplin ibadete, sorumluluk emanete döner. Zirve artık bir hizmet makamıdır; yükseldikçe daha çok şey taşınır. İncelik şudur: emaneti taşıyan, onu taşıyabilmesiyle övünebilir."],
+         ["Dağdaki Mûsâ","Mûsâ “Rabbim, bana kendini göster” dediğinde Rabbi dağa tecelli etti. Dağ un ufak oldu, Mûsâ baygın düştü (A'râf 143). Oğlakın dağı burada son bulur. Zirve, ayakta duranın yere düşüp “Sübhâneke” dediği yerdir."]],
+   bes:"Başarıyı kendine nispet etmeden önce “mâşâallah” demek."},
+
+  {ad:"Kova", slug:"kova", g:"♒", el:"hava",
+   tablo:["“Ben farklıyım; kurallar başkaları için.”","“İnsanlığı seviyorsun ama yanındakine soğuksun.”","İdeal hizmete döner. Yeni olanı halka taşıyan el.","Hızır: kendini göstermeden âb-ı hayatı dağıtan, ledün ilmine mazhar kul (Kehf 65)."],
+   kapi:[["Ayrık Duran","“Ben farklıyım; kurallar başkaları için.” Bu ses özgürlüğü bir kimlik yapar. Farklılığı bir üstünlük, mesafeyi bir derinlik sanar. Kalabalığa ait olmamaktan gizli bir gurur duyar."],
+         ["Soğuk Sevgi","“İnsanlığı seviyorsun ama yanındakine soğuksun.” Fikirde sevip hâlde uzak durduğunu fark eden sestir. Hediyesi, ideal ile yakınlık arasındaki mesafeyi görmesidir. Tehlikesi, bu mesafeyi de bir fikir olarak tartışıp kapatmamasıdır."],
+         ["Su Taşıyan","Kova burcunun sembolü su taşıyandır. İdeal artık hizmete döner; yeni olan halka taşınır. İncelik şudur: taşıyan, suyun kendisi olduğunu sanabilir."],
+         ["Hızır","“Katımızdan bir rahmet verdiğimiz ve ledünümüzden ilim öğrettiğimiz bir kul” (Kehf 65). Gelenek Hızır'ı âb-ı hayatla birlikte anar. Kendini göstermeden gelir, hayat suyunu dağıtır ve gider. Farklılık artık bir kimlik değil, bir sırdır."]],
+   bes:"Farklı olmayı değil, faydalı olmayı seçmek."},
+
+  {ad:"Balık", slug:"balik", g:"♓", el:"su",
+   tablo:["“Gerçeklik çok ağır; kaybolayım.” Kaçış, sarhoşluk, mağduriyet.","“Herkesin acısını aldın, kendi yönünü kaybettin.”","Rüya ve sezgi merhamete döner. Sınırsızlık şefkat olur.","Yûnus balığın karnında: karanlıkta tesbih eden, deryada kaybolmadan fani olan (Enbiyâ 87)."],
+   kapi:[["Kaybolan","“Gerçeklik çok ağır; kaybolayım.” Bu ses sınırsızlığı kaçışla karıştırır. Rüyaya, sarhoşluk veren her şeye, mağduriyetin sıcaklığına sığınır. Fena gibi görünen şey aslında bir dağılmadır."],
+         ["Başkasının Acısında Boğulan","“Herkesin acısını aldın, kendi yönünü kaybettin.” Merhametin bir sınır istediğini fark eden sestir. Hediyesi, şefkat ile kendini kaybetmenin aynı şey olmadığını görmesidir. Tehlikesi, bu pişmanlıkta da boğulmasıdır."],
+         ["Rüya Gören","Rüya ve sezgi merhamete döner. Sınırsızlık, herkesi kucaklayan bir şefkat olur. İncelik şudur: görülen rüya ile nefsin hayali hâlâ karışabilir."],
+         ["Yûnus","Balığın karnında, üç karanlığın içinde Yûnus şöyle seslendi: “Senden başka ilâh yoktur, seni tenzih ederim, gerçekten ben zalimlerden oldum” (Enbiyâ 87). Kaybolmak artık kaçış değil, deryada fenâdır. Karanlığın en dibinde bile tesbih eden kalp, sahile atılır."]],
+   bes:"Kaçmak istediğin anda kalmak."}
+  ];
+
+  var NS = "http://www.w3.org/2000/svg";
+  var svg = document.getElementById("wheel");
+  var namesEl = document.getElementById("names");
+  var panel = document.getElementById("panel");
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var C = 200, RINGS = [[142,172],[114,142],[86,114],[60,86]], GLYPH_R = 187;
+  var OP = [0.34, 0.24, 0.15, 0.08];
+  var current = -1, groups = [], nameBtns = [];
+
+  function pt(r, deg){ var a = deg*Math.PI/180; return [C + r*Math.cos(a), C + r*Math.sin(a)]; }
+  function sector(r1, r2, a0, a1){
+    var p1=pt(r2,a0), p2=pt(r2,a1), p3=pt(r1,a1), p4=pt(r1,a0);
+    return "M"+p1+" A"+r2+" "+r2+" 0 0 1 "+p2+" L"+p3+" A"+r1+" "+r1+" 0 0 0 "+p4+" Z";
+  }
+  function el(tag, attrs, parent){
+    var n = document.createElementNS(NS, tag);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+
+  // soft centre glow
+  var defs = el("defs", {}, svg);
+  var rg = el("radialGradient", {id:"glow"}, defs);
+  el("stop", {offset:"0%", "stop-color":"#E2B76A", "stop-opacity":"0.45"}, rg);
+  el("stop", {offset:"100%", "stop-color":"#E2B76A", "stop-opacity":"0"}, rg);
+
+  B.forEach(function(b, i){
+    var mid = -90 + i*30, a0 = mid-15, a1 = mid+15;
+    var g = el("g", {"class":"sign-group"}, svg);
+    RINGS.forEach(function(r, k){
+      var p = el("path", {
+        d: sector(r[0], r[1], a0, a1), "class":"cell",
+        fill: EL[b.el].hex, "fill-opacity": OP[k],
+        stroke:"#FCFAF4", "stroke-width":"1",
+        tabindex:"0", role:"button",
+        "aria-label": b.ad + ", " + KAPI[k]
+      }, g);
+      p.addEventListener("click", function(){ select(i, k); });
+      p.addEventListener("keydown", function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); select(i, k); } });
+    });
+    var gp = pt(GLYPH_R, mid);
+    var hit = el("circle", {cx:gp[0], cy:gp[1], r:13, "class":"glyph-hit"}, g);
+    var t = el("text", {x:gp[0], y:gp[1], "text-anchor":"middle", "dominant-baseline":"central", "class":"glyph", "aria-hidden":"true"}, g);
+    t.textContent = b.g + "\uFE0E";
+    [hit, t].forEach(function(n){ n.addEventListener("click", function(){ select(i, null); }); });
+    groups.push(g);
+
+    var btn = document.createElement("button");
+    btn.type = "button"; btn.textContent = b.ad; btn.setAttribute("aria-pressed","false");
+    btn.addEventListener("click", function(){ select(i, null); });
+    namesEl.appendChild(btn); nameBtns.push(btn);
+  });
+
+  // centre
+  el("circle", {cx:C, cy:C, r:58, fill:"url(#glow)"}, svg);
+  el("circle", {cx:C, cy:C, r:58, fill:"none", stroke:"#A9781F", "stroke-opacity":"0.25"}, svg);
+  var cName = el("text", {x:C, y:C+2, "text-anchor":"middle", "class":"center-name"}, svg);
+  var cEl = el("text", {x:C, y:C+20, "text-anchor":"middle", "class":"center-el"}, svg);
+
+  function render(i){
+    var b = B[i], e = EL[b.el];
+    var prev = B[(i+11)%12], next = B[(i+1)%12];
+    var h = '';
+    h += '<div class="panel-head" style="--el:'+e.renk+'"><span class="g" aria-hidden="true">'+b.g+'\uFE0E</span><h2>'+b.ad+'</h2></div>';
+    h += '<p class="el" style="--el:'+e.renk+'">'+e.ad+' burcu</p>';
+    if (b.intro) h += '<p class="intro">'+b.intro+'</p>';
+    h += '<p class="intro">'+e.yol+'</p>';
+    h += '<div class="scroll"><table><thead><tr><th>Kapı</th><th>Ses</th></tr></thead><tbody>';
+    b.tablo.forEach(function(s, k){ h += '<tr><td>'+KAPI[k]+'</td><td>'+s+'</td></tr>'; });
+    h += '</tbody></table></div>';
+    b.kapi.forEach(function(kp, k){
+      h += '<div class="kapi" id="'+b.slug+'-'+k+'" style="--el:'+e.renk+';--o:'+(1-k*0.22)+'"><h3>'+KAPI[k]+' <span>— '+kp[0]+'</span></h3><p>'+kp[1]+'</p></div>';
+    });
+    h += '<p class="besmele"><b>Bismillah anı</b>'+b.bes+'</p>';
+    h += '<div class="step"><button type="button" data-go="'+((i+11)%12)+'">← '+prev.ad+'</button><button type="button" data-go="'+((i+1)%12)+'">'+next.ad+' →</button></div>';
+    panel.innerHTML = h;
+    panel.querySelectorAll("[data-go]").forEach(function(bt){
+      bt.addEventListener("click", function(){ select(+bt.getAttribute("data-go"), null); });
+    });
+  }
+
+  function select(i, k, silent){
+    var changed = i !== current;
+    current = i;
+    groups.forEach(function(g, j){ g.classList.toggle("active", j===i); });
+    nameBtns.forEach(function(bt, j){ bt.setAttribute("aria-pressed", j===i ? "true" : "false"); });
+    cName.textContent = B[i].ad;
+    cEl.textContent = EL[B[i].el].ad.toLocaleUpperCase("tr");
+    if (history.replaceState) history.replaceState(null, "", "#"+B[i].slug);
+
+    function after(){
+      if (silent) return;
+      var target = (k===null||k===undefined) ? panel : document.getElementById(B[i].slug+"-"+k);
+      target.scrollIntoView({behavior: reduced ? "auto" : "smooth", block:"start"});
+      if (k!==null && k!==undefined){ target.classList.remove("flash"); void target.offsetWidth; target.classList.add("flash"); }
+    }
+    if (changed){
+      if (reduced || silent){ render(i); after(); }
+      else {
+        panel.classList.add("fading");
+        setTimeout(function(){ render(i); panel.classList.remove("fading"); after(); }, 220);
+      }
+    } else after();
+  }
+
+  var start = 7; // Akrep: ilk kapı
+  var hash = location.hash.replace("#","");
+  B.forEach(function(b, i){ if (b.slug===hash) start = i; });
+  select(start, null, true);
+})();
+</script>
+</body>
+</html>
