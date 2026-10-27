@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hazineyi Bulan Değil, Hazineye Bulunan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sea: #E4EBEC;
+    --ink: #1F2B3F;
+    --muted: #55657A;
+    --pearl: #FFFFFF;
+    --tide: #2E5E66;
+    --line: #C5D2D5;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --sea: #0E1A26;
+      --ink: #E4E1D8;
+      --muted: #9AA8B4;
+      --pearl: #F4F1E8;
+      --tide: #7FB3B5;
+      --line: #23384A;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--sea);
+    color: var(--ink);
+    font-family: "EB Garamond", Garamond, "Times New Roman", serif;
+    font-size: 1.2rem;
+    line-height: 1.75;
+    padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+  }
+  main {
+    max-width: 36rem;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 5rem;
+  }
+  header { text-align: center; margin-bottom: 4rem; }
+  .pearl {
+    display: block;
+    width: 3.2rem;
+    height: 3.2rem;
+    margin: 0 auto 2.2rem;
+  }
+  h1 {
+    font-weight: 400;
+    font-size: clamp(2rem, 6vw, 2.9rem);
+    line-height: 1.15;
+    margin: 0 0 1rem;
+    letter-spacing: -0.01em;
+  }
+  .sub { color: var(--muted); font-style: italic; margin: 0 0 1.6rem; }
+  .epigraph {
+    max-width: 26rem;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.6;
+  }
+  p { margin: 0 0 1.3rem; }
+  h2 {
+    font-weight: 500;
+    font-size: 1.55rem;
+    margin: 3.5rem 0 1.2rem;
+    color: var(--tide);
+  }
+  .ayet {
+    margin: 3rem 0;
+    padding: 2.2rem 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+  }
+  .ayet .ar {
+    font-family: "Amiri", "Traditional Arabic", serif;
+    font-size: clamp(1.9rem, 6vw, 2.4rem);
+    line-height: 1.9;
+    direction: rtl;
+    margin: 0 0 0.8rem;
+  }
+  .ayet .meal { font-style: italic; margin: 0 0 0.4rem; }
+  .ref { color: var(--muted); font-size: 1rem; margin: 0; }
+  .nakil {
+    margin: 1.8rem 0;
+    padding-left: 1.2rem;
+    border-left: 2px solid var(--tide);
+  }
+  .nakil .ar {
+    font-family: "Amiri", "Traditional Arabic", serif;
+    font-size: 1.55rem;
+    line-height: 1.9;
+    direction: rtl;
+    text-align: right;
+    margin: 0 0 0.3rem;
+  }
+  .nakil .meal { font-style: italic; margin: 0 0 0.2rem; }
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .pair .nakil { margin: 0; }
+  .pair .who { color: var(--muted); font-size: 1rem; margin: 0 0 0.4rem; }
+  @media (max-width: 560px) {
+    .pair { grid-template-columns: 1fr; }
+  }
+  .close {
+    text-align: center;
+    margin-top: 4rem;
+    color: var(--tide);
+  }
+  .close .hu { font-size: 1.6rem; letter-spacing: 0.08em; margin: 0 0 0.6rem; }
+  .close .seal { font-style: italic; font-size: 1.25rem; margin: 0; }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-top: 3rem;
+  }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <svg class="pearl" viewBox="0 0 64 64" aria-hidden="true">
+    <defs>
+      <radialGradient id="p" cx="38%" cy="34%" r="70%">
+        <stop offset="0%" style="stop-color: var(--pearl)"/>
+        <stop offset="60%" style="stop-color: var(--line)"/>
+        <stop offset="100%" style="stop-color: var(--tide)"/>
+      </radialGradient>
+    </defs>
+    <circle cx="32" cy="32" r="22" fill="url(#p)"/>
+  </svg>
+  <h1>Hazineyi Bulan Değil, Hazineye Bulunan</h1>
+  <p class="sub">Yûsuf sûresi 76. ayet üzerine bir tefekkür</p>
+  <p class="epigraph">İnsanın, aradığını bulduğunu sanırken aramaya çağrıldığını fark etmesi.</p>
+</header>
+
+<p>Bir öğle namazının ardından içime bir soru düştü: “Kur’an bize yeter” diyenler, neden Kur’an’ı açıklamaya bu kadar gayret ediyor? Eğer Kur’an rehbersiz anlaşılabiliyorsa, öyleyse açıklama ihtiyacı nereden doğuyordu? Zira Kur’an kendini ifade ediyor olmalıydı.</p>
+
+<p>Ama tasavvufun öğrettiği yol, aynayı karşıya değil kendine tutmaktır. Aynayı çevirdiğimde gördüm ki “ben buldum” diyen ses, benim göğsümde de pusuya yatmış bekliyor. Gösterilen hakikatlere nefsin münafık takkesini takıp rehberlik iddiasına soyunmak, yalnız başkalarının hâli değil.</p>
+
+<p>Sonra soru derinleşti: Hakikatin mi peşindeyiz, yoksa “ben buldum” demenin mi? Allah’ın sonsuz hazine denizinden herkes istidadınca bir cevher çıkarabilir. Marifet belki de hazineyi bulduğumuzdan ibaret saymamakta saklı. Öbür türlüsü insanı iddia sahibi yapar. İddia da insanı hüküm hapishanesinde tutsak bir ömre mahkûm eder. Hapisteki insan haklı olduğunu düşündükçe zaman ona azap gibi gelir. Oysa her cevherin lütuf olduğuna inanan, cevheri kendinde olduğu kadar başkasında da arar; böylece kulluğun huzuruna ve özgürlüğüne bırakabilir kendini.</p>
+
+<p>Bu tefekkürü taşıyan ayet şudur:</p>
+
+<div class="ayet">
+  <p class="ar">وَفَوْقَ كُلِّ ذِي عِلْمٍ عَلِيمٌ</p>
+  <p class="meal">“Her ilim sahibinin üstünde daha iyi bilen biri vardır.”</p>
+  <p class="ref">Yûsuf, 12:76</p>
+</div>
+
+<h2>Zâhir</h2>
+
+<p><em>Fevka</em> “üstünde” demektir. <em>Zû ilm</em> (ayette <em>zî ilm</em>) “ilim sahibi”, bilgisi olan kimsedir; kelimede bir sahiplenme iddiası bulunmaz. <em>Alîm</em> ise <em>fa’îl</em> kalıbında gelir ve çok, derinden bilen anlamını taşır.</p>
+
+<p>Ayet, Hz. Yûsuf’un kardeşi Bünyamin’i yanında alıkoyduğu tedbirin anlatıldığı yerde gelir. Dikkat çekici olan, ayetin bu tedbiri Yûsuf’a değil kendine nispet etmesidir: <em>kezâlike kidnâ li-Yûsuf</em>, “Yûsuf için böyle bir tedbir kurduk.” Aynı ayette, “her ilim sahibinin üstünde” ifadesinden hemen önce gelen cümle anahtarı verir: “Dilediğimizi derecelerle yükseltiriz.” Klasik tefsirde ayet, bilgide dereceler bulunduğunu, her bilenin üstünde daha bilenin olduğunu ve bu zincirin mutlak ilmin sahibi olan Allah’ta son bulduğunu hatırlatan bir çerçevede okunur.</p>
+
+<p>Ayet ilim sahibi olmayı reddetmez; ilim sahibinin kendini son merci saymasına imkân bırakmaz. Bir başka ayet bu dengeyi tamamlar:</p>
+
+<div class="nakil">
+  <p class="ar">وَمَا أُوتِيتُم مِّنَ الْعِلْمِ إِلَّا قَلِيلًا</p>
+  <p class="meal">“Size ilimden ancak az bir şey verilmiştir.”</p>
+  <p class="ref">İsrâ, 17:85</p>
+</div>
+
+<p><em>Ûtîtum</em>, “size verildi.” İlimden söz edilirken fiil edilgen gelir. İlim vardır, öğrenmek vardır, gayret vardır. Fakat bunların hiçbiri insanı mutlak ilmin sahibi yapmaz.</p>
+
+<h2>Bâtın</h2>
+
+<p>İlim sahibi olmak, ilmin sahibi olmak değildir.</p>
+
+<p>Kelimenin zâhiri bir sahiplenme iddiası taşımaz. Ama işaret diliyle okunduğunda, “sahip” kelimesinin hemen üstüne bir <em>Alîm</em> konması kalbe şunu fısıldar: Asıl sahip görününce, sahiplik vehmi kendiliğinden düşer.</p>
+
+<p>Bu vehmin en açık sesi Kârûn’dur. Onun karşısında ise Yûsuf sûresinden Hz. Yûsuf’un sözü durur:</p>
+
+<div class="pair">
+  <div class="nakil">
+    <p class="who">Kârûn</p>
+    <p class="ar">إِنَّمَا أُوتِيتُهُ عَلَىٰ عِلْمٍ عِندِي</p>
+    <p class="meal">“Bu bana ancak bendeki bilgi sayesinde verildi.”</p>
+    <p class="ref">Kasas, 28:78</p>
+  </div>
+  <div class="nakil">
+    <p class="who">Hz. Yûsuf</p>
+    <p class="ar">ذَٰلِكُمَا مِمَّا عَلَّمَنِي رَبِّي</p>
+    <p class="meal">“Bu, Rabbimin bana öğrettiklerindendir.”</p>
+    <p class="ref">Yûsuf, 12:37</p>
+  </div>
+</div>
+
+<p>Bir yanda <em>indî</em>, “bendeki.” Öbür yanda <em>allemenî Rabbî</em>, “Rabbim bana öğretti.” İkisinde de bilgi var. Ayrılık, bilginin kime nispet edildiğinde.</p>
+
+<p>Dikkat çekici olan şu: Kârûn da <em>ûtîtuhû</em>, “bana verildi” diyor. Fiil edilgen, ama nispet yine kendine dönüyor. Demek ki verildiğini bilmek yetmiyor; kimin verdiğini unutmamak gerekiyor. Mesele bilmek ya da bilmemek değil, bildiğinin kaynağını unutmamak.</p>
+
+<p>Hüküm hapishanesi tam burasıdır. Kârûn hazineyle birlikte yere geçti. Çünkü hazineyi kendi bilgisinin eseri sandı; kendisi de hazine kadar ağırlaştı. Yûsuf ise kuyudan zindana, zindandan tahta yükseldi; çünkü her basamakta bildiğini Rabbine nispet etti.</p>
+
+<p>Sonsuz denizden herkes istidadınca bir inci çıkarır, ama denizin kendisi hiçbir dalgıcın avucuna sığmaz. “Deniz mürekkep olsa, Rabbimin kelimeleri tükenmeden deniz tükenirdi” (Kehf, 18:109). Avucundakini deniz sanan boğulmaz, ama bir daha da dalamaz.</p>
+
+<h2>Hâl</h2>
+
+<p>Konuşmadan önce kalbe küçük bir soru sormak: “Bulduğumu kendime mi mal ediyorum, yoksa buldurana mı hamdediyorum?” Hamdedersen söz ikram olur. Mal edersen hüküm olur.</p>
+
+<p>Çünkü kul gerçekten arayıp bulabilir. Kur’an bizi düşünmeye, araştırmaya, akletmeye çağırır. Kulun gayretiyle bulması, bulduğunun lütuf olmasına aykırı değildir. Asıl tehlike “buldum” demekte değil, “benim bulduğumdan başka hakikat olamaz” demektedir.</p>
+
+<div class="nakil">
+  <p class="ar">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</p>
+  <p class="meal">“Yalnız Sana kulluk eder, yalnız Senden yardım dileriz.”</p>
+  <p class="ref">Fâtiha, 1:5</p>
+</div>
+
+<p><em>Na’budu</em>, kulluk ederiz. <em>Nesta’în</em>, yardım dileriz. Kulluğun bir fiili var, ama bu fiilde O’nun yardımına muhtaç olduğumuzu da ikrar ediyoruz. Ne gayret terk ediliyor, ne de gayrete bağımsız bir kudret atfediliyor.</p>
+
+<p>Bir tartışmada haklı çıkma iştahı yükseldiğinde, cümlenin sonuna içten bir <em>Allahu a’lem</em> koymak. Bunu kaçış olarak değil, kapıyı açık bırakmak için yapmak. Çünkü kapıyı kapatan, kendini içeride kilitler.</p>
+
+<p>Bir başkasının ağzından hakikat çıktığında, sahibine bakmadan cevhere sevinmek. Lütfun kimin eliyle geldiğine takılmayan kul, her yerden rızıklanır.</p>
+
+<p>Ve hazine düştüğünde avucu sıkmamak, açık tutmak. Açık el yeniden doldurulur.</p>
+
+<h2>Secde</h2>
+
+<p>Belki ikinci hazine şudur: Aradığımızı bulduğumuzu sandığımız her an, aslında aramaya çağrıldığımızı fark ederiz. Rahmet, hidayet ve davet bizden önce gelir. Kulun yönelişi, o davete verilen cevaptır.</p>
+
+<div class="nakil">
+  <p class="ar">اللَّهُ يَجْتَبِي إِلَيْهِ مَن يَشَاءُ وَيَهْدِي إِلَيْهِ مَن يُنِيبُ</p>
+  <p class="meal">“Allah dilediğini kendisine seçer ve kendisine yöneleni doğru yola iletir.”</p>
+  <p class="ref">Şûrâ, 42:13</p>
+</div>
+
+<p>Kul yönelir; ama yönelişini mümkün kılan hidayetin de O’ndan olduğunu bilir. Bize düşen, çağrıdan kaçmamak ve bulduğumuzu kendimize mal etmemek.</p>
+
+<p>Dileğimizi de O’nun dilemesiyle dileyelim: “Siz dileyemezsiniz, ancak Allah dilerse” (İnsân, 76:30). Nefis kendi elimizde tutuldukça çırpınır. Rabbin Yed’ine bırakıldığında ise yatışır, annesinin kucağında susan bir çocuk gibi sekînet bulur.</p>
+
+<p>Secde belki tam da bu bırakıştır. Alnın yere değdiği anda “ben buldum” diyen baş, bulunanların en aşağısına iner. Orada ne iddia kalır ne hüküm. Geriye yalnızca <em>Sübhâne Rabbiye’l-a’lâ</em> kalır: Yüce olan O, aşağıda olan ben. Ve bu ayrılıkta garip bir vuslat.</p>
+
+<h2>Dua</h2>
+
+<p>Allah’ım, içimizdeki Kârûn “bendeki bilgi” dediğinde, onun sesine uymaktan bizi koru. İçimizdeki Yûsuf’un “Rabbim bana öğretti” diyen fısıltısını duyabilmeyi nasip eyle.</p>
+
+<p>Bulduğumuzu Sana nispet etmeyi, başkasının avucundaki cevhere sevinmeyi, bilmediğimizin önünde edeple susmayı bize lütfeyle. Bize öğrettiğinle bizi faydalandır, bize fayda verecek olanı öğret.</p>
+
+<div class="nakil">
+  <p class="ar">رَبِّ زِدْنِي عِلْمًا</p>
+  <p class="meal">“Rabbim, ilmimi artır.”</p>
+  <p class="ref">Tâhâ, 20:114</p>
+</div>
+
+<p>Ama o ilmi bize perde değil, Sana ayna eyle. Âmîn.</p>
+
+<div class="close">
+  <p class="hu">Hu</p>
+  <p class="seal">Allahu a’lem</p>
+</div>
+
+<footer>deeplove</footer>
+
+</main>
+</body>
+</html>
