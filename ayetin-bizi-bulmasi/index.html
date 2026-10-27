@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Âyetin Bizi Bulması: Tedebbürden Secdeye</title>
+<meta name="description" content="İnsan Sûresi 25–26 başlığı altında Sâd 29, Muhammed 24 ve Zümer 41 üzerine bir tefekkür: tedebbürden secdeye.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem("deeplove-tema"); } catch (e) {}
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
+<style>
+  :root {
+    --zemin: #EEE8DC;
+    --yuzey: #E4DAC6;
+    --murekkep: #3E2C17;
+    --soluk: #7A6444;
+    --lacivert: #7A5718;
+    --altin: #9C7426;
+    --cizgi: rgba(62, 44, 23, 0.18);
+    --varak: linear-gradient(100deg, #6E4C14 0%, #A9802F 28%, #D4B260 48%, #9A7225 68%, #6A4812 100%);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --zemin: #0A1020;
+      --yuzey: #111A30;
+      --murekkep: #E6D3A6;
+      --soluk: #B09A70;
+      --lacivert: #DDB861;
+      --altin: #C99A3E;
+      --varak: linear-gradient(100deg, #A87B2C 0%, #E9CC7E 30%, #FFF0BE 47%, #D6AE52 64%, #9C7026 100%);
+      --cizgi: rgba(230, 211, 166, 0.16);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --zemin: #0A1020;
+    --yuzey: #111A30;
+    --murekkep: #E6D3A6;
+    --soluk: #B09A70;
+    --lacivert: #DDB861;
+    --altin: #C99A3E;
+    --varak: linear-gradient(100deg, #A87B2C 0%, #E9CC7E 30%, #FFF0BE 47%, #D6AE52 64%, #9C7026 100%);
+    --cizgi: rgba(230, 211, 166, 0.16);
+    color-scheme: dark;
+  }
+
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *, *::before, *::after { box-sizing: inherit; }
+
+  body {
+    margin: 0;
+    background: var(--zemin);
+    color: var(--murekkep);
+    font-family: "Spectral", Georgia, "Times New Roman", serif;
+    font-weight: 300;
+    font-size: 1.15rem;
+    line-height: 1.75;
+    transition: background-color .6s ease, color .6s ease;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .ust {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem 0;
+    font-size: .95rem;
+  }
+  .ust a { color: var(--soluk); text-decoration: none; }
+  .ust a:hover { color: var(--murekkep); }
+
+  .tema {
+    font: inherit;
+    font-size: .95rem;
+    color: var(--soluk);
+    background: none;
+    border: 1px solid var(--cizgi);
+    border-radius: 2rem;
+    padding: .35rem .9rem .35rem .7rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  .tema:hover { color: var(--murekkep); border-color: var(--soluk); }
+  .tema svg { width: 1rem; height: 1rem; }
+  .tema .ay { display: none; }
+  :root[data-theme="dark"] .tema .gunes { display: none; }
+  :root[data-theme="dark"] .tema .ay { display: inline; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .tema .gunes { display: none; }
+    :root:not([data-theme="light"]) .tema .ay { display: inline; }
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--lacivert);
+    outline-offset: 3px;
+  }
+
+  main {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  header.baslik { padding: 5rem 0 3rem; }
+  header.baslik h1 {
+    font-weight: 300;
+    font-size: clamp(2.3rem, 7vw, 3.4rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  header.baslik p {
+    margin: .9rem 0 0;
+    font-style: italic;
+    color: var(--soluk);
+    font-size: 1.25rem;
+  }
+
+  .ayet {
+    font-family: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
+    direction: rtl;
+    text-align: right;
+    font-size: clamp(1.7rem, 5vw, 2.15rem);
+    line-height: 2.1;
+    color: var(--lacivert);
+    margin: 2.2rem 0 .6rem;
+  }
+  .ayet.buyuk {
+    font-size: clamp(2rem, 6.5vw, 2.8rem);
+    line-height: 2;
+    text-align: center;
+    margin-top: 0;
+  }
+  .meal { font-style: italic; margin: 0 0 1.6rem; }
+  .meal cite { font-style: normal; color: var(--soluk); white-space: nowrap; }
+  .satir-ici { font-family: "Amiri", serif; font-size: 1.3em; color: var(--lacivert); }
+
+  /* İndirdik. Sabret. An. Secde et. — yazının omurgası, aşağı doğru eğilen bir merdiven */
+  .yol {
+    list-style: none;
+    margin: 3rem 0 3rem;
+    padding: 0;
+    font-size: clamp(1.5rem, 4.6vw, 2rem);
+    font-weight: 300;
+    line-height: 1.3;
+  }
+  .yol li { margin: 0; padding: .35rem 0; }
+  .yol li:nth-child(2) { padding-left: 14%; }
+  .yol li:nth-child(3) { padding-left: 28%; }
+  .yol li:nth-child(4) {
+    padding-left: 42%;
+    color: var(--altin);
+    font-style: italic;
+  }
+  .yol small {
+    -webkit-text-fill-color: var(--soluk);
+    display: block;
+    font-size: .95rem;
+    color: var(--soluk);
+    font-style: normal;
+  }
+
+  section { margin-top: 4.5rem; }
+  h2 {
+    font-weight: 400;
+    font-size: 1.7rem;
+    line-height: 1.25;
+    margin: 0 0 1.4rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid var(--cizgi);
+    padding-bottom: .6rem;
+  }
+  h2 .ar {
+    font-family: "Amiri", serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: var(--altin);
+  }
+  p { margin: 0 0 1.15rem; }
+  em { font-style: italic; }
+
+  .sual {
+    margin: 2rem 0;
+    padding: 1.2rem 1.4rem;
+    background: var(--yuzey);
+    border-left: 2px solid var(--altin);
+    border-radius: 0 .4rem .4rem 0;
+    font-style: italic;
+    transition: background-color .6s ease;
+  }
+  .sual p:last-child { margin-bottom: 0; }
+
+  /* Secdeye davet — sayfa yere iner */
+  .secde { margin-top: 6rem; }
+  .davet { margin-top: 3.5rem; }
+  .yer {
+    margin-top: 4rem;
+    padding-bottom: 2rem;
+    text-align: center;
+  }
+  .yer p {
+    font-style: italic;
+    font-size: 1.3rem;
+    margin: 0 0 .4rem;
+  }
+  .yer .esik {
+    height: 1px;
+    background: var(--altin);
+    opacity: .55;
+    margin: 2.2rem auto 1.4rem;
+    width: 100%;
+  }
+  .yer .hu {
+    font-style: normal;
+    letter-spacing: .3em;
+    color: var(--soluk);
+    font-size: 1.1rem;
+  }
+
+  footer {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+    color: var(--soluk);
+    font-size: .95rem;
+    border-top: 1px solid var(--cizgi);
+  }
+  footer a { color: var(--soluk); }
+
+  /* Altın varak: başlık, büyük âyetler ve başlık yanındaki Arapça kelimeler */
+  header.baslik h1, .ayet.buyuk, h2 .ar, .yol li:nth-child(4) {
+    background: var(--varak);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--altin);
+  }
+  @media (forced-colors: active) {
+    header.baslik h1, .ayet.buyuk, h2 .ar, .yol li:nth-child(4) {
+      background: none; -webkit-text-fill-color: currentColor;
+    }
+  }
+
+  @media (max-width: 520px) {
+    body { font-size: 1.07rem; }
+    header.baslik { padding-top: 3.5rem; }
+    .yol li:nth-child(2) { padding-left: 10%; }
+    .yol li:nth-child(3) { padding-left: 20%; }
+    .yol li:nth-child(4) { padding-left: 30%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body, .sual { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ust">
+  <a href="https://deeploveuniverse.github.io/">deeplove</a>
+  <button class="tema" type="button" id="tema" aria-label="Gece ve gündüz modunu değiştir">
+    <svg class="gunes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+    <svg class="ay" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+    <span id="tema-yazi">Gündüz</span>
+  </button>
+</div>
+
+<main>
+  <header class="baslik">
+    <h1>Âyetin Bizi Bulması</h1>
+    <p>Tedebbürden secdeye</p>
+  </header>
+
+  <section aria-label="Başlık âyeti" style="margin-top:0">
+    <p class="ayet buyuk">وَاذْكُرِ اسْمَ رَبِّكَ بُكْرَةً وَأَصِيلًا ۝ وَمِنَ اللَّيْلِ فَاسْجُدْ لَهُ وَسَبِّحْهُ لَيْلًا طَوِيلًا</p>
+    <p class="meal">“Sabah akşam Rabbinin adını an. Gecenin bir kısmında O’na secde et, uzun gece boyunca O’nu tesbih et.” <cite>(İnsan, 76:25–26)</cite></p>
+
+    <p>Bu iki âyet tek başına durmaz. Hemen öncesinde, 23. âyette Rabbimiz şöyle buyurur: <span class="satir-ici" lang="ar" dir="rtl">إِنَّا نَحْنُ نَزَّلْنَا عَلَيْكَ الْقُرْآنَ تَنزِيلًا</span>, “Kur’ân’ı sana biz indirdik, parça parça indirdik.” Ardından 24. âyet sabrı emreder. Sonra zikir gelir, sonra secde.</p>
+
+    <ol class="yol" aria-label="Yolun dört adımı">
+      <li>İndirdik.<small>İnsan, 76:23</small></li>
+      <li>Sabret.<small>76:24</small></li>
+      <li>An.<small>76:25</small></li>
+      <li>Secde et.<small>76:26</small></li>
+    </ol>
+
+    <p>Bu yazı, o yolu birlikte yürümek için yazıldı. Sonunda bir yere varmayı değil, bir yere eğilmeyi umuyor.</p>
+  </section>
+
+  <section>
+    <h2>Sana İndirdik</h2>
+    <p class="ayet">كِتَابٌ اَنْزَلْنَاهُ اِلَيْكَ مُبَارَكٌ لِيَدَّبَّرُوا اٰيَاتِهٖ وَلِيَتَذَكَّرَ اُولُوا الْاَلْبَابِ</p>
+    <p class="meal">“Bu, âyetlerini düşünsünler ve akıl sahipleri öğüt alsınlar diye sana indirdiğimiz mübarek bir kitaptır.” <cite>(Sâd, 38:29)</cite></p>
+    <p>Âyette iki kelime yan yana durur. <em>İleyke</em>: sana indirdik. <em>Li-yeddebberû</em>: onlar derinlemesine düşünsünler diye.</p>
+    <p>Hitap Efendimiz’e (s.a.v.) yönelir; tefekkürün kapısı ise bütün insanlara açılır. Kur’ân’ın Resûlullah’a indirilmesi tarihî ve vahyî bir hakikattir. Ama bu hakikat, bizim âyetlerin karşısında seyirci kalmamız için bir gerekçe değildir.</p>
+    <p>Burada nüzulün muhatabı ile hidayetin muhatabını ayırmayı öğreniyoruz. Bir âyetin ilk muhatabı Peygamberimiz olabilir. O âyetin öğüdü, ikazı ve terbiyesi ise bize de yönelmiş olabilir. Elbette her hitabın bağlamını, hükmünü ve kime mahsus olduğunu gözeterek.</p>
+    <p>Zümer Sûresi bu kapıyı biraz daha aralar: <em>“Şüphesiz biz bu kitabı sana insanlar için hak olarak indirdik. Artık kim doğru yolu bulursa kendi lehinedir; kim de saparsa ancak kendi aleyhine sapmış olur.”</em> (Zümer, 39:41)</p>
+    <p>Sana indirdik. İnsanlar için indirdik. Herkes kendi tercihinden sorumludur. Üç ifade, tek bir davet.</p>
+  </section>
+
+  <section>
+    <h2>Kilitli Kalpler ve Ayna</h2>
+    <p class="ayet">اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ اَمْ عَلٰى قُلُوبٍ اَقْفَالُهَا</p>
+    <p class="meal">“Onlar Kur’ân’ı düşünmüyorlar mı? Yoksa kalpler üzerinde kilitleri mi var?” <cite>(Muhammed, 47:24)</cite></p>
+    <p>Burada sual doğrudan kalbe yönelir. Kur’ân yalnızca başkalarının hâllerini tanımak için okunursa, insan kendi nefsini âyetin aynasından uzak tutar.</p>
+    <p>Firavun’u okur, kendi içindeki tahakküm arzusunu görmez. Kârûn’u okur, kendisine emanet edilen nimetleri sahiplenişini sorgulamaz. İblîs’in “Ben ondan hayırlıyım” sözünü okur, kendi üstünlük iddiasını fark etmez.</p>
+    <p>Tedebbür, âyetin tarihî hakikatini inkâr etmeden onun bugün bize ne söylediğini aramaktır.</p>
+    <p>Bir edep daha var. Nefsimizi âyetin karşısına çıkarırken âyeti nefsimizin arzusuna göre konuşturmamalıyız. Kur’ân’ın bizi düzeltmesine izin vermek ile Kur’ân’da kendi fikrimize delil aramak aynı şey değildir.</p>
+    <p>Belki de Kur’ân’ı kendimize muhatap almanın başlangıcı, her âyette kendimizi bulmaya çalışmak değildir. Âyetin bizi bulmasına razı olmaktır.</p>
+    <p>Peki kilit nasıl açılır? Başlık âyeti burada konuşmaya başlar.</p>
+  </section>
+
+  <section>
+    <h2>Zâhir <span class="ar" lang="ar">ظاهر</span></h2>
+    <p><em>Bukre</em>, günün ilk aydınlığıdır. <em>Asîl</em>, ikindiden güneşin batışına uzanan vakittir. İki uç birlikte anıldığında günün tamamı kastedilir: Zikir bir vakte sıkışmaz, günü kuşatır.</p>
+    <p><em>Ismu rabbike</em>, “Rabbinin ismi” demektir. Zikir, ismin üzerinden yapılır. Müsemmâya isimle yaklaşılır; isim bir kapıdır.</p>
+    <p>Müfessirlerin bir kısmı burada namaz vakitlerine işaret görmüştür. Bu okumaya göre <em>bukre</em> sabah namazıdır, <em>asîl</em> öğle ve ikindidir, gecenin secdesi akşam ve yatsıdır. <em>Leylen tavîlen</em>, “uzun gece” ise gece namazı ve teheccüd olarak anlaşılmıştır.</p>
+    <p>Siyak da kendi sözünü söyler. 23. âyet nüzulü, 24. âyet sabrı, 25–26. âyetler zikir ve secdeyi bildirir. Vahyin tebliği Resûlullah’a emanet edilmiştir; onun rehberliğiyle yaşama mesuliyeti ise müminin omuzlarına da uzanır. Bu emaneti taşımaya güç veren, zikir ve secdedir.</p>
+  </section>
+
+  <section>
+    <h2>Bâtın <span class="ar" lang="ar">باطن</span></h2>
+    <p>Muhammed Sûresi kilitli kalplerden söz etmişti. İnsan Sûresi’nde ise o kilidin açılmasına vesile olabilecek bir davet işitiriz. Tedebbür âyetin önünde durmaktır. Zikir, kalbin o âyete açılmasıdır. Akıl kapıyı gösterir; zikir o kapının önünde kalbi hazır eder. Açılış ise Allah’ın lütfudur.</p>
+    <p>Sonra secde gelir. İblîs “Ben ondan hayırlıyım” dedi ve secdeden kaçtı. Onun kaçtığı yer, bizim döneceğimiz yerdir. Âyetin aynasında kendi üstünlük iddiamızı gördüğümüz an, yapılacak iş alnı yere koymaktır. Âyetin bizi bulmasına razı olmanın bedendeki adı secdedir.</p>
+    <p>Fakat İblîs’in meselesi yalnızca kendini üstün görmesi değildi. Allah’ın emri karşısında kendi kıyasını esas almasıydı: <span class="satir-ici" lang="ar" dir="rtl">أَنَا خَيْرٌ مِنْهُ</span>, <em>“Ben ondan hayırlıyım”</em> (A’râf, 7:12). Fâtiha’da ise kul başka bir dil konuşur: <em>“Yalnız Sana kulluk eder, yalnız Senden yardım dileriz.”</em> Birinde kendini üstün gören bir <em>ben</em> vardır; diğerinde kulluğunu ve muhtaçlığını ikrar eden bir <em>biz</em>.</p>
+    <p>Demek ki tedebbür eden kişi yalnızca nefsindeki kibri değil, kendi aklî çıkarımlarını ilâhî hitabın önüne geçirip geçirmediğini de sorgulamalıdır. Secde bu sorunun yalnızca sembolik cevabı değildir. Allah’ın emrine uyarak bedenle yapılan bir kulluk fiilidir; tevazu manası da buradan doğar.</p>
+    <p><em>Sebbihhu</em>, “O’nu tesbih et” demektir. Tesbih tenzihtir: Hakk’ı her eksiklikten arındırmak. Bu arındırma, Rabbimizi kendi tasavvurlarımızdan, zihnimizin ördüğü suretlerden de temizlemeyi içerir. Âyeti nefsin arzusuna göre konuşturmama edebi buradan doğar.</p>
+    <p>Ve gece. Âyet geceyi kaldırmaz; gecenin içinde secde etmeyi emreder. Sâlikin yolunda nefsin karanlığı, kabzın darlığı, halvetin sessizliği vardır. Gece uzun olabilir. Ama âyet, tesbihin de uzun olduğunu söyler: <em>leylen tavîlen</em>. Gecenin uzunluğu, secdenin derinliğine verilmiş bir mühlettir.</p>
+  </section>
+
+  <section>
+    <h2>Hâl <span class="ar" lang="ar">حال</span></h2>
+    <p>Sabah bir âyet aç. Gün boyu onu taşı. Akşam ona dön ve sor: “Bugün beni nerede buldun?” <em>Bukre</em> ile <em>asîl</em>, açtığın âyet ile kapattığın muhasebe olsun.</p>
+    <p>Gün içinde birine yöneltmek istediğin bir ikaz belirdiğinde onu bekletmeyi dene. Gecenin bir anında, kısa da olsa bir secdede, önce kendi nefsine söyle. Sonra hâlâ söylenmesi gerekiyorsa, artık başka bir dille söylersin.</p>
+    <p>Kalp kilitli hissettiğinde düşünmeyi zorlama. İsme dön. Kapı bazen tefekkürle değil, zikirle aralanır; açan ise O’dur.</p>
+    <p>Gece uzadığında, hâl daraldığında, secdeyi ertelenecek bir şey değil sığınılacak bir yer bil. Uzun gece, uzun tesbihe davettir.</p>
+    <div class="sual">
+      <p>Bir ölçü de gerekir. Âyetin bizi bulmasıyla, bizim âyette kendimizi bulmamız nasıl ayırt edilir? İnsan, nefsini sorguladığını sanırken nefsinin kendisine hazırladığı bir muhasebeyi yapıyor olabilir.</p>
+      <p>Belki ölçü, tefekkürün sonunda kendimiz hakkında ne hissettiğimiz değil; Allah’ın emri karşısında nasıl bir hâl ve amel içinde olduğumuzdur. Âyet bizi daha merhametli, daha adil, daha mütevazı, daha sorumlu kılıyor mu? Yoksa kendimizi hakikati kavramış biri olarak görmeye mi götürüyor?</p>
+    </div>
+  </section>
+
+  <section class="secde">
+    <h2>Secdeye Davet</h2>
+    <p>Her gün dilimizden dökülen söz bir ahittir:</p>
+    <p class="ayet buyuk" style="margin-top:1.4rem">اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِينُ</p>
+    <p class="meal" style="text-align:center">“Yalnız Sana kulluk eder, yalnız Senden yardım dileriz.”</p>
+    <p>Bu söz okunmak için değil, yaşanmak için verilmiştir. Kulluğun en yakın hâli ise secdedir; kulun Rabbine en yakın olduğu an.</p>
+    <div class="davet">
+      <p>Şimdi bu satırları bırak.</p>
+      <p>Kur’ân sana sesleniyordu. Belki çoktandır sesleniyordu ve sen o sesi başkasına ait sayıyordun. Kalbinde bir kilit varsa, İsmini an. Gece çökmüşse, eğil.</p>
+      <p>Alnını yere koy ve yalnızca şunu söyle:</p>
+    </div>
+    <div class="yer">
+      <p>Yâ Rabbi, âyetin beni buldu.</p>
+      <p>Beni bana bırakma.</p>
+      <p>Yalnız Sana kulluk eder, yalnız Senden yardım dileriz.</p>
+      <div class="esik" aria-hidden="true"></div>
+      <p class="hu">Hu…</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a href="https://deeploveuniverse.github.io/">deeploveuniverse.github.io</a>
+</footer>
+
+<script>
+  (function () {
+    var kok = document.documentElement;
+    var dugme = document.getElementById("tema");
+    var yazi = document.getElementById("tema-yazi");
+    var sistem = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function gecerli() {
+      var t = kok.getAttribute("data-theme");
+      if (t === "light" || t === "dark") return t;
+      return sistem.matches ? "dark" : "light";
+    }
+    function guncelle() {
+      var gece = gecerli() === "dark";
+      yazi.textContent = gece ? "Gece" : "Gündüz";
+      dugme.setAttribute("aria-pressed", gece ? "true" : "false");
+    }
+    dugme.addEventListener("click", function () {
+      var yeni = gecerli() === "dark" ? "light" : "dark";
+      kok.setAttribute("data-theme", yeni);
+      try { localStorage.setItem("deeplove-tema", yeni); } catch (e) {}
+      guncelle();
+    });
+    if (sistem.addEventListener) sistem.addEventListener("change", guncelle);
+    guncelle();
+  })();
+</script>
+</body>
+</html>
