@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kozadan İsme: Emanet, Esmâ ve Nefsin Yolculuğu</title>
+<meta name="description" content="Ahzâb 72’ye bir tefekkür penceresi: İsrâ 70, Bakara 30–37 ve emmâreden sâfiyeye nefsin yolculuğu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem("deeplove-tema"); } catch (e) {}
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
+<style>
+  /* Ham ipek gündüz, koza içi gece */
+  :root {
+    --zemin: #EDE6D6;
+    --zemin-2: #E3D9C4;
+    --murekkep: #2A2218;
+    --soluk: #6E604B;
+    --cizgi: rgba(42, 34, 24, 0.15);
+    --altin: #9A6F1E;
+    --altin-isik: #C9A24E;
+    --zahir: #8A5A2B;
+    --batin: #6B3D58;
+    --hal: #5B6A2E;
+    --perde: rgba(107, 61, 88, 0.06);
+    --koza: rgba(154, 111, 30, 0.28);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --zemin: #13100C;
+      --zemin-2: #1C1812;
+      --murekkep: #E9DEC8;
+      --soluk: #A8997E;
+      --cizgi: rgba(233, 222, 200, 0.13);
+      --altin: #D4A74F;
+      --altin-isik: #F0D38C;
+      --zahir: #D9A86E;
+      --batin: #D3A3C1;
+      --hal: #BCC584;
+      --perde: rgba(211, 163, 193, 0.06);
+      --koza: rgba(212, 167, 79, 0.30);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --zemin: #13100C;
+    --zemin-2: #1C1812;
+    --murekkep: #E9DEC8;
+    --soluk: #A8997E;
+    --cizgi: rgba(233, 222, 200, 0.13);
+    --altin: #D4A74F;
+    --altin-isik: #F0D38C;
+    --zahir: #D9A86E;
+    --batin: #D3A3C1;
+    --hal: #BCC584;
+    --perde: rgba(211, 163, 193, 0.06);
+    --koza: rgba(212, 167, 79, 0.30);
+    color-scheme: dark;
+  }
+
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    --serif: "Literata", Georgia, "Times New Roman", serif;
+    --baslik: "Cormorant Garamond", "Garamond", Georgia, serif;
+    --arapca: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *, *::before, *::after { box-sizing: inherit; }
+
+  body {
+    margin: 0;
+    background: var(--zemin);
+    color: var(--murekkep);
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 1.08rem;
+    line-height: 1.78;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    transition: background-color .6s ease, color .6s ease;
+  }
+  em, i { font-style: italic; }
+  b, strong { font-weight: 500; }
+  .ar { font-family: var(--arapca); direction: rtl; font-weight: 400; }
+  p > .ar { font-size: 1.3em; color: var(--altin); unicode-bidi: isolate; }
+  a { color: inherit; text-decoration-color: var(--altin); }
+  :focus-visible { outline: 2px solid var(--altin); outline-offset: 3px; }
+
+  /* Üst şerit */
+  .ust {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 46rem; margin: 0 auto; padding: 1.2rem 1.5rem 0;
+    font-size: .92rem;
+  }
+  .ust a { color: var(--soluk); text-decoration: none; font-family: var(--baslik); font-size: 1.15rem; letter-spacing: .06em; }
+  .ust a:hover { color: var(--murekkep); }
+  .tema {
+    font: inherit; font-size: .9rem; color: var(--soluk);
+    background: none; border: 1px solid var(--cizgi); border-radius: 2rem;
+    padding: .35rem .9rem .35rem .7rem; cursor: pointer;
+    display: inline-flex; align-items: center; gap: .5rem;
+  }
+  .tema:hover { color: var(--murekkep); border-color: var(--soluk); }
+  .tema svg { width: 1rem; height: 1rem; }
+  .tema .ay { display: none; }
+  :root[data-theme="dark"] .tema .gunes { display: none; }
+  :root[data-theme="dark"] .tema .ay { display: inline; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .tema .gunes { display: none; }
+    :root:not([data-theme="light"]) .tema .ay { display: inline; }
+  }
+
+  /* Eşik: koza ve içinden doğan söz */
+  .koza {
+    position: relative;
+    max-width: 46rem; margin: 0 auto;
+    padding: 4.5rem 1.5rem 3.5rem;
+    text-align: center;
+  }
+  .koza-cizim {
+    position: relative;
+    margin: 0 auto 2.4rem;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .koza-cizim .ip {
+    width: 1px; height: clamp(4rem, 14vh, 7rem);
+    background: linear-gradient(to bottom, transparent, var(--altin));
+    opacity: .8; margin-bottom: 1.4rem;
+    transform-origin: top; animation: sarkma 2s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .koza-cizim .ar {
+    position: relative; z-index: 1;
+    font-size: clamp(2.3rem, 9vw, 3.6rem); line-height: 1.6;
+    color: var(--altin);
+    text-shadow: 0 0 40px color-mix(in srgb, var(--altin-isik) 35%, transparent);
+  }
+  .koza-cizim .ar { animation: dogus 2.6s ease 1.2s both; }
+  @keyframes sarkma { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes dogus { from { opacity: 0; filter: blur(6px); } to { opacity: 1; filter: blur(0); } }
+
+  .koza h1 {
+    font-family: var(--baslik); font-weight: 500;
+    font-size: clamp(2.4rem, 7.4vw, 3.6rem); line-height: 1.04;
+    margin: 0; letter-spacing: -.005em;
+  }
+  .koza h1 span { display: block; font-style: italic; font-weight: 400; font-size: .52em; color: var(--soluk); margin-top: .7rem; line-height: 1.3; }
+  .koza .alt { margin: 1.4rem 0 0; color: var(--soluk); font-size: .98rem; }
+
+  /* Gövde */
+  main { max-width: 37rem; margin: 0 auto; padding: 0 1.5rem 3rem; }
+  main p { margin: 0 0 1.1rem; hyphens: auto; }
+  section { margin-top: 5rem; }
+  h2 {
+    font-family: var(--baslik); font-weight: 500;
+    font-size: clamp(1.75rem, 5vw, 2.15rem); line-height: 1.18;
+    margin: 0 0 1.5rem;
+  }
+  h2::after {
+    content: ""; display: block; width: 2.6rem; height: 1px;
+    background: var(--altin); margin-top: .9rem; opacity: .7;
+  }
+
+  /* Âyet */
+  .ayet { margin: 2rem 0; }
+  .ayet .ar { font-size: 1.75rem; line-height: 2.15; margin: 0 0 .7rem; text-align: right; color: var(--altin); }
+  .ayet .okunus { font-style: italic; color: var(--soluk); margin: 0 0 .5rem; }
+  .ayet .meal { margin: 0 0 .3rem; }
+  .ayet figcaption { font-size: .9rem; color: var(--soluk); }
+
+  /* Zâhir · Bâtın · Hâl katmanları */
+  .katman {
+    --renk: var(--zahir);
+    margin: 2.6rem 0; padding: 1.4rem 0 .4rem 1.4rem;
+    border-left: 1px solid var(--renk);
+    position: relative;
+  }
+  .katman::before {
+    content: ""; position: absolute; left: -4px; top: 1.95rem;
+    width: 7px; height: 7px; border-radius: 50%; background: var(--renk);
+  }
+  .katman.batin { --renk: var(--batin); background: linear-gradient(90deg, var(--perde), transparent 75%); }
+  .katman.hal { --renk: var(--hal); }
+  .katman h3 {
+    display: flex; align-items: baseline; gap: .8rem;
+    font-family: var(--baslik); font-weight: 500; font-size: 1.45rem;
+    margin: 0 0 1rem; color: var(--renk);
+  }
+  .katman h3 .ar { font-size: 1.45rem; line-height: 1; }
+  .katman ul { margin: 0 0 1.1rem; padding-left: 1.1rem; }
+  .katman li { margin-bottom: .65rem; }
+  .katman li::marker { color: var(--renk); }
+
+  /* Bakara haritası */
+  .harita { list-style: none; margin: 1.8rem 0 2.2rem; padding: 0; }
+  .harita li {
+    display: grid; grid-template-columns: 4.8rem 1fr; gap: .9rem;
+    padding: .6rem 0; border-bottom: 1px solid var(--cizgi);
+  }
+  .harita li:last-child { border-bottom: 0; }
+  .harita .ref { color: var(--altin); font-variant-numeric: lining-nums tabular-nums; }
+
+  /* Ehlullah sözleri */
+  .sesler { list-style: none; padding: 0; margin: 1.4rem 0 1.8rem; }
+  .sesler li { margin: 0 0 1.1rem; padding-left: 1.3rem; position: relative; }
+  .sesler li::before {
+    content: ""; position: absolute; left: 0; top: .8em;
+    width: .5rem; height: 1px; background: var(--altin);
+  }
+
+  /* Yedi nefs: kozadan isme yükselen ip */
+  .merdiven { list-style: none; margin: 2.4rem 0 0; padding: 0; position: relative; }
+  .merdiven::before {
+    content: ""; position: absolute; left: .7rem; top: 1rem; bottom: 1rem; width: 1px;
+    background: linear-gradient(to bottom, var(--cizgi), var(--altin));
+  }
+  .merdiven > li { position: relative; padding: 0 0 2.3rem 2.8rem; }
+  .merdiven > li::before {
+    content: ""; position: absolute; left: 0; top: .35rem;
+    width: 1.4rem; height: 1.4rem; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    border: 1px solid var(--altin);
+    background: var(--zemin);
+    background: color-mix(in srgb, var(--altin-isik) calc(var(--i) * 14%), var(--zemin));
+    box-shadow: 0 0 calc(var(--i) * 3px) color-mix(in srgb, var(--altin-isik) calc(var(--i) * 8%), transparent);
+  }
+  .merdiven .bas {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: .2rem 1rem; margin-bottom: .7rem;
+  }
+  .merdiven h3 { font-family: var(--baslik); font-weight: 500; font-size: 1.5rem; margin: 0; }
+  .merdiven h3 small { font-size: 1rem; color: var(--soluk); font-weight: 400; font-style: italic; margin-left: .45rem; font-family: var(--serif); }
+  .merdiven .bas .ar { font-size: 1.45rem; color: var(--altin); line-height: 1.3; }
+
+  /* Bilginin eşiği */
+  .esik .dur {
+    text-align: center; font-family: var(--baslik); font-style: italic;
+    font-size: 1.9rem; margin: 2.4rem 0; color: var(--altin);
+  }
+  .esik .sorular { margin: 1.8rem 0; padding: 1.1rem 0; border-top: 1px solid var(--cizgi); border-bottom: 1px solid var(--cizgi); }
+  .esik .sorular p { margin: .35rem 0; font-style: italic; color: var(--soluk); }
+  .esik .beyit { text-align: center; font-family: var(--baslik); font-size: 1.55rem; line-height: 1.5; margin: 2.4rem 0; }
+  .esik .munacat { padding-left: 1.4rem; border-left: 1px solid var(--altin); margin: 1.8rem 0; }
+  .esik .munacat p { margin: 0 0 .3rem; }
+
+  /* Dua */
+  .dua { text-align: center; padding: 3rem 0 1rem; }
+  .dua h2::after { margin-left: auto; margin-right: auto; }
+  .dua p { margin: 0 auto 1.2rem; max-width: 31rem; }
+  .dua .hu {
+    font-family: var(--baslik); font-style: italic; font-size: 2.2rem;
+    color: var(--altin); margin-top: 2.8rem; letter-spacing: .08em;
+  }
+
+  .kaynak {
+    margin-top: 5rem; padding-top: 2.4rem;
+    border-top: 1px solid var(--cizgi);
+    font-size: .95rem; color: var(--soluk);
+  }
+  .kaynak h2 { font-size: 1.5rem; color: var(--murekkep); }
+  .kaynak h3 { font-family: var(--baslik); font-weight: 500; font-size: 1.2rem; color: var(--murekkep); margin: 1.8rem 0 .7rem; }
+  .kaynak ul { list-style: none; padding: 0; margin: 0 0 1rem; }
+  .kaynak li { margin: 0 0 .9rem; padding-left: 1.2rem; position: relative; }
+  .kaynak li::before { content: ""; position: absolute; left: 0; top: .8em; width: .45rem; height: 1px; background: var(--altin); }
+  .kaynak .tarih { font-style: italic; }
+
+  footer {
+    max-width: 37rem; margin: 2rem auto 0; padding: 2rem 1.5rem 3rem;
+    border-top: 1px solid var(--cizgi); color: var(--soluk); font-size: .92rem;
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  }
+  footer a { color: var(--soluk); }
+
+  @media (max-width: 30rem) {
+    body { font-size: 1.02rem; }
+    .koza { padding-top: 3rem; }
+    .harita li { grid-template-columns: 4.2rem 1fr; }
+    .katman { padding-left: 1.05rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .koza-cizim .ip, .koza-cizim .ar { animation: none; }
+    body { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ust">
+  <a href="../">deeplove</a>
+  <button class="tema" type="button" id="tema" aria-label="Gece ve gündüz modunu değiştir">
+    <svg class="gunes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+    <svg class="ay" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+    <span id="tema-yazi">Gündüz</span>
+  </button>
+</div>
+
+<header class="koza">
+  <div class="koza-cizim">
+    <span class="ip" aria-hidden="true"></span>
+    <span class="ar" lang="ar">وَحَمَلَهَا الْإِنسَانُ</span>
+  </div>
+  <h1>Kozadan İsme<span>Emanet, Esmâ ve Nefsin Yolculuğu</span></h1>
+  <p class="alt">Ahzâb 72’ye bir tefekkür penceresi · 6 Ekim 2026</p>
+</header>
+
+<main>
+
+<section style="margin-top:2rem">
+  <h2>Bir Edep Notu</h2>
+  <p>Bu satırlar bir hüküm değil, bir tefekkür kaydıdır. Unuttuğumuzda hatırlamak için yazıldı.</p>
+  <p>Burada okunan pencereler tefsirin kesin sözü değildir, âlimlerin hükmü yerine de geçmez. Özellikle insanın tarih içindeki başlangıcı meselesi ümmet içinde açık duran bir kapıdır. Klasik tefsirin ağır basan görüşü Âdem’in topraktan doğrudan ve özel yaratılışıdır. Bu yazıda anlatılan “süreç” okuması ise çağdaş bazı Müslüman düşünürlerin ve bazı ehlullah sözlerinin çağrıştırdığı bir ihtimaldir, kesin bir bilgi değildir.</p>
+  <p>Aslı zaten tarih değil, kalptir. Neandertal’den insana uzanan soru, okuyanın kendi içinde emmâreden sâfiyeye uzanan yolu görmesi için bir aynadır. Doğrusunu Allah bilir. <em>Ve’llâhu a’lem.</em></p>
+</section>
+
+<section>
+  <h2>Başlangıçta Bir Soru</h2>
+  <p>İnsan hayvandan ne zaman ayrıldı?</p>
+  <p>Kemik yapısı değiştiğinde mi? Ateş yaktığında mı? Ölüsünü gömdüğünde mi? Dil geliştirdiğinde mi?</p>
+  <p>Yoksa Rabbi ona seslendiğinde mi?</p>
+  <p>Belki ayrılık bir kemikte değil, bir kulakta başladı. Toprak yoğrulmuştu, ruh üflenmişti. Ama <em>“Ve alleme Âdeme…”</em> denildiğinde, Âdem’in <em>kendisine öğretilen</em> oluşu görünür hâle geldi. İnsanın ilk hâli bilmek değildi, kendisine öğretilen olmaktı. Şerefi yalnız bildiklerinde değil, kendisine öğretilmiş olmasındadır: bilginin önünde bir ihsan, ihsanın karşısında bir muhtaçlık vardır.</p>
+  <p>Bu yazı o seslenme anının izini üç âyet pasajında sürüyor: İsrâ 70, Bakara 30–37 ve Ahzâb 72.</p>
+</section>
+
+<section>
+  <h2>Şeref ve Kaynağı: İsrâ 70 ve Bakara 31</h2>
+  <p>İki âyet birbirinin sırrını açar. Biri şerefi ilan eder, öteki o şerefin nereden geldiğini gösterir.</p>
+
+  <div class="katman zahir">
+    <h3>Zâhir <span class="ar" lang="ar">ظاهر</span></h3>
+    <figure class="ayet">
+      <p class="ar" lang="ar">وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ وَحَمَلْنَاهُمْ فِي الْبَرِّ وَالْبَحْرِ وَرَزَقْنَاهُم مِّنَ الطَّيِّبَاتِ وَفَضَّلْنَاهُمْ عَلَىٰ كَثِيرٍ مِّمَّنْ خَلَقْنَا تَفْضِيلًا</p>
+      <p class="okunus">“Ve lekad kerremnâ benî Âdem…”</p>
+      <p class="meal">Andolsun, Âdemoğullarını şerefli kıldık. Onları karada ve denizde taşıdık, temiz şeylerle rızıklandırdık ve yarattıklarımızın çoğundan üstün kıldık.</p>
+      <figcaption>İsrâ 17:70</figcaption>
+    </figure>
+    <figure class="ayet">
+      <p class="ar" lang="ar">وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا ثُمَّ عَرَضَهُمْ عَلَى الْمَلَائِكَةِ</p>
+      <p class="okunus">“Ve alleme Âdeme’l-esmâe küllehâ…”</p>
+      <p class="meal">Âdem’e isimlerin hepsini öğretti, sonra onları meleklere arz etti.</p>
+      <figcaption>Bakara 2:31</figcaption>
+    </figure>
+    <p><em>Kerreme</em>, k-r-m kökünden gelir: kerem, ikram, cömertçe değer vermek. <em>Faddala</em>, f-d-l kökünden gelir: fazlalık, artı. Müfessirlerin çoğu ikisini ayırır. Tekrîm her insana fıtraten verilen şereftir; tafdîl üstüne eklenen derecedir. Âyetin “hepsinden” değil <em>“kesîr”</em>, yani “çoğundan” demesi, melekle insanın üstünlüğü tartışmasının kapısı olmuştur.</p>
+    <p><em>Esmâ</em> kelimesinin kökü ihtilaflıdır. Basralılar onu <em>sümüvv</em> (yücelik), Kûfeliler <em>vesm</em> (iz, işaret) köküne bağlar. <em>Arazahum</em>’daki “hum” zamiri akıl sahipleri için kullanılır; bu yüzden bazı müfessirler arz edilenlerin isimlerin sahipleri olduğunu söyler.</p>
+  </div>
+
+  <div class="katman batin">
+    <h3>Bâtın <span class="ar" lang="ar">باطن</span></h3>
+    <p>Klasik tefsirde <em>esmâ</em>; varlıkların isimleri, mahiyetleri ve bilgileri üzerinden açıklanır. Sûfîler bunun üzerine işârî bir derinlik kurmuştur. İbn Arabî’nin Fusûs’u Âdem fassıyla açılır: âlem cilasız bir aynaydı, Âdem o aynanın cilası oldu. Bu okumada her melek bir ismin mazharıdır, insan ise <em>“küllehâ”</em>nın. Cîlî’de İnsân-ı Kâmil esmâ ile sıfatların berzahıdır. İnsan isimleri bilmez, isimleri taşır.</p>
+    <p>Kerem, Kerîm’den gelir. İnsanın şerefi kendinden değil, ona ikram edilmiş olmasındandır. Bu şeref sahiplik değil, emanettir.</p>
+    <p>İşârî bir okumayla <em>berr</em> (kara) zâhir yoldur, şeriat ve beden; <em>bahr</em> (deniz) bâtın yoldur, hakikat ve kalp. İnsan iki âlemde de taşınır, kendi ayağıyla değil: <em>hamelnâhum</em>, “biz taşıdık.” <em>Tayyibât</em> da yalnızca sofradaki rızık değil, zikirle marifetin rızkıdır.</p>
+  </div>
+
+  <div class="katman hal">
+    <h3>Hâl <span class="ar" lang="ar">حال</span></h3>
+    <p>Karşına çıkan her şeye “bu hangi isim?” diye bakmak. Bir çocuğun gülüşünde Latîf, bir kayıpta Sabûr, kapanan bir kapıda Kābız ve ardından Bâsıt. Böylece eşya perde olmaktan çıkar, isme dönüşür.</p>
+    <p>Kerem gören kerem eder. Kendisine ikram edildiğini bilen kimseyi küçük görmez. Ne kendini hiçe saymak ne de kendine bir şey saymak: “Şerefliyim, çünkü taşınıyorum.”</p>
+  </div>
+</section>
+
+<section>
+  <h2>Bakara’daki Harita: 2:30–37</h2>
+  <p>Sıra bir kronoloji değil, bir mertebeler haritası gibi durur. Ama haritanın ilk durağı bizim hevesimiz değil, O’nun ilanıdır.</p>
+  <ol class="harita">
+    <li><span class="ref">2:30</span><span><b>Halife.</b> <em>“İnnî câilun”</em>: Ben kılacağım.</span></li>
+    <li><span class="ref">2:31</span><span><b>Esmâ.</b> İsimlerin hepsi öğretilir.</span></li>
+    <li><span class="ref">2:32</span><span><b>İtiraf.</b> Melekler: <em>“Biz ancak Senin öğrettiğini biliriz.”</em></span></li>
+    <li><span class="ref">2:33</span><span><b>İnbâ.</b> Âdem isimleri bildirir.</span></li>
+    <li><span class="ref">2:34</span><span><b>Secde.</b> İblis’in kibri açığa çıkar.</span></li>
+    <li><span class="ref">2:35–36</span><span><b>Zelle ve iniş.</b></span></li>
+    <li><span class="ref">2:37</span><span><b>Kelimât ve tevbe.</b></span></li>
+  </ol>
+
+  <div class="katman zahir">
+    <h3>Zâhir <span class="ar" lang="ar">ظاهر</span></h3>
+    <p><em>“İnnî câilun”</em> ism-i fâil kalıbıyla bir karar bildirir. Halifelik önce verilmiş, sonra öğretilmiştir. Âdem henüz bir şey bilmeden halife ilan edilir.</p>
+    <p>Melekler “fesat çıkaracak” bilgisini nereden almıştı? Taberî’nin İbn Abbas’a dayandırdığı rivayette yeryüzünde daha önce cinler vardı ve kan döktüler. Başka bir görüşe göre Allah onlara bildirmişti. Bir başkasına göre de toprağın ve şehvetin ne doğuracağını kendileri sezdiler.</p>
+    <p>2:32’de cevap <em>“sübhâneke”</em> ile başlar: bilgisizlik itirafından önce tesbih gelir. 2:33’teki <em>“enbi’hum”</em> fiilinin kökü <em>nebe’</em>, büyük haberdir; <em>nebî</em> ile aynı kökten. Âdem burada öğrenci gibi değil, haberci gibi konuşur. Ardından gelen <em>“gizlediğinizi de bilirim”</em> sözünü bazı müfessirler İblis’in içindeki kibre yorar.</p>
+  </div>
+
+  <div class="katman batin">
+    <h3>Bâtın <span class="ar" lang="ar">باطن</span></h3>
+    <p>Seyr-i sülûk açısından okununca:</p>
+    <ul>
+      <li><b>Halifelik</b> istidattır. Tohum ezelde ekilmiş, sâlik onu kazanmaz, keşfeder.</li>
+      <li><b>Esmâ</b> ta’lîmdir: sohbetle, zikirle, bir nazarla gelen yolun kendisi.</li>
+      <li><b>Meleklerin itirafı</b> fakr makamıdır. Âdem’in konuşması bu itiraftan sonra gelir: hiçliğin sesi önce yükselmeli, sonra isim konuşabilir.</li>
+      <li><b>İnbâ</b> bekâ makamıdır. Fenâdan geçen kul artık kendisi değil, isimlerle konuşur.</li>
+      <li><b>Zelle</b> yolculuğun sonu değildir; tevbe ile dönüşün kapısı olabilir. Âdem’in zirvesi belki isimleri bildirdiği an değil, <em>kelimât</em> aldığı andır: <em>“Rabbenâ zalemnâ enfusenâ.”</em></li>
+    </ul>
+  </div>
+
+  <div class="katman hal">
+    <h3>Hâl <span class="ar" lang="ar">حال</span></h3>
+    <p>Halifelik bir heves nesnesi olursa, 2:33’teki o gizlenen kibrin kapısı açılır. Halifeliği isteyen nefis, “ben ondan hayırlıyım” sesine yakındır. Sâlikin hâli halife <em>olmaya</em> çalışmak değil, halifeliğin emanet olduğunu unutmamaktır.</p>
+    <p>Günlük hayatta sıra şöyle yaşanabilir: verildiğini bil, öğret diye dile, bilmediğini itiraf et, öğretildiğinde konuş, düştüğünde kelimelere sarıl.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Ahzâb 72: Emanet</h2>
+  <figure class="ayet">
+    <p class="ar" lang="ar">إِنَّا عَرَضْنَا الْأَمَانَةَ عَلَى السَّمَاوَاتِ وَالْأَرْضِ وَالْجِبَالِ فَأَبَيْنَ أَن يَحْمِلْنَهَا وَأَشْفَقْنَ مِنْهَا وَحَمَلَهَا الْإِنسَانُ ۖ إِنَّهُ كَانَ ظَلُومًا جَهُولًا</p>
+    <p class="okunus">“İnnâ aradne’l-emânete ale’s-semâvâti ve’l-ardı ve’l-cibâli fe-ebeyne en yahmilnehâ ve eşfakne minhâ ve hamelehe’l-insân, innehû kâne zalûmen cehûlâ.”</p>
+    <p class="meal">Biz emaneti göklere, yere ve dağlara arz ettik. Onlar onu yüklenmekten kaçındılar, ondan korktular. Onu insan yüklendi. Şüphesiz o çok zalim, çok cahildir.</p>
+    <figcaption>Ahzâb 33:72</figcaption>
+  </figure>
+
+  <div class="katman zahir">
+    <h3>Zâhir <span class="ar" lang="ar">ظاهر</span></h3>
+    <p>Âyetteki <em>“aradnâ”</em> (arz ettik) ile Bakara 31’deki <em>“arazahum”</em> (onları arz etti) aynı kökten gelir. Orada isimler meleklere arz edilmişti, burada emanet varlığa arz ediliyor. İki sahne birbirine bakar.</p>
+    <p>Emanetin ne olduğu tartışılmıştır. İbn Abbas’tan gelen yorumda emanet farzlar ve tekliftir. Başka görüşlerde akıl, irade ya da marifettir. <em>Zalûm</em> ve <em>cehûl</em> mübalağa sıygalarıdır: “çok zalim, çok cahil.” Tefsirin çoğunluğu bunu bir kınama ve uyarı olarak okur. Ardından gelen 73. âyet emanetin sonucunun iki yola ayrıldığını gösterir: münafık ve müşrik için azap, mü’minler için tevbe.</p>
+  </div>
+
+  <div class="katman batin">
+    <h3>Bâtın <span class="ar" lang="ar">باطن</span></h3>
+    <p>Bazı ehlullah aynı kelimelerde bir övgü ihtimali de görmüştür. Bu, âyetin açık uyarısını kaldırmayan, onun üzerinde gelişen işârî bir okumadır.</p>
+    <p>Bu okumada <em>zalûm</em>, nefsine zulmeden, onu Hak yolunda fenâya götüren kimsedir. <em>Cehûl</em>, mâsivâyı bilmeyen, O’ndan gayrısına cahil kalan kimsedir.</p>
+    <p>Dağların çekinmesi ise kusur değil, hikmetli bir ihtiyattı: <em>eşfakne minhâ</em>, emanetin ağırlığı karşısında duyulan derin bir endişe. İnsanın yüklenmesi bir üstünlük değil, büyük bir mesuliyettir.</p>
+    <p>İşârî bir sûfî okumada emanet, Bakara 31’deki esmâ ile birlikte düşünülebilir: esmânın cem’i, Hakk’ın kendini seyrettiği ayna. Gökler bir ismi taşıyabilirdi, dağlar bir başkasını. <em>Küllehâ</em>’yı taşıyabilecek tek kalp, kendinden geçebilen kalpti.</p>
+    <p>İki âyette de aynı kök duyulur: h-m-l, taşımak. İsrâ 70’te <span class="ar" lang="ar">وَحَمَلْنَاهُمْ</span>, “onları Biz taşıdık”; Ahzâb 72’de <span class="ar" lang="ar">وَحَمَلَهَا الْإِنسَانُ</span>, “onu insan yüklendi.” İnsan emaneti taşımakla mükelleftir; fakat kendisi de O’nun ihsanıyla taşınmaktadır. <em>İyyâke na’budu</em> mesuliyeti, <em>iyyâke nesta’în</em> o mesuliyet için yardım dilemeyi hatırlatır.</p>
+  </div>
+
+  <div class="katman hal">
+    <h3>Hâl <span class="ar" lang="ar">حال</span></h3>
+    <p>Âyet aynı kelimelerle iki kişiye iki şey söyler. Biri için bir teşhistir, diğeri için bir müjde. Hangi kulakla duyduğumuz, nefsimizin hangi mertebede olduğunu gösterir.</p>
+    <p>Ahzâb 72’de insana <em>zalûm</em> denir. A’râf 23’te ise Âdem ile eşi aynı kökten bir itirafla Rablerine döner: <span class="ar" lang="ar">رَبَّنَا ظَلَمْنَا أَنفُسَنَا</span>, “Rabbimiz, biz kendimize zulmettik.” Birinde zaaf bildirilir, ötekinde kabul edilir.</p>
+    <p>İnsanın şerefi hiç düşmemesinde değil, düştüğünde Rabbine dönebileceği kelimelerin de kendisine öğretilmiş olmasındadır. İsimleri öğreten de O’dur (Bakara 31), tevbe kelimelerini Âdem’e ulaştıran da (Bakara 37). Ta’lîm ile tevbe aynı muhtaçlığın iki yüzüdür.</p>
+    <p>İnsan emaneti taşıdığını fark ettiğinde mi uyanır, yoksa kendisinin de taşınmakta olduğunu fark ettiğinde mi? Belki ikisi ayrılmaz. Emanet unutulursa insan mesuliyetten kaçar; taşınmak unutulursa kendini müstağni sanır.</p>
+    <p>Bir sonraki bölümler bu iki kulağın arasındaki yolu açıyor.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Kozadan İsme: Neandertal ile Emmâre Arasında Bir Ayna</h2>
+  <p>Kur’ân, insanın yaratılışını tek bir anlatım biçimiyle ele almaz. <em>“Onu topraktan yarattı”</em>, <em>“iki elimle yarattığım”</em> (Sâd 75) ve tek bir nefisten yayılma âyetleri Âdem’in özel yaratılışını vurgular. Bilim ise anatomik olarak modern insanın uzun bir süreçle şekillendiğini söyler. Bugün Müslüman düşünürler arasında Âdem’i bu sürecin dışında mucizevî bir yaratılış olarak görenler de var, onu bir çizginin hitapla seçilmişi olarak okuyanlar da. Burada ikincisi bir hüküm olarak değil, bir ayna olarak tutuluyor.</p>
+  <p>Aynanın öteki yüzünde ehlullahın sözleri durur:</p>
+  <ul class="sesler">
+    <li><b>Mevlânâ</b> Mesnevî’de cansızlıktan ölüp bitki, bitkilikten ölüp hayvan, hayvanlıktan ölüp insan olduğunu anlatır ve sorar: ölmekten neden korkayım? Bu, modern evrimin tarihî bir açıklaması değil; ölüm ve varlık mertebeleri üzerinden bir dönüşüm tefekkürüdür.</li>
+    <li><b>İbn Haldun</b> Mukaddime’de varlık mertebelerini madenden bitkiye, bitkiden hayvana, oradan fikir sahibi insana yükselen bir zincir olarak anlatır.</li>
+    <li><b>İbn Arabî</b>’nin Fütûhât’ta aktardığı bir keşfî müşahedede, tavafta karşılaştığı bir kişi binlerce yıl önce yaşadığını söyler. Kimi rivayetlerde “nice Âdemler” sözü geçer.</li>
+  </ul>
+  <p>Bir ayrım da gerekir. Neandertaller modern insanın doğrudan atası sayılmaz; onunla ortak ataları olan, bir dönem birlikte yaşamış ve genetik alışverişte bulunmuş yakın bir insan soyudur. Bu yüzden burada “Neandertal’den Âdem’e” ifadesi tarihî bir çizgi değil, yalnızca bir tefekkür mecazıdır.</p>
+  <p>Bu sözleri aynı tefekkür aynasında okuduğumuzda, Âdem’i Âdem yapan şeyin yalnız beden değil, bir mertebe olduğu düşünülebilir: isimlerin cem’i, hitaba muhatap oluş, <em>“elestu”</em>ye “belâ” diyebilmek. Beden hazırlanır, ama insan Rabbi seslendiğinde doğar.</p>
+  <p>İşte ayna burasıdır. Ateşi yakan, ölüsünü gömen, konuşan bir varlık hâlâ bir kozada olabilir. Ehlullah aynı kozayı her insanın içinde görür: nefs-i emmâre, insanın hayvanî mertebesidir. Yer, içer, korkar, sahiplenir, kızar. Biyolojik olarak insandır; fakat kendisine yöneltilen hitabın şuuruna henüz uyanmamıştır.</p>
+  <p>Sonra bir gün bir söz kalbe değer, bir nazar düşer, bir isim hatırlanır. Koza <em>“yâ Âdem”</em> sesiyle yırtılır. <em>“Ve alleme Âdeme…”</em> sırrı kişide yeniden hatırlanır.</p>
+  <p>Hangi tarihî okuma seçilirse seçilsin şu kalır: kemiği değiştiren Hâlık’tır, ateşi yaktıran O’dur. Ama insanı insan kılan O’nun seslenmesidir. Ve seslenme hâlâ sürüyor.</p>
+</section>
+
+<section>
+  <h2>Âyetin Yedi Nefse Söyledikleri</h2>
+  <p>Ahzâb 72 aynı kelimelerle her mertebeye başka bir şey fısıldar. Âyetin mânâsı değişmez; değişen, kulun âyetten aldığı ibretin derinliğidir. Halvetî yolunun yaygın sıralamasında her nefis mertebesine bir isim eşlik eder; bu tertip kollar arasında farklılık gösterebilir. Aşağıda o isimler de anılıyor. Okuyan kendini hangi kulakla duyduğunda bulursa, orası kendi durağıdır.</p>
+
+  <ol class="merdiven">
+    <li style="--i:1">
+      <div class="bas"><h3>Emmâre <small>Lâ ilâhe illallah</small></h3><span class="ar" lang="ar">لا إله إلا الله</span></div>
+      <p>Âyet ona bir ayna tutar: <em>zalûm</em> sensin. Sahiplendiğin her şeyde emanete zulmediyorsun. <em>Cehûl</em> sensin. Taşıdığını bilmiyorsun, isimleri unutmuşsun.</p>
+      <p>Ama âyet ona yine de <em>“insan”</em> der: <em>hamelehe’l-insân</em>. Emaneti yüklenen sensin, kozanın içinde bile. İlk adım nefydir: kalpteki putlara “lâ” demek.</p>
+    </li>
+    <li style="--i:2">
+      <div class="bas"><h3>Levvâme <small>Allah</small></h3><span class="ar" lang="ar">الله</span></div>
+      <p>Kendini kınayan nefis âyeti duyunca yanar: evet, zalimim. Bu, Âdem’in <em>“Rabbenâ zalemnâ enfusenâ”</em> duasının kapısıdır.</p>
+      <p>Âyetin ona fısıltısı şudur: kınama yol olsun, yurt olmasın. Kendine dönük kınama da bir kibir olabilir. Bakış kendinden çekilip <em>Allah</em> ismine dönmeli.</p>
+    </li>
+    <li style="--i:3">
+      <div class="bas"><h3>Mülhime <small>Hû</small></h3><span class="ar" lang="ar">هو</span></div>
+      <p>Kalbe fucûr ile takvâ ilham olunur (Şems 8). Bu nefis dağların korkusunu anlamaya başlar: emanetin ağırlığını hisseder.</p>
+      <p>Âyet ona iki <em>cehûl</em>ü ayırt etmeyi öğretir: Hakk’ı bilmeyen cehalet ile mâsivâyı bilmeyen cehalet. İlham geldikçe birincisi azalır, ikincisi çoğalır.</p>
+    </li>
+    <li style="--i:4">
+      <div class="bas"><h3>Mutmainne <small>Hak</small></h3><span class="ar" lang="ar">حق</span></div>
+      <p><em>“Yâ eyyetuhe’n-nefsu’l-mutmainne”</em> (Fecr 27). Bu nefis âyetin uyarısı içinde bir müjdeyi de duymaya başlar. <em>Zalûm</em>: nefsini Hak yolunda fenâya götürdü. <em>Cehûl</em>: O’ndan gayrısını tanımadı.</p>
+      <p>Emanet artık bir yük gibi değil, aşk gibi taşınır. Dağların korkusu yerini kalbin sükûnuna bırakır.</p>
+    </li>
+    <li style="--i:5">
+      <div class="bas"><h3>Râziye <small>Hay</small></h3><span class="ar" lang="ar">حي</span></div>
+      <p><em>“Râdiyeten”</em>: O’ndan razı. Bu nefis emaneti taşımaktan şikâyet etmez. Ağırlık da hafiflik de O’ndan gelir.</p>
+      <p>Âyet ona şunu söyler: sana arz edilene razı ol, çünkü arz eden diridir ve diriltir.</p>
+    </li>
+    <li style="--i:6">
+      <div class="bas"><h3>Marziyye <small>Kayyûm</small></h3><span class="ar" lang="ar">قيوم</span></div>
+      <p><em>“Marziyyeten”</em>: O da ondan razı. Burada emanet sahibine dönmeye başlar. Kul artık kendisiyle değil, O’nunla kâimdir.</p>
+      <p>Âyetin fısıltısı: <em>hamelehâ</em>, “onu yüklendi” ama seni yükleyen de, taşırken ayakta tutan da Kayyûm’dur.</p>
+    </li>
+    <li style="--i:7">
+      <div class="bas"><h3>Sâfiye <small>Kahhâr</small></h3><span class="ar" lang="ar">قهار</span></div>
+      <p>Saf nefis de âyetin ikazından müstağni değildir; belki onu en derinden o işitir. <em>Zalûm</em> ve <em>cehûl</em> sözünü başkasında değil, hep kendinde arar. Kahhâr ismi nefsin tahakkümünü kırmıştır; kulluk, mesuliyet ve irade ise devam eder. Taşıyan ile taşınan arasındaki perde incelmiştir.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="esik">
+  <h2>Bilginin Eşiğinde</h2>
+  <p>Buraya kadar bir iz sürdük. Kemikten bedene, bedenden hitaba; Neandertal’den Âdem’e, Âdem’den kendi nefsimizin mertebelerine baktık.</p>
+  <p>Fakat yolun sonunda başladığımız yere dönüyoruz:</p>
+  <p class="dur">Bilmiyoruz.</p>
+  <p>Melekler, Âdem’e isimler öğretildikten sonra şöyle dediler:</p>
+  <figure class="ayet">
+    <p class="ar" lang="ar">سُبْحَانَكَ لَا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا ۖ إِنَّكَ أَنتَ الْعَلِيمُ الْحَكِيمُ</p>
+    <p class="okunus">“Sübhâneke lâ ilme lenâ illâ mâ allemtenâ. İnneke ente’l-Alîmu’l-Hakîm.”</p>
+    <p class="meal">“Seni tenzih ederiz. Senin bize öğrettiğinden başka bizim hiçbir bilgimiz yoktur. Şüphesiz Alîm ve Hakîm olan Sensin.”</p>
+    <figcaption>Bakara 2:32</figcaption>
+  </figure>
+  <p>Belki bu âyet yalnız Âdem kıssasının bir cümlesi değil, bütün bu tefekkürün de edebidir.</p>
+  <div class="sorular">
+    <p>Âdem’den önce yeryüzünde kimler vardı?</p>
+    <p>Melekler fesadı ve kan dökmeyi nereden biliyorlardı?</p>
+    <p>Neandertaller bu hikâyenin neresindeydi?</p>
+    <p>İnsan dediğimiz emanet hangi anda başladı?</p>
+  </div>
+  <p class="dur">Bilmiyoruz.</p>
+  <p>Bilimin gördüğünü inkâr etmeyiz; görmediğini ona söyletmeyiz. Kur’ân’ın bildirdiğine teslim olur; sustuğu yerde kendi ihtimalimizi vahyin sözüne dönüştürmeyiz. Gönle doğan bir mânâyı da hakikatin kendisi diye sahiplenmeyiz.</p>
+  <p class="beyit">Bildirilirse şükür.<br>Bildirilmezse edep.</p>
+  <p>Çünkü Âdem’in ilk şerefi kendi kendine bilmesi değil, kendisine öğretilmesiydi. Meleklerin edebi de bilgilerini kendilerine nispet etmemeleriydi:</p>
+  <p><em>“Senin bize öğrettiğinden başka hiçbir bilgimiz yoktur.”</em></p>
+  <p>Öyleyse bu yolculuğun sonunda ilmi de sahibine iade edelim.</p>
+  <div class="munacat">
+    <p>Bildiğimizi sandığımızdan Sana sığınırız.</p>
+    <p>Bilmediğimizi bilmekten de bizi mahrum bırakma.</p>
+  </div>
+  <div class="munacat">
+    <p>Cehaletimizi ilim sanmaktan;</p>
+    <p>ilmimizi kendimizden sanmaktan;</p>
+    <p>bir tecelliyi sahiplenmekten;</p>
+    <p>bir işareti hükme çevirmekten bizi muhafaza eyle.</p>
+  </div>
+  <p>Belki hayretin kapısı tam burada açılır:</p>
+  <p class="dur">Ben bilmiyorum.</p>
+  <p><em>Ve’llâhu a‘lem.</em></p>
+  <p>Belki bu yazının en derindeki sorusu, insanın hayvandan ne zaman ayrıldığı değil; kendi bildiğini sahiplenmekten ne zaman ayrıldığıdır. Başta <em>“Ve alleme Âdeme”</em> vardı, sonda <em>“Lâ ilme lenâ illâ mâ allemtenâ.”</em> İki söz birbirine kavuşur.</p>
+  <p>Kozadan çıkan, yalnızca bilen bir insan değil; bilgisinin de kendisine emanet edildiğini fark eden bir kuldur.</p>
+  <p>Şimdi ellerimizi açabiliriz.</p>
+</section>
+
+<section class="dua">
+  <h2>Kapanış Duası</h2>
+  <p>Yâ Latîf, yüceler yücesi, letâfet ve zarafet sahibi.</p>
+  <p>Biz âciz kullarına verdiğin lütuflara sonsuz hamd eder, sonra da şükretmeyi dileriz. Seni hakkıyla övecek kelime yok. Sana aczimizle ancak secde edebiliriz. Onu da ancak <em>“iyyâke na’budu ve iyyâke nesta’în”</em> lütfunla.</p>
+  <p>Yâ Alîm, “öğrettim” dediğin yerden bizi koparma. Unuttuğumuz isimleri bize yeniden hatırlat.</p>
+  <p>Zalûm ve cehûl hâlimizle emanetin hakkını veremediğimiz yerde bizi rahmetinle taşı; emaneti Sana ait bilmekten bizi ayırma.</p>
+  <p>Yâ Afüvv, bizleri bağışla, bizlere merhamet et.</p>
+  <p><em>Allâhumme inneke Afüvvun tuhibbu’l-afve fa’fu annâ.</em></p>
+  <p>Bu harfleri bize nispet etme Yâ Rabbi; razı olduğun kadarını kabul eyle, kusurlu olanını affeyle.</p>
+  <p class="hu">Hû…</p>
+</section>
+
+<section class="kaynak" aria-labelledby="kaynak-baslik">
+  <h2 id="kaynak-baslik">Kaynaklar ve Okuma Notu</h2>
+  <p>Bu yazı bir tefsir çalışması değil, Kur’ân âyetleri etrafında gelişen işârî bir tefekkürdür. Klasik tefsir, tasavvufî yorum ve çağdaş bilimsel bilgiler birbirinden ayrı bilgi alanları olarak ele alınmıştır.</p>
+
+  <h3>Başvurulan ve karşılaştırılan eserler</h3>
+  <ul>
+    <li><b>Mevlânâ Celâleddîn-i Rûmî</b>, <em>Mesnevî</em>, III. defter, 3901–3906. beyitler. Cansızlık, bitkilik, hayvanlık ve insanlık mertebeleri üzerinden ölüm ve dönüşüm tefekkürü.</li>
+    <li><b>İbn Haldun</b>, <em>Mukaddime</em>, I. bölüm, altıncı hazırlık bahsi. Varlık mertebelerinin birbirine bağlılığı ve insanın düşünme yetisi.</li>
+    <li><b>Muhyiddin İbnü’l-Arabî</b>, <em>el-Fütûhâtü’l-Mekkiyye</em>, 390. bab. Tavaf sırasında karşılaşılan ve önceki Âdemlerden söz eden şahsa ilişkin keşfî anlatı. İkincil kaynaklarda III, s. 459, satır 8–14 olarak gösterilen yer; kullanılan baskıdan ayrıca kontrol edilmelidir.</li>
+  </ul>
+
+  <h3>İşârî yorum hakkında</h3>
+  <p>Ahzâb 72’deki <em>zalûm</em> ve <em>cehûl</em> sıfatlarının fenâ ve mâsivâdan yüz çevirme üzerinden okunması, âyetin zâhirî hükmü olarak değil, tasavvufî bir yorum ihtimali olarak sunulmuştur. Bu yorumun belirli müelliflere nispeti, ilgili eserlerdeki pasajlar doğrulanıncaya kadar açık bırakılmıştır.</p>
+  <p>Önceki Âdemlere ilişkin rivayetler de tarihî veya bilimsel kanıt olarak kullanılmamıştır.</p>
+  <p class="tarih">Kaynak kontrolü: 28 Ekim 2026. <em>Ve’llâhu a’lem.</em></p>
+</section>
+
+</main>
+
+<footer>
+  <a href="../">deeploveuniverse.github.io</a>
+  <span>not a sound, a return</span>
+</footer>
+
+<script>
+  (function () {
+    var kok = document.documentElement;
+    var dugme = document.getElementById("tema");
+    var yazi = document.getElementById("tema-yazi");
+    var sistem = window.matchMedia("(prefers-color-scheme: dark)");
+    function gecerli() {
+      var t = kok.getAttribute("data-theme");
+      if (t === "light" || t === "dark") return t;
+      return sistem.matches ? "dark" : "light";
+    }
+    function guncelle() {
+      var gece = gecerli() === "dark";
+      yazi.textContent = gece ? "Gece" : "Gündüz";
+      dugme.setAttribute("aria-pressed", gece ? "true" : "false");
+    }
+    dugme.addEventListener("click", function () {
+      var yeni = gecerli() === "dark" ? "light" : "dark";
+      kok.setAttribute("data-theme", yeni);
+      try { localStorage.setItem("deeplove-tema", yeni); } catch (e) {}
+      guncelle();
+    });
+    if (sistem.addEventListener) sistem.addEventListener("change", guncelle);
+    guncelle();
+  })();
+</script>
+</body>
+</html>
