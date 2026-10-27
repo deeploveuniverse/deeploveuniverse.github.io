@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
+<head> 
+<meta name="color-scheme" content="light dark">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>deeplove — not a sound, a return</title>
@@ -209,6 +210,24 @@
     .ring{transform:translate(-50%,-50%) !important;}
     .filter-panel{transition:none !important;}
   }
+  @media (prefers-color-scheme: dark){
+  :root{
+    --ink:#ECE3D1; --ink-soft:#A89D88;
+    --amber:#D4A24C; --amber-soft:#E2B96C;
+    --hair:#3A3227;
+    --fog-0:#211C15; --fog-1:#17140F; --fog-2:#0E0C09;
+  }
+  .grain{ mix-blend-mode:screen; opacity:.035; }
+  .hu{ color:rgba(212,162,76,0.20); }
+  .ring{ border-color:rgba(212,162,76,0.14); }
+  .ring.r2{ border-color:rgba(212,162,76,0.09); }
+  .ring.r3{ border-color:rgba(212,162,76,0.05); }
+  .hu-return{ color:rgba(212,162,76,0.55); }
+  .entry:hover,.entry:focus-visible{
+    background:linear-gradient(90deg, rgba(212,162,76,0.08), rgba(212,162,76,0) 72%);
+  }
+}
+
 </style>
 </head>
 <body>
