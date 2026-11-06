@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abdullah b. Sa’d b. Ebî Serh — Güneşe yakın duran ayna</title>
+<meta name="description" content="İbret: Vahiy kâtibinin düşüşü, üç sessizlik ve dönüş. En’âm 93 üzerine Zâhir, Bâtın ve Hâl.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #E9ECF0;
+    --page: #F6F7F8;
+    --ink: #1C2433;
+    --ink-soft: #4A5468;
+    --sun: #A8741A;
+    --sun-glow: rgba(214, 160, 60, 0.28);
+    --rubric: #8E2B2B;
+    --rule: #CBD1DA;
+    color-scheme: light;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --sky: #0F131B;
+      --page: #141924;
+      --ink: #DDD8CB;
+      --ink-soft: #A39E92;
+      --sun: #D9AC52;
+      --sun-glow: rgba(217, 172, 82, 0.22);
+      --rubric: #C9726A;
+      --rule: #2A3242;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --sky: #0F131B;
+    --page: #141924;
+    --ink: #DDD8CB;
+    --ink-soft: #A39E92;
+    --sun: #D9AC52;
+    --sun-glow: rgba(217, 172, 82, 0.22);
+    --rubric: #C9726A;
+    --rule: #2A3242;
+    color-scheme: dark;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0;
+    background: var(--sky);
+    color: var(--ink);
+    font-family: "Spectral", "Iowan Old Style", Georgia, serif;
+    font-weight: 300;
+    font-size: 1.15rem;
+    line-height: 1.75;
+    transition: background-color .4s ease, color .4s ease;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--sun); outline-offset: 3px; }
+
+  .bar {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.5rem 0;
+    font-size: .95rem; color: var(--ink-soft);
+  }
+  .bar a { text-decoration: none; }
+  .bar a:hover { color: var(--ink); }
+  .toggle {
+    font: inherit; color: inherit; background: none; border: 1px solid var(--rule);
+    border-radius: 2rem; padding: .3rem .9rem; cursor: pointer;
+  }
+  .toggle:hover { color: var(--ink); border-color: var(--ink-soft); }
+
+  header.hero {
+    max-width: 44rem; margin: 0 auto; padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+  }
+  .orbit { width: 9rem; height: 9rem; margin: 0 auto 2rem; display: block; }
+  .orbit .sun { fill: var(--sun); }
+  .orbit .halo { fill: var(--sun-glow); }
+  .orbit .mirror { fill: none; stroke: var(--ink-soft); stroke-width: 1.2; }
+  .orbit .gleam { fill: var(--sun); opacity: 0; animation: gleam 3.2s ease-out .6s forwards; }
+  @keyframes gleam { 0% { opacity: 0; } 55% { opacity: .9; } 100% { opacity: .35; } }
+  @media (prefers-reduced-motion: reduce) {
+    .orbit .gleam { animation: none; opacity: .35; }
+    body { transition: none; }
+  }
+  .tag {
+    display: inline-block; font-size: .9rem; font-style: italic; color: var(--rubric);
+    border-bottom: 1px solid currentColor; padding-bottom: .1rem; margin-bottom: 1.25rem;
+  }
+  h1 {
+    font-weight: 300; font-size: clamp(2rem, 6vw, 3.1rem); line-height: 1.15;
+    letter-spacing: -.01em; margin: 0 0 .75rem;
+  }
+  .subtitle { font-style: italic; font-size: 1.3rem; color: var(--ink-soft); margin: 0; }
+
+  main {
+    max-width: 44rem; margin: 0 auto 4rem; padding: 2.5rem 1.5rem 3rem;
+    background: var(--page); border-radius: 4px;
+  }
+  @media (min-width: 46rem) { main { padding: 3.5rem 4rem 4rem; } }
+  p { margin: 0 0 1.3em; }
+  .lede { font-size: 1.2rem; color: var(--ink-soft); font-style: italic; }
+  h2 {
+    font-weight: 400; font-size: 1.6rem; line-height: 1.3; margin: 3rem 0 1rem;
+    color: var(--ink);
+  }
+  h2 .gloss { display: block; font-size: 1rem; font-style: italic; font-weight: 300; color: var(--ink-soft); margin-top: .2rem; }
+  h2:first-child { margin-top: 0; }
+
+  .ayet {
+    margin: 2.5rem 0; padding: 2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    text-align: center;
+  }
+  .ayet .ar {
+    font-family: "Amiri", "Traditional Arabic", serif; font-size: 1.75rem; line-height: 2.1;
+    direction: rtl; margin: 0 0 1.25rem;
+  }
+  .ayet .meal { font-style: italic; margin: 0 0 .75rem; }
+  .ayet .ref { font-size: .95rem; color: var(--rubric); margin: 0; }
+
+  blockquote {
+    margin: 1.8rem 0; padding: 0 0 0 1.25rem; border-left: 2px solid var(--sun);
+    font-style: italic;
+  }
+  .three { text-align: center; color: var(--sun); letter-spacing: .6em; margin: 2rem 0; font-size: 1.1rem; }
+
+  .dua {
+    margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule);
+    text-align: center; font-style: italic;
+  }
+  .hu { display: block; margin-top: 1.25rem; font-style: normal; color: var(--sun); font-size: 1.3rem; }
+
+  .notes { margin-top: 3rem; font-size: .95rem; color: var(--ink-soft); line-height: 1.6; }
+  .notes h3 { font-weight: 400; font-size: 1rem; margin: 0 0 .5rem; color: var(--ink); }
+  .notes p { margin-bottom: .8em; }
+
+  footer { text-align: center; padding: 0 1.5rem 3rem; font-size: .95rem; color: var(--ink-soft); }
+  footer a { text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <a href="/">deeplove</a>
+  <button class="toggle" id="toggle" type="button" aria-label="Gece ve gündüz arasında geçiş yap">Gece</button>
+</div>
+
+<header class="hero">
+  <svg class="orbit" viewBox="0 0 120 120" aria-hidden="true">
+    <circle class="halo" cx="48" cy="52" r="34"/>
+    <circle class="sun" cx="48" cy="52" r="20"/>
+    <circle class="mirror" cx="92" cy="88" r="11"/>
+    <circle class="gleam" cx="92" cy="88" r="10"/>
+  </svg>
+  <span class="tag">İbret</span>
+  <h1>Abdullah b. Sa’d b. Ebî Serh</h1>
+  <p class="subtitle">Güneşe yakın duran ayna</p>
+</header>
+
+<main>
+  <p class="lede">Bu sayfa bir tefsir iddiası taşımaz. Bir kıssanın önünde durup kendi nefsimize ayna tutma çabasıdır. Yakınlığın, terbiyesi tamamlanmamış bir nefste neye dönüşebileceğine ve kapının yine de nasıl aralık kalabildiğine dair bir tefekkür.</p>
+
+  <h2>Kıssa</h2>
+  <p>Abdullah b. Sa’d, Kureyş’in Âmiroğulları’ndandı. Hz. Osman’ın süt kardeşiydi. Müslüman olup Medine’ye hicret etti ve vahiy kâtiplerinden biri oldu. Resûlullah’ın mübarek ağzından dökülen âyetleri ilk kâğıda geçiren ellerden biri onun eliydi.</p>
+  <p>Rivayete göre bir gün yazdığı âyetin sonunu kendi gönlünden tamamladı ve sözünün vahye uygun düştüğünü gördü. O an içinde bir iddia filizlendi: “Muhammed’e vahyolunuyorsa bana da vahyolunuyor.” Dönüp Mekke’ye kaçtı. Orada vahyi kendisinin yönlendirdiğini söyleyerek dolaştı. Hangi âyeti tamamladığına dair nakiller farklıdır ve sıhhatleri tartışmalıdır. Ama düşüşün kendisi kesindir.</p>
+  <p>Mekke fethedildiğinde Resûlullah genel bir af ilan etti. Yalnız birkaç kişiyi bu affın dışında tuttu ve kanlarını heder etti. Abdullah b. Sa’d bunlardan biriydi.</p>
+  <p>Hz. Osman onu evinde sakladı. Ortalık yatışınca da elinden tutup Resûlullah’ın huzuruna getirdi ve biatının kabulünü diledi. Efendimiz sustu. Osman tekrar etti, yine sustu. Üçüncüde de sustu. Sonunda elini uzattı ve biatını kabul etti.</p>
+  <p class="three" aria-hidden="true">· · ·</p>
+  <p>Abdullah çıkınca Resûlullah ashabına döndü: “Ben sustuğumda içinizden biri kalkıp onu öldürmez miydi?” Onlar “Ey Allah’ın Resûlü, gözünüzle bir işaret verseydiniz ya” dediler. Buyurdu ki: “Bir peygambere göz hainliği yakışmaz.”</p>
+  <p>Abdullah b. Sa’d bu aftan sonra uzun yıllar yaşadı. Mısır valisi oldu, İfrîkıye’nin fethinde bulundu, denizlerde sefer yaptı. Ömrünün sonunda amelinin son anının sabah namazı olmasını dilediği, namazın selamını verirken ruhunu teslim ettiği nakledilir.</p>
+
+  <div class="ayet">
+    <p class="ar" lang="ar">وَمَنْ أَظْلَمُ مِمَّنِ افْتَرَىٰ عَلَى اللَّهِ كَذِبًا أَوْ قَالَ أُوحِيَ إِلَيَّ وَلَمْ يُوحَ إِلَيْهِ شَيْءٌ وَمَن قَالَ سَأُنزِلُ مِثْلَ مَا أَنزَلَ اللَّهُ</p>
+    <p class="meal">“Allah’a karşı yalan uydurandan, yahut kendisine hiçbir şey vahyedilmemişken ‘Bana vahyolundu’ diyenden ve ‘Allah’ın indirdiği gibi ben de indireceğim’ diyenden daha zalim kim vardır?”</p>
+    <p class="ref">En’âm 6:93</p>
+  </div>
+
+  <h2>Zâhir<span class="gloss">Kelime, meal ve geleneksel tefsir</span></h2>
+  <p>Âyetteki <em>se-ünzilü</em>, yani “indireceğim” fiili, <em>n-z-l</em> kökünden gelir. Bu kök yukarıdan aşağıya bir hareketi, inişi anlatır. Kur’ân bu kökü ilâhî kelamın kula gelişi için kullanır. Bir kulun kendi sözü için bu fiili kullanması, aşağıda durduğu hâlde kendini yukarıya, kaynağın yerine koyması demektir.</p>
+  <p>Taberî ve Kurtubî başta olmak üzere müfessirler, âyetin bu son kısmını Abdullah b. Sa’d b. Ebî Serh ile ilişkilendirir. “Bana vahyolundu” kısmını ise Müseylime gibi peygamberlik iddiasına kalkışanlarla bağlarlar. Âyet üç ayrı iddiayı aynı zulüm başlığı altında toplar: Allah’a yalan isnat etmek, ilhamı olmayana ilham demek ve kendi sözünü vahyin yerine koymak.</p>
+
+  <h2>Bâtın<span class="gloss">Sembolik ve içsel katman</span></h2>
+  <p>Kâtip kalemdir, mürekkep değil. Nur onun kaleminden akarken bir an o nuru kendi nuru sandı. Güneşe yakın duran ayna parlar. Ama cilası tamamlanmamış bir ayna, üzerindeki parıltıyı kendi zatından bilir.</p>
+  <p>Hallâc “Ene’l-Hak” dediğinde ortada konuşan bir “ben” kalmamıştı. Burada ise “ben” tam yerinde duruyor ve nuru sahipleniyordu. İkisi dışarıdan bakana benzer görünebilir. İçeride ise biri fenânın sesi, diğeri nefsin sesidir. Yakınlık, terbiye görmemiş bir nefse ilim olarak değil iddia olarak yansır. Fenâ olmadan gelen tecellî, nefsin elinde bir sermayeye dönüşür.</p>
+  <blockquote>Güneş yakar. Ama aynı güneş, dönen yüzü yeniden aydınlatır.</blockquote>
+  <p>Kıssanın ikinci yarısı da sırrın parçasıdır. Kapıdan kovulan, Osman gibi bir dostun eteğine tutunarak geri girdi. Hüküm kesindi, ama bir eteğe tutunanın önünde kapı aralandı. O üç sessizliğin içinde hem adalet vardı hem rahmet, ve ikisi birbirini iptal etmedi. Resûlullah’ın göz ile işaret etmeyi reddetmesi de ayrı bir derstir: Hakk’ın kapısında gizli bir hüküm, saklı bir niyet yoktur. Ne söylenecekse açıkça söylenir.</p>
+
+  <h2>Hâl<span class="gloss">Kalpte ve gündelik hayatta</span></h2>
+  <p>Dergâha, hizmete, bir mürşide yakın olmak bir makam değil, bir imtihandır. Yakınlık bazen insanın kulağına ince bir şey fısıldar: “Ben de biliyorum, ben de görüyorum.” Bu fısıltı bir sohbette ağızdan kaçan bir cümlede belirebilir. Bir işi bitirince gelen “bu benden doğdu” hissinde de belirebilir.</p>
+  <p>Panzehiri, yazılanın altına kendi adını koymamaktır. Kalem olduğunu unutmamak, mürekkebin kimden geldiğini her satırda hatırlamaktır. İçinden bir söz doğru ve güzel çıktığında, bunu bir ikram olarak almak ve hemen sahibine iade etmektir.</p>
+  <p>İkinci yarısı da hâle dahildir. Kendinde ya da bir kardeşinde bu kaymayı gördüğünde onu kovmamak, Osman olabilmek. Saklanacak bir ev, tutunulacak bir etek, huzura götüren bir el olabilmek. Düşen için de ders açıktır: Kapı kapandı sanıldığı yerde bile bir etek vardır. Tutunmak yeter.</p>
+
+  <div class="dua">
+    <p>Rabbim bizi yakınlığın imtihanında “ben” demekten korusun. Düştüğümüzde tutunacak bir etek, tutunana uzanacak bir el eylesin. Amelimizin sonunu secdeye bağlasın.</p>
+    <span class="hu">Hû</span>
+  </div>
+
+  <div class="notes">
+    <h3>Kaynaklar üzerine</h3>
+    <p>Fetih günü yaşanan biat sahnesi ve “göz hainliği” sözü Ebû Dâvûd ve Nesâî’de nakledilir. En’âm 93 ile ilişkilendirilmesi Taberî ve Kurtubî tefsirlerinde yer alır. Kâtiplik sırasında hangi âyeti tamamladığına dair rivayetler farklıdır ve isnadları tartışmalıdır. Vefatına dair nakil siyer ve tabakât kaynaklarına dayanır.</p>
+  </div>
+</main>
+
+<footer><a href="/">deeploveuniverse</a></footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('toggle');
+  function current() {
+    var set = root.getAttribute('data-theme');
+    if (set) return set;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function label() { btn.textContent = current() === 'dark' ? 'Gündüz' : 'Gece'; }
+  try {
+    var saved = localStorage.getItem('deeplove-theme');
+    if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+  } catch (e) {}
+  label();
+  btn.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('deeplove-theme', next); } catch (e) {}
+    label();
+  });
+})();
+</script>
+</body>
+</html>
